@@ -2,7 +2,7 @@ import "./styles.css";
 import SocialLogins from "../SocialLogins"
 import PortfolioNavigator from '../PortfolioNavigator'
 import React, { useState } from "react";
-
+import LoginForm from "../LoginForm"
 export default function()  {
   const responseFacebook = (response) => {
     console.log(response);
@@ -37,21 +37,22 @@ export default function()  {
       <input id="tab-2" type="radio" name="tab" className="sign-up"/><label for="tab-2" className="tab">Sign Up</label>
       <div className="login-form">
         <div className="sign-in-htm">
-          <div className="group">
+          <LoginForm />
+          {/* <div className="group">
             <label for="user" className="label">Username</label>
             <input id="user" type="text" className="input"/>
           </div>
           <div className="group">
             <label for="pass" className="label">Password</label>
             <input id="pass" type="password" className="input" data-type="password"/>
-          </div>
-          <div className="group">
+          </div> */}
+          {/* <div className="group">
             <input id="check" type="checkbox" className="check" checked/>
             <label for="check"><span className="icon"></span> Remember me</label>
           </div>
           <div className="group">
             <input type="submit" className="button sign-in-btn" value="Sign In"/>
-          </div>
+          </div> */}
           {/* <SocialLogins type="Login"/> */}
           <PortfolioNavigator />
 

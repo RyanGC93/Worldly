@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { login } from "../../services/auth";
+import { login } from "../../../services/auth";
 import './styles.css'
-const LoginForm = ({ authenticated, setAuthenticated }) => {
+
+export const LoginForm = ({ authenticated, setAuthenticated }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,35 +31,43 @@ const LoginForm = ({ authenticated, setAuthenticated }) => {
   }
 
   return (
-    <h1>Login</h1>
-    // <form onSubmit={onLogin}>
-    //   <div>
-    //     {errors.map((error) => (
-    //       <div>{error}</div>
-    //     ))}
-    //   </div>
-    //   <div>
-    //     <label htmlFor="email">Email</label>
-    //     <input
-    //       name="email"
-    //       type="text"
-    //       placeholder="Email"
-    //       value={email}
-    //       onChange={updateEmail}
-    //     />
-    //   </div>
-    //   <div>
-    //     <label htmlFor="password">Password</label>
-    //     <input
-    //       name="password"
-    //       type="password"
-    //       placeholder="Password"
-    //       value={password}
-    //       onChange={updatePassword}
-    //     />
-    //     <button type="submit">Login</button>
-    //   </div>
-    // </form>
+
+    <form onSubmit={onLogin}>
+      <div>
+        {errors.map((error) => (
+          <div>{error}</div>
+        ))}
+      </div>
+      <div className="group">
+        {/* <label className="label" htmlFor="email">Username</label> */}
+        <input
+          className="input"
+          name="email"
+          type="text"
+          placeholder="Username"
+          value={email}
+          onChange={updateEmail}
+        />
+      </div>
+      <div className='group'>
+        {/* <label className='label' htmlFor="password">Password</label> */}
+        <input
+          className="input"
+          name="password"
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={updatePassword}
+        />
+          <div className="group">
+            <input id="check" type="checkbox" className="check" checked/>
+            <label for="check"><span className="icon"></span> Remember me</label>
+          </div>
+          <div className="group">
+            <input type="submit" className="button sign-in-btn" value="Sign In"/>
+          </div>
+      </div>
+    </form>
   );
 };
 
