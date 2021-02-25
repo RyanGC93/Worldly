@@ -40,8 +40,9 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   return (
     <form onSubmit={onSignUp}>
       <div className="group">
-        <label className='input-header'>User Name</label>
-              <input
+        <label className="label">User Name</label>
+        <input
+            // placeholder="Username"
                   className="input"
           type="text"
           name="username"
@@ -50,8 +51,9 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div className="group">
-        <label>Email</label>
+        <label className="label">Email</label>
         <input
+          label=""
           className="input"  
           type="text"
           name="email"
@@ -60,7 +62,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div className="group">
-        <label>Password</label>
+        <label className="label">Password</label>
               <input
           className="input"        
           type="password"
@@ -70,7 +72,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
         ></input>
       </div>
       <div className="group">
-        <label>Repeat Password</label>
+        <label className="label">Repeat Password</label>
           <input
           className="input"        
           type="password"
@@ -80,7 +82,9 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           required={true}
         ></input>
       </div>
-      <button className="button" type="submit">Sign Up</button>
+      <div className="group">
+            <input type="submit" className="button sign-in-btn" value="Sign Up"/>
+          </div>
     </form>
   );
 };

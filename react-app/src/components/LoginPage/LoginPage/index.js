@@ -33,7 +33,7 @@ export default function()  {
   return(
   <div className="login-wrap">
     <div className="login-html">
-    <p className="title">Worldly</p>
+    <div className="title">Worldly</div>
       <input id="tab-1" type="radio" name="tab" className="sign-in" checked/><label for="tab-1" className="tab options">Sign In</label>
       <input id="tab-2" type="radio" name="tab" className="sign-up"/><label for="tab-2" className="tab options optionTwo">Sign Up</label>
       <div className="login-form">
