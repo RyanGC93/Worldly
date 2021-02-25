@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
-import { signUp } from '../../services/auth';
-
+import { signUp } from '../../../services/auth';
 const SignUpForm = ({authenticated, setAuthenticated}) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -41,7 +40,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
   return (
     <form onSubmit={onSignUp}>
       <div className="group">
-        <label>User Name</label>
+        <label className='input-header'>User Name</label>
               <input
                   className="input"
           type="text"
@@ -50,7 +49,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           value={username}
         ></input>
       </div>
-      <div className="group">>
+      <div className="group">
         <label>Email</label>
         <input
           className="input"  
@@ -70,7 +69,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           value={password}
         ></input>
       </div>
-      <div className="group">>
+      <div className="group">
         <label>Repeat Password</label>
           <input
           className="input"        

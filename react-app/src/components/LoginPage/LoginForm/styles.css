@@ -12,6 +12,11 @@
 	background:rgba(255,255,255,.1);
 }
 
+.label {
+    padding: 1px 0px 5px 3px;
+    text-align: center;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 color: white;
 opacity: 1; /* Firefox */

@@ -39,23 +39,23 @@ export const LoginForm = ({ authenticated, setAuthenticated }) => {
         ))}
       </div>
       <div className="group">
-        {/* <label className="label" htmlFor="email">Username</label> */}
+        <label className="label" htmlFor="email">Username</label>
         <input
           className="input"
           name="email"
           type="text"
-          placeholder="Username"
+          // placeholder="Username"
           value={email}
           onChange={updateEmail}
         />
       </div>
       <div className='group'>
-        {/* <label className='label' htmlFor="password">Password</label> */}
+        <label className='label' htmlFor="password">Password</label>
         <input
           className="input"
           name="password"
           type="password"
-          placeholder="Password"
+          // placeholder="Password"
           value={password}
           onChange={updatePassword}
         />
