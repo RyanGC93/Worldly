@@ -39,7 +39,7 @@ export default function()  {
       <div className="login-form">
         <div className="sign-in-htm">
             <LoginForm />
-            {/* <SocialLogins type="Signup" facebook=" with Facebook"/> */}
+            <SocialLogins type="Signup" facebook=" with Facebook"/>
           <PortfolioNavigator />
         </div>
         <div className="sign-up-htm">

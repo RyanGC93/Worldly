@@ -19,7 +19,7 @@ export default function SocialLogins(props) {
         <div>
           <FacebookLogin
             // https://github.com/keppelen/react-facebook-login
-            appId="1088597931155576"
+            appId="180915726830056"
             autoLoad={true}
             tag="div"
             textButton={props.type + ' with Facebook'} 
