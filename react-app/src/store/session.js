@@ -22,7 +22,7 @@ export const login = (user) => async (dispatch) => {
   const response = await fetch('/api/auth/login', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Contet-Type': 'application/json'
     },
     body: JSON.stringify({
       email,
@@ -44,11 +44,24 @@ export const restoreUser = () => async (dispatch) => {
 };
 
 export const registerUser = (user) => async (dispatch) => {
-  const response = await fetch('/api/users', {
+  console.log(user)
+
+  const { username, email, password } = user;
+  const response = await fetch('/api/auth/signup', {
     method: 'POST',
-    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      username,
+      email,
+      password,
+    }),
   });
-  dispatch(setSession(response.data.user));
+  let res = await response.json()
+
+  dispatch(setSession(res))
+  // dispatch(setSession(response.data.user));
   return response;
 };
 
