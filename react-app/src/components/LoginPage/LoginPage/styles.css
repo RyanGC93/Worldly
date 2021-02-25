@@ -19,6 +19,8 @@ body{
 .clearfix:after{clear:both;display:block}
 a{color:inherit;text-decoration:none}
 
+
+
 .login-wrap{
 	width:100%;
 	margin:auto;
@@ -51,11 +53,14 @@ a{color:inherit;text-decoration:none}
 .login-form .group .check{
 	display:none;
 }
-.login-html .tab,
-.login-form .group .label,
-.login-form .group .button{
+.login-html .tab{
 	text-transform:uppercase;
 }
+
+.tab{
+	padding:5px 5px 5px 5px;
+}
+
 .login-html .tab{
 	font-size:22px;
 	margin-right:15px;
@@ -89,21 +94,8 @@ a{color:inherit;text-decoration:none}
 	color:#fff;
 	display:block;
 }
-.login-form .group .input,
-.login-form .group .button{
-	border:none;
-	padding:15px 20px;
-	border-radius:25px;
-	background:rgba(255,255,255,.1);
-}
-.login-form .group input[data-type="password"]{
-	text-security:circle;
-	-webkit-text-security:circle;
-}
-.login-form .group .label{
-	color:#aaa;
-	font-size:12px;
-}
+
+
 .login-form .group .button{
 	background:#1161ee;
 }

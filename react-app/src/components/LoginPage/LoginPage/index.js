@@ -38,25 +38,7 @@ export default function()  {
       <div className="login-form">
         <div className="sign-in-htm">
           <LoginForm />
-          {/* <div className="group">
-            <label for="user" className="label">Username</label>
-            <input id="user" type="text" className="input"/>
-          </div>
-          <div className="group">
-            <label for="pass" className="label">Password</label>
-            <input id="pass" type="password" className="input" data-type="password"/>
-          </div> */}
-          {/* <div className="group">
-            <input id="check" type="checkbox" className="check" checked/>
-            <label for="check"><span className="icon"></span> Remember me</label>
-          </div>
-          <div className="group">
-            <input type="submit" className="button sign-in-btn" value="Sign In"/>
-          </div> */}
-          {/* <SocialLogins type="Login"/> */}
           <PortfolioNavigator />
-
-
         </div>
         <div className="sign-up-htm">
           <div className="group">
