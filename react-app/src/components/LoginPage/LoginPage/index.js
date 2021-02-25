@@ -1,19 +1,12 @@
 import "./styles.css";
 import SocialLogins from "../SocialLogins"
 import PortfolioNavigator from '../PortfolioNavigator'
-import { useEffect } from "react";
-import {createClient} from 'pexels';
-import { Redirect } from 'react-router-dom';
-import { login } from "../../../service/auth";
 import React, { useState } from "react";
 
 export default function()  {
   const responseFacebook = (response) => {
     console.log(response);
   };
-  const [errors, setErrors] = useState([]);
-  const [email,setEmail] = useState("");
-  const [password,setPassword("")]
   const responseGoogle = (response) => {
     console.log(response);
   };  

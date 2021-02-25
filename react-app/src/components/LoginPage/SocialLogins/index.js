@@ -1,5 +1,5 @@
 import "./styles.css";
-
+import React from "react"
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import { SocialIcon } from "react-social-icons";
