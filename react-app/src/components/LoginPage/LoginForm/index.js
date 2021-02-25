@@ -61,7 +61,7 @@ export const LoginForm = ({ authenticated, setAuthenticated }) => {
         />
           <div className="group">
             <input id="check" type="checkbox" className="check" checked/>
-            <label for="check"><span className="icon"></span> Remember me</label>
+            <label for="check"><span className="icon check-box"></span> Remember me</label>
           </div>
           <div className="group">
             <input type="submit" className="button sign-in-btn" value="Sign In"/>

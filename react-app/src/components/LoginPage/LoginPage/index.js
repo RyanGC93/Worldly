@@ -38,43 +38,14 @@ export default function()  {
       <input id="tab-2" type="radio" name="tab" className="sign-up"/><label for="tab-2" className="tab options optionTwo">Sign Up</label>
       <div className="login-form">
         <div className="sign-in-htm">
-          <LoginForm />
+            <LoginForm />
+            <SocialLogins type="Signup" facebook=" with Facebook"/>
           <PortfolioNavigator />
         </div>
         <div className="sign-up-htm">
           <SignUpForm />
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            {/* <div className="group"> */}
-            {/* <label for="user" className="label">Username</label>
-            <input id="user" type="text" className="input"/>
-          </div>
-          <div className="group">
-            <label for="pass" className="label">Password</label>
-            <input id="pass" type="password" className="input" data-type="password"/>
-          </div>
-          <div className="group">
-            <label for="pass" className="label">Repeat Password</label>
-            <input id="pass" type="password" className="input" data-type="password"/>
-          </div>
-          <div className="group">
-            <label for="pass" className="label">Email Address</label>
-            <input id="pass" type="text" className="input"/>
-          </div>
-          <div className="group">
-            <input type="submit" className="button sign-up-btn" value="Sign Up"/>
-          </div> */}
           <SocialLogins type="Signup" facebook=" with Facebook"/>
           <div className="hr"></div>
-
         </div>
       </div>
     </div>
