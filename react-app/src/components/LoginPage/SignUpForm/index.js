@@ -60,6 +60,7 @@ const SignUpForm = ({authenticated, setAuthenticated}) => {
           onChange={updateEmail}
           value={email}
         ></input>
+        
       </div>
       <div className="group">
         <label className="label">Password</label>

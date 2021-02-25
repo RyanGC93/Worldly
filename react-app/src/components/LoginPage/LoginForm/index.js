@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { login } from "../../../services/auth";
-import './styles.css'
+import './styles.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../../store/session';
 
 export const LoginForm = ({ authenticated, setAuthenticated }) => {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
+  
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  if (sessionUser) return <Redirect to='/' />;
+
+
   const onLogin = async (e) => {
     e.preventDefault();
-    const user = await login(email, password);
+    const user = { email, password };
+    const res = await dispatch(login(user))
     if (!user.errors) {
-      setAuthenticated(true);
     } else {
       setErrors(user.errors);
     }
