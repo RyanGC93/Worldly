@@ -12,6 +12,8 @@ const responseGoogle = (response) => {
 };
 
 export default function SocialLogins(props) {
+  console.log(process.env.REACT_APP_FACEBOOK_LOGIN_KEY)
+  console.log(process.env)
 
   return (
     <div className="App">
@@ -19,8 +21,8 @@ export default function SocialLogins(props) {
         <div>
           <FacebookLogin
             // https://github.com/keppelen/react-facebook-login
-            appId="180915726830056"
-            autoLoad={true}
+            appId={process.env.REACT_APP_FACEBOOK_LOGIN_KEY}
+            autoLoad={true} 
             tag="div"
             textButton={props.type + ' with Facebook'} 
             fields="name,email,picture"
@@ -34,7 +36,7 @@ export default function SocialLogins(props) {
         <div>
           <GoogleLogin
             className="google-login-button"
-            clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+            clientId={process.env.REACT_APP_GOOGLE_LOGIN_KEY}
             render={(renderProps) => (
               <button
                 className="google-login-button"

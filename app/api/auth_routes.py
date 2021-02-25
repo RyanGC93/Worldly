@@ -45,6 +45,45 @@ def login():
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+def facebook_handler():
+    """
+    Handles a login using a Facebook token
+    """
+    """
+    Quieries a database by email and if so logs them in 
+    else create that user in the database
+    """
+    records = session.query.filter().email == email
+    if records[0]:
+        form = LoginForm()
+        print(request.get_json())
+        # Get the csrf_token from the request cookie and put it into the
+        # form manually to validate_on_submit can be used
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            # Add the user to the session, we are logged in!
+            user = User.query.filter(User.email == form.data['email']).first()
+            login_user(user)
+            return user.to_dict()
+        return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+    else:
+        """
+        Creates a new user and logs them in
+        """
+        form = SignUpForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            user = User(
+                username=form.data['username'],
+                email=form.data['email'],
+                password=form.data['password']
+            )
+            db.session.add(user)
+            db.session.commit()
+            login_user(user)
+            return user.to_dict()
+        return {'errors': validation_errors_to_error_messages(form.errors)}
+
 
 @auth_routes.route('/logout')
 def logout():
