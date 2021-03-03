@@ -6,8 +6,13 @@ class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
   id = db.Column(db.Integer, primary_key = True)
-  username = db.Column(db.String(40), nullable = False, unique = True)
+  first_name = db.Column(db.String(40), nullable = True)
+  last_name = db.Column(db.String(40), nullable = True)  
+  user_name = db.Column(db.String(40), nullable = False, unique = True)
   email = db.Column(db.String(255), nullable = False, unique = True)
+  phone_number = db.Column(db.String(15), nullable = False, unique = True)
+  bio = db.Column(db.Text, nullable=True)
+  mileage = db.Column(db.Integer, nullable = False, default = 0)
   hashed_password = db.Column(db.String(255), nullable = False)
 
 
@@ -28,6 +33,10 @@ class User(db.Model, UserMixin):
   def to_dict(self):
     return {
       "id": self.id,
-      "username": self.username,
-      "email": self.email
+      "first_name": self.first_name,
+      "last_name": self.last_name,
+      "username": self.user_name,
+      "bio": self.bio      
     }
+
+  # TODO: add a setter property to update mileage

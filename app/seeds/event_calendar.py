@@ -1,10 +1,10 @@
-from werkzeug.security import generate_password_hash
-from app.models import db, User
+
+from app.models import db, EventCalendar
 
 # Adds a demo user, you can add other users here if you want
-def seed_users():
+def seed_event_calendar():
 
-    demo = User( id=1, first_name='Demo',last_name='Demo',user_name='Demo', email='demo@aa.io',password='password',phone_number="9704819923")
+    demo = EventCalendar(id=1,event_id=1,date="1980-01-01",time="2019-04-02 11:44:24.801046")
 
     db.session.add(demo)
 
@@ -14,6 +14,6 @@ def seed_users():
 # SQLAlchemy doesn't have a built in function to do this
 # TRUNCATE Removes all the data from the table, and resets
 # the auto incrementing primary key
-def undo_users():
-    db.session.execute('TRUNCATE users CASCADE;')
+def undo_event_calendar():
+    db.session.execute('TRUNCATE event_calendar CASCADE;')
     db.session.commit()

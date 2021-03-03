@@ -1,13 +1,12 @@
 from .db import db
 
-class Review(db.Model):
-    __tablename__ = 'reviews'
+class EventCalendar(db.Model):
+    __tablename__ = 'event_calendar'
 
     id = db.Column(db.Integer, primary_key = True)
     event_id = db.Column(db.Integer, db.ForeignKey("events.id"),nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"),nullable=False)
-    rating = db.Column(db.Integer, nullable=False)
-    comment = db.Column(db.String(250), nullable=False)
+    date = db.Column(db.Date, nullable=False)
+    time = db.Column(db.DateTime, nullable = False)
     date_created = db.Column(db.DateTime,  default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime,  default=db.func.current_timestamp(
     ), onupdate=db.func.current_timestamp())
