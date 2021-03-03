@@ -29,31 +29,11 @@ export const login = (user) => async (dispatch) => {
       password,
     }),
   });
-  // console.log(response)
   let res = await response.json()
   console.log(res)
-  dispatch(setSession(res));
-  return response;
+  if (!res.errors) dispatch(setSession(res));
+  return res;
 };
-
-// export const facebookLogin = (user) = async (dispatch) => {
-//   const {email,id} = user
-//   const response = await fetch('/api/auth/facebook', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       email,
-//       id
-//     }),
-//   });
-//   console.log(response)
-//   let res = await response.json()
-//   console.log(res)
-//   dispatch(setSession(res));
-//   return response;
-// };
 
 export const restoreUser = () => async (dispatch) => {
   const response = await fetch('/api/session');

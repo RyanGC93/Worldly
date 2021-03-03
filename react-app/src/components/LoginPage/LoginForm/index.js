@@ -6,22 +6,29 @@ import { login } from '../../../store/session';
 
 export const LoginForm = ({ authenticated, setAuthenticated }) => {
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
-  
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  if (sessionUser) return <Redirect to='/' />;
 
 
   const onLogin = async (e) => {
+    // form validation_errors
+    if (!password) return alert('Please enter a password')
+    if (!email) return alert('please enter an email')
+    
+    const user = { email, password }
     e.preventDefault();
-    const user = { email, password };
+
     const res = await dispatch(login(user))
-    if (!user.errors) {
+
+    console.log('thiss', res)
+    if (!res.errors) {
+      // TODO  Render an error model on bad login on the db
+
+      alert( 'TODO  Render an error model on bad login')
     } else {
-      setErrors(user.errors);
+      setErrors(res.errors);
     }
   };
 
@@ -40,6 +47,7 @@ export const LoginForm = ({ authenticated, setAuthenticated }) => {
   return (
 
     <form onSubmit={onLogin}>
+      {errors}
       <div>
         {errors.map((error) => (
           <div>{error}</div>

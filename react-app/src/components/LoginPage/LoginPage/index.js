@@ -13,21 +13,6 @@ export default function()  {
   };  
   let randnum = () => Math.floor(Math.random() * 10); 
 
-  // useEffect(() => {
-  //   // This would be an env
-  //   const client = createClient('563492ad6f917000010000015c04a4ffd6fa4c6fa80b1d1a2b0bb933');
-  //   const query = 'Culture';
-  //   let backgroundphotos= client.photos.search({ query, per_page: 10 }).then(res => console.log(res)))
-  //   let initialPhoto = 
-  //   let backgroundImg = document.body.style.style.background
-  
-
-  //     setInterval(() => {
-  //       randnum
-        
-  //     }, 5000);    
-
-  // })
 
 
   return(
