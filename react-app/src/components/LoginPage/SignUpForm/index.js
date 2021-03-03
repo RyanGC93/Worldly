@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import { signUp } from '../../../services/auth';
@@ -33,21 +33,7 @@ const SignUpForm = (authenticated,setAuthenticated) => {
     }
   };
 
-  const updateUsername = (e) => {
-    setUsername(e.target.value);
-  };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const updatePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const updateRepeatPassword = (e) => {
-    setRepeatPassword(e.target.value);
-  };
 
   // if (authenticated) {
   //   return <Redirect to="/" />;
@@ -62,8 +48,9 @@ const SignUpForm = (authenticated,setAuthenticated) => {
                   className="input"
           type="text"
           name="username"
-          onChange={updateUsername}
+          onChange={(e) => setUsername(e.target.value)}
           value={username}
+          required={true}
         ></input>
       </div>
       <div className="group">
@@ -73,8 +60,9 @@ const SignUpForm = (authenticated,setAuthenticated) => {
           className="input"  
           type="text"
           name="email"
-          onChange={updateEmail}
+          onChange={(e) => setEmail(e.target.value)}
           value={email}
+          required={true}
         ></input>
         
       </div>
@@ -84,8 +72,9 @@ const SignUpForm = (authenticated,setAuthenticated) => {
           className="input"        
           type="password"
           name="password"
-          onChange={updatePassword}
+          onChange={(e) => setPassword(e.target.value)}
           value={password}
+          required={true}
         ></input>
       </div>
       <div className="group">
@@ -94,7 +83,7 @@ const SignUpForm = (authenticated,setAuthenticated) => {
           className="input"        
           type="password"
           name="repeat_password"
-          onChange={updateRepeatPassword}
+          onChange={(e) =>setRepeatPassword(e.target.value)}
           value={repeatPassword}
           required={true}
         ></input>

@@ -1,8 +1,8 @@
-/* .social-container{
+.social-container{
   top: 10%;
   height: 80%;
-  width: 80%;
-} */
+  width: 50px;
+}
 
 .google-login-button, .my-facebook-button-class{
   background-color: rgb(144, 144, 144, .2); 
@@ -38,5 +38,11 @@
 }
 .social-icon{
   background-color: black;
+
   border-radius: 10%
+}
+.social-svg-mask{
+  width: 50px;
+  z-index:2;
+
 }

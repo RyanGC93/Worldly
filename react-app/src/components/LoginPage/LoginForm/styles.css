@@ -38,3 +38,16 @@ color: white
 .check-box:hover {
     cursor:pointer
 }
+
+.error{
+    color: red;
+    padding: 4px 4px 4px 4px;
+}
+
+.error-container{
+    margin-top:8px
+}
+
+.label:focus{
+    border-style:none;
+}

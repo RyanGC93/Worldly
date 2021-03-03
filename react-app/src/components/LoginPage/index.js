@@ -12,6 +12,4 @@ export default () => {
             <LoginPage />
         </>    
     )   
-
-
 }

@@ -42,8 +42,6 @@ export const restoreUser = () => async (dispatch) => {
 };
 
 export const registerUser = (user) => async (dispatch) => {
-  console.log(user)
-
   const { username, email, password } = user;
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
@@ -57,7 +55,7 @@ export const registerUser = (user) => async (dispatch) => {
     }),
   });
   let res = await response.json()
-
+  console.log(res)
   dispatch(setSession(res))
   // dispatch(setSession(response.data.user));
   return response;
