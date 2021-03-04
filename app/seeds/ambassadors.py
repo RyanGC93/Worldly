@@ -1,10 +1,10 @@
 
-from app.models import db, Event
+from app.models import db, Ambassador
 
 # Adds a demo user, you can add other users here if you want
-def seed_events():
+def seed_ambassadors():
 
-    demo = Event(id=1, ambassador_id=1,description="demo event description",cost=23)
+    demo = Ambassador(id=1,user_id=1)
 
     db.session.add(demo)
 
@@ -14,6 +14,6 @@ def seed_events():
 # SQLAlchemy doesn't have a built in function to do this
 # TRUNCATE Removes all the data from the table, and resets
 # the auto incrementing primary key
-def undo_events():
-    db.session.execute('TRUNCATE events CASCADE;')
+def undo_ambassadors():
+    db.session.execute('TRUNCATE ambassadors CASCADE;')
     db.session.commit()

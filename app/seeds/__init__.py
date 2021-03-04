@@ -6,6 +6,7 @@ from .booking_calendar import seed_booking_calendar, undo_booking_calendar
 from .locations import seed_location, undo_location
 from .photo_gallery import seed_photo_gallery, undo_photo_gallery
 from .reviews import seed_reviews, undo_reviews
+from .ambassadors import seed_ambassadors, undo_ambassadors
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
 seed_commands = AppGroup('seed')
@@ -14,6 +15,7 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     seed_users()
+    seed_ambassadors()
     seed_events()
     seed_event_calendar()
     seed_booking_calendar()
@@ -26,6 +28,7 @@ def seed():
 @seed_commands.command('undo')
 def undo():
     undo_users()
+    undo_ambassadors()
     undo_events()
     undo_event_calendar()
     undo_booking_calendar()
