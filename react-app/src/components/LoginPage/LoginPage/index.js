@@ -8,7 +8,7 @@ import SignUpForm from "../SignUpForm"
 
 
 
-export default function({setAuthenticated})  {
+const LoginPage = ({setAuthenticated}) =>  {
 
   return(
   <div className="login-wrap">
@@ -35,3 +35,4 @@ export default function({setAuthenticated})  {
   )
 } 
 
+export default LoginPage

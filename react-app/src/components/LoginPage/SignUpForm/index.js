@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import { signUp } from '../../../services/auth';
 import { registerUser } from '../../../store/session';
@@ -10,34 +10,24 @@ const SignUpForm = (authenticated,setAuthenticated) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
-  const sessionUser = useSelector(state => state.session.user);
-  
-  if (sessionUser) return <Redirect to='/' />;
-  
+  const history = useHistory()
 
 
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      // const user = await registerUser(username, email, password);
       const user = { username, email, password };
       const res = await dispatch(registerUser(user))
-      console.log(res)
-      if (res) {
-
-        alert("ok")
-        return <Redirect to='/' />
-      } else {
-        
-      }
+      return (res) ? history.push('/') :  alert("backend server issue")
     }
   };
-
-
-
-  // if (authenticated) {
-  //   return <Redirect to="/" />;
-  // }
+  
+  const updateUserName = (e) => {
+    setUsername(e.target.value);
+  }
+  const updateEmail = (e) => {
+    setEmail(e.target.value)
+  }
 
   return (
     <form onSubmit={onSignUp}>
@@ -48,7 +38,7 @@ const SignUpForm = (authenticated,setAuthenticated) => {
                   className="input"
           type="text"
           name="username"
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={updateUserName}
           value={username}
           required={true}
         ></input>
@@ -60,7 +50,7 @@ const SignUpForm = (authenticated,setAuthenticated) => {
           className="input"  
           type="text"
           name="email"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={updateEmail}
           value={email}
           required={true}
         ></input>

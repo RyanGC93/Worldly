@@ -40,6 +40,7 @@ function App() {
           />
         </Route>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+          <NavBar setAuthenticated={setAuthenticated} />
           <HomePage />
           {/* <UsersList/> */}
         </ProtectedRoute>
