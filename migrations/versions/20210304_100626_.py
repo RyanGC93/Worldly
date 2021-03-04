@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 6493b68fb209
+Revision ID: 1681ce74fbf8
 Revises: 
-Create Date: 2021-03-03 12:03:31.427162
+Create Date: 2021-03-04 10:06:26.466838
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '6493b68fb209'
+revision = '1681ce74fbf8'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,7 +24,7 @@ def upgrade():
     sa.Column('last_name', sa.String(length=40), nullable=True),
     sa.Column('user_name', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
-    sa.Column('phone_number', sa.String(length=15), nullable=False),
+    sa.Column('phone_number', sa.String(length=15), nullable=True),
     sa.Column('bio', sa.Text(), nullable=True),
     sa.Column('mileage', sa.Integer(), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
@@ -33,14 +33,20 @@ def upgrade():
     sa.UniqueConstraint('phone_number'),
     sa.UniqueConstraint('user_name')
     )
+    op.create_table('ambassadors',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
     op.create_table('events',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('owner_id', sa.Integer(), nullable=False),
+    sa.Column('ambassador_id', sa.Integer(), nullable=False),
     sa.Column('description', sa.Text(), nullable=False),
     sa.Column('cost', sa.Integer(), nullable=False),
     sa.Column('date_created', sa.DateTime(), nullable=True),
     sa.Column('date_modified', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['ambassador_id'], ['ambassadors.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('event_calendar',
@@ -104,5 +110,6 @@ def downgrade():
     op.drop_table('locations')
     op.drop_table('event_calendar')
     op.drop_table('events')
+    op.drop_table('ambassadors')
     op.drop_table('users')
     # ### end Alembic commands ###

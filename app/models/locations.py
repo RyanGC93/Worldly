@@ -9,3 +9,5 @@ class Location(db.Model):
     latitude = db.Column(db.Float, nullable=False)
     city = db.Column(db.String, nullable=False)
     country = db.Column(db.String, nullable=False)
+
+    event = relationship('Event', back_populates='location')

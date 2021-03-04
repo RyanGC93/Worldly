@@ -7,3 +7,5 @@ class PhotoGallery(db.Model):
     event_id = db.Column(db.Integer, db.ForeignKey("events.id"),nullable=False)
     description = db.Column(db.Text, nullable=False)
     url = db.Column(db.String(100), nullable = False)
+
+    location = relationship('Location', back_populates='photo_gallery')

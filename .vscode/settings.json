@@ -1,5 +1,5 @@
 {
-    "window.title": " ⚡💻 ${folderName} 💻   ⚡ ${separator} [Branch: resolve-infinite-rerenders]",
+    "window.title": " ⚡💻 ${folderName} 💻   ⚡ ${separator} [Branch: update-db]",
     "workbench.colorCustomizations": {
         "activityBar.background": "#511b22",
         "titleBar.activeBackground": "#2b0e12",

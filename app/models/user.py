@@ -15,6 +15,8 @@ class User(db.Model, UserMixin):
   mileage = db.Column(db.Integer, nullable = False, default = 0)
   hashed_password = db.Column(db.String(255), nullable = False)
 
+  events = db.relationship("Event", back_populates="user")
+  booking_calendar = db.relationship('BookingCalendar', back_populates='user')
 
   @property
   def password(self):

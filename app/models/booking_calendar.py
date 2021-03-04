@@ -9,3 +9,6 @@ class BookingCalendar(db.Model):
     date_created = db.Column(db.DateTime,  default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime,  default=db.func.current_timestamp(
     ), onupdate=db.func.current_timestamp())
+
+    user = relationship('User', back_populates='booking_calendar')
+    event_calendar = relationship('EventCalendar', back_populates="booking_calendar")
