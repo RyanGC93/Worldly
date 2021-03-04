@@ -5,7 +5,7 @@ import { useDispatch} from 'react-redux';
 import { login } from '../../../store/session';
 import {rememberMe, isRemembered} from '../../../services/rememberMe.js'
 
-export const LoginForm = () => {
+export const LoginForm = ({ authenticated, setAuthenticated}) => {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
@@ -24,8 +24,11 @@ export const LoginForm = () => {
     if (checkbox) rememberMe(checkbox, email);
     const user = { email, password };
     const res = await dispatch(login(user));
-
-    return (res.errors) ? setErrors(res.errors): <Redirect to='/' />
+    if (res.errors) setErrors(res.errors)
+    setAuthenticated(true)
+    if(!res.errors) history.push('/')
+    console.log(res)
+    // return (res.errors) ? setErrors(res.errors): <Redirect to='/sdasddas' />
   }
 
   useEffect(() => {

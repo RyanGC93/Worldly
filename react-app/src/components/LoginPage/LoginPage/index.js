@@ -8,7 +8,7 @@ import SignUpForm from "../SignUpForm"
 
 
 
-export default function()  {
+export default function({setAuthenticated})  {
 
   return(
   <div className="login-wrap">
@@ -18,7 +18,7 @@ export default function()  {
       <input id="tab-2" type="radio" name="tab" className="sign-up"/><label htmlFor="tab-2" className="tab options optionTwo">Sign Up</label>
       <div className="login-form">
         <div className="sign-in-htm">
-            <LoginForm />
+            <LoginForm setAuthenticated={setAuthenticated} />
             {/* <SocialLogins type="Signup" facebook=" with Facebook"/> */}
           <PortfolioNavigator />
             {/* <div className="group">

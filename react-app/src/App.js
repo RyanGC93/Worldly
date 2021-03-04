@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import {useSelector} from 'react-redux'
 import LoginPage from './components/LoginPage'
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
+import HomePage from './components/HomePage'
 
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [authenticated, setAuthenticated] = useState(true);
   const [loaded, setLoaded] = useState(false);
+  const sessionUser = useSelector(state => state.session.user);
+  
 
   useEffect(() => {
-    (async() => {
+
+    if(sessionUser)(async () => {
       const user = await authenticate();
+      console.log(user)
       if (!user.errors) {
         setAuthenticated(true);
       }
-      setLoaded(true);
     })();
-  }, []);
+    setLoaded(true);
+  },[]);
 
   if (!loaded) {
     return null;
@@ -37,7 +43,7 @@ function App() {
           />
         </Route>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <h1>sdsadsad</h1>
+          <HomePage />
           {/* <UsersList/> */}
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
