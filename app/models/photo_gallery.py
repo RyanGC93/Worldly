@@ -8,4 +8,4 @@ class PhotoGallery(db.Model):
     description = db.Column(db.Text, nullable=False)
     url = db.Column(db.String(100), nullable = False)
 
-    location = relationship('Location', back_populates='photo_gallery')
+    event = db.relationship('Event', back_populates='photo_gallery')

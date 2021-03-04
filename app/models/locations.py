@@ -10,4 +10,4 @@ class Location(db.Model):
     city = db.Column(db.String, nullable=False)
     country = db.Column(db.String, nullable=False)
 
-    event = relationship('Event', back_populates='location')
+    event = db.relationship('Event', back_populates='location')

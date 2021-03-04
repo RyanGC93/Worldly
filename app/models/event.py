@@ -11,8 +11,8 @@ class Event(db.Model):
     date_modified = db.Column(db.DateTime,  default=db.func.current_timestamp(
     ), onupdate=db.func.current_timestamp())
     
-    user = relationship('User', back_populates='event')
-    location = relationship('Location', back_populates='event')
-    review = relationship('Location', back_populates='event')
-
-    event_calendar = relationship('EventCalendar', back_populates='event')
+    ambassador = db.relationship('Ambassador', back_populates='event')
+    location = db.relationship('Location', back_populates='event')
+    review = db.relationship('Review', back_populates='event')
+    photo_gallery =db.relationship('PhotoGallery', back_populates='event')
+    event_calendar = db.relationship('EventCalendar', back_populates='event')

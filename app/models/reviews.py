@@ -12,5 +12,5 @@ class Review(db.Model):
     date_modified = db.Column(db.DateTime,  default=db.func.current_timestamp(
     ), onupdate=db.func.current_timestamp())
     
-    event = relationship('Event', back_populates='review')
-    user = relationship('User', back_populates='review')
+    event = db.relationship('Event', back_populates='review')
+    user = db.relationship('User', back_populates='review')
