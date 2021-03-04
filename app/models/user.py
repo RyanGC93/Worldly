@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
   last_name = db.Column(db.String(40), nullable = True)  
   user_name = db.Column(db.String(40), nullable = False, unique = True)
   email = db.Column(db.String(255), nullable = False, unique = True)
-  phone_number = db.Column(db.String(15), nullable = False, unique = True)
+  phone_number = db.Column(db.String(15), nullable = True, unique = True)
   bio = db.Column(db.Text, nullable=True)
   mileage = db.Column(db.Integer, nullable = False, default = 0)
   hashed_password = db.Column(db.String(255), nullable = False)
