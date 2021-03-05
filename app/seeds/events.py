@@ -4,7 +4,7 @@ from app.models import db, Event
 # Adds a demo user, you can add other users here if you want
 def seed_events():
 
-    demo = Event(id=1, ambassador_id=1,description="demo event description",cost=23)
+    demo = Event(id=1, ambassador_id=1,title="this its the title", description="demo event description",cost=23)
 
     db.session.add(demo)
 

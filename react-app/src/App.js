@@ -12,8 +12,6 @@ import HomePage from './components/HomePage'
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  
-
   useEffect(() => {
 
     (async () => {

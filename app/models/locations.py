@@ -11,3 +11,6 @@ class Location(db.Model):
     country = db.Column(db.String, nullable=False)
 
     event = db.relationship('Event', back_populates='location')
+    
+    def __repr__(self):
+        return f"<location: silly >"

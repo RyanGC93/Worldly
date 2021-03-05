@@ -5,6 +5,7 @@ class Event(db.Model):
 
     id = db.Column(db.Integer, primary_key = True)
     ambassador_id = db.Column(db.Integer, db.ForeignKey("ambassadors.id"),nullable=False)
+    title = db.Column(db.String(250), nullable=False)
     description = db.Column(db.Text, nullable=False)
     cost = db.Column(db.Integer, nullable = False)
     date_created = db.Column(db.DateTime,  default=db.func.current_timestamp())
@@ -16,3 +17,5 @@ class Event(db.Model):
     review = db.relationship('Review', back_populates='event')
     photo_gallery =db.relationship('PhotoGallery', back_populates='event')
     event_calendar = db.relationship('EventCalendar', back_populates='event')
+    
+    

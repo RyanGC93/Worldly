@@ -76,6 +76,7 @@ const initialState = {
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SESSION:
+      //
       return { ...state, user: action.user }
     case REMOVE_SESSION:
       return { ...state, user: null };
