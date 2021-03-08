@@ -1,6 +1,6 @@
 import React from 'react'
 import EventCard from '../EventCards'
-import CardCarousel from './Carousel'
+import CardCarousel from './Featured'
 
 
 export default () => {

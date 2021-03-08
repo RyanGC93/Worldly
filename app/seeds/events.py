@@ -14,7 +14,6 @@ def seed_events():
     demo = Event(id=8, ambassador_id=1,title="this its the title9", description="demo event description",cost=23, )
         
     db.session.add(featured)
-    db.session.add(demo1)
     db.session.add(demo2)
     db.session.add(demo3)
     db.session.add(demo4)
