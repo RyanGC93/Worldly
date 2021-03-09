@@ -1,15 +1,29 @@
 
-
-
 const SET_SESSION = 'session/SET_SESSION';
-const REMOVE_SESSION = 'session/REMOVE_SESSION';
-
+const REMOVE_SESSION='session/REMOVE_SESSION';
 const setSession = (user) => {
-  return {
-    type: SET_SESSION,
-    user,
-  };
+    return {
+        type: SET_SESSION,
+        user,
+    };
 };
+
+export const login = (email, password) => async (dispatch) => {
+	const response = await fetch('/api/auth/login', {
+		method: 'POST',
+		headers: {
+				'Content-Type': 'application/json'
+			},
+		body: JSON.stringify({
+			email,
+			password
+			})
+		});
+		const user = await response.json()
+		dispatch(setSession(user));
+		return user;
+};
+
 
 const removeSession = () => {
   return {
@@ -17,29 +31,22 @@ const removeSession = () => {
   };
 };
 
-export const login = (user) => async (dispatch) => {
-  const { email, password } = user;
-  const response = await fetch('/api/auth/login', {
-    method: 'POST',
+
+export const restoreUser = () => async dispatch => {
+  alert('sds')
+  debugger
+  const response = await fetch('/api/auth/', {
     headers: {
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      email,
-      password,
-    }),
+    }
   });
-  let res = await response.json()
-  console.log(res)
-  if (!res.errors) dispatch(setSession(res));
+  let res = await response.json();
+  console.log(res);
+  dispatch(setSession(res));
+  if (!res.errors) {
+  }
   return res;
-};
-
-export const restoreUser = () => async (dispatch) => {
-  const response = await fetch('/api/session');
-  dispatch(setSession(response.data.user));
-  return response;
-};
+}
 
 export const registerUser = (user) => async (dispatch) => {
   const { username, email, password } = user;
@@ -55,9 +62,7 @@ export const registerUser = (user) => async (dispatch) => {
     }),
   });
   let res = await response.json()
-  console.log(res)
   dispatch(setSession(res))
-  // dispatch(setSession(response.data.user));
   return response;
 };
 
@@ -76,7 +81,6 @@ const initialState = {
 const sessionReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SESSION:
-      //
       return { ...state, user: action.user }
     case REMOVE_SESSION:
       return { ...state, user: null };
