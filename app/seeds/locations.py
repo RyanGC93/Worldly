@@ -4,7 +4,7 @@ from app.models import db, Location
 # Adds a demo user, you can add other users here if you want
 def seed_location():
 
-    demo = Location(id=1,event_id=1,longitude=-105.084419, latitude=40.585258, city="Fort Collins", country="USA")
+
 
     db.session.add(demo)
 
