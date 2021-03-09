@@ -1,13 +1,19 @@
 from werkzeug.security import generate_password_hash
 from app.models import db, User
+from faker import Faker
+fake = Faker()
 
+f_firstname = fake.first_name()
+f_phone_number = fake.phone_number()
+f_email = fake.email()
+f_username = fake.user_name()
+f_lastname = fake.last_name()
+f_password = fake.password()
 # Adds a demo user, you can add other users here if you want
 def seed_users():
 
-    # demo = User( id=1, first_name='Demo',last_name='Demo',user_name='Demo', email='demo@aa.io',password='password',phone_number="9704819923")
-    # featured = User( id=2, first_name='Phoebe',last_name='Ajayi',user_name='Phoebe_Ajayi', email='pheebs@aa.io',password='password',phone_number="970439923")
-    demo = User( 1, 'Demo','Demo','Demo', 'demo@aa.io','password',"9704819923")
-    featured = User( 2, 'Phoebe','Ajayi''Phoebe_Ajayi', 'pheebs@aa.io','password',"970439923")
+    demo = User( id=1, first_name='Demo',last_name='Demo',user_name='Demo', email='demo@aa.io',password='password',phone_number="9704819923")
+    featured = User( id=2, first_name='Phoebe',last_name='Ajayi',user_name='Phoebe_Ajayi', email='pheebs@aa.io',password='password',phone_number="970439923")
     db.session.add(demo)
     db.session.add(featured)
     db.session.commit()
