@@ -14,17 +14,23 @@
   float: none;
   margin: 5% auto;	
 }
+.slide-container{
+  height: 100%
+}
 
 .calendar-container {
   display: relative;
 }
+
+
 .calendar-icon{
   position: absolute;
   right: 0;
-  bottom: 0;
+  top: 0;
   padding: 15px 15px 15px 15px;
   width: 30px;
   height: 30px;
+  z-index: 3;
 }
 
 
@@ -324,7 +330,7 @@
 
 .item-time-date {
 	z-index: 100;
-	width: 75%;
+	width: 90%;
 	height: 2.5em;
 	font-size: 0.9em;
 	color: #313b40;
@@ -369,6 +375,9 @@
 	color: #313b40;
 	margin: 0.6em 0 0.4em;
 }
+.test {
+  background-color: red
+}
 
 .bio-text {
 	line-height: 180%;
@@ -387,8 +396,14 @@
 }
 
 .more-info {
-	padding: 0.5em 1em;
+  padding: 0.5em 1em;
+  display: grid;
+  grid-template-columns: 50% 50%
 }
+.ambassador-container {
+  grid-column: 2;
+}
+
 
 .more-info p:nth-child(1) {
 	margin-bottom: 2em;
