@@ -9,6 +9,9 @@ const setSession = (user) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
+  alert(email)
+  console.log(email)
+  alert(password)
 	const response = await fetch('/api/auth/login', {
 		method: 'POST',
 		headers: {
@@ -41,8 +44,9 @@ export const restoreUser = () => async dispatch => {
   });
   let res = await response.json();
   console.log(res);
-  dispatch(setSession(res));
   if (!res.errors) {
+    dispatch(setSession(res));
+  
   }
   return res;
 }

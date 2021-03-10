@@ -22,8 +22,8 @@ export const LoginForm = ({ setAuthenticated}) => {
     e.preventDefault();
     
     if (checkbox) rememberMe(checkbox, email);
-    const user = { email, password };
-    const res = await dispatch(login(user));
+
+    const res = await dispatch(login(email,password));
     if (res.errors) setErrors(res.errors)
     setAuthenticated(true)
     if(!res.errors) history.push('/')

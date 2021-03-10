@@ -18,7 +18,6 @@ function App() {
  
   useEffect(() => {
     (async () => {
-      // const user = true
       const user = await dispatch(restoreUser())
       if (!user.errors) {
         setAuthenticated(true);
