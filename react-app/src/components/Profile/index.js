@@ -1,14 +1,15 @@
 import './styles.css'
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useSelector } from 'react-redux'
-impor
+import { useHistory } from 'react-router-dom'
 
 const Profile = () => {
-  /*
-  USERNAME  >>
 
-  */
+    const history = useHistory()
 
+    useEffect(() => {
+        
+    })
 
   return (
     <div className="container">

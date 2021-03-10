@@ -3,14 +3,12 @@ from app.models import db, User
 from faker import Faker
 fake = Faker()
 
-def f_firstname():
-    return fake.first_name()
 
 
 
 
 def seed_users():
-    demo = User( id=1, first_name='Demo',last_name=fake.last_name(),user_name=fake.user_name(), email=fake.email(),password=fake.password(),phone_number=fake.phone_number())
+    demo = User( id=1, first_name='Demo',last_name=fake.last_name(),user_name='demo', email='demo@aa.io',password='password',phone_number=fake.phone_number())
     featured = User( id=2, first_name='Phoebe',last_name='Ajayi',user_name='Phoebe_Ajayi', email='pheebs@aa.io',password='password',phone_number="970439923")
     Demo3=User(id=3, first_name="Dre",last_name=fake.last_name(),user_name=fake.user_name(), email=fake.email(),password=fake.password(),phone_number=fake.phone_number())
     Demo4=User(id=4, first_name="Kahlani",last_name=fake.last_name(),user_name=fake.user_name(), email=fake.email(),password=fake.password(),phone_number=fake.phone_number())

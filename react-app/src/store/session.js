@@ -19,7 +19,8 @@ export const login = (email, password) => async (dispatch) => {
 			password
 			})
 		});
-		const user = await response.json()
+  const user = await response.json()
+  console.log(user)  
 		dispatch(setSession(user));
 		return user;
 };
