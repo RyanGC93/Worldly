@@ -7,12 +7,12 @@ import { useSelector } from 'react-redux'
 
 
 const NavBar = ({ setAuthenticated }) => {
-	// const username = useSelector(state => state.session.user.username)
+	const username = useSelector(state => state.session.user.username)
 
-	// const history = useHistory()
-	// const profileRedirect = () => {
-	// 	history.push(`profile/${username}`)
-	// }
+	const history = useHistory()
+	const profileRedirect = () => {
+		history.push(`profile/${username}`)
+	}
 
 
 	return (
@@ -23,7 +23,7 @@ const NavBar = ({ setAuthenticated }) => {
                     <ReactSearchAutocomplete />
 				</div>
                 <div className="quick-linkss">
-					{/* <div onClick={profileRedirect}>Profile</div> */}
+					<div className='profile' onClick={profileRedirect}>Profile</div>
                 </div>
 				<div className="user-settings">
                     <LogoutButton setAuthenticated={setAuthenticated} />

@@ -33,8 +33,6 @@ const removeSession = () => {
 
 
 export const restoreUser = () => async dispatch => {
-  alert('sds')
-  debugger
   const response = await fetch('/api/auth/', {
     headers: {
       'Content-Type': 'application/json'
