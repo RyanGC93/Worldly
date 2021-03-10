@@ -1,0 +1,124 @@
+#modal-content {
+    border-radius: 1rem;
+  }
+  .postform {
+    padding: 0.5rem;
+  }
+  
+  .postform__container {
+    width: 70rem;
+    height: 40rem;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+  }
+  
+  .postform__header {
+    display: grid;
+    border-bottom: 2px solid rgb(228, 227, 227);
+    width: 100%;
+    height: 3rem;
+    text-align: center;
+    align-items: center;
+    color: rgb(95, 95, 95);
+    background-color: #fafafad0;
+    margin-bottom: 1rem;
+  }
+  textarea {
+    display: grid;
+    justify-content: center;
+    resize: none;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #cccccc;
+    outline: none;
+    background-color: #ffffff;
+    width: 90%;
+    padding: 1rem;
+  }
+  
+  .postform__label {
+    display: block;
+    width: 10%;
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+  
+  .fileInput__label:hover {
+    background-color: #0095f6;
+  }
+  
+  .postform__input {
+    outline: none;
+  }
+  .textarea {
+    resize: none;
+  }
+  
+  .postform__button {
+    width: 11rem;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid #ccc;
+    background-color: #5aaef8;
+    color: white;
+    font-weight: 500;
+    border-radius: 0.6rem;
+    outline: none;
+    padding: 0.7rem;
+    cursor: pointer;
+  }
+  
+  .postform__button-container {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+  }
+  
+  .postform__button:hover {
+    background-color: #0095f6;
+  }
+  
+  .fileInput {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+  .fileInput__label {
+    background-color: #5aaef8;
+    width: 11rem;
+    height: 1.8rem;
+    text-align: center;
+    font-size: 1.3rem;
+    padding: 0.5;
+    color: white;
+    display: inline-block;
+    border-radius: 0.6rem;
+    margin: 0.5rem auto;
+    margin-bottom: 2rem;
+  }
+  .fileInput__container {
+    display: grid;
+    width: 100%;
+  }
+  
+  .postform__delete {
+    text-align: center;
+    color: #5aaef8;
+    padding-bottom: 1rem;
+  }
+  
+  .postform__delete:hover {
+    text-decoration: underline;
+  }
+  
+  .postform__image {
+    display: block;
+    width: 90%;
+    max-width: 40rem;
+    max-height: 100rem;
+    margin: 0 auto;
+  }
