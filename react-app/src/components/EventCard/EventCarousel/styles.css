@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.slide-container {
+background-color: bisque;
+height: 300px;
+font-family: 'Comfortaa', cursive;
+font-size:40px;
+text-align: center;
+}
+
+.carousel-container {
+    width: 80%;
+    margin-left: 10%;
+}
