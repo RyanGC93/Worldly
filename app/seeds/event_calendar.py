@@ -1,12 +1,15 @@
-
 from app.models import db, EventCalendar
+from faker import Faker
+fake = Faker()
+
 
 # Adds a demo user, you can add other users here if you want
 def seed_event_calendar():
-
-    demo = EventCalendar(id=1,event_id=1,date="1980-01-01",time="2019-04-02 11:44:24.801046")
-
+    # fake.random_int(min=0, max=9999, step=1)
+    demo = EventCalendar(id=2,event_id=1,date=fake.past_date(),time=fake.time())
+    demo2 = EventCalendar(id=2,event_id=1,date=fake.future_date(),time=fake.time())
     db.session.add(demo)
+    db.session.add(demo2)
 
     db.session.commit()
 

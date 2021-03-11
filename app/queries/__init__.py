@@ -37,4 +37,14 @@ def query_comments():
     # row = dict(zip(keys,values))
     # print(values)
     print(x)
-        
+
+# Queries events for events owned by user
+@query_commands.command('event-specified')
+# Have to pass user and date
+def query_comments():
+    x = db.session.query(Event.id, Event.title, Event.description , Location.city, Location.country, User.user_name).filter(Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all() 
+    keys = ['event_id', 'title', 'description', 'city', 'country', 'username']
+    values = list(x[0])
+    row = dict(zip(keys,values))
+    print(values)
+    print(row)        

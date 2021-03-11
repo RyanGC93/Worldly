@@ -1,11 +1,13 @@
 import "./styles.css";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import * as eventActions from '../../store/events'
 
 const Profile = () => {
 	const user = useSelector((state) => state.session.user);
 	const history = useHistory();
+	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("")
 
@@ -20,7 +22,8 @@ const Profile = () => {
 			setEmail(res.email)
 			setPhoneNumber(res.phone_number)
 		})();
-	  }, [user]);
+		dispatch(eventActions.getEvents())
+	  }, [user, dispatch]);
 
 	return (
 		<div className="container">

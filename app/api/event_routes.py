@@ -4,7 +4,7 @@ from app.models import db, Event, Location, User, Ambassador
 
 event_routes = Blueprint('events', __name__)
 
-# Adds the events to the front end
+# Gets All the events
 @event_routes.route('/')
 @login_required
 def events():
