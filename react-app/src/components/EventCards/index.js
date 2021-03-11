@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux'
+import { useDispatch} from 'react-redux'
 import * as eventActions from '../../store/events'
 
 const EventCard = () => {
