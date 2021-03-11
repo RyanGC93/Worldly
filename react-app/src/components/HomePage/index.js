@@ -1,14 +1,12 @@
 import React from 'react'
-import EventCard from '../EventCards'
-import Featured from './Featured'
+import MainFeed from './MainFeed'
 
 
 export default () => {
     
     return (
         <div>
-            {/* <EventCard /> */}
-            <Featured />
+            <MainFeed />
         </div>
     )
 

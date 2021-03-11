@@ -49,10 +49,10 @@ const EventCard = () => {
                 {/* TODO >> add a carousel */}
               </div>
               <div className="item-time-date">
-                <time className="date" datetime="2018-10-16">
+                <time className="date" dateTime="2018-10-16">
                   {closest_event_date}
                 </time>
-                <time className="time" datetime="19:00">
+                <time className="time" dateTime="19:00">
                   {closest_event_time}
                 </time>
               </div>

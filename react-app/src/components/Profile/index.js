@@ -1,20 +1,24 @@
 import "./styles.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 const Profile = () => {
 	const user = useSelector((state) => state.session.user);
 	const history = useHistory();
+	const [email, setEmail] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("")
 
 	useEffect(() => {
 		if (!user) {
 		  return
 		}
 		(async () => {
-		  const response = await fetch(`/api/users/${user.user_name}`);
-		  const user = await response.json();
-		//   setUser(user);
+		  const response = await fetch(`/api/users/${user.username}`);
+			const res = await response.json();
+			
+			setEmail(res.email)
+			setPhoneNumber(res.phone_number)
 		})();
 	  }, [user]);
 
@@ -45,18 +49,17 @@ const Profile = () => {
 				<div className="left-side">
 					<div className="profile-side">
 						<p className="mobile-no">
-							<i className="fa fa-phone"></i> +23470xxxxx700
+							<h4>Phone Number</h4>
+							<i className="fa fa-phone"></i> {phoneNumber}
 						</p>
 						<p className="user-mail">
-							<i className="fa fa-envelope"></i> Brightisaac80@gmail.com
+							<h4>Email</h4>
+							<i className="fa fa-envelope"></i> {email}
 						</p>
 						<div className="user-bio">
 							<h3>Bio</h3>
 							<p className="bio">
-								Lorem ipsum dolor sit amet, hello how consectetur adipisicing
-								elit. Sint consectetur provident magni yohoho consequuntur,
-								voluptatibus ghdfff exercitationem at quis similique. Optio,
-								amet!
+								{user.bio}
 							</p>
 						</div>
 						<div className="profile-btn">
