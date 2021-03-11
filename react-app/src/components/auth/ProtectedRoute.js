@@ -9,25 +9,4 @@ export const ProtectedRoute = props => {
   )
 };
 
-
-
-
-// export const PrivateRoute = () => {
-  
-//   const sessionUser = useSelector(state => state.session.user);
-  
-//   useEffect(() => {
-
-//     (async () => {
-//       const user = await authenticate();
-//       console.log(user)
-//       if (!user.errors) {
-//         setAuthenticated(true);
-//       }
-//       setLoaded(true);
-//     })();
-//   },[]);
-  
-// }
-
 export default ProtectedRoute

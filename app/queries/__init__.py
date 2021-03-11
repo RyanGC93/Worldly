@@ -26,6 +26,15 @@ def query_comments():
     row = dict(zip(keys,values))
     print(values)
     print(row)
-    
 
+username = 'demo'
+    
+@query_commands.command('user-protected')
+def query_comments():
+    x = db.session.query(User.phone_number, User.email).filter(User.user_name == 'sbutler').first() 
+    # keys = ['event_id', 'title', 'description', 'city', 'country', 'username']
+    # values = list(x[0])
+    # row = dict(zip(keys,values))
+    # print(values)
+    print(x)
         

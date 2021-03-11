@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import './styles.css';
 import { useDispatch} from 'react-redux';
 import { login } from '../../../store/session';
@@ -22,8 +22,8 @@ export const LoginForm = ({ setAuthenticated}) => {
     e.preventDefault();
     
     if (checkbox) rememberMe(checkbox, email);
-    const user = { email, password };
-    const res = await dispatch(login(user));
+
+    const res = await dispatch(login(email,password));
     if (res.errors) setErrors(res.errors)
     setAuthenticated(true)
     if(!res.errors) history.push('/')
@@ -31,7 +31,7 @@ export const LoginForm = ({ setAuthenticated}) => {
 
   useEffect(() => {
     setEmail(isRemembered())
-  })
+  },[setEmail])
 
   const checkboxHandler = () => (checkbox) ? setCheckBox(false) : setCheckBox(true)
 

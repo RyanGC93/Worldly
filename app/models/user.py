@@ -35,11 +35,11 @@ class User(db.Model, UserMixin):
 
   def to_dict(self):
     return {
-      "id": self.id,
       "first_name": self.first_name,
       "last_name": self.last_name,
       "username": self.user_name,
-      "bio": self.bio      
+      "bio": self.bio, 
+      "mileage": self.mileage     
     }
 
   # TODO: add a setter property to update mileage

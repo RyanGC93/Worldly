@@ -44,7 +44,7 @@
 }
 
 .searchBar-wrapper div{
-    background-color: rgba(205, 208, 219, 0.2)
+    background-color: rgba(205, 208, 219, 1)
 }
 
 .logout-btn {
@@ -56,4 +56,8 @@
     border: none;
     width: 80%;
 
+}
+
+.profile{
+  background-color: rgba(70, 67, 67, 0)
 }
