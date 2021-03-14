@@ -7,8 +7,8 @@ class Location(db.Model):
     event_id = db.Column(db.Integer, db.ForeignKey("events.id"),nullable=False)
     longitude = db.Column(db.Float, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
-    city = db.Column(db.String, nullable=False)
     country = db.Column(db.String, nullable=False)
+    region = db.Column(db.String, nullable=False)
 
     event = db.relationship('Event', back_populates='location')
     

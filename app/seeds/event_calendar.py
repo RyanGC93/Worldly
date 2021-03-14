@@ -6,10 +6,15 @@ fake = Faker()
 # Adds a demo user, you can add other users here if you want
 def seed_event_calendar():
     # fake.random_int(min=0, max=9999, step=1)
-    demo = EventCalendar(id=2,event_id=1,date=fake.past_date(),time=fake.time())
+    demo = EventCalendar(id=1,event_id=1,date=fake.past_date(),time=fake.time())
     demo2 = EventCalendar(id=2,event_id=1,date=fake.future_date(),time=fake.time())
+    seed_list = []
+    for _ in range(10):
+        demo2 = EventCalendar(event_id=1,date=fake.future_date(),time=fake.time())
+        seed_list.append(demo2)
     db.session.add(demo)
-    db.session.add(demo2)
+    # db.session.add(demo2)
+    db.session.add_all(seed_list)
 
     db.session.commit()
 
