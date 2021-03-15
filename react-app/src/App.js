@@ -9,6 +9,7 @@ import User from "./components/User";
 import HomePage from './components/HomePage'
 import Profile from './components/Profile'
 import { restoreUser } from './store/session'
+import PageNoteFound from './components/PageNoteFound'
 
 
 function App() {
@@ -48,6 +49,10 @@ function App() {
         <ProtectedRoute path="/profile/:userId" exact={true} authenticated={authenticated}>
           <Profile />
         </ProtectedRoute>
+        <Route path='*'>
+          <PageNoteFound />
+
+        </Route>
       </Switch>
     </BrowserRouter>
   );

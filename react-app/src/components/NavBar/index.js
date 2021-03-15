@@ -13,18 +13,19 @@ const NavBar = ({ setAuthenticated }) => {
 	const profileRedirect = () => {
 		history.push(`profile/${username}`)
 	}
+	const homeRedirect = () => {
+		history.push('/')
+	}
 
 
 	return (
 	<>
 			<div className="navbar">
-				<div className="logo-holder">Worldy</div>
+				<div className="logo-holder" onClick={homeRedirect}>Worldy</div>
 				<div className="searchBar-wrapper">
                     <ReactSearchAutocomplete />
 				</div>
-                <div className="quick-linkss">
-					<div className='profile' onClick={profileRedirect}>Profile</div>
-                </div>
+				<div className='profile' onClick={profileRedirect}>Profile</div>
 				<div className="user-settings">
                     <LogoutButton setAuthenticated={setAuthenticated} />
 				</div>

@@ -1,8 +1,9 @@
 /* 1600 / 16 = 100em 
 /* 	mobile 90% event  */
-.carousel-prev, .carousel-next{
+button.carousel-prev, button.carousel-next{
 	height:20%;
-	margin-top: 20%
+	margin-top: 20%;
+	bottom: 30%
   }
   
   .grid-container {
