@@ -5,16 +5,15 @@ import EventCarousel from "./EventCarousel";
 import ReactStarsRating from "react-awesome-stars-rating";
 import CalendarModal from "../CalendarModal";
 import { Modal } from "../../context/Modal";
-import Calendar from "react-calendar";
 
-const EventCard = () => {
-  const title = "ADD_TITLE_HERE";
+const EventCard = ({event}) => {
+  const title = event.title;
   const badge = "ADD_BADGE_HERE";
-  const country = "ADD_COUNTRY_HERE";
-  const continent = "ADD_CONTINENT_HERE";
+  const country = event.country;
+  const continent = event.region;
   const closest_event_date = "ADD_DATE_HERE";
   const closest_event_time = "ADD_TIME_EVENT";
-  const description = "ADD_Description";
+  const description = event.description;
   const value = 4.5;
 
   const [toggle, setToggle] = useState(true);
