@@ -7,7 +7,7 @@ class Review(db.Model):
     event_id = db.Column(db.Integer, db.ForeignKey("events.id"),nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"),nullable=False)
     rating = db.Column(db.Integer, nullable=False)
-    comment = db.Column(db.String(250), nullable=False)
+    comment = db.Column(db.String(550), nullable=False)
     date_created = db.Column(db.DateTime,  default=db.func.current_timestamp())
     date_modified = db.Column(db.DateTime,  default=db.func.current_timestamp(
     ), onupdate=db.func.current_timestamp())

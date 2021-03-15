@@ -1,10 +1,9 @@
-
 from app.models import db, PhotoGallery
 
 # Adds a demo user, you can add other users here if you want
 def seed_photo_gallery():
 
-    demo = PhotoGallery(id=1,event_id=1, description="this is a photo", url="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg")
+    demo = PhotoGallery(id=1,event_id=1, description="this is a photo", url="")
 
     db.session.add(demo)
 

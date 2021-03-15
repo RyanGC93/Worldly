@@ -9,8 +9,8 @@ def seed_event_calendar():
     demo = EventCalendar(id=1,event_id=1,date=fake.past_date(),time=fake.time())
     demo2 = EventCalendar(id=2,event_id=1,date=fake.future_date(),time=fake.time())
     seed_list = []
-    for _ in range(10):
-        demo2 = EventCalendar(event_id=1,date=fake.future_date(),time=fake.time())
+    for _ in range(50):
+        demo2 = EventCalendar(event_id=fake.random_int(min=3, max=34, step=1),date=fake.future_date(),time=fake.time())
         seed_list.append(demo2)
     db.session.add(demo)
     # db.session.add(demo2)

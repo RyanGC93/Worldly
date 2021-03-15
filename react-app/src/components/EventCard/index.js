@@ -29,8 +29,8 @@ const EventCard = ({event}) => {
                 <h2 className="title">{title}</h2>
                 <p className="venue">{badge}</p>
                 <address className="address">
-                  <p className="address-country">{country} </p>
-                  <p className="address-continent">{continent}</p>
+                  <div className="address-country">{country} </div>
+                  <div className="address-continent">{continent}</div>
                 </address>
               </div>
               <div className="image-wrapper carousel">
