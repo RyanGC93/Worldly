@@ -6,8 +6,8 @@
   }
   
   .grid-container {
-	  max-width: 100em;
-	  margin: 2rem auto;
+	  max-width: 100%;
+	  margin: 0;
 	  padding: 2%;
 	  height: 100%;
 	  display: flex;

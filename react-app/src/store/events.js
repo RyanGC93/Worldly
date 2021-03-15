@@ -1,4 +1,4 @@
-const SET_EVENTS = "posts/SET_EVENTS";
+const SET_EVENTS = "events/SET_EVENTS";
 const CREATE_POSTS = "posts/CREATE_POSTS";
 const REMOVE_POST = "posts/REMOVE_POST";
 const UPDATE_POST = "posts/UPDATE_POST";
@@ -77,18 +77,19 @@ export const getEvents = () => async (dispatch) => {
   if (response.ok) {
       let res = await response.json();
       console.log(res)
-    //    dispatch(setPosts(res.posts));
+    dispatch(setEvents(res.events));
   }
   return response;
 };
 
 const initialState = {};
 
-const postsReducer = (state = initialState, action) => {
+const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_EVENTS:
-      const events = action.posts.reduce((acc, ele) => {
-        acc[ele.id] = ele;
+      const events = action.events.reduce((acc, ele) => {
+
+        acc[ele.event_id] = ele;
         return acc;
       }, {});
       return { ...state, ...events };
@@ -108,4 +109,4 @@ const postsReducer = (state = initialState, action) => {
   }
 };
 
-export default postsReducer;
+export default eventsReducer;
