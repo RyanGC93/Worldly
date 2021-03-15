@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as eventActions from '../../store/events'
+import EventManager from "./EventManager";
+
 
 const Profile = () => {
 	const user = useSelector((state) => state.session.user);
@@ -92,7 +94,10 @@ const Profile = () => {
 						</div>
 					</div>
 				</div>
-				<div className="right-side"></div>
+				<div className="right-side">
+					<EventManager />
+				</div>
+				
 			</div>
 		</div>
 	);
