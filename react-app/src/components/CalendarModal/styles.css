@@ -1,14 +1,67 @@
 .header {
-    text-align: center;
-    font-size: 30px;
-  }
+  text-align: center;
+  font-size: 30px;
+  position: relative;
+}
+
+#modal-content{
+  border-radius:15%;
+}
+.header-row svg{
+ position: relative;
+ height: 35px;
+ width: 35px;
+ left: 30px
+ /* left:-200px; */
+ /* top:4px; */
+
+}
+
+.header-row{
+display: grid;
+grid-template-columns: 20% 60% 20%;
+}
+
+.booking-container {
+  width: 350px;
+  height: 270px;
+}
+
+.time-container{
+display: grid;
+height: 80%;
+grid-template-columns: auto auto auto;
+grid-row: auto
+}
+
+.slot-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red
   
-  #modal-content{
-    border-radius:15%;
-  }
   
-  .timeslot-container {
-    width: 350px;
-    height: 270px;
-  }
-  
+}
+
+.btn {
+  font-size: 20px;
+  padding: 2px 7px 2px 7px;
+  background-color: #4CAF50;
+  border: 3px solid #4CAF50;
+  color: white;
+  text-transform: uppercase;
+  height: auto;
+  /* width: inherit; */
+  text-shadow: 0px 2px rgba(77, 77, 77, 0.5);
+  box-shadow: 0px 6px rgba(77, 77, 77, 1);
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn:active {
+  text-shadow: 0px 2px rgba(77, 77, 77, 0.5);
+  box-shadow: 0px 0px rgba(77, 77, 77, 1);
+  transform: translateY(6px);
+}

@@ -41,7 +41,7 @@ button.carousel-next {
 	padding: 15px 15px 15px 15px;
 	width: 30px;
 	height: 30px;
-	z-index: 3;
+	z-index: 99;
 }
 
 @supports (display: grid) {

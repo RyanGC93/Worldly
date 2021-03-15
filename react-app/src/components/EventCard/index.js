@@ -43,8 +43,8 @@ const EventCard = ({event}) => {
                     </Modal>
                   )}
                 </div>
-
                 <EventCarousel />
+
                 {/* TODO >> add a carousel */}
               </div>
               <div className="item-time-date">
