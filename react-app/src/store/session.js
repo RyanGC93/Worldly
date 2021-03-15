@@ -9,9 +9,6 @@ const setSession = (user) => {
 };
 
 export const login = (email, password) => async (dispatch) => {
-  alert(email)
-  console.log(email)
-  alert(password)
 	const response = await fetch('/api/auth/login', {
 		method: 'POST',
 		headers: {
