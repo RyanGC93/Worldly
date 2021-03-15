@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as eventActions from '../../store/events'
 import EventManager from "./EventManager";
+import Map from '../Map'
 
 
 const Profile = () => {
@@ -99,6 +100,7 @@ const Profile = () => {
 				</div>
 				
 			</div>
+			<Map />
 		</div>
 	);
 };
