@@ -1,3 +1,4 @@
+
 const SET_REVIEWS = "reviews/SET_REVIEWS";
 const CREATE_REVIEWS = "reviews/CREATE_REVIEWS";
 const REMOVE_REVIEWS = "reviews/REMOVE_REVIEWS";
@@ -72,16 +73,10 @@ export const updateReviewLikes = (like) => async (dispatch) => {
   return response;
 };
 
-export const getEvents = () => async (dispatch) => {
+export const getReviews = () => async (dispatch) => {
   const response = await fetch("/api/reviews/");
   if (response.ok) {
     let res = await response.json();
-    console.log(res)
-    const eventIds = []
-    for ( const eventListing of res.reviews) {
-      eventIds.push(eventListing.event_id);
-    }
-    console.log(eventIds)
     dispatch(setEvents(res.reviews));
   }
   return response;
@@ -98,7 +93,7 @@ const reviewsReducer = (state = initialState, action) => {
         return acc;
       }, {});
       return { ...state, ...reviews };
-    case CREATE_REVIEWSS:
+    case CREATE_REVIEWS:
       return { ...state, [action.drink.id]: action.drink };
     case REMOVE_REVIEWS:
       const newState = { ...state };

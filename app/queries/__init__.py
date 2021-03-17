@@ -1,5 +1,5 @@
 from flask.cli import AppGroup
-from app.models import db, Event, Location, Ambassador, User, Review
+from app.models import db, Event, Location, Ambassador, User, Review, PhotoGallery, EventCalendar
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -10,41 +10,60 @@ def query_event():
 
     # y = db.session.query.query(CommentLike) 
     # for c, u, l in db.session.query(Comment, User, CommentLike).filter(Comment.id == CommentLike.commentId, User.id == Comment.userId ).with_entities(User.name, Comment):
-    x = db.session.query(Event.id, Event.title, Event.description , Location.city, Location.country, User.user_name).filter(Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all() 
-    keys = ['event_id', 'title', 'description', 'city', 'country', 'username']
-    print(x)
+    x = db.session.query(Event.id, Event.title, Event.description , Location.region, Location.country, User.user_name).filter(Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all() 
+    keys = ['event_id', 'title', 'description', 'region', 'country', 'username']
+    print(x[0])
     values = list(x[0])
     row = dict(zip(keys,values))
-    print(values)
-    print(row)
+    # print(values)
+    # print(row)
     
-@query_commands.command('event-specified')
+@query_commands.command('event-limited')
 def query_comments():
-    x = db.session.query(Event.id, Event.title, Event.description , Location.city, Location.country, User.user_name).filter(Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all() 
-    keys = ['event_id', 'title', 'description', 'city', 'country', 'username']
-    values = list(x[0])
-    row = dict(zip(keys,values))
-    print(values)
-    print(row)
+    x = db.session.query(Event.id, Event.title, Event.description , Location.region, Location.country, User.user_name).filter(Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).limit(2) 
+    keys = ['event_id', 'title', 'description', 'region', 'country', 'username']
+    # values = list(x[0])
+    # row = dict(zip(keys,values))
+    # print(values)
+    # print(row)
+    print(x)
 
 username = 'demo'
     
 @query_commands.command('user-protected')
 def query_comments():
     x = db.session.query(User.phone_number, User.email).filter(User.user_name == 'sbutler').first() 
-    # keys = ['event_id', 'title', 'description', 'city', 'country', 'username']
+    # keys = ['event_id', 'title', 'description', 'region', 'country', 'username']
     # values = list(x[0])
     # row = dict(zip(keys,values))
     # print(values)
     print(x)
 
-# Queries events for events owned by user
-@query_commands.command('event-specified')
+
+
+
+@query_commands.command('events-id')
 # Have to pass user and date
 def query_comments():
-    x = db.session.query(Event.id, Event.title, Event.description , Location.city, Location.country, User.user_name).filter(Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all() 
-    keys = ['event_id', 'title', 'description', 'city', 'country', 'username']
-    values = list(x[0])
-    row = dict(zip(keys,values))
-    print(values)
-    print(row)        
+    
+    # Gets the events by country
+    region_param ='Africa'
+    events = db.session.query(Location.event_id, Location.region).filter(Location.region == region_param).all() 
+    event_ids = [event[0]for event in events]
+    # print(event_ids) # ALL EVENT IDS
+
+    event_info = db.session.query(Event.id, Event.title, Event.description , Location.region, Location.country, User.first_name).filter(Event.id.in_(event_ids), Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
+    # print(event_info)
+    
+    photo_gallery = db.session.query(PhotoGallery.id,PhotoGallery.description,PhotoGallery.url,PhotoGallery.event_id).filter(PhotoGallery.event_id.in_(event_ids)).all()
+    # print(photo_gallery) 
+    
+    event_calendar = db.session.query(EventCalendar.id,EventCalendar.event_id,EventCalendar.date,EventCalendar.time).filter(EventCalendar.event_id.in_(event_ids)).all()
+    # print(event_calendar) 
+    
+    reviews = db.session.query(Review.id,Review.event_id,User.user_name,Review.rating,Review.comment, Review.date_created).filter(Review.event_id.in_(event_ids), Review.user_id == User.id).all()
+    print(reviews) 
+    # keys = ['event_id', 'title', 'description', 'region', 'country', 'username']
+    # print(x[0])
+    # values = list(x[0])
+    # row = dict(zip(keys,values))

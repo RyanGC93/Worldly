@@ -1,3 +1,6 @@
+import * as reviewActions from './reviews'
+
+
 const SET_EVENTS = "events/SET_EVENTS";
 const CREATE_POSTS = "posts/CREATE_POSTS";
 const REMOVE_POST = "posts/REMOVE_POST";
@@ -81,7 +84,7 @@ export const getEvents = () => async (dispatch) => {
     for ( const eventListing of res.events) {
       eventIds.push(eventListing.event_id);
     }
-    console.log(eventIds)
+    console.log('eventIds' ,eventIds)
     dispatch(setEvents(res.events));
   }
   return response;
