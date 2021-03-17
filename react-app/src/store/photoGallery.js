@@ -85,7 +85,7 @@ const photosReducer = (state = initialState, action) => {
     case SET_GALLERY:
       const photos = action.photos.reduce((acc, ele) => {
 
-        acc[ele.event_id] = ele;
+        acc[ele.photo_id] = ele;
         return acc;
       }, {});
       return { ...state, ...photos };

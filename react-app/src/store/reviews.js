@@ -85,7 +85,7 @@ const reviewsReducer = (state = initialState, action) => {
     case SET_REVIEWS:
       const reviews = action.reviews.reduce((acc, ele) => {
 
-        acc[ele.event_id] = ele;
+        acc[ele.review_id] = ele;
         return acc;
       }, {});
       return { ...state, ...reviews };
