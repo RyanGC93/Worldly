@@ -1,5 +1,5 @@
 import * as reviewActions from './reviews'
-
+import 
 
 const SET_EVENTS = "events/SET_EVENTS";
 
@@ -80,9 +80,15 @@ export const getEvents = () => async (dispatch) => {
   const response = await fetch("/api/events/");
   if (response.ok) {
     let res = await response.json();
-    console.log(res)
-
-    // dispatch(setEvents(res.events));
+    let events = res.events
+    console.log(events)
+    let eventsInfo = events[0].events_info
+    let eventsPhotos = events[1].photo_gallery
+    let eventCalendar =events[2].event_calendar
+    let eventReviews = events[3].reviews
+    console.log(eventsPhotos,eventsInfo,eventCalendar,eventReviews)
+    dispatch(reviewActions.getReviews(eventReviews))
+    dispatch(setEvents(eventsInfo));
   }
   return response;
 };
