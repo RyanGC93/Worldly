@@ -29,7 +29,8 @@ export const LoginForm = ({ setAuthenticated}) => {
     if(!res.errors) history.push('/')
   }
 
-  const demoLogin = async() => {
+  const demoLogin = async (e) => {
+    e.preventDefault()
     const res = await dispatch(login('demo@aa.io','password'));
     if (res.errors) setErrors(res.errors)
     setAuthenticated(true)
