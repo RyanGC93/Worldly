@@ -73,13 +73,10 @@ export const updateReviewLikes = (like) => async (dispatch) => {
   return response;
 };
 
-export const getReviews = () => async (dispatch) => {
-  const response = await fetch("/api/reviews/");
-  if (response.ok) {
-    let res = await response.json();
-    dispatch(setEvents(res.reviews));
-  }
-  return response;
+export const getReviews = (reviews) => async (dispatch) => {
+    dispatch(setEvents(reviews));
+  
+  return reviews;
 };
 
 const initialState = {};

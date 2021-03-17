@@ -2,6 +2,7 @@ import * as reviewActions from './reviews'
 
 
 const SET_EVENTS = "events/SET_EVENTS";
+
 const CREATE_POSTS = "posts/CREATE_POSTS";
 const REMOVE_POST = "posts/REMOVE_POST";
 const UPDATE_POST = "posts/UPDATE_POST";
@@ -80,12 +81,8 @@ export const getEvents = () => async (dispatch) => {
   if (response.ok) {
     let res = await response.json();
     console.log(res)
-    const eventIds = []
-    for ( const eventListing of res.events) {
-      eventIds.push(eventListing.event_id);
-    }
-    console.log('eventIds' ,eventIds)
-    dispatch(setEvents(res.events));
+
+    // dispatch(setEvents(res.events));
   }
   return response;
 };
