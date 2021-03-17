@@ -31,7 +31,7 @@ def events():
     events_calendar = {"event_calendar": [dict(zip(event_calendar_keys,event_time)) for event_time in event_calendar_values]}    
     # print(events_calendar) 
     
-    review_keys = ['review_id', 'event_id', 'user_name', 'comment', 'created_at']
+    review_keys = ['review_id', 'event_id', 'user_name', 'rating', 'comment', 'created_at']
     review_values = db.session.query(Review.id,Review.event_id,User.user_name,Review.rating,Review.comment, Review.date_created).filter(Review.event_id.in_(event_ids), Review.user_id == User.id).all()
     reviews = {"reviews": [dict(zip(review_keys,review)) for review in review_values]}
     # print(reviews) 

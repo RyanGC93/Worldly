@@ -10,6 +10,7 @@ const MainFeed = () => {
         Object.values(state.events));
     const [loaded, setLoaded] = useState(false);
 
+
     useEffect(() => {
         if(eventList[0]) setLoaded(true);
         console.log(eventList)
