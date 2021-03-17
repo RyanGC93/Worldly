@@ -29,6 +29,13 @@ export const LoginForm = ({ setAuthenticated}) => {
     if(!res.errors) history.push('/')
   }
 
+  const demoLogin = async() => {
+    const res = await dispatch(login('demo@aa.io','password'));
+    if (res.errors) setErrors(res.errors)
+    setAuthenticated(true)
+    if(!res.errors) history.push('/')
+  }
+
   useEffect(() => {
     setEmail(isRemembered())
   },[setEmail])
@@ -37,6 +44,7 @@ export const LoginForm = ({ setAuthenticated}) => {
 
 
   return (
+    <>
     <form onSubmit={onLogin}>
       <div className='error-container'>
         {errors.map((error) => (
@@ -71,8 +79,12 @@ export const LoginForm = ({ setAuthenticated}) => {
           <div className="group">
             <input type="submit" className="button sign-in-btn" value="Sign In"/>
           </div>
+          <div className="group">
+            <input type="submit" className="button sign-in-btn" value="Demo User Sign In " onClick={demoLogin}/>
+          </div>
       </div>
-    </form>
+      </form>
+    </>  
   );
 };
 

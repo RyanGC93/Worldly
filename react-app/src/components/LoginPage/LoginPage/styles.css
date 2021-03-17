@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
 
-.title{
+.title__login{
 	font-family: 'Rochester', cursive;
 	color: white;
 	font-size: 40px;
 	height: 40px;
 	margin-top: 10px;
 	padding: 5px 5px 15px 5px;
-	margin-bottom: 5px
+	margin-bottom: 5px;
+	text-align: center;
 }
 
 body{
@@ -19,7 +20,7 @@ body{
 	font:600 16px/18px 'Open Sans',sans-serif;
 }
 *,:after,:before{box-sizing:border-box}
-.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after,.clearfix:before{content:'';display:tab__loginle}
 .clearfix:after{clear:both;display:block}
 a{color:inherit;text-decoration:none}
 
@@ -58,15 +59,18 @@ a{color:inherit;text-decoration:none}
 .login-form .group .check{
 	display:none;
 }
-.login-html .tab{
+.login-html {
 	text-transform:uppercase;
 }
 
-.tab{
+.tab__login{
 	padding:5px 5px 5px 5px;
+	width: 50%;
+	text-align: center;
+	padding: 5px 2% 5px 2%
 }
 
-.login-html .tab{
+.login-html .tab__login{
 	font-size:22px;
 	/* margin-right:15px; */
 	padding-bottom:5px;
@@ -74,12 +78,12 @@ a{color:inherit;text-decoration:none}
 	display:inline-block;
 	border-bottom:2px solid transparent;
 }
-.login-html .sign-in:checked + .tab,
-.login-html .sign-up:checked + .tab{
+.login-html .sign-in:checked + .tab__login,
+.login-html .sign-up:checked + .tab__login{
 	color:#fff;
 	border-color:#1161ee;
 }
-.tab:hover{
+.tab__login:hover{
 	cursor: pointer;
 }
 
@@ -144,10 +148,10 @@ a{color:inherit;text-decoration:none}
 .login-form .group .check:checked + label .icon:after{
 	transform:scale(1) rotate(-45deg);
 }
-.login-html .sign-in:checked + .tab + .sign-up + .tab + .login-form .sign-in-htm{
+.login-html .sign-in:checked + .tab__login + .sign-up + .tab__login + .login-form .sign-in-htm{
 	transform:rotate(0);
 }
-.login-html .sign-up:checked + .tab + .login-form .sign-up-htm{
+.login-html .sign-up:checked + .tab__login + .login-form .sign-up-htm{
 	transform:rotate(0);
 }
 
@@ -162,12 +166,3 @@ input.button.sign-in-btn:hover, input.button.sign-up-btn:hover {
 	cursor: pointer;
 }
 
-.options{
-	width: 50%;
-	text-align: center;
-	padding: 5px 2% 5px 2%
-}
-
-.title {
-	text-align: center
-}
