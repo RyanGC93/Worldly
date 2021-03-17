@@ -13,7 +13,6 @@ const MainFeed = () => {
 
     useEffect(() => {
         if(eventList[0]) setLoaded(true);
-        console.log(eventList)
     }, [dispatch,eventList]);
 
     return (

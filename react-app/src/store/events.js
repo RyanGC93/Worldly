@@ -81,12 +81,11 @@ export const getEvents = () => async (dispatch) => {
   if (response.ok) {
     let res = await response.json();
     let events = res.events
-    console.log(events)
     let eventsInfo = events[0].events_info
     let eventPhotos = events[1].photo_gallery
     let eventCalendar =events[2].event_calendar
     let eventReviews = events[3].reviews
-    console.log(eventPhotos,eventsInfo,eventCalendar,eventReviews)
+
     dispatch(eventCalendarActions.getCalendars(eventCalendar))
     dispatch(reviewActions.getReviews(eventReviews))
     dispatch(photoActions.getPhotos(eventPhotos))

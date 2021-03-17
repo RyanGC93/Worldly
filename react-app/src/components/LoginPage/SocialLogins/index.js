@@ -12,8 +12,7 @@ const responseGoogle = (response) => {
 };
 
 export default function SocialLogins(props) {
-  console.log(process.env.REACT_APP_FACEBOOK_LOGIN_KEY)
-  console.log(process.env)
+
 
   return (
     <div className="App">

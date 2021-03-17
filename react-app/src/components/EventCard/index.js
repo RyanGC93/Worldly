@@ -10,10 +10,13 @@ import {useSelector} from 'react-redux'
 
 const EventCard = ({ event }) => {
   const reviews = useSelector((state) => {
-    return Object.values(state.reviews).filter((review) => review.event_id == event.event_id);
+    return Object.values(state.reviews).filter((review) => review.event_id === event.event_id);
   });
+  // const eventSlots = useSelector((state) => {
+  //   return Object.values(state.eventCalendar).filter((timeslot) => timeslot.event_id == event.event_id);
+  // });
   // const reviews = useSelector((state) => state.reviews)
-  console.log('reviews', reviews)
+  // console.log('reviews', event)
 
   
   const title = event.title;
@@ -85,7 +88,7 @@ const EventCard = ({ event }) => {
                   <a
                     className="btn-tickets blue"
                     aria-label="Purchase tickets for this event"
-                    href="#"
+                    href="/"
                   >
                     Book
                   </a>
@@ -111,7 +114,7 @@ const EventCard = ({ event }) => {
                     </div>
                   </div>
                   <div className="ambassador-container">
-                    <p>ambassador name </p>
+                    <p>Chef {event.firstname}</p>
                     <p>Profile </p>
                   </div>
                 </div>

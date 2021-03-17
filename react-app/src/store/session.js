@@ -20,7 +20,6 @@ export const login = (email, password) => async (dispatch) => {
 			})
 		});
   const user = await response.json()
-  console.log(user)  
 		dispatch(setSession(user));
 		return user;
 };
@@ -40,7 +39,6 @@ export const restoreUser = () => async dispatch => {
     }
   });
   let res = await response.json();
-  console.log(res);
   if (!res.errors) {
     dispatch(setSession(res));
   
