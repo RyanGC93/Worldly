@@ -74,7 +74,6 @@ export const updateReviewLikes = (like) => async (dispatch) => {
 };
 
 export const getReviews = (reviews) => async (dispatch) => {
-  alert('sds')
   dispatch(setEvents(reviews));
   return reviews;
 };

@@ -4,27 +4,27 @@ const CREATE_GALLERY = "photos/CREATE_GALLERY";
 const REMOVE_GALLERY = "photos/REMOVE_GALLERY";
 const UPDATE_GALLERY = "photos/UPDATE_GALLERY";
 
-const setEvents = (photos) => {
+const setPhotos = (photos) => {
   return {
     type: SET_GALLERY,
     photos,
   };
 };
 
-const updateReviews = (photos) => {
+const updatePhotos = (photos) => {
   return {
     type: UPDATE_GALLERY,
     photos,
   };
 };
-const removeReview = (id) => {
+const removePhoto = (id) => {
   return {
     type: REMOVE_GALLERY,
     id
   }
 }
 
-export const createReview = (photos) => async dispatch => {
+export const createPhoto = (photos) => async dispatch => {
     const { isPrivate, description, url, userId} = photos
     const options =
     {
@@ -36,9 +36,9 @@ export const createReview = (photos) => async dispatch => {
     }
     const res = await fetch('/api/photos/', options)
     const json = await res.json()
-    // dispatch(setReviews([json]))
+    // dispatch(setPhotos([json]))
 }
-export const editReview = (id, description, isPrivate) => async dispatch => {
+export const editPhoto = (id, description, isPrivate) => async dispatch => {
   const options = {
     method: 'PUT',
     headers: {
@@ -48,33 +48,33 @@ export const editReview = (id, description, isPrivate) => async dispatch => {
   }
   const res = await fetch(`/api/photos/${id}`, options)
   if (res.ok) {
-    const newReview = await res.json()
-    // dispatch(setReviews([newReview]))
+    const newPhoto = await res.json()
+    // dispatch(setPhotos([newPhoto]))
   }
 }
 
-export const deleteReview = (id) => async dispatch => {
+export const deletePhoto = (id) => async dispatch => {
   const options = {
     method: 'DELETE'
   }
   const res =await fetch(`/api/photos/${id}`, options)
   if ( res.ok) {
-    dispatch(removeReview(id))
+    dispatch(removePhoto(id))
   }
 }
 
-export const updateReviewLikes = (like) => async (dispatch) => {
+export const updatePhotoLikes = (like) => async (dispatch) => {
   const { photosId } = like;
   const response = await fetch(`/api/photos/${photosId}`);
   if (response.ok) {
     const res = await response.json();
-    dispatch(updateReviews(res));
+    dispatch(updatePhotos(res));
   }
   return response;
 };
 
-export const getReviews = (photos) => async (dispatch) => {
-  dispatch(setEvents(photos));
+export const getPhotos = (photos) => async (dispatch) => {
+  dispatch(setPhotos(photos));
   return photos;
 };
 
@@ -96,10 +96,10 @@ const photosReducer = (state = initialState, action) => {
       delete newState[action.id];
       return newState;
     case UPDATE_GALLERY:
-      const newReviews = { ...state };
+      const newPhotos = { ...state };
       const index = action.photos.id;
-      newReviews[index] = action.photos;
-      return newReviews;
+      newPhotos[index] = action.photos;
+      return newPhotos;
     default:
       return state;
   }
