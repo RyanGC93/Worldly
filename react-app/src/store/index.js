@@ -3,8 +3,8 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session'
 import eventsReducer from './events'
 import reviewsReducer from './reviews'
-// import photoGalleryReducer from './photoGallery'
-// import eventCalendarReducer from './eventCalendar'
+import photoGalleryReducer from './photoGallery'
+import eventCalendarReducer from './eventCalendar'
 
 
 
@@ -12,8 +12,8 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   events: eventsReducer,
   reviews: reviewsReducer,
-  // photoGallery:photoGalleryReducer,
-  // eventCalendar: eventCalendarReducer
+  photoGallery:photoGalleryReducer,
+  eventCalendar: eventCalendarReducer
 });
 
 let enhancer;

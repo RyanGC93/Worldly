@@ -1,6 +1,6 @@
 import * as reviewActions from './reviews'
 import * as photoActions from './photoGallery'
-
+import * as eventCalendarActions from './eventCalendar'
 const SET_EVENTS = "events/SET_EVENTS";
 
 const CREATE_POSTS = "posts/CREATE_POSTS";
@@ -87,6 +87,7 @@ export const getEvents = () => async (dispatch) => {
     let eventCalendar =events[2].event_calendar
     let eventReviews = events[3].reviews
     console.log(eventPhotos,eventsInfo,eventCalendar,eventReviews)
+    dispatch(eventCalendarActions.getCalendars(eventCalendar))
     dispatch(reviewActions.getReviews(eventReviews))
     dispatch(photoActions.getPhotos(eventPhotos))
     dispatch(setEvents(eventsInfo));
