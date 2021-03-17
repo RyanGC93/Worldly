@@ -12,9 +12,10 @@ const EventCard = ({ event }) => {
   const reviews = useSelector((state) => {
     return Object.values(state.reviews).filter((review) => review.event_id === event.event_id);
   });
-  // const eventSlots = useSelector((state) => {
-  //   return Object.values(state.eventCalendar).filter((timeslot) => timeslot.event_id == event.event_id);
-  // });
+  const images = useSelector((state) => {
+    return Object.values(state.photoGallery).filter((photo) => photo.event_id == event.event_id);
+  });
+  console.log('card',event,images)
   // const reviews = useSelector((state) => state.reviews)
   // console.log('reviews', event)
 
@@ -64,7 +65,7 @@ const EventCard = ({ event }) => {
                       </Modal>
                     )}
                   </div>
-                  <EventCarousel />
+                  <EventCarousel images={images} />
 
                   {/* TODO >> add a carousel */}
                 </div>
