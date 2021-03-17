@@ -75,8 +75,13 @@ export const updatePostLikes = (like) => async (dispatch) => {
 export const getEvents = () => async (dispatch) => {
   const response = await fetch("/api/events/");
   if (response.ok) {
-      let res = await response.json();
-      console.log(res)
+    let res = await response.json();
+    console.log(res)
+    const eventIds = []
+    for ( const eventListing of res.events) {
+      eventIds.push(eventListing.event_id);
+    }
+    console.log(eventIds)
     dispatch(setEvents(res.events));
   }
   return response;

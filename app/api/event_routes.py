@@ -9,7 +9,8 @@ event_routes = Blueprint('events', __name__)
 @login_required
 def events():
     keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname']
-    events = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name).filter(Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all() 
+    events = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name).filter(Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all();
+    print(events)
     return {"events": [dict(zip(keys,event)) for event in events]}
 
 
