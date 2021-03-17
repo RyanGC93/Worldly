@@ -58,12 +58,18 @@ def query_comments():
     photo_gallery = db.session.query(PhotoGallery.id,PhotoGallery.description,PhotoGallery.url,PhotoGallery.event_id).filter(PhotoGallery.event_id.in_(event_ids)).all()
     # print(photo_gallery) 
     
-    event_calendar = db.session.query(EventCalendar.id,EventCalendar.event_id,EventCalendar.date,EventCalendar.time).filter(EventCalendar.event_id.in_(event_ids)).all()
-    # print(event_calendar) 
+    event_calendar_keys = ['event_calendar_id','event_id', 'date', 'time']
+    event_calendar_values = db.session.query(EventCalendar.id,EventCalendar.event_id,EventCalendar.date,EventCalendar.time).filter(EventCalendar.event_id.in_(event_ids)).all()
+    events_calendar = {"event_calendar": [dict(zip(event_calendar_keys,event_calendar_values)) for event_calendar in event_calendar_values]}    
+    print(events_calendar) 
     
-    reviews = db.session.query(Review.id,Review.event_id,User.user_name,Review.rating,Review.comment, Review.date_created).filter(Review.event_id.in_(event_ids), Review.user_id == User.id).all()
-    print(reviews) 
+    review_keys = ['review_id', 'event_id', 'user_name', 'comment', 'created_at']
+    review_values = db.session.query(Review.id,Review.event_id,User.user_name,Review.rating,Review.comment, Review.date_created).filter(Review.event_id.in_(event_ids), Review.user_id == User.id).all()
+    reviews = {"reviews": [dict(zip(review_keys,review_values)) for review in review_values]}
+
+    # print(reviews) 
     # keys = ['event_id', 'title', 'description', 'region', 'country', 'username']
     # print(x[0])
     # values = list(x[0])
     # row = dict(zip(keys,values))
+    # {"events": [dict(zip(keys,event)) for event in events]}
