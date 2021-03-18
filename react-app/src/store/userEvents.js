@@ -80,7 +80,13 @@ export const getUserEvents = (user) => async (dispatch) => {
       let res = await response.json();
       console.log('sadasdasdasdas')
     console.log(res)
-    // dispatch(setUserEvents());
+    let events = res.events
+    let eventsInfo = events[0].user_events_info
+    let eventPhotos = events[1].photo_gallery
+    let eventCalendar =events[2].event_calendar
+    let eventReviews = events[3].reviews
+
+    dispatch(setUserEvents(eventsInfo));
   }
   return response;
 };
