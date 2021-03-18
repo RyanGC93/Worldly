@@ -55,15 +55,15 @@ const Profile = () => {
 				<div className="left-side">
 					<div className="profile-side">
 						<p className="mobile-no">
-							<h4>Phone Number</h4>
+							<h4 className='profile-text'>Phone Number</h4>
 							<i className="fa fa-phone"></i> {phoneNumber}
 						</p>
 						<p className="user-mail">
-							<h4>Email</h4>
+							<h4 className='profile-text'>Email</h4>
 							<i className="fa fa-envelope"></i> {email}
 						</p>
 						<div className="user-bio">
-							<h3>Bio</h3>
+							<h3 className='profile-text'>Bio</h3>
 							<p className="bio">
 								{user.bio}
 							</p>
