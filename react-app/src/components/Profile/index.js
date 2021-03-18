@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import * as eventActions from '../../store/events'
 import EventManager from "./EventManager";
 import Map from '../Map'
+import * as userEventActions from '../../store/userEvents'
 
 
 const Profile = () => {
@@ -25,6 +26,7 @@ const Profile = () => {
 			setEmail(res.email)
 			setPhoneNumber(res.phone_number)
 		})();
+		dispatch(userEventActions.getUserEvents(user.username))
 		dispatch(eventActions.getEvents())
 	  }, [user, dispatch]);
 

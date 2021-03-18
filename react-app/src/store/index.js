@@ -5,6 +5,7 @@ import eventsReducer from './events'
 import reviewsReducer from './reviews'
 import photoGalleryReducer from './photoGallery'
 import eventCalendarReducer from './eventCalendar'
+import userEventsReducer from './userEvents'
 
 
 
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   events: eventsReducer,
   reviews: reviewsReducer,
   photoGallery:photoGalleryReducer,
-  eventCalendar: eventCalendarReducer
+  eventCalendar: eventCalendarReducer,
+  userEvents: userEventsReducer
 });
 
 let enhancer;
