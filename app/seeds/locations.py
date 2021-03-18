@@ -3,6 +3,7 @@ from app.models import db, Location
 
 # Adds a demo user, you can add other users here if you want
 def seed_location():
+    demo2=Location(event_id=2, longitude=9.081999, latitude=8.675277, country="Nigeria", region="Africa")
     demo3=Location(event_id=3, longitude=28.18712, latitude=-25.74602, country="South Africa", region="Africa")
     demo4=Location(event_id=4, longitude=7.09262, latitude=31.791702, country="Morocco", region="Africa")
     demo5=Location(event_id=5, longitude=9.081999, latitude=8.675277, country="Nigeria", region="Africa")
@@ -36,7 +37,7 @@ def seed_location():
     demo34=Location(event_id=34, longitude=-103.349609, latitude=20.659698, country="Mexico ", region="Latin America")
 
 
-    db.session.add_all([demo3,demo4,demo5,demo6,demo7,demo8,demo9,demo10,demo11,demo12,demo13,demo14,demo15,demo16,demo17,demo18,demo19,demo20,demo21,demo22,demo23,demo24,demo25,demo26,demo26,demo29,demo29,demo30,demo31,demo32,demo34])
+    db.session.add_all([demo2,demo3,demo4,demo5,demo6,demo7,demo8,demo9,demo10,demo11,demo12,demo13,demo14,demo15,demo16,demo17,demo18,demo19,demo20,demo21,demo22,demo23,demo24,demo25,demo26,demo26,demo29,demo29,demo30,demo31,demo32,demo34])
 
     db.session.commit()
 

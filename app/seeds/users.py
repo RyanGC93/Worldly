@@ -8,7 +8,7 @@ fake = Faker()
 
 
 def seed_users():
-    demo = User( id=1, first_name='Demo',last_name=fake.last_name(),user_name='demo',bio='Bacon trailblazer. Award-winning food buff. Infuriatingly humble alcohol junkie.', email='demo@aa.io',password='password',phone_number=fake.phone_number())
+    demo = User( id=1, first_name='Demo',last_name='User',user_name='Demo',bio='Bacon trailblazer. Award-winning food buff. Infuriatingly humble alcohol junkie.', email='demo@aa.io',password='password',phone_number=fake.phone_number())
     featured = User( id=2, first_name='Phoebe',last_name='Ajayi',user_name='Phoebe_Ajayi', bio='Analyst. Music scholar. Infuriatingly humble zombie nerd. Bacon lover. Hardcore thinker.', email='pheebs@aa.io',password='password',phone_number="970439923")
     Demo3=User(id=3, first_name="Dre",last_name=fake.last_name(),user_name=fake.user_name(),bio='Food evangelist. Web trailblazer. Friendly gamer. Professional introvert. Travel buff.', email=fake.email(),password=fake.password(),phone_number=fake.phone_number())
     Demo4=User(id=4, first_name="Kahlani",last_name=fake.last_name(),user_name=fake.user_name(), bio='Alcohol ninja. Pop culture advocate. Hardcore zombie evangelist. Certified internet fanatic. Award-winning food maven.', email=fake.email(),password=fake.password(),phone_number=fake.phone_number())

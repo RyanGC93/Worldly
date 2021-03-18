@@ -1,12 +1,23 @@
 
 from app.models import db, BookingCalendar
+from faker import Faker
+fake = Faker()
 
 # Adds a demo user, you can add other users here if you want
 def seed_booking_calendar():
 
-    demo = BookingCalendar(id=1,user_id=1,timeslot=1)
+    seed_list = []
+    count = 0
+    for _ in range(100):
+        count+=1
+        demo2 = BookingCalendar(id=count, user_id=fake.random_int(min=1, max=34, step=1),timeslot=fake.random_int(min=1, max=50, step=1))
+        seed_list.append(demo2)
+    for _ in range(10):
+        count+=1
+        demo2 = BookingCalendar(id=count,user_id=1,timeslot=fake.random_int(min=1, max=50, step=1))
+        seed_list.append(demo2)        
 
-    db.session.add(demo)
+    db.session.add_all(seed_list)
 
     db.session.commit()
 

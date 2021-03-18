@@ -2,10 +2,10 @@ from app.models import db, PhotoGallery
 
 # Adds a demo user, you can add other users here if you want
 def seed_photo_gallery():
-    demo1=PhotoGallery(event_id=1,description="",url="https://thumbs.dreamstime.com/b/jollof-rice-west-african-cuisine-chicken-fried-plantain-86976048.jpg")
-    demo2=PhotoGallery(event_id=1,description="",url="https://thumbs.dreamstime.com/b/jollof-rice-west-african-cuisine-chicken-fried-plantain-86790990.jpg")
-    demo3=PhotoGallery(event_id=1,description="",url="https://www.dreamstime.com/nigerian-food-party-jollof-rice-fried-chicken-wings-close-nigerian-food-party-jollof-rice-fried-chicken-wings-close-up-image112895117")
-    demo4=PhotoGallery(event_id=1,description="",url="https://thumbs.dreamstime.com/b/nigerian-jollof-rice-chicken-thigh-roasted-thyme-143247305.jpg")
+    demo1=PhotoGallery(event_id=2,description="",url="https://thumbs.dreamstime.com/b/jollof-rice-west-african-cuisine-chicken-fried-plantain-86976048.jpg")
+    demo2=PhotoGallery(event_id=2,description="",url="https://thumbs.dreamstime.com/b/jollof-rice-west-african-cuisine-chicken-fried-plantain-86790990.jpg")
+    demo3=PhotoGallery(event_id=2,description="",url="https://www.dreamstime.com/nigerian-food-party-jollof-rice-fried-chicken-wings-close-nigerian-food-party-jollof-rice-fried-chicken-wings-close-up-image112895117")
+    demo4=PhotoGallery(event_id=2,description="",url="https://thumbs.dreamstime.com/b/nigerian-jollof-rice-chicken-thigh-roasted-thyme-143247305.jpg")
     demo5=PhotoGallery(event_id=3,description="",url="https://thumbs.dreamstime.com/b/gatsby-south-african-sandwich-different-varieties-gatsbys-include-masala-steak-chicken-polony-vienna-sausage-calamari-fish-46789218.jpg")
     demo6=PhotoGallery(event_id=3,description="",url="https://www.dreamstime.com/stock-photo-gatsby-south-african-sandwich-different-varieties-gatsbys-include-masala-steak-chicken-polony-vienna-sausage-calamari-fish-image46455758")
     demo7=PhotoGallery(event_id=3,description="",url="https://thumbs.dreamstime.com/b/gatsby-south-african-sandwich-different-varieties-gatsbys-include-masala-steak-chicken-polony-vienna-sausage-calamari-fish-46455769.jpg")
