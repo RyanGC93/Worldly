@@ -11,18 +11,24 @@
 	text-align: center;
 }
 
+.background-img{
+	position:absolute;
+	height: 100%;
+	width:100%
+}
+
 body{
 	margin:0;
 	color:#6a6f8c;
-  background-image: url('https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  /* background-image: url('https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
 	background-size: cover;
-	background-attachment: fixed;
+	background-attachment: fixed; */
 	font:600 16px/18px 'Open Sans',sans-serif;
 }
-*,:after,:before{box-sizing:border-box}
+/* *,:after,:before{box-sizing:border-box}
 .clearfix:after,.clearfix:before{content:'';display:tab__loginle}
 .clearfix:after{clear:both;display:block}
-a{color:inherit;text-decoration:none}
+a{color:inherit;text-decoration:none} */
 
 
 

@@ -47,9 +47,7 @@ const EventManager = () => (
     <TabPanel>
       <div className="eventCard-container grid-container">
         <EventCard event={eventOne} />
-        <EventCard event={eventOne} />
-        <EventCard event={eventOne} />
-        <EventCard event={eventOne} />
+
               
 
       </div>

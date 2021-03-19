@@ -1,4 +1,6 @@
-.map-container {
-    background-color: bisque;
-  }
-  
+.map-container{
+    width:100vw;
+    display: flex;
+    justify-content:center;
+    background-color: blue;
+}
