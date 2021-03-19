@@ -40,14 +40,15 @@ const rounded = (num) => {
 };
 
 const MapChart = ({ setTooltipContent }) => {
-  const width = 800;
-  const height = 600;
+  // const width = 800;
+  // const height = 600;
 
   const CustomZoomableGroup = ({ children, ...restProps }) => {
     const { mapRef, transformString, position } = useZoomPan(restProps);
     return (
       <g ref={mapRef}>
-        <rect width={width} height={height} fill="transparent" />
+        <rect // width={width}  height={height}
+          fill="transparent" />
         <g transform={transformString}>{children(position)}</g>
       </g>
     );
@@ -56,10 +57,10 @@ const MapChart = ({ setTooltipContent }) => {
   return (
     <>
       <ComposableMap
-        width={width}
-        height={height}
+        // width={width}
+        // height={height}
         data-tip=""
-        projectionConfig={{ scale: 200 }}
+        projectionConfig={{ scale: 220 }}
       >
         <CustomZoomableGroup center={[0, 0]}>
           {(position) => (
