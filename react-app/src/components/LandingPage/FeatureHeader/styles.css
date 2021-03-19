@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@200&family=Oswald:wght@500&family=Pacifico&display=swap');
+.mainfeed-feature{
+  height: 60vh;
+width: 100vw;
+position: relative ;
+
+
+
+}
+
+.background-img{
+  height: 100%;
+  width: 100%;
+  object-fit: fill;  
+}
+
+.feature-title{
+  font-family: 'Pacifico', cursive;
+  /* font-weight: bold; */
+  font-size:5vh;  
+  color: white;
+  letter-spacing: 5px;
+  -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black;
+
+}
+
+.feature-btn {
+    background-color: rgba(255,255,255, 0.5);
+    padding: 10px;
+    border: 0;
+    border-radius: 8px;
+    color: rgba(0,0,0,.6);
+    cursor: pointer;
+    outline: 0;
+    font-size: 2.5vh;
+    font-weight: 700;
+    position:absolute;
+    left:30%
+}
+
+.feature-btn:hover {
+  background-color: white;
+  color:black;  
+}
+
+.feature-content{
+  font-family: 'Lobster', cursive;
+  font-size: 3.5vh;
+  font-weight: bold;
+  color: white;
+  padding: 1px 1px 1px 1px;
+  margin-left: 10px; 
+  letter-spacing: 3px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+
+.mainfeed-feature-info{
+  position: absolute;
+  /* top:35%;
+  width:60%;   */
+  left: 7%;
+  top: 10%;
+}
+
+.explore-btn-container{
+  position: relative;
+}
+
+
+.feature-image{
+  width: 100%;
+  height:100%
+}
