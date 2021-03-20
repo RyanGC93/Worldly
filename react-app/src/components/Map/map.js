@@ -13,14 +13,14 @@ const geoUrl =
 
 
   // [lon,lat]
-const markers = [
-  {
-    markerOffset: -30,
-    name: "Cooking South African Street Food",
-    coordinates: [18.423300,-33.918861]
-  },
+// const markers = [
+//   {
+//     markerOffset: -30,
+//     name: "Cooking South African Street Food",
+//     coordinates: [18.423300,-33.918861]
+//   },
 
-];
+// ];
 
 const rounded = (num) => {
   if (num > 1000000000) {
@@ -38,16 +38,17 @@ const MapChart = ({ setTooltipContent }) => {
   const userEvents = useSelector((state) =>
     Object.values(state.userEvents));
   // let userEvent = useSelector((state) => state.userEvents);
-  console.log('user', userEvents);
-  let coordinates = [];
-  // userEvent.forEach((event) => {
-  //   coordinates.push(
-  //     { markerOffset: -30,
-  //       name: `${event}`,
-  //       coordinates: [event.longitude,event.latitude]}
-  //   )
+  
+  let markers = [];
+  userEvents.forEach((event) => {
+    markers.push(
+      { markerOffset: -30,
+        name: `${event.title}`,
+        coordinates: [event.location_longitude,event.location_latitude]}
+    )
     
-  // })
+  })
+  console.log(userEvents,'userEvents')
 
 
 
@@ -127,7 +128,7 @@ const MapChart = ({ setTooltipContent }) => {
                     y={markerOffset}
                     style={{ fontFamily: "system-ui", fill: "black" }}
                   >
-                    {name}
+                    {/* {name} */}
                   </text>
                 </Marker>
               ))}

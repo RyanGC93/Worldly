@@ -9,18 +9,20 @@ import * as userEventActions from '../../store/userEvents'
 
 
 const Profile = () => {
-	// const userEvents = useSelector((state) =>
-    // Object.values(state.userEvents));
+	const userEvents = useSelector((state) =>
+    Object.values(state.userEvents));
 	const user = useSelector((state) => state.session.user);
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("")
+	// const [isLoaded, setLoaded] = useState(false)
 
 	useEffect(() => {
-		if (!user ) {
+		if (!user  ) {
 		  return
 		}
+		// if(userEvents && user ) return setLoaded(true)
 		(async () => {
 		  const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();
@@ -29,10 +31,12 @@ const Profile = () => {
 			setPhoneNumber(res.phone_number)
 		})();
 		dispatch(userEventActions.getUserEvents(user.username))
-		dispatch(eventActions.getEvents())
+
 	  }, [user, dispatch]);
 
 	return (
+		<>
+		{ userEvents &&
 		<div className="container">
 			<div className="profile-header">
 				<div className="profile-img">
@@ -105,7 +109,9 @@ const Profile = () => {
 				
 			</div>
 			<Map />
-		</div>
+			</div>
+		}
+		</>
 	);
 };
 
