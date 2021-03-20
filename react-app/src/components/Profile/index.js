@@ -9,6 +9,8 @@ import * as userEventActions from '../../store/userEvents'
 
 
 const Profile = () => {
+	// const userEvents = useSelector((state) =>
+    // Object.values(state.userEvents));
 	const user = useSelector((state) => state.session.user);
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -16,7 +18,7 @@ const Profile = () => {
 	const [phoneNumber, setPhoneNumber] = useState("")
 
 	useEffect(() => {
-		if (!user) {
+		if (!user ) {
 		  return
 		}
 		(async () => {

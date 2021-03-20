@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { useSelector } from 'react-redux';
 import {
   useZoomPan,
@@ -35,9 +35,19 @@ const rounded = (num) => {
 const MapChart = ({ setTooltipContent }) => {
   // const width = 500;
   // const height = 500;
-
-  const userEvents = useSelector((state) => state.session.userEvents);
-  console.log('userEvents')
+  const userEvents = useSelector((state) =>
+    Object.values(state.userEvents));
+  // let userEvent = useSelector((state) => state.userEvents);
+  console.log('user', userEvents);
+  let coordinates = [];
+  // userEvent.forEach((event) => {
+  //   coordinates.push(
+  //     { markerOffset: -30,
+  //       name: `${event}`,
+  //       coordinates: [event.longitude,event.latitude]}
+  //   )
+    
+  // })
 
 
 
@@ -54,6 +64,8 @@ const MapChart = ({ setTooltipContent }) => {
   };
 
   return (
+  <>
+    {/* { userEvents[0] & */}
     <div>
       <ComposableMap
         // width={width}
@@ -124,6 +136,7 @@ const MapChart = ({ setTooltipContent }) => {
         </CustomZoomableGroup>
       </ComposableMap>
     </div>
+              </>
   );
 };
 
