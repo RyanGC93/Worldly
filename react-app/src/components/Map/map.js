@@ -1,5 +1,5 @@
 import React, { memo, useEffect } from "react";
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux'
 import {
   useZoomPan,
   ComposableMap,
@@ -13,14 +13,14 @@ const geoUrl =
 
 
   // [lon,lat]
-// const markers = [
-//   {
-//     markerOffset: -30,
-//     name: "Cooking South African Street Food",
-//     coordinates: [18.423300,-33.918861]
-//   },
+const markers = [
+  {
+    markerOffset: -30,
+    name: "Cooking South African Street Food",
+    coordinates: [18.423300,-33.918861]
+  },
 
-// ];
+];
 
 const rounded = (num) => {
   if (num > 1000000000) {
@@ -33,25 +33,20 @@ const rounded = (num) => {
 };
 
 const MapChart = ({ setTooltipContent }) => {
-  // const width = 500;
-  // const height = 500;
+
   const userEvents = useSelector((state) =>
-    Object.values(state.userEvents));
-  // let userEvent = useSelector((state) => state.userEvents);
-  
+  Object.values(state.userEvents));
+  useEffect(() =>{
+    
+  }, [userEvents])
   let markers = [];
   userEvents.forEach((event) => {
     markers.push(
-      { markerOffset: -30,
-        name: `${event.title}`,
-        coordinates: [event.location_longitude,event.location_latitude]}
+    { markerOffset: -30,
+      name: `${event.title}`,
+      coordinates: [event.location_longitude,event.location_latitude]}
     )
-    
   })
-  console.log(userEvents,'userEvents')
-
-
-
 
 
   const CustomZoomableGroup = ({ children, ...restProps }) => {
@@ -64,13 +59,11 @@ const MapChart = ({ setTooltipContent }) => {
     );
   };
 
+  if(!userEvents)return null
   return (
   <>
-    {/* { userEvents[0] & */}
     <div>
       <ComposableMap
-        // width={width}
-        // height={height}
         data-tip=""
         projectionConfig={{ scale: 220 }}
       >

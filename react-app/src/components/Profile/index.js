@@ -12,6 +12,7 @@ const Profile = () => {
 	const userEvents = useSelector((state) =>
     Object.values(state.userEvents));
 	const user = useSelector((state) => state.session.user);
+	
 	const history = useHistory();
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
@@ -19,24 +20,40 @@ const Profile = () => {
 	// const [isLoaded, setLoaded] = useState(false)
 
 	useEffect(() => {
-		if (!user  ) {
-		  return
-		}
-		// if(userEvents && user ) return setLoaded(true)
-		(async () => {
-		  const response = await fetch(`/api/users/${user.username}`);
-			const res = await response.json();
-			
-			setEmail(res.email)
-			setPhoneNumber(res.phone_number)
-		})();
-		dispatch(userEventActions.getUserEvents(user.username))
+		// if (!user) return
 
-	  }, [user, dispatch]);
+		// if(userEvents && user ) return setLoaded(true)
+		if (!user) {
+			(async () => {
+				const response = await fetch(`/api/users/${user.username}`);
+				const res = await response.json();
+				
+				setEmail(res.email);
+				setPhoneNumber(res.phone_number);
+			})();
+		}
+
+			dispatch(userEventActions.getUserEvents(user.username));
+			
+
+	}, [user,  dispatch]);
+	
+	
+	if (!userEvents) {
+		return null
+	}
+	
+	let markers = []
+		userEvents.forEach((event) => {
+		  markers.push(
+			{ markerOffset: -30,
+			  name: `${event.title}`,
+			  coordinates: [event.location_longitude,event.location_latitude]}
+		  )
+		})
 
 	return (
 		<>
-		{ userEvents &&
 		<div className="container">
 			<div className="profile-header">
 				<div className="profile-img">
@@ -62,14 +79,14 @@ const Profile = () => {
 			<div className="main-bd">
 				<div className="left-side">
 					<div className="profile-side">
-						<p className="mobile-no">
-							<h4 className='profile-text'>Phone Number</h4>
+						<div className="mobile-no">
+							<div className='profile-text'>Phone Number</div>
 							<i className="fa fa-phone"></i> {phoneNumber}
-						</p>
-						<p className="user-mail">
-							<h4 className='profile-text'>Email</h4>
+						</div>
+						<div className="user-mail">
+							<div className='profile-text'>Email</div>
 							<i className="fa fa-envelope"></i> {email}
-						</p>
+						</div>
 						<div className="user-bio">
 							<h3 className='profile-text'>Bio</h3>
 							<p className="bio">
@@ -108,9 +125,8 @@ const Profile = () => {
 				</div>
 				
 			</div>
-			<Map />
+				<Map  />
 			</div>
-		}
 		</>
 	);
 };
