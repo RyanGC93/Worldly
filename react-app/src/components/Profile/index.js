@@ -42,6 +42,7 @@ const Profile = () => {
 	if (!userEvents) {
 		return null
 	}
+	console.log(userEvents)
 	
 	let markers = []
 		userEvents.forEach((event) => {
@@ -121,11 +122,11 @@ const Profile = () => {
 					</div>
 				</div>
 				<div className="right-side">
-					<EventManager />
+					<Map  className='map-wrapper'/>
 				</div>
 				
 			</div>
-				<Map  />
+					<EventManager />
 			</div>
 		</>
 	);

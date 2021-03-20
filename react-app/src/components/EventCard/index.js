@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import "./styles.css";
-import { BsCalendar } from "react-icons/bs";
+import { BsCalendarFill } from "react-icons/bs";
 import EventCarousel from "./EventCarousel";
 import ReactStarsRating from "react-awesome-stars-rating";
 import CalendarModal from "../CalendarModal";
@@ -56,7 +56,7 @@ const EventCard = ({ event }) => {
                 </div>
                 <div className="image-wrapper carousel">
                   <div className="calendar-container">
-                    <BsCalendar className='calendar-icon' onClick={() => setShowModal(true)} />
+                    <BsCalendarFill className='calendar-icon' style={{stroke: "black"}}  onClick={() => setShowModal(true)} />
                     {showModal && (
                       
                       <Modal onClose={() => setShowModal(false)}>

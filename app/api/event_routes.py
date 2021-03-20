@@ -12,7 +12,7 @@ def events():
     
     # Gets the events by country
     region_param ='Africa'
-    events = db.session.query(Location.event_id, Location.region).filter(Location.region == region_param).all() 
+    events = db.session.query(Location.event_id, Location.region).filter(Location.region == region_param, Location.event_id == EventCalendar.event_id, EventCalendar.date >= '2021-04-01').all() 
     event_ids = [event[0]for event in events]
     # print(event_ids) # ALL EVENT IDS
 

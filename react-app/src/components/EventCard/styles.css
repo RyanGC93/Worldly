@@ -34,10 +34,19 @@ button.carousel-next {
 	display: relative;
 }
 
+.calendar-container svg {
+	background-color:rgba(0,0,0,.3);
+	border-radius: 20%;
+}
+.calendar-container path {
+	background-color:white;
+}
+
 .calendar-icon {
+	background-color: black;
 	position: absolute;
-	right: 0;
-	top: 0;
+	right: 10px;
+	top: 10px;
 	padding: 15px 15px 15px 15px;
 	width: 30px;
 	height: 30px;

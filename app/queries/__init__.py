@@ -20,12 +20,7 @@ def query_event():
     
 @query_commands.command('event-limited')
 def query_comments():
-    x = db.session.query(Event.id, Event.title, Event.description , Location.region, Location.country, User.user_name).filter(Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).limit(2) 
-    keys = ['event_id', 'title', 'description', 'region', 'country', 'username']
-    # values = list(x[0])
-    # row = dict(zip(keys,values))
-    # print(values)
-    # print(row)
+    x =db.session.query(EventCalendar).filter(EventCalendar.date <="2021-04-01").count()
     print(x)
 
 username = 'demo'
