@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import { useSelector } from 'react-redux';
 import {
   useZoomPan,
   ComposableMap,
@@ -10,23 +11,15 @@ import {
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
+
+  // [lon,lat]
 const markers = [
   {
     markerOffset: -30,
     name: "Cooking South African Street Food",
     coordinates: [18.423300,-33.918861]
   },
-  // { markerOffset: 15, name: "La Paz", coordinates: [-68.1193, -16.4897] },
-  // { markerOffset: 15, name: "Brasilia", coordinates: [-47.8825, -15.7942] },
-  // { markerOffset: 15, name: "Santiago", coordinates: [-70.6693, -33.4489] },
-  // { markerOffset: 15, name: "Bogota", coordinates: [-74.0721, 4.711] },
-  // { markerOffset: 15, name: "Quito", coordinates: [-78.4678, -0.1807] },
-  // { markerOffset: -30, name: "Georgetown", coordinates: [-58.1551, 6.8013] },
-  // { markerOffset: -30, name: "Asuncion", coordinates: [-57.5759, -25.2637] },
-  // { markerOffset: 15, name: "Paramaribo", coordinates: [-55.2038, 5.852] },
-  // { markerOffset: 15, coordinates: [-56.1645, -34.9011] },
-  // { markerOffset: 15, name: "Caracas", coordinates: [-66.9036, 10.4806] },
-  // { markerOffset: 15, name: "Lima", coordinates: [-77.0428, -12.0464] }
+
 ];
 
 const rounded = (num) => {
@@ -40,22 +33,28 @@ const rounded = (num) => {
 };
 
 const MapChart = ({ setTooltipContent }) => {
-  // const width = 800;
-  // const height = 600;
+  // const width = 500;
+  // const height = 500;
+
+  const userEvents = useSelector((state) => state.session.userEvents);
+  console.log('userEvents')
+
+
+
+
 
   const CustomZoomableGroup = ({ children, ...restProps }) => {
     const { mapRef, transformString, position } = useZoomPan(restProps);
     return (
       <g ref={mapRef}>
-        <rect // width={width}  height={height}
-          fill="transparent" />
+        <rect fill="transparent" />
         <g transform={transformString}>{children(position)}</g>
       </g>
     );
   };
 
   return (
-    <>
+    <div>
       <ComposableMap
         // width={width}
         // height={height}
@@ -101,8 +100,8 @@ const MapChart = ({ setTooltipContent }) => {
               {markers.map(({ name, coordinates, markerOffset }) => (
                 <Marker key={name} coordinates={coordinates}>
                   <g
-                    fill="none"
-                    stroke="#FF5533"
+                    fill="rgba(255,255,255,0.6)"
+                    stroke="red"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -114,7 +113,7 @@ const MapChart = ({ setTooltipContent }) => {
                   <text
                     textAnchor="middle"
                     y={markerOffset}
-                    style={{ fontFamily: "system-ui", fill: "#5D5A6D" }}
+                    style={{ fontFamily: "system-ui", fill: "black" }}
                   >
                     {name}
                   </text>
@@ -124,7 +123,7 @@ const MapChart = ({ setTooltipContent }) => {
           )}
         </CustomZoomableGroup>
       </ComposableMap>
-    </>
+    </div>
   );
 };
 

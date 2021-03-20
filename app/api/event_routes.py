@@ -48,8 +48,8 @@ def user_events(user):
     # # print(event_ids) # ALL EVENT IDS
     print(user[1])
 
-    event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname' ,'date','time']
-    event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name, EventCalendar.date, EventCalendar.time).filter(BookingCalendar.user_id == user[1], BookingCalendar.timeslot == EventCalendar.id, EventCalendar.event_id == Event.id, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
+    event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname' ,'date','time', 'location_longitude', 'location_latitude']
+    event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name, EventCalendar.date, EventCalendar.time, Location.longitude, Location.latitude).filter(BookingCalendar.user_id == user[1], BookingCalendar.timeslot == EventCalendar.id, EventCalendar.event_id == Event.id, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
     print('''
           sads
           ds
