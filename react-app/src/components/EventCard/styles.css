@@ -1,3 +1,12 @@
+.card-container {
+	border: 1px solid rgb(251, 251, 251);
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
+	border-radius: 5%
+
+}
+
 .address{
 	display:flex;
 	justify-content:space-around;
@@ -39,7 +48,9 @@ button.carousel-next {
 	border-radius: 20%;
 }
 .calendar-container path {
-	background-color:white;
+	fill:white;
+	cursor:pointer;
+	transition: all .2s ease-in-out;
 }
 
 .calendar-icon {
@@ -304,6 +315,7 @@ button.carousel-next {
   -------------------*/
 .title {
 	font-size: 1.5em;
+	line-height: 30px;
 	transform-origin: 10% 100%;
 	font-weight: 900;
 	color: #313b40;
