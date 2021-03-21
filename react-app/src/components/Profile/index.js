@@ -21,15 +21,14 @@ const Profile = () => {
 		// if (!user) return
 
 		// if(userEvents && user ) return setLoaded(true)
-		if (!user) {
-			(async () => {
-				const response = await fetch(`/api/users/${user.username}`);
-				const res = await response.json();
 
-				setEmail(res.email);
-				setPhoneNumber(res.phone_number);
-			})();
-		}
+		(async () => {
+			const response = await fetch(`/api/users/${user.username}`);
+			const res = await response.json();
+			console.log(res, "res");
+			setEmail(res.email);
+			setPhoneNumber(res.phone_number);
+		})();
 
 		dispatch(userEventActions.getUserEvents(user.username));
 	}, [user, dispatch]);
@@ -75,17 +74,14 @@ const Profile = () => {
 				<div className="main-bd">
 					<div className="left-side">
 						<div className="profile-side">
-							<div className="mobile-no">
-								<div className="profile-text">Phone Number</div>
-								<i className="fa fa-phone"></i> {phoneNumber}
-							</div>
-							<div className="user-mail">
-								<div className="profile-text">Email</div>
-								<i className="fa fa-envelope"></i> {email}
-							</div>
+							<div className="profile-text">Phone Number</div>
+							<div className="profile-text sub-text">{phoneNumber}</div>
+							<div className="profile-text">Email</div>
+							<div className="profile-text sub-text">{email}</div>
+
 							<div className="user-bio">
-								<h3 className="profile-text">Bio</h3>
-								<p className="bio">{user.bio}</p>
+								<div className="profile-text">Bio</div>
+								<div className="profile-text sub-text">{user.bio}</div>
 							</div>
 							<div className="profile-btn">
 								<button className="chatbtn" id="chatBtn">
@@ -95,31 +91,10 @@ const Profile = () => {
 									<i className="fa fa-plus"></i> Create
 								</button>
 							</div>
-							<div className="user-rating">
-								<h3 className="rating">4.5</h3>
-								<div className="rate">
-									<div className="star-outer">
-										<div className="star-inner">
-											<i className="fa fa-star"></i>
-											<i className="fa fa-star"></i>
-											<i className="fa fa-star"></i>
-											<i className="fa fa-star"></i>
-											<i className="fa fa-star"></i>
-										</div>
-									</div>
-									<span className="no-of-user-rate">
-										<span>123</span>&nbsp;&nbsp;reviews
-									</span>
-								</div>
-							</div>
 						</div>
-						{/* <div className="passport-container">
-							<img className="passport" src="https://i.imgur.com/mzp2Uub.jpg" />
-						</div> */}
 					</div>
 					<div className="right-side">
 						<Map className="map-wrapper" />
-						
 					</div>
 				</div>
 				<EventManager />

@@ -58,40 +58,34 @@
 }
 
 .name-header{
-	font-size: 55px;
+	font-size: 5vh;
 	padding: 5px 5px 5px 5px;
-	margin-bottom: 10px;
+	margin-bottom: 1.8vh;
 	color:black;
 }
 .address{
 	padding: 5px 5px 5px 5px;
-	font-size:30px;
-	letter-spacing: 2px;
+	font-size:3vh;
 }
 
 .profile-text{
-	color:black
+	color:black;
+	line-height: 1.5vw;
 }
 
-.passport{
+.sub-text{
+	color:gray;
+	padding-left: 4vw;
+	padding-right: 4vw;
+}
+
+
+
+.demo-page img{
 	width:100%;
-	cursor: pointer;
-	/* height:100% */
+	background-color: blue;
 }
 
-.passport-container{
-	z-index: 6;
-	width: 18vw;
-	position:absolute;
-	transform: rotate(15deg);
-	left: -32%;
-	top: 55%;
-	border: 1px solid rgb(0, 0, 0);
-	border-radius: 0.5rem;
-	box-sizing: border-box;
-	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
-	border-radius: 5%
-}
 
 @media (max-width: 900px) {
 	.passport-container{
@@ -105,7 +99,7 @@
 	background: #fff;
 	width: 100%;
 	display: flex;
-	height: 190px;
+	height: 15vh;
 	position: relative;
 	border-radius: 0.5rem;
 	box-sizing: border-box;
@@ -113,20 +107,20 @@
 }
 
 .profile-img {
-	float: left;
-	width: 340px;
-	height: 200px;
+	width: 20vw;
+
+
 }
 
 .profile-img img {
 	border-radius: 50%;
-	height: 230px;
-	width: 230px;
+	height: 12.5vw;
+	width: 12.5w;
 	border: 5px solid #fff;
 	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 	position: absolute;
-	left: 50px;
-	top: 20px;
+	left: 4vw;
+	top: 5vh;
 	z-index: 5;
 	background: #fff;
 }
@@ -215,12 +209,14 @@
 }
 
 .profile-side {
-	width: 20vw;
+	font-size: 1.3vw;
+	width: 25vw;
+	height: 35vw;
 	background: #fff;
 	border-radius: 0.5rem;
 	box-sizing: border-box;
 	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
-	padding: 90px 30px 20px;
+	padding: 8vw 30px 20px;
 	font-family: "Bree Serif", serif;
 	margin-left: 10px;
 	z-index: 99;
@@ -341,24 +337,12 @@ button.createbtn i {
 	text-align: center;
 }
 
-@media (max-width: 1100px) {
-	.profile-side {
-		width: 250px;
-		padding: 90px 15px 20px;
-	}
-
-	.profile-img img {
-		height: 200px;
-		width: 200px;
-		left: 50px;
-		top: 50px;
-	}
-}
 
 @media (max-width: 900px) {
 	body {
 		margin: 0 20px;
 	}
+	
 
 	.profile-header {
 		display: flex;
@@ -375,10 +359,12 @@ button.createbtn i {
 	}
 
 	.profile-img img {
-		position: relative;
+		/* position: relative;
+		margin-bottom: 200px;
 		height: 120px;
 		width: 120px;
-		left: 0px;
+		left: 0px; */
+		display:none
 	}
 
 	.profile-nav-info {
@@ -468,6 +454,3 @@ button.createbtn i {
 
 }
 
-.map-wrapper{
-
-}

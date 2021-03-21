@@ -1,10 +1,14 @@
 import "./styles.css";
 import MapChart from "./map";
 import React, { useState, useEffect } from "react";
+import Passport from './Passport';
 import { useSelector } from "react-redux";
 import ReactTooltip from "react-tooltip";
+//import HTMLFlipBook from 'react-pageflip'
 
 const Map = () => {
+
+
 	const [content, setContent] = useState("");
 
 	return (
@@ -33,10 +37,8 @@ const Map = () => {
 						<div>- Push Pin Are Booked Events by User</div>
 					</div>
 				</div>
-				<div className="passport-container">
-					<img className="passport" src="https://i.imgur.com/mzp2Uub.jpg" />
-				</div>
 			</div>
+				<Passport />
 		</div>
 	);
 };

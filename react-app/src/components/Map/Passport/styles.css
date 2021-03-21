@@ -1,0 +1,44 @@
+.demoPage img {
+    height: 100%;
+    width: 100%;
+}
+
+.demo-page{
+   height: 100%;
+   width: 100%;
+}
+
+.flipBook{
+	width:100%;
+	cursor: pointer;
+	transition: transform 3s;
+    height: 100%;
+
+    
+    /* background-color:blue; */
+	/* height:100% */
+}
+.passport-active{
+    transition: transform 3s;
+	transform: rotate(-15deg) scale(1.75) translate(25vw, -10vh);
+}
+
+
+.passport-container{
+	background-color: yellow;
+	z-index: 6;
+	width: 40vw;
+	position:absolute;
+	transform: rotate(15deg);
+	left: -15%;
+	top: 45%;
+
+}
+
+.passport-shadow {
+    border: 1px solid rgb(0, 0, 0);
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
+	border-radius: 5%
+}
