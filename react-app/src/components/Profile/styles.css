@@ -93,6 +93,14 @@
 	border-radius: 5%
 }
 
+@media (max-width: 900px) {
+	.passport-container{
+		top:46%;
+		width:15vw;
+		left: -28%
+	}
+}
+
 .profile-header {
 	background: #fff;
 	width: 100%;
@@ -368,8 +376,8 @@ button.createbtn i {
 
 	.profile-img img {
 		position: relative;
-		height: 200px;
-		width: 200px;
+		height: 120px;
+		width: 120px;
 		left: 0px;
 	}
 
