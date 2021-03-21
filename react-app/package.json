@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "http-proxy-middleware": "^1.0.5",
     "infinite-react-carousel": "^1.2.11",
+    "jquery": "^3.6.0",
     "react": "^16.13.1",
     "react-awesome-stars-rating": "^0.3.0",
     "react-calendar": "^3.3.1",

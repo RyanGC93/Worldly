@@ -1,21 +1,97 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
+.note-1 {
+	bottom: 2%;
+	right:10%;
+	transform: rotate(10deg);
+	background-image: linear-gradient(rgba(116, 255, 52, 1),rgba(114, 195, 114));
+}
+
+.note-2 {
+	bottom: -3%;
+	left: 40%;
+	transform: rotate(-6deg);
+	background-image: linear-gradient(rgb(21, 199, 199),rgb(187, 246, 246));
+}
+
+.note-3 {
+	bottom: 5%;
+	left: 1%;
+	transform: rotate(4deg);
+	background-image: linear-gradient(rgb(228, 231, 49),rgb(240, 253, 121));
+}
+
+.sticky-note {
+	height:10vw;
+	width: 10vw;
+	position: absolute;
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
+	border-radius: 5%;
+
+
+}
+.sticky-tape{
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+	height: 35%;
+	background-color: rgba(206, 195, 195, 0.776);
+	width: 50%;
+	
+	top: -20%;
+	margin-bottom: 9px;
+}
+.spacer{
+	height: 1.8vw
+}
+
+.content *{
+	margin-left: 10%;
+	font-family: 'Indie Flower', cursive;
+	font-size: 1.3vw;
+	color:rgb(42, 41, 41);
+	line-height: 1.2;
+}
 
 .name-header{
-	font-size: 40px;
+	font-size: 55px;
 	padding: 5px 5px 5px 5px;
 	margin-bottom: 10px;
 	color:black;
 }
 .address{
-	font-size:20px;
+	padding: 5px 5px 5px 5px;
+	font-size:30px;
+	letter-spacing: 2px;
 }
 
 .profile-text{
 	color:black
 }
 
+.passport{
+	width:100%;
+	cursor: pointer;
+	/* height:100% */
+}
+
+.passport-container{
+	z-index: 6;
+	width: 18vw;
+	position:absolute;
+	transform: rotate(15deg);
+	left: -32%;
+	top: 55%;
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
+	border-radius: 5%
+}
 
 .profile-header {
 	background: #fff;
@@ -23,7 +99,9 @@
 	display: flex;
 	height: 190px;
 	position: relative;
-	box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
 }
 
 .profile-img {
@@ -50,7 +128,6 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-top: 60px;
 }
 
 .profile-nav-info h3 {
@@ -130,9 +207,11 @@
 }
 
 .profile-side {
-	width: 300px;
+	width: 20vw;
 	background: #fff;
-	box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+	border-radius: 0.5rem;
+	box-sizing: border-box;
+	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
 	padding: 90px 30px 20px;
 	font-family: "Bree Serif", serif;
 	margin-left: 10px;
