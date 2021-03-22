@@ -8,6 +8,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import HomePage from './components/HomePage'
 import Profile from './components/Profile'
+import LandingPage from './components/LandingPage'
 import { restoreUser } from './store/session'
 import PageNoteFound from './components/PageNoteFound'
 
@@ -42,6 +43,11 @@ function App() {
           />
         </Route>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
+          <NavBar setAuthenticated={setAuthenticated} />
+          <LandingPage />
+          {/* <UsersList/> */}
+        </ProtectedRoute>
+        <ProtectedRoute path="/search/:params" exact={true} authenticated={authenticated}>
           <NavBar setAuthenticated={setAuthenticated} />
           <HomePage />
           {/* <UsersList/> */}

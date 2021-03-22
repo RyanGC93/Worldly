@@ -45,6 +45,7 @@ position: relative ;
 }
 
 .feature-content{
+  line-height: 4vh;
   font-family: 'Lobster', cursive;
   font-size: 3.5vh;
   font-weight: bold;

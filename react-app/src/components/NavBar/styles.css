@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Rochester&display=swap");
 .navbar {
 	width: 100%;
-	height: 70px;
-	background-color: rgb(91, 108, 184);
+	height: 13vh;
+	background-color: rgba(0, 78, 124, 0.8);
 	display: grid;
 	grid-template-columns: 20% 50% 20% 10%;
+	/* position: relative; */
 }
 .user-settings {
 	grid-column-start: 4;
@@ -23,19 +24,15 @@
 
 
 .logo-holder {
+	margin-top: 4vh;
 	font-family: "Rochester", cursive;
 	color: white;
 	font-size: 40px;
-	height: 80%;
-	margin-top: 10%;
-	padding: 5px 5px 15px 5px;
+	/* position: absolute; */
 
 	text-align: center;
 }
 
-/* .searchBar-wrapper div {
-	background-color: rgba(205, 208, 219, 1);
-} */
 
 .logout-btn {
 	position: relative;
