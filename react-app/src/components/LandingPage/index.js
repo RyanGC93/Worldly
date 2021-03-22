@@ -1,18 +1,21 @@
 import React from 'react'
 import './styles.css'
-import FeatureHeader from './FeatureHeader'
 import SlideContainer from "./SlideContainer"
+import FeatureHeader from './FeatureHeader'
+let countries = require('./countries.json')
 const LandingPage = () => {
 
     return (
         <>
             <FeatureHeader />
             <div className='regions-container' />
-            <div className='regions-title'>Take your taste buds on a trip
+            <div className='regions-title'>
+                {/* <div>Take a Tasty Trip</div> */}
+                Take a Tasty Trip
             </div>
                 <div className="regions-feed" >
                     
-                    <SlideContainer />
+                    <SlideContainer country={countries.africa} />
                 </div>
 
 

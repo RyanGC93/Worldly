@@ -1,4 +1,13 @@
 .regions-title{
     height: 30vh;
-    font-size: 30vh;
+    font-size: 8vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-shadow: 6px 3px #8a8a8a;
+
+}
+.regions-feed{
+    display: grid;
 }

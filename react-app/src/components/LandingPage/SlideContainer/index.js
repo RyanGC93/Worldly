@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./styles.css";
 
-let countries = require('./countryInfo')
-let africa = countries.africa
-const SlideContainer = () => {
+
+const SlideContainer = ({country}) => {
   
   
   const handleClick = () =>{
@@ -15,57 +14,57 @@ const SlideContainer = () => {
     <>
       <div className="sizing-container">
         <div className="landing-slide">
-          <div className="slide-title">{africa.name}</div>
+          <div className="slide-title">{country.name}</div>
           <div className="content-container trial">
             <div className="column-left">
               <div className="slide-pic-container">
                 <img
                   className="slide-picture"
-                  src={africa.photos[0]}
+                  src={country.photos[0]}
                 />
               </div>
               <div className='scroll-title'>Info</div>
               <div id="scroll-1" className="country-info-scroll">
-                {africa.info}
+                {country.info}
               </div>
-              <div className='explore-btn' onClick={handleClick}>Explore Africa</div>
+              <div className='explore-btn' onClick={handleClick}>Explore country</div>
             </div>
             <div className="column-right">
 
               <div className="grid-pic small-pic-1">
                                 <img
                   className="slide-picture"
-                  src={africa.photos[1]}
+                  src={country.photos[1]}
                 />
               </div>
               <div className="grid-pic small-pic-2">
                                 <img
                   className="slide-picture"
-                  src={africa.photos[2]}
+                  src={country.photos[2]}
                 />
               </div>
               <div className="grid-pic small-pic-3">
               <img
               className="slide-picture"
-              src={africa.photos[3]}
+              src={country.photos[3]}
             />
               </div>
               <div className="grid-pic small-pic-4">
               <img
               className="slide-picture"
-              src={africa.photos[4]}
+              src={country.photos[4]}
             />
               </div>
               <div className="grid-pic small-pic-5">
               <img
                   className="slide-picture"
-                  src={africa.photos[5]}
+                  src={country.photos[5]}
                 />
               </div>
               <div className="grid-pic small-pic-6">
               <img
                   className="slide-picture"
-                  src={africa.photos[6]}
+                  src={country.photos[6]}
                 />
               </div>
               {/* <button>See Events</button> */}
