@@ -1,21 +1,20 @@
 .demoPage img {
     height: 100%;
-    width: 100%;
+    width: 80%;
 }
 
 .demo-page{
-   height: 100%;
-   width: 100%;
+    width: 10vh;
 }
 
 .flipBook{
-	width:100%;
+	width:50vw;
 	cursor: pointer;
 	transition: transform 3s;
     height: 100%;
 
     
-    /* background-color:blue; */
+    background-color:blue;
 	/* height:100% */
 }
 .passport-active{
@@ -27,10 +26,10 @@
 .passport-container{
 	background-color: yellow;
 	z-index: 6;
-	width: 40vw;
+	width: 100px;
 	position:absolute;
 	transform: rotate(15deg);
-	left: -15%;
+	left: -15;
 	top: 45%;
 
 }
