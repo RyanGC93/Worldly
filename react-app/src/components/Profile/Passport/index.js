@@ -137,7 +137,7 @@ export default class Passport extends React.Component {
           </HTMLFlipBook>
         </div>
 
-        <div className="container mt-3">
+        {/* <div className="container mt-3">
           <div className="row">
             <div className="col-md-6">
               <button
@@ -162,7 +162,7 @@ export default class Passport extends React.Component {
               <i>{this.state.orientation}</i>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

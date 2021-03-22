@@ -93,7 +93,7 @@ const Profile = () => {
 								</button>
 							</div>
 						</div>
-						<Passport />
+						{/* <Passport /> */}
 					</div>
 					<div className="right-side">
 						<Map className="map-wrapper" />

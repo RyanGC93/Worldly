@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@200&family=Oswald:wght@500&family=Pacifico&display=swap');
 .mainfeed-feature{
-  height: 60vh;
+  margin-top: 8vh;
+  height: 55vh;
 width: 100vw;
 position: relative ;
-
+border-radius: 0.5rem;
+box-sizing: border-box;
+box-shadow: 0 3em 3em -1em rgb(70, 69, 69);
 
 
 }

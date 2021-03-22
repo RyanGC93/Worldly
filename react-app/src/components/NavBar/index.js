@@ -21,11 +21,16 @@ const NavBar = ({ setAuthenticated }) => {
 	return (
 	<>
 			<div className="navbar">
-				<div className="logo-holder" onClick={homeRedirect}>Worldy</div>
+				<div className="logo-holder centered" >
+					<div onClick={homeRedirect}>Worldy </div>
+				</div>
 				<div className="searchBar-wrapper">
                     <ReactSearchAutocomplete />
 				</div>
-				<div className='profile' onClick={profileRedirect}>Profile</div>
+				<div class='centered'>
+					<div className='profile' onClick={profileRedirect}>Profile</div>
+
+				</div>
 				<div className="user-settings">
                     <LogoutButton setAuthenticated={setAuthenticated} />
 				</div>
