@@ -70,3 +70,7 @@ svg.rsm-svg{
     .mapframe{
 
     }
+
+    .sticky-note:hover{
+        transform: scale(1.3)
+    }

@@ -6,6 +6,7 @@ import * as eventActions from "../../store/events";
 import EventManager from "./EventManager";
 import Map from "../Map";
 import * as userEventActions from "../../store/userEvents";
+import Passport from './Passport'
 
 const Profile = () => {
 	const userEvents = useSelector((state) => Object.values(state.userEvents));
@@ -92,6 +93,7 @@ const Profile = () => {
 								</button>
 							</div>
 						</div>
+						<Passport />
 					</div>
 					<div className="right-side">
 						<Map className="map-wrapper" />

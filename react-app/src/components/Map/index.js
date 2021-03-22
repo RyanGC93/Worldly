@@ -38,7 +38,6 @@ const Map = () => {
 					</div>
 				</div>
 			</div>
-				<Passport />
 		</div>
 	);
 };
