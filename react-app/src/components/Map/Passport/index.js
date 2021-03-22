@@ -13,16 +13,17 @@ const Passport = () => {
 	return (
 		<div className="passport-container" onClick={(e) => passportHandler(e)}>
 			<HTMLFlipBook
-				id="passport"
-                className="flipBook 
-                "
-                // passport-active
-				// className="passport-container"
-				width={300}
-				autoSize={true}
-				size={"stretch"}
-				height={500}
-				showCover={true}
+								className="flipBook 
+								"
+								width={350}
+								height={533}
+								size="stretch"
+								minWidth={10}
+								maxWidth={3000}
+								minHeight={200}
+								maxHeight={2533}
+								maxShadowOpacity={0.5}
+								showCover={true}	
 			>
 				<div ref="1" className="demoPage passport-shadow ">
 					<img className="" src="https://i.imgur.com/mzp2Uub.jpg" />
