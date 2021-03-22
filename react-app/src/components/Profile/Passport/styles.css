@@ -1,47 +1,28 @@
-
-/* 
-
-.flipBook{
-	width:50vw;
-	cursor: pointer;
-	transition: transform 3s;
-    height: 100%;
-
-    
-    background-color:blue;
-	/* height:100% */
-
-
-	.passport-container {
-		height: 300px;
-		width: 300px;
-		position: absolute;
-	  }
-	  
-	  .page {
-	   background-image: url('https://images.unsplash.com/photo-1601662528567-526cd06f6582?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=658&q=80')
-	  }	
-/* .passport-active{
-    transition: transform 3s;
-	transform: rotate(-15deg) scale(1.75) translate(25vw, -10vh);
-} */
-
-
-/* .passport-container{
-	background-color: yellow;
-	z-index: 6;
-	width: 100px;
-	position:absolute;
-	transform: rotate(15deg);
-	left: -15;
-	top: 45%; 
-
-} */
-
-/* .passport-shadow {
-    border: 1px solid rgb(0, 0, 0);
-	border-radius: 0.5rem;
-	box-sizing: border-box;
-	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
-	border-radius: 5%
-} */
+.page {
+	background-image: url(https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGFwZXIlMjB0ZXh0dXJlfGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80);
+	border: 1px solid rgb(198, 194, 194);
+	  /* border-radius: 0.5rem; */
+	  box-sizing: border-box;
+	  box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
+  }
+  
+  .container-md{
+	width:600px;
+  }
+  .page-cover{
+   background-image: url('https://i.imgur.com/mzp2Uub.jpg');
+   background-size: cover;
+  }
+  
+  .page-cover-bottom {
+	box-shadow: inset 0px 0 30px 0px rgba(36, 10, 3, 0.5),
+	  10px 0 8px 0px rgba(0, 0, 0, 0.4);
+  }
+  .page-cover-top {
+	box-shadow: inset 0px 0 30px 0px rgba(36, 10, 3, 0.5),
+	  -2px 0 5px 2px rgba(0, 0, 0, 0.4);
+  }
+  .page-cover {
+	color: hsl(35, 35, 35);
+	border: solid 2px hsl(35, 20, 50);
+  }
