@@ -19,6 +19,6 @@
 @media (max-width: 989px) and (min-width: 768px) {
     .regions-feed{
         grid-template-columns: 40vw 40vw  ;
-        grid-template-rows: 40vw 40vw ;
+        grid-template-rows: 40vw 40vw 40vw ;
     }
 }

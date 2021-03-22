@@ -1,12 +1,74 @@
-{"africa" :{ "info":"Traditionally, the various cuisines of Africa use a combination of locally available fruits, cereal grains and vegetables, as well as milk and meat products,[1][2] and do not usually have food imported. In some parts of the continent, the traditional diet features an abundance of milk, curd and whey products.Central Africa, East Africa, North Africa, Southern Africa and West Africa each have distinctive dishes, preparation techniques, and consumption mores.", 
-    "photos":["https://images.pexels.com/photos/3100960/pexels-photo-3100960.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    "https://images.pexels.com/photos/4176695/pexels-photo-4176695.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    "https://images.pexels.com/photos/3213283/pexels-photo-3213283.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    "https://images.pexels.com/photos/6210449/pexels-photo-6210449.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    "https://images.pexels.com/photos/6192003/pexels-photo-6192003.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    "https://images.pexels.com/photos/6097888/pexels-photo-6097888.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    "https://images.pexels.com/photos/4261996/pexels-photo-4261996.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-    
-    
-    
-      ], "name":"Africa" }}
+{
+	"africa": {
+		"info": "Traditionally, the various cuisines of Africa use a combination of locally available fruits, cereal grains and vegetables, as well as milk and meat products,[1][2] and do not usually have food imported. In some parts of the continent, the traditional diet features an abundance of milk, curd and whey products.Central Africa, East Africa, North Africa, Southern Africa and West Africa each have distinctive dishes, preparation techniques, and consumption mores.",
+		"photos": [
+			"https://images.pexels.com/photos/3100960/pexels-photo-3100960.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+			"https://images.pexels.com/photos/4176695/pexels-photo-4176695.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+			"https://images.pexels.com/photos/3213283/pexels-photo-3213283.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+			"https://images.pexels.com/photos/6210449/pexels-photo-6210449.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+			"https://images.pexels.com/photos/6192003/pexels-photo-6192003.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+			"https://images.pexels.com/photos/6097888/pexels-photo-6097888.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+			"https://images.pexels.com/photos/4261996/pexels-photo-4261996.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+		],
+		"name": "Africa"
+	},
+  "europe": {
+    "info": "The cuisines of Western countries are diverse, although there are common characteristics that distinguish them from those of other regions.[3] Compared with traditional cooking of East Asia, meat is more prominent and substantial in serving size.[4] Steak and cutlets in particular are common dishes across the West.[dubious – discuss] Western cuisines also emphasize grape wine[dubious – discuss] and sauces as condiments, seasonings, or accompaniments (in part due to the difficulty of seasonings penetrating the often larger pieces of meat used in Western cooking).",
+    "photos": [
+      "https://images.pexels.com/photos/417344/pexels-photo-417344.jpeg?cs=srgb&dl=pexels-pixabay-417344.jpg&fm=jpg",
+"https://images.pexels.com/photos/3326355/pexels-photo-3326355.jpeg?cs=srgb&dl=pexels-daria-shevtsova-3326355.jpg&fm=jpg",
+"https://images.pexels.com/photos/6287467/pexels-photo-6287467.jpeg?cs=srgb&dl=pexels-klaus-nielsen-6287467.jpg&fm=jpg",
+"https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?cs=srgb&dl=pexels-wendy-wei-1190298.jpg&fm=jpg",
+"https://images.pexels.com/photos/6210916/pexels-photo-6210916.jpeg?cs=srgb&dl=pexels-tim-douglas-6210916.jpg&fm=jpg",
+"https://images.pexels.com/photos/2921608/pexels-photo-2921608.jpeg?cs=srgb&dl=pexels-oleg-magni-2921608.jpg&fm=jpg"
+    ],
+    "name" : "Europe"
+  },
+  "asia": {
+    "info": "We can define Cuisine as a style of cooking and tradition associated with a specific culture. Asia is the largest continent in the world shelters many cultures and cuisines. Some of the major regional cuisines are East Asian, Southeast Asian, South Asian, Central Asian and Middle Eastern cuisines. Besides the difference, all of these varieties of Asian foods share some common features. Ingredients like Rice, Ginger, Garlic, Tofu, Chilies, Dried Onions, Soy and Sesame seeds are used in almost all Asian foods. Cooking practices like Steaming and Stir frying are common in every Asian restaurant.Rice is a staple ingredient in every Asian food; Different varieties are popular in various regions. Basmati is a popular rice variety in subcontinents while long grain rice is popular in China and short grain in Japan and Korea. Curry dishes with its origin in South Asian countries are also common in Southern, Western and Southeastern regions. These are Yogurt based soup with meat or vegetables as optional ingredients",
+    "photos": [
+      "https://images.pexels.com/photos/7216951/pexels-photo-7216951.jpeg?cs=srgb&dl=pexels-anna-tarazevich-7216951.jpg&fm=jpg",
+      "https://images.pexels.com/photos/1185243/pexels-photo-1185243.jpeg?cs=srgb&dl=pexels-agung-pandit-wiguna-1185243.jpg&fm=jpg",
+      "https://images.pexels.com/photos/1062269/pexels-photo-1062269.jpeg?cs=srgb&dl=pexels-artem-beliaikin-1062269.jpg&fm=jpg",
+      "https://images.pexels.com/photos/1310777/pexels-photo-1310777.jpeg?cs=srgb&dl=pexels-vincent-ma-janssen-1310777.jpg&fm=jpg",
+      "https://images.pexels.com/photos/1422384/pexels-photo-1422384.jpeg?cs=srgb&dl=pexels-huy-phan-1422384.jpg&fm=jpg",
+      "https://images.pexels.com/photos/1004359/pexels-photo-1004359.jpeg?cs=srgb&dl=pexels-alexandr-podvalny-1004359.jpg&fm=jpg"
+    ],
+    "name": "Asia"
+  },
+  "southamerica": {
+    "info": "We can define Cuisine as a style of cooking and tradition associated with a specific culture. Asia is the largest continent in the world shelters many cultures and cuisines. Some of the major regional cuisines are East Asian, Southeast Asian, South Asian, Central Asian and Middle Eastern cuisines. Besides the difference, all of these varieties of Asian foods share some common features. Ingredients like Rice, Ginger, Garlic, Tofu, Chilies, Dried Onions, Soy and Sesame seeds are used in almost all Asian foods. Cooking practices like Steaming and Stir frying are common in every Asian restaurant.Rice is a staple ingredient in every Asian food; Different varieties are popular in various regions. Basmati is a popular rice variety in subcontinents while long grain rice is popular in China and short grain in Japan and Korea. Curry dishes with its origin in South Asian countries are also common in Southern, Western and Southeastern regions. These are Yogurt based soup with meat or vegetables as optional ingredients",
+    "photos": [
+      "https://images.pexels.com/photos/5695883/pexels-photo-5695883.jpeg?cs=srgb&dl=pexels-dayvison-de-oliveira-silva-5695883.jpg&fm=jpg",
+      "https://images.pexels.com/photos/3963167/pexels-photo-3963167.jpeg?cs=srgb&dl=pexels-frank-meriño-3963167.jpg&fm=jpg",
+      "https://images.pexels.com/photos/1060803/pexels-photo-1060803.jpeg?cs=srgb&dl=pexels-rafael-guimarães-1060803.jpg&fm=jpg",
+      "https://images.pexels.com/photos/5435224/pexels-photo-5435224.jpeg?cs=srgb&dl=pexels-frederick-medina-5435224.jpg&fm=jpg",
+      "https://images.pexels.com/photos/5376665/pexels-photo-5376665.jpeg?cs=srgb&dl=pexels-kenrick-baksh-5376665.jpg&fm=jpg"
+    ],
+    "name": "S.America"
+  },
+  "northamerica": {
+    "info": "We can define Cuisine as a style of cooking and tradition associated with a specific culture. Asia is the largest continent in the world shelters many cultures and cuisines. Some of the major regional cuisines are East Asian, Southeast Asian, South Asian, Central Asian and Middle Eastern cuisines. Besides the difference, all of these varieties of Asian foods share some common features. Ingredients like Rice, Ginger, Garlic, Tofu, Chilies, Dried Onions, Soy and Sesame seeds are used in almost all Asian foods. Cooking practices like Steaming and Stir frying are common in every Asian restaurant.Rice is a staple ingredient in every Asian food; Different varieties are popular in various regions. Basmati is a popular rice variety in subcontinents while long grain rice is popular in China and short grain in Japan and Korea. Curry dishes with its origin in South Asian countries are also common in Southern, Western and Southeastern regions. These are Yogurt based soup with meat or vegetables as optional ingredients",
+    "photos": [
+      "https://images.pexels.com/photos/5695883/pexels-photo-5695883.jpeg?cs=srgb&dl=pexels-dayvison-de-oliveira-silva-5695883.jpg&fm=jpg",
+      "https://images.pexels.com/photos/3963167/pexels-photo-3963167.jpeg?cs=srgb&dl=pexels-frank-meriño-3963167.jpg&fm=jpg",
+      "https://images.pexels.com/photos/1060803/pexels-photo-1060803.jpeg?cs=srgb&dl=pexels-rafael-guimarães-1060803.jpg&fm=jpg",
+      "https://images.pexels.com/photos/5435224/pexels-photo-5435224.jpeg?cs=srgb&dl=pexels-frederick-medina-5435224.jpg&fm=jpg",
+      "https://images.pexels.com/photos/5376665/pexels-photo-5376665.jpeg?cs=srgb&dl=pexels-kenrick-baksh-5376665.jpg&fm=jpg"
+    ],
+    "name": "N.America"
+  },
+  "centralamerica": {
+    "info": "We can define Cuisine as a style of cooking and tradition associated with a specific culture. Asia is the largest continent in the world shelters many cultures and cuisines. Some of the major regional cuisines are East Asian, Southeast Asian, South Asian, Central Asian and Middle Eastern cuisines. Besides the difference, all of these varieties of Asian foods share some common features. Ingredients like Rice, Ginger, Garlic, Tofu, Chilies, Dried Onions, Soy and Sesame seeds are used in almost all Asian foods. Cooking practices like Steaming and Stir frying are common in every Asian restaurant.Rice is a staple ingredient in every Asian food; Different varieties are popular in various regions. Basmati is a popular rice variety in subcontinents while long grain rice is popular in China and short grain in Japan and Korea. Curry dishes with its origin in South Asian countries are also common in Southern, Western and Southeastern regions. These are Yogurt based soup with meat or vegetables as optional ingredients",
+    "photos": [
+      "https://images.pexels.com/photos/1845844/pexels-photo-1845844.jpeg?cs=srgb&dl=pexels-dimitri-dim-1845844.jpg&fm=jpg",
+      "https://images.pexels.com/photos/757828/pexels-photo-757828.jpeg?cs=srgb&dl=pexels-genaro-serv%C3%ADn-757828.jpg&fm=jpg",
+      "https://images.pexels.com/photos/277253/pexels-photo-277253.jpeg?cs=srgb&dl=pexels-pixabay-277253.jpg&fm=jpg",
+      "https://images.pexels.com/photos/5737254/pexels-photo-5737254.jpeg?cs=srgb&dl=pexels-rodnae-productions-5737254.jpg&fm=jpg",
+      "https://images.pexels.com/photos/1587200/pexels-photo-1587200.jpeg?cs=srgb&dl=pexels-sabel-blanco-1587200.jpg&fm=jpg",
+      "https://images.pexels.com/photos/6037915/pexels-photo-6037915.jpeg?cs=srgb&dl=pexels-victoria-emerson-6037915.jpg&fm=jpg"
+    ],
+    "name": "C.America"
+  }
+
+}

@@ -16,13 +16,11 @@ const LandingPage = () => {
                 <div className="regions-feed" >
                     
                 <SlideContainer country={countries.africa} />
-                <SlideContainer country={countries.africa} />
-                <SlideContainer country={countries.africa} />
-                <SlideContainer country={countries.africa} />
-                <SlideContainer country={countries.africa} />
-                <SlideContainer country={countries.africa} />
-                <SlideContainer country={countries.africa} />
-                <SlideContainer country={countries.africa} />
+                <SlideContainer country={countries.asia} />
+                <SlideContainer country={countries.southamerica} />
+                <SlideContainer country={countries.europe} />
+                <SlideContainer country={countries.northamerica} />
+                <SlideContainer country={countries.centralamerica} />
                 </div>
 
 
