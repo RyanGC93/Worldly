@@ -27,9 +27,18 @@
 	height:10vw;
 	width: 10vw;
 	position: absolute;
-	border-radius: 0.5rem;
-	box-sizing: border-box;
-	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
+	{"africa" :{ "info":"Traditionally, the various cuisines of Africa use a combination of locally available fruits, cereal grains and vegetables, as well as milk and meat products,[1][2] and do not usually have food imported. In some parts of the continent, the traditional diet features an abundance of milk, curd and whey products.Central Africa, East Africa, North Africa, Southern Africa and West Africa each have distinctive dishes, preparation techniques, and consumption mores.", 
+		"photos":["https://images.pexels.com/photos/3100960/pexels-photo-3100960.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+		"https://images.pexels.com/photos/4176695/pexels-photo-4176695.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+		"https://images.pexels.com/photos/3213283/pexels-photo-3213283.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+		"https://images.pexels.com/photos/6210449/pexels-photo-6210449.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+		"https://images.pexels.com/photos/6192003/pexels-photo-6192003.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+		"https://images.pexels.com/photos/6097888/pexels-photo-6097888.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+		"https://images.pexels.com/photos/4261996/pexels-photo-4261996.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+		
+		
+		
+		  ], "name":"Africa" }}
 	border-radius: 5%;
 
 
