@@ -2,6 +2,34 @@ import React from "react";
 import HTMLFlipBook from "react-pageflip";
 import "./styles.css";
 
+import "./styles.css";
+import React, { useEffect } from "react";
+import HTMLFlipBook from "react-pageflip";
+
+export const PageCover = React.forwardRef((props, ref) => {
+  return (
+    <div className="page page-cover" ref={ref} data-density="hard">
+      <div className="page-content">
+        <h2>{props.children}</h2>
+      </div>
+    </div>
+  );
+});
+
+export const Page = React.forwardRef((props, ref) => {
+  return (
+    <div className="page" ref={ref}>
+      <div className="page-content">
+        <h2 className="page-header">Page header - {props.number}</h2>
+        <div className="page-image"></div>
+        <div className="page-text">{props.children}</div>
+        <div className="page-footer">{props.number + 1}</div>
+      </div>
+    </div>
+  );
+});
+
+
 const Passport = () => {
 	const passportHandler = (e) => {
 		let trial = document.querySelector(".flipBook");
