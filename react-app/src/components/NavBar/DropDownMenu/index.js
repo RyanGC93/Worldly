@@ -1,15 +1,26 @@
 
 import React, { useRef } from 'react';
 import {useDetectOutsideClick} from "../../../services/detectOustsideClick"
-import './styles.css'
+import './styles.css';
+import LogoutButton from "../LogoutButton";
+import { useHistory } from "react-router-dom";
+import { useSelector } from 'react-redux'
 
-export default function DropDownMenu() {
+const DropDownMenu = () => {
+  const history = useHistory()
+  const username = useSelector(state => state.session.user.username)
+
+
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
     const onClick = () => setIsActive(!isActive);
+
+    const profileRedirect = () => {
+      history.push(`profile/${username}`)
+    }
   
     return (
-      <div className="container">
+      <>
         <div className="menu-container">
           <button onClick={onClick} className="menu-trigger">
             <span>User</span>
@@ -24,18 +35,22 @@ export default function DropDownMenu() {
           >
             <ul>
               <li>
-                <a href="#">Messages</a>
+                <div className='' onClick={profileRedirect} >Profile</div>
               </li>
               <li>
-                <a href="#">Trips</a>
+                
               </li>
               <li>
-                <a href="#">Saved</a>
+                <div className=''>Signout</div>
+              </li>
+              <li>
+                <div className=''>Signout</div>
               </li>
             </ul>
           </nav>
         </div>
-      </div>
+      </>
     );
   }
   
+export default DropDownMenu

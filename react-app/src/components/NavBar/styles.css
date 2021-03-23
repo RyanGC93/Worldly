@@ -4,12 +4,9 @@
 	height: 70px;
 	background-color: rgba(0, 78, 124, 0.8);
 	display: grid;
-	grid-template-columns: 20% 50% 20% 10%;
+	grid-template-columns: 33% 33% 33%;
 	box-sizing: border-box;
 	box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
-}
-.user-settings {
-	grid-column-start: 4;
 }
 
 .centered {
@@ -28,18 +25,18 @@
 }
 
 
-.logo-holder {
+.logo-holder div {
 	font-family: "Rochester", cursive;
 	color: white;
-	font-size: 40px;
-	/* position: absolute; */
+	font-size: 50px;
 	transition: 0.6s;
-
+	font-weight: bold;
+	cursor:pointer;
 	text-align: center;
 }
 
-.logo-holder:hover, .profile:hover {
-	font-size:45px;
+.nav-logo:hover {
+	color:rgba(120, 204, 253, 0.8)
 }
 
 .logout-btn {
@@ -62,6 +59,3 @@
 
 }
 
-.logo-holder:hover, .profile:hover {
-  cursor:pointer
-}

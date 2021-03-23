@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
   }
   
   .menu-trigger {
@@ -48,6 +49,7 @@
     visibility: hidden;
     transform: translateY(-20px);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    z-index: 34
   }
   
   .menu.active {
@@ -66,10 +68,14 @@
     border-bottom: 1px solid #dddddd;
   }
   
-  .menu li a {
+  .menu li:hover{
+    background-color: #dddddd;
+  }
+  .menu li div {
     text-decoration: none;
     color: #333333;
     padding: 15px 20px;
     display: block;
+    cursor: pointer;
   }
   

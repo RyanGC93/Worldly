@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@200&family=Oswald:wght@500&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sansita&display=swap');
 .mainfeed-feature{
   margin-top: 8vh;
   height: 55vh;
@@ -18,7 +18,7 @@ box-shadow: 0 3em 3em -1em rgb(70, 69, 69);
 }
 
 .feature-title{
-  font-family: 'Pacifico', cursive;
+  font-family: 'Sansita', sans-serif;
   /* font-weight: bold; */
   font-size:5vh;  
   color: white;
@@ -49,7 +49,6 @@ box-shadow: 0 3em 3em -1em rgb(70, 69, 69);
 
 .feature-content{
   line-height: 4vh;
-  font-family: 'Lobster', cursive;
   font-size: 3.5vh;
   font-weight: bold;
   color: white;
