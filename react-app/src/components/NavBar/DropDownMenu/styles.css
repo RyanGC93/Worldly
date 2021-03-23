@@ -14,7 +14,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4px 6px;
+    padding: 10px 2px;
+    /* padding: 4px 6px; */
+
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     border: none;
     vertical-align: middle;
@@ -29,12 +31,13 @@
   .menu-trigger span {
     font-weight: 700;
     vertical-align: middle;
-    font-size: 14px;
-    margin: 0 10px;
+    font-size: 20px;
+    margin: 0 15px;
   }
   
   .menu-trigger img {
-    border-radius: 90px;
+    border-radius: 50%;
+    height: 40px
   }
   
   .menu {

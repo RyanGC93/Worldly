@@ -1,5 +1,4 @@
-import React, { useState,useEffect } from "react";
-import {useSelector} from 'react-redux'
+import React from "react";
 import './styles.css'
 
 const FeatureHeader = () => {

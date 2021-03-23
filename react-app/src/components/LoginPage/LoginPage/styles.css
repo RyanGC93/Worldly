@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
 
-.title__login{
+.login-title{
 	font-family: 'Rochester', cursive;
+	font-weight:bolder;
+	letter-spacing: 4.7px;
 	color: white;
 	font-size: 40px;
 	height: 40px;
@@ -72,6 +74,7 @@
 	/* margin:0 15px 10px 0; */
 	display:inline-block;
 	border-bottom:2px solid transparent;
+	font-weight:bold;
 }
 .login-html .sign-in:checked + .tab__login,
 .login-html .sign-up:checked + .tab__login{
@@ -161,3 +164,6 @@ input.button.sign-in-btn:hover, input.button.sign-up-btn:hover {
 	cursor: pointer;
 }
 
+.input,input.button{
+	outline-style: none;
+}

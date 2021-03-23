@@ -22,8 +22,8 @@ box-shadow: 0 3em 3em -1em rgb(70, 69, 69);
   /* font-weight: bold; */
   font-size:5vh;  
   color: white;
-  letter-spacing: 5px;
-  -webkit-text-stroke-width: .5px;
+  letter-spacing: 3px;
+  -webkit-text-stroke-width: .05px;
   -webkit-text-stroke-color: black;
 
 }
@@ -54,7 +54,7 @@ box-shadow: 0 3em 3em -1em rgb(70, 69, 69);
   color: white;
   padding: 1px 1px 1px 1px;
   margin-left: 10px; 
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 
 }

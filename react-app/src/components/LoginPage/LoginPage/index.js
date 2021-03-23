@@ -11,7 +11,7 @@ const LoginPage = ({ setAuthenticated }) => {
       <img className='background-img' alt='' src='https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'/>
 			<div className="login-wrap">
 				<div className="login-html">
-					<div className="title__login">Worldly</div>
+					<div className="login-title">Worldly</div>
 					<input
 						id="tab-1"
 						type="radio"
