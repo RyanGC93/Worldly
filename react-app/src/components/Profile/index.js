@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as eventActions from "../../store/events";
-import EventManager from "./EventManager";
 import Map from "../Map";
 import * as userEventActions from "../../store/userEvents";
 import Passport from './Passport'
@@ -39,14 +38,7 @@ const Profile = () => {
 	}
 	console.log(userEvents);
 
-	let markers = [];
-	userEvents.forEach((event) => {
-		markers.push({
-			markerOffset: -30,
-			name: `${event.title}`,
-			coordinates: [event.location_longitude, event.location_latitude],
-		});
-	});
+	const manageBook
 
 	return (
 		<>
@@ -84,22 +76,17 @@ const Profile = () => {
 								<div className="profile-text">Bio</div>
 								<div className="profile-text sub-text">{user.bio}</div>
 							</div>
-							<div className="profile-btn">
-								<button className="chatbtn" id="chatBtn">
-									<i className="fa fa-comment"></i> Chat
-								</button>
-								<button className="createbtn" id="Create-post">
-									<i className="fa fa-plus"></i> Create
-								</button>
-							</div>
+							<div
+								onClick={manageBookings}
+								id="bookings-btn"
+								className="btn-ticket blue">Manage Events</div>
 						</div>
-						{/* <Passport /> */}
+						<Passport />
 					</div>
 					<div className="right-side">
 						<Map className="map-wrapper" />
 					</div>
 				</div>
-				<EventManager />
 			</div>
 		</>
 	);

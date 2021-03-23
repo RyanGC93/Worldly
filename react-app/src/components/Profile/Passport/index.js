@@ -113,7 +113,7 @@ export default class Passport extends React.Component {
 
   render() {
     return (
-      <div>
+      <>
         <div className="container-md" style={{ position: "relative" }}>
           <HTMLFlipBook
             width={550}
@@ -136,34 +136,7 @@ export default class Passport extends React.Component {
             {this.state.pages}
           </HTMLFlipBook>
         </div>
-
-        {/* <div className="container mt-3">
-          <div className="row">
-            <div className="col-md-6">
-              <button
-                type="button"
-                className="btn btn-info btn-sm btn-prev"
-                onClick={this.prevButtonClick}
-              >
-                Previous page
-              </button>
-              [<span>{this.state.page + 1}</span> of{" "}
-              <span>{this.state.totalPage}</span>]
-              <button
-                type="button"
-                className="btn btn-info btn-sm btn-next"
-                onClick={this.nextButtonClick}
-              >
-                Next page
-              </button>
-            </div>
-            <div className="col-md-6">
-              State: <i>{this.state.state}</i>, orientation:{" "}
-              <i>{this.state.orientation}</i>
-            </div>
-          </div>
-        </div> */}
-      </div>
+      </>
     );
   }
 }

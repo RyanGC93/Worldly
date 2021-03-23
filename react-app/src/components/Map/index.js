@@ -1,18 +1,16 @@
 import "./styles.css";
 import MapChart from "./map";
 import React, { useState, useEffect } from "react";
-import Passport from '../Profile/Passport';
+import Passport from "../Profile/Passport";
 import { useSelector } from "react-redux";
 import ReactTooltip from "react-tooltip";
 //import HTMLFlipBook from 'react-pageflip'
 
 const Map = () => {
-
-
 	const [content, setContent] = useState("");
 
 	return (
-		<div className="">
+		<>
 			<div className="map-border">
 				<MapChart setTooltipContent={setContent} />
 				<ReactTooltip>{content}</ReactTooltip>
@@ -38,8 +36,7 @@ const Map = () => {
 					</div>
 				</div>
 			</div>
-			<Passport />
-		</div>
+		</>
 	);
 };
 
