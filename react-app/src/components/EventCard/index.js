@@ -15,16 +15,20 @@ const EventCard = ({ event }) => {
   const images = useSelector((state) => {
     return Object.values(state.photoGallery).filter((photo) => photo.event_id === event.event_id);
   });
+  const bookingAvailability = useSelector((state) => {
+    return Object.values(state.eventCalendar).filter((booking) => booking.event_id === event.event_id);
+  });
+  console.log(bookingAvailability)
   // const reviews = useSelector((state) => state.reviews)
   // console.log('reviews', event)
 
   
   const title = event.title;
-  const badge = "ADD_BADGE_HERE";
+  const badge = '';
   const country = event.country;
   const continent = event.region;
-  const closest_event_date = "ADD_DATE_HERE";
-  const closest_event_time = "ADD_TIME_EVENT";
+  const closest_event_date = bookingAvailability[0].date;
+  const closest_event_time = bookingAvailability[0].time;
   const description = event.description;
   let value = 0;
   

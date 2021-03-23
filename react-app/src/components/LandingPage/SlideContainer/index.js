@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
 import "./styles.css";
+import { useHistory } from "react-router-dom";
 
-
-const SlideContainer = ({country}) => {
+const SlideContainer = ({ country }) => {
+  const history = useHistory()
   
   
-  const handleClick = () =>{
-      let clicker = document.querySelector('trial')
+  const handleClick = () => {
+    alert()
+      history.push('/events/')
   }
   
   return (

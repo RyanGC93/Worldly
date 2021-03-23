@@ -8,9 +8,9 @@ const MainFeed = () => {
     const dispatch = useDispatch();
     const eventList = useSelector((state) =>
         Object.values(state.events));
+
+    
     const [loaded, setLoaded] = useState(false);
-
-
     useEffect(() => {
         if(eventList[0]) setLoaded(true);
     }, [dispatch,eventList]);
@@ -20,7 +20,7 @@ const MainFeed = () => {
             {loaded &&
         
             <div className="eventCard-container grid-container">
-            {eventList && eventList.map((event) => <EventCard event={event} />)}
+                {eventList && eventList.map((event) => <EventCard key={event.event_id} event={event} />)}
         </div>
         }
     </>

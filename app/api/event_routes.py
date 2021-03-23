@@ -6,15 +6,19 @@ from app.models import db, Event, Location, Ambassador, User, Review, PhotoGalle
 event_routes = Blueprint('events', __name__)
 
 # Gets All the events
-@event_routes.route('/')
+@event_routes.route('/<string:param>')
 @login_required
-def events():
+def events(param):
     
-    # Gets the events by country
-    region_param ='Africa'
-    events = db.session.query(Location.event_id, Location.region).filter(Location.region == region_param, Location.event_id == EventCalendar.event_id, EventCalendar.date >= '2021-04-01').all() 
-    event_ids = [event[0]for event in events]
-    # print(event_ids) # ALL EVENT IDS
+    if param == 'all':
+        events = db.session.query(Location.event_id, Location.region).filter( Location.event_id == EventCalendar.event_id).all() 
+        event_ids = [event[0]for event in events]
+        
+    else:
+        # Gets the events by country
+        events = db.session.query(Location.event_id, Location.region).filter(Location.region == region_param, Location.event_id == EventCalendar.event_id).all() 
+        event_ids = [event[0]for event in events]
+        # print(event_ids) # ALL EVENT IDS
 
     event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname']
     event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name).filter(Event.id.in_(event_ids), Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()

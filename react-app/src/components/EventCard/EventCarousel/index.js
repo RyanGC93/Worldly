@@ -9,14 +9,14 @@ const EventCarousel = ({ images }) => {
     // dots: true
 
   };
-
   return (
     <>
       {images[0] &&
         <Slider {...settings} className="slider-container">
           {images.map((image) => (
-            <div className='slide-container'>
+            <div className='slide-container' key={image.event_id}>
               <img
+                key={image.photo_id}
                 className="event-image"
                 alt={image.description} src={image.photo_url} />
             </div>

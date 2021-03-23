@@ -76,8 +76,8 @@ export const updatePostLikes = (like) => async (dispatch) => {
   return response;
 };
 
-export const getEvents = () => async (dispatch) => {
-  const response = await fetch("/api/events/");
+export const getEvents = (param='all') => async (dispatch) => {
+  const response = await fetch(`/api/events/${param}`);
   if (response.ok) {
     let res = await response.json();
     let events = res.events
