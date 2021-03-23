@@ -4,8 +4,6 @@ import {useDispatch} from 'react-redux'
 import LoginPage from './components/LoginPage'
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
 import HomePage from './components/HomePage'
 import Profile from './components/Profile'
 import LandingPage from './components/LandingPage'
@@ -34,7 +32,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar setAuthenticated={setAuthenticated} /> */}
       <Switch>
         <Route path="/login" exact={true}>
           <LoginPage

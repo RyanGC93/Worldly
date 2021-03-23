@@ -5,10 +5,8 @@
 	background-color: rgba(0, 78, 124, 0.8);
 	display: grid;
 	grid-template-columns: 20% 50% 20% 10%;
-	border-radius: 0.5rem;
-box-sizing: border-box;
-box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
-	/* position: relative; */
+	box-sizing: border-box;
+	box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
 }
 .user-settings {
 	grid-column-start: 4;

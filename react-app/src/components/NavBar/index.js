@@ -1,9 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import LogoutButton from "../auth/LogoutButton";
+import LogoutButton from "./LogoutButton";
 import './styles.css'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import { useSelector } from 'react-redux'
+
 
 
 const NavBar = ({ setAuthenticated }) => {
@@ -16,6 +17,7 @@ const NavBar = ({ setAuthenticated }) => {
 	const homeRedirect = () => {
 		history.push('/')
 	}
+
 
 
 	return (
