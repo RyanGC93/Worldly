@@ -50,6 +50,7 @@
 }
 
 #bookings-btn{
+	cursor: pointer;
 	margin: 10% 10% 10% 10%;
 	width: 60%;
 	padding: 5%;
