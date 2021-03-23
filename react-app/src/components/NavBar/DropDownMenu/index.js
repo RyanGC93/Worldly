@@ -1,5 +1,6 @@
 
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
+import 'styles.css'
 
 export default function DropDownMenu() {
     const dropdownRef = useRef(null);
