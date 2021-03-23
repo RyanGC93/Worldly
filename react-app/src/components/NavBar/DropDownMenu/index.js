@@ -1,6 +1,7 @@
 
 import React, { useRef } from 'react';
-import 'styles.css'
+import {useDetectOutsideClick} from "../../../services/detectOustsideClick"
+import './styles.css'
 
 export default function DropDownMenu() {
     const dropdownRef = useRef(null);

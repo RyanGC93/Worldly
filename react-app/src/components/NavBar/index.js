@@ -4,6 +4,7 @@ import LogoutButton from "./LogoutButton";
 import './styles.css'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import { useSelector } from 'react-redux'
+import DropDownMenu from './DropDownMenu'
 
 
 
@@ -34,7 +35,8 @@ const NavBar = ({ setAuthenticated }) => {
 
 				</div>
 				<div className="user-settings">
-                    <LogoutButton setAuthenticated={setAuthenticated} />
+					<DropDownMenu />
+                    {/* <LogoutButton setAuthenticated={setAuthenticated} /> */}
 				</div>
 			</div>
 		</>
