@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import HTMLFlipBook from "react-pageflip";
 // import "./styles.scss";
 import './styles.css'
+import { useSelector } from 'react-redux'
+
 
 const PageCover = React.forwardRef((props, ref) => {
   return (
@@ -42,6 +44,7 @@ export default class Passport extends React.Component {
         
       </PageCover>
     ];
+    console.log('prop',this.props)
 
     let pageNum = 0;
     for (let i = 0; i < 100; i++) {
@@ -63,6 +66,7 @@ export default class Passport extends React.Component {
         </Page>
       );
     }
+    
 
     pages.push(
       <PageCover key={101} pos="bottom">
@@ -109,12 +113,14 @@ export default class Passport extends React.Component {
     this.setState({
       totalPage: this.flipBook.getPageFlip().getPageCount()
     });
+
   }
+
 
   render() {
     return (
       <>
-        <div className="container-md" style={{ position: "relative" }}>
+        <div id="passport" className="container-md" style={{ position: "relative" }}>
           <HTMLFlipBook
             width={550}
             height={733}

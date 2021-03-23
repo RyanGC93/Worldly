@@ -10,12 +10,15 @@ import Passport from './Passport'
 const Profile = () => {
 	const userEvents = useSelector((state) => Object.values(state.userEvents));
 	const user = useSelector((state) => state.session.user);
-
-	const history = useHistory();
+	let dateNow = new Date()
+	const upcomingEvents = userEvents.filter(ev => ev.dateObj > dateNow)
+	const pastEvents = userEvents.filter(ev => ev.dateObj < dateNow )
+	console.log('upcomingEvents', upcomingEvents)
+	console.log('pastEvents', pastEvents)
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
-	// const [isLoaded, setLoaded] = useState(false)
+
 
 	useEffect(() => {
 		// if (!user) return
@@ -33,16 +36,21 @@ const Profile = () => {
 		dispatch(userEventActions.getUserEvents(user.username));
 	}, [user, dispatch]);
 
-	if (!userEvents) {
+	if (!userEvents || !upcomingEvents[0] || !pastEvents[0] ) {
 		return null;
 	}
-	console.log(userEvents);
 
-	const manageBook
+
+	const manageBookings = () => {
+		let passport = document.getElementById('passport')
+		passport.classList.add('passport-active')
+	}
 
 	return (
 		<>
-			<div className="container">
+			<div className="container"
+			
+			>
 				<div className="profile-header">
 					<div className="profile-img">
 						<img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" />
@@ -81,7 +89,7 @@ const Profile = () => {
 								id="bookings-btn"
 								className="btn-ticket blue">Manage Events</div>
 						</div>
-						<Passport />
+						<Passport upcomingEvents={upcomingEvents} />
 					</div>
 					<div className="right-side">
 						<Map className="map-wrapper" />
