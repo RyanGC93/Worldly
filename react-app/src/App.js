@@ -47,7 +47,7 @@ function App() {
           <LandingPage />
           {/* <UsersList/> */}
         </ProtectedRoute>
-        <ProtectedRoute path="/search/:params" exact={true} authenticated={authenticated}>
+        <ProtectedRoute path="/events/"  authenticated={authenticated}>
           <NavBar setAuthenticated={setAuthenticated} />
           <HomePage />
           {/* <UsersList/> */}

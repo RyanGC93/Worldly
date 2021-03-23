@@ -8,7 +8,7 @@ import SignUpForm from "../SignUpForm";
 const LoginPage = ({ setAuthenticated }) => {
 	return (
     <>
-      <img className='background-img' src='https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'/>
+      <img className='background-img' alt='' src='https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'/>
 			<div className="login-wrap">
 				<div className="login-html">
 					<div className="title__login">Worldly</div>

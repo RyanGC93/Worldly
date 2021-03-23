@@ -7,9 +7,21 @@
 
 }
 
+.carousel-row {
+
+	height:235px
+}
+h2.title {
+	height:60px
+}
+
 .address{
+	width:75%;
+
 	display:flex;
 	justify-content:space-around;
+	position: absolute;
+	bottom: 12px;
 }
 
 /* 1600 / 16 = 100em 
@@ -250,6 +262,8 @@ button.carousel-next {
 }
 
 .item-summary {
+	position: relative;
+	height:200px;
 	width: 100%;
 	background-color: #eaedef;
 	padding: 1.5rem;
@@ -405,7 +419,7 @@ button.carousel-next {
 
 .scroll-block {
 	height: 10em;
-	overflow: scroll;
+	overflow-y: scroll;
 	border-bottom: 2px solid #ccc;
 }
 

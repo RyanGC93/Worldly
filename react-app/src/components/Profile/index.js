@@ -89,7 +89,11 @@ const Profile = () => {
 								id="bookings-btn"
 								className="btn-ticket blue">Manage Events</div>
 						</div>
-						<Passport upcomingEvents={upcomingEvents} />
+						<Passport upcomingEvents={upcomingEvents}
+							user={user}
+							email={email}
+							phoneNumber={phoneNumber}
+						/>
 					</div>
 					<div className="right-side">
 						<Map className="map-wrapper" />

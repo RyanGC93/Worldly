@@ -77,7 +77,8 @@ const EventCard = ({ event }) => {
                   </time>
                 </div>
                 <div className="item-buttons front-buttons">
-                  <button
+                <button
+                    id="btn-details"
                     className="btn-details blue"
                     aria-label="Learn more about the band and venue"
                     onClick={() => setToggle(false)}
@@ -121,15 +122,13 @@ const EventCard = ({ event }) => {
                 <div className="item-buttons back">
                   <button
                     className="btn-details blue on-back"
-                    aria-label="Learn more about the band and venue"
                     onClick={() => setToggle(true)}
                   >
                     Basic Info
                   </button>
                   <a
                     className="btn-tickets blue on-back"
-                    aria-label="Purchase tickets for this event"
-                    href="#"
+
                   >
                     Event Page
                   </a>

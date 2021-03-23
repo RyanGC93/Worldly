@@ -27,7 +27,7 @@ const NavBar = ({ setAuthenticated }) => {
 				<div className="searchBar-wrapper">
                     <ReactSearchAutocomplete />
 				</div>
-				<div class='centered'>
+				<div className='centered'>
 					<div className='profile' onClick={profileRedirect}>Profile</div>
 
 				</div>

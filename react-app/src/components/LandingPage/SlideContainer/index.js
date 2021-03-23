@@ -21,6 +21,7 @@ const SlideContainer = ({country}) => {
                 <img
                   className="slide-picture"
                   src={country.photos[0]}
+                  alt=''
                 />
               </div>
               <div className='scroll-title'>Info</div>
@@ -35,39 +36,44 @@ const SlideContainer = ({country}) => {
                                 <img
                   className="slide-picture"
                   src={country.photos[1]}
+                  alt=''
                 />
               </div>
               <div className="grid-pic small-pic-2">
                                 <img
                   className="slide-picture"
                   src={country.photos[2]}
+                  alt=''
                 />
               </div>
               <div className="grid-pic small-pic-3">
               <img
               className="slide-picture"
-              src={country.photos[3]}
+                  src={country.photos[3]}
+                  alt=''
             />
               </div>
               <div className="grid-pic small-pic-4">
               <img
               className="slide-picture"
-              src={country.photos[4]}
+                  src={country.photos[4]}
+                  alt=''
             />
               </div>
               <div className="grid-pic small-pic-5">
               <img
                   className="slide-picture"
                   src={country.photos[5]}
+                  alt=''
                 />
               </div>
               <div className="grid-pic small-pic-6">
               <img
                   className="slide-picture"
                   src={country.photos[6]}
+                  alt=''
                 />
               </div>
-              {/* <button>See Events</button> */}
             </div>
           </div>
         </div>

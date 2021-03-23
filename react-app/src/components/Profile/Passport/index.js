@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import HTMLFlipBook from "react-pageflip";
 // import "./styles.scss";
 import './styles.css'
-import { useSelector } from 'react-redux'
+import {BiEdit} from "react-icons/bi"
 
 
 const PageCover = React.forwardRef((props, ref) => {
@@ -23,14 +23,14 @@ const Page = React.forwardRef((props, ref) => {
   return (
     <div className="page" ref={ref} data-density={props.density | "soft"}>
       <div className="page-content">
-        <h2 className="page-header">Page header - {props.number}</h2>
+        {/* <h2 className="page-header">Page header - {props.number}</h2>
         <div
           className="page-image"
           style={{ backgroundImage: "url(images/html/" + props.image + ")" }}
         ></div>
         <div className="page-text">{props.children}</div>
-        <div className="page-footer">{props.number + 1}</div>
-      </div>
+        <div className="page-footer">{props.number + 1}</div> */}
+      </div> 
     </div>
   );
 });
@@ -46,26 +46,26 @@ export default class Passport extends React.Component {
     ];
     console.log('prop',this.props)
 
-    let pageNum = 0;
-    for (let i = 0; i < 100; i++) {
-      pageNum++;
-      if (pageNum > 8) pageNum = 1;
-      pages.push(
-        <Page key={i + 1} image={pageNum + ".jpg"} number={i + 1}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus
-          mollis nibh, non convallis ex convallis eu. Suspendisse potenti.
-          Aenean vitae pellentesque erat. Integer non tristique quam.
-          Suspendisse rutrum, augue ac sollicitudin mollis, eros velit viverra
-          metus, a venenatis tellus tellus id magna. Aliquam ac nulla rhoncus,
-          accumsan eros sed, viverra enim. Pellentesque non justo vel nibh
-          sollicitudin pharetra suscipit ut ipsum. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. In cursus mollis nibh, non convallis ex
-          convallis eu. Suspendisse potenti. Aenean vitae pellentesque erat.
-          Integer non tristique quam. Suspendisse rutrum, augue ac sollicitudin
-          mollis, eros velit viverra metus, a venenatis tellus tellus id magna.
-        </Page>
-      );
-    }
+    // let pageNum = 0;
+    // for (let i = 0; i < 100; i++) {
+    //   pageNum++;
+    //   if (pageNum > 8) pageNum = 1;
+    //   pages.push(
+    //     <Page key={i + 1} image={pageNum + ".jpg"} number={i + 1}>
+    //       Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus
+    //       mollis nibh, non convallis ex convallis eu. Suspendisse potenti.
+    //       Aenean vitae pellentesque erat. Integer non tristique quam.
+    //       Suspendisse rutrum, augue ac sollicitudin mollis, eros velit viverra
+    //       metus, a venenatis tellus tellus id magna. Aliquam ac nulla rhoncus,
+    //       accumsan eros sed, viverra enim. Pellentesque non justo vel nibh
+    //       sollicitudin pharetra suscipit ut ipsum. Lorem ipsum dolor sit amet,
+    //       consectetur adipiscing elit. In cursus mollis nibh, non convallis ex
+    //       convallis eu. Suspendisse potenti. Aenean vitae pellentesque erat.
+    //       Integer non tristique quam. Suspendisse rutrum, augue ac sollicitudin
+    //       mollis, eros velit viverra metus, a venenatis tellus tellus id magna.
+    //     </Page>
+    //   );
+    // }
     
 
     pages.push(
@@ -139,7 +139,21 @@ export default class Passport extends React.Component {
             style={{ backgroundImage: "url(images/background.jpg)" }}
             ref={(el) => (this.flipBook = el)}
           >
-            {this.state.pages}
+            <PageCover key={0} pos="top"></PageCover>
+            <Page key={1}>
+            sdfdsfds
+
+
+            </Page>
+            <div>
+              <BiEdit />
+              <div className='profile-pic'></div>
+              <div className='firstName'>{this.props.user.first_name}</div>
+              <div className='lastName'>{this.props.user.last_name}</div>
+              <div className='bio'>{this.props.user.bio}</div>
+              <div className='phoneNumber'>{this.props.phone_number}</div>
+            </div>
+
           </HTMLFlipBook>
         </div>
       </>
