@@ -43,7 +43,6 @@ const Page = React.forwardRef((props, ref) => {
 	}
 	console.log(imagesOne, imagesTwo);
 
-
 	return (
 		<div className="page" ref={ref} data-density={props.density | "soft"}>
 			<div className="page-header">{props.header} Events </div>
@@ -55,46 +54,42 @@ const Page = React.forwardRef((props, ref) => {
 							<Slider className="page-carousel">
 								{imagesOne.map((image) => (
 									<div className="page-img-container" key={image.event_id}>
-										
 										<img
 											key={image.photo_id}
 											className="event-image passport-image"
 											alt={image.description}
 											src={image.photo_url}
-										/> 
+										/>
 										<div className="page-location">
-											<div className="page-country">{contentOne.country}, {contentOne.region}</div>
+											<div className="page-country">
+												{contentOne.country}, {contentOne.region}
+											</div>
 											<div className="page-region"></div>
 										</div>
+										<div className="page-date">{contentOne.date.slice(5)}</div>
 									</div>
 								))}
 							</Slider>
 						)}
-						<div className="page-time">
-							<div className="page-date">{contentOne.date.slice(5)}</div>
-						</div>
-						<div className="page-name">{contentOne.firstName}</div>
-						{/* <div className='page-description'>
-            // {contentOne.description}
-                  </div> */}
 					</div>
 				)}
 				{contentTwo && (
 					<div className="content-section">
-						<div className="page-title">{contentOne.title}</div>
+						<div className="page-title">{contentTwo.title}</div>
 						{imagesTwo[0] && (
 							<Slider className="page-carousel">
 								{imagesTwo.map((image) => (
 									<div className="page-img-container" key={image.event_id}>
-										
 										<img
 											key={image.photo_id}
 											className="event-image passport-image"
 											alt={image.description}
 											src={image.photo_url}
-										/> 
+										/>
 										<div className="page-location">
-											<div className="page-country">{contentOne.country}, {contentOne.region}</div>
+											<div className="page-country">
+												{contentTwo.country}, {contentTwo.region}
+											</div>
 											<div className="page-region"></div>
 										</div>
 									</div>
@@ -110,7 +105,7 @@ const Page = React.forwardRef((props, ref) => {
                   </div> */}
 					</div>
 				)}
-				</div>
+			</div>
 		</div>
 	);
 });
