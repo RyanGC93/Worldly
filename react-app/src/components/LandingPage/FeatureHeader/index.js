@@ -1,7 +1,12 @@
 import React from "react";
 import './styles.css'
+import {useHistory} from 'react-router-dom'
 
 const FeatureHeader = () => {
+  const history = useHistory()
+  const exploreHandler = () => {
+    history.push('/events/')
+  }
 
   return(
     <>
@@ -18,7 +23,7 @@ const FeatureHeader = () => {
             </div>
             <div className='feature-content'> One bite at a time.</div>
             <div className='explore-btn-container' >
-              <button className='feature-btn'>Explore</button>
+              <button className='feature-btn' onClick={exploreHandler}>Explore</button>
               </ div>
           </div>
         </div>

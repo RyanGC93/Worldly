@@ -3,6 +3,8 @@ import HTMLFlipBook from "react-pageflip";
 // import "./styles.scss";
 import "./styles.css";
 import { BiEdit } from "react-icons/bi";
+import { useSelector } from "react-redux";
+import Slider from "infinite-react-carousel";
 
 const PageCover = React.forwardRef((props, ref) => {
 	return (
@@ -19,20 +21,96 @@ const PageCover = React.forwardRef((props, ref) => {
 });
 
 const Page = React.forwardRef((props, ref) => {
-  const contentOne = props.contentOnce
-  const contentTwo = props.
+	// const images = useSelector((state) => {
+	// 	return Object.values(state.photoGallery).filter((photo) => photo.event_id === event.event_id);
+	//   });
+	let imagesOne, imagesTwo;
+	const contentOne = props.contentOne;
+	const contentTwo = props.contentTwo;
+	if (contentOne) {
+		imagesOne = useSelector((state) => {
+			return Object.values(state.photoGallery).filter(
+				(photo) => photo.event_id === contentOne.event_id
+			);
+		});
+	}
+	if (contentTwo) {
+		imagesTwo = useSelector((state) => {
+			return Object.values(state.photoGallery).filter(
+				(photo) => photo.event_id === contentTwo.event_id
+			);
+		});
+	}
+	console.log(imagesOne, imagesTwo);
 
-  return (
+
+	return (
 		<div className="page" ref={ref} data-density={props.density | "soft"}>
+			<div className="page-header">{props.header} Events </div>
 			<div className="page-content">
-				{/* <h2 className="page-header">Page header - {props.number}</h2>
-        <div
-          className="page-image"
-          style={{ backgroundImage: "url(images/html/" + props.image + ")" }}
-        ></div>
-        <div className="page-text">{props.children}</div>
-        <div className="page-footer">{props.number + 1}</div> */}
-			</div>
+				{contentOne && (
+					<div className="content-section">
+						<div className="page-title">{contentOne.title}</div>
+						{imagesOne[0] && (
+							<Slider className="page-carousel">
+								{imagesOne.map((image) => (
+									<div className="page-img-container" key={image.event_id}>
+										
+										<img
+											key={image.photo_id}
+											className="event-image passport-image"
+											alt={image.description}
+											src={image.photo_url}
+										/> 
+										<div className="page-location">
+											<div className="page-country">{contentOne.country}, {contentOne.region}</div>
+											<div className="page-region"></div>
+										</div>
+									</div>
+								))}
+							</Slider>
+						)}
+						<div className="page-time">
+							<div className="page-date">{contentOne.date.slice(5)}</div>
+						</div>
+						<div className="page-name">{contentOne.firstName}</div>
+						{/* <div className='page-description'>
+            // {contentOne.description}
+                  </div> */}
+					</div>
+				)}
+				{contentTwo && (
+					<div className="content-section">
+						<div className="page-title">{contentOne.title}</div>
+						{imagesTwo[0] && (
+							<Slider className="page-carousel">
+								{imagesTwo.map((image) => (
+									<div className="page-img-container" key={image.event_id}>
+										
+										<img
+											key={image.photo_id}
+											className="event-image passport-image"
+											alt={image.description}
+											src={image.photo_url}
+										/> 
+										<div className="page-location">
+											<div className="page-country">{contentOne.country}, {contentOne.region}</div>
+											<div className="page-region"></div>
+										</div>
+									</div>
+								))}
+							</Slider>
+						)}
+						<div className="page-time">
+							<div className="page-date">{contentOne.date}</div>
+						</div>
+						<div className="page-name">{contentOne.firstName}</div>
+						{/* <div className='page-description'>
+            // {contentOne.description}
+                  </div> */}
+					</div>
+				)}
+				</div>
 		</div>
 	);
 });
@@ -42,13 +120,13 @@ export default class Passport extends React.Component {
 		super(props);
 
 		const pages = [<PageCover key={0} pos="top"></PageCover>];
-		console.log("prop", this.props);
 
 		pages.push(
 			<PageCover key={101} pos="bottom">
 				THE END
 			</PageCover>
 		);
+		console.log(props, "passport");
 
 		this.state = {
 			page: 0,
@@ -97,7 +175,7 @@ export default class Passport extends React.Component {
 			<>
 				<div
 					id="passport"
-					className="container-md"
+					className="container-md passport-active"
 					style={{ position: "relative" }}
 				>
 					<HTMLFlipBook
@@ -135,8 +213,23 @@ export default class Passport extends React.Component {
 							<div className="lastName">{this.props.user.last_name}</div>
 							<div className="bio">{this.props.user.bio}</div>
 							<div className="phoneNumber">{this.props.phone_number}</div>
-            </div>
-            {this.props.pastEvents && this.props.pastEvents.map((page) => <Page contentOne={page[0]} contentTwo={page[1]} />)}
+						</div>
+						{this.props.pastEvents &&
+							this.props.pastEvents.map((page) => (
+								<Page
+									header={"Past"}
+									contentOne={page[0]}
+									contentTwo={page[1]}
+								/>
+							))}
+						{this.props.upcomingEvents &&
+							this.props.upcomingEvents.map((page) => (
+								<Page
+									header={"Upcoming"}
+									contentOne={page[0]}
+									contentTwo={page[1]}
+								/>
+							))}
 					</HTMLFlipBook>
 				</div>
 				<div className="container mt-3">

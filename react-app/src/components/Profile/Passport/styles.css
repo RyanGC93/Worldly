@@ -5,7 +5,54 @@
 	  box-sizing: border-box;
 	  box-shadow: 0 1.5em 3em -1em rgb(88, 88, 88);
 	  box-shadow: 0 1.5em 3em -1em rgb(22, 22, 22);
+    height: 100%;
+
   }
+  .page-title {
+    text-align: center;
+  }
+ .page-carousel {
+   margin-left: 10%;
+   width: 80%;
+   height: 50%;
+ }
+ .passport-image {
+   opacity: 0.7
+ }
+.page-img-container {
+  position: relative;
+}
+  .page-location {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    /* background-color: yellow; */
+    font-size: 12px;
+    bottom: 4px;
+    left: 4px;
+  }
+
+  .page-header{
+    padding: 1% 1% 1% 1%;
+    height: 4%;
+    text-align:center;
+    text-decoration: underline;
+  }
+
+  .page-content {
+    height: 94%;
+    margin: 0% 5% 5% 5%;
+    /* padding: 10px 10px 10px 10px; */
+  }
+
+  .content-section{
+    height:50%;
+  }
+
+  .passport-image{
+    border-radius: 5%
+  }
+
   
   .container-md{
   z-index: 6;

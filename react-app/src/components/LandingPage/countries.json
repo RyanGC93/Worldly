@@ -10,7 +10,8 @@
 			"https://images.pexels.com/photos/6097888/pexels-photo-6097888.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
 			"https://images.pexels.com/photos/4261996/pexels-photo-4261996.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
 		],
-		"name": "Africa"
+		"name": "Africa",
+    "short": "africa"
 	},
   "europe": {
     "info": "The cuisines of Western countries are diverse, although there are common characteristics that distinguish them from those of other regions.[3] Compared with traditional cooking of East Asia, meat is more prominent and substantial in serving size.[4] Steak and cutlets in particular are common dishes across the West.[dubious – discuss] Western cuisines also emphasize grape wine[dubious – discuss] and sauces as condiments, seasonings, or accompaniments (in part due to the difficulty of seasonings penetrating the often larger pieces of meat used in Western cooking).",
