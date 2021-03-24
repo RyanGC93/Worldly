@@ -10,14 +10,36 @@ import Passport from './Passport'
 const Profile = () => {
 	const userEvents = useSelector((state) => Object.values(state.userEvents));
 	const user = useSelector((state) => state.session.user);
-	let dateNow = new Date()
-	const upcomingEvents = userEvents.filter(ev => ev.dateObj > dateNow)
-	const pastEvents = userEvents.filter(ev => ev.dateObj < dateNow )
-	console.log('upcomingEvents', upcomingEvents)
-	console.log('pastEvents', pastEvents)
+
+
+		let dateNow = new Date()
+		const pastEvents = userEvents.filter(ev => ev.dateObj < dateNow )
+		const upcomingEvents = userEvents.filter(ev => ev.dateObj > dateNow)
+		const sortedUpcomingEvents = upcomingEvents.sort((a, b) =>a.dateObj - b.dateObj )
+		const sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj)
+
+	const contentDivider = (arr) => {
+		let newarr = [];
+		let i, j, temparray, chunk = 2;
+		for (i = 0, j = arr.length; i < j; i += chunk) {
+			temparray = arr.slice(i, i + chunk);
+			newarr.push(temparray);
+		}
+		return newarr;
+	}
+		  
+	let upcomingBookEvents = contentDivider(sortedUpcomingEvents)
+	let pastBookEvents = contentDivider(sortedPastEvents)
+	
+	console.log("finished",upcomingBookEvents,pastBookEvents)
+	
+	console.log('upcomingEvents', upcomingEvents, sortedUpcomingEvents)
+	console.log('pastEvents', pastEvents, sortedPastEvents)
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
+
+
 
 
 	useEffect(() => {
@@ -89,10 +111,11 @@ const Profile = () => {
 								id="bookings-btn"
 								className="btn-ticket blue">Manage Events</div>
 						</div>
-						<Passport upcomingEvents={upcomingEvents}
+						<Passport upcomingEvents={upcomingBookEvents}
 							user={user}
 							email={email}
 							phoneNumber={phoneNumber}
+						pastEvents={pastBookEvents}	
 						/>
 					</div>
 					<div className="right-side">
