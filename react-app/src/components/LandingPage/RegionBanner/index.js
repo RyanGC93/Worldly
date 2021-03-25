@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import {useHistory} from 'react-router-dom'
 import "./styles.css";
 
 const RegionBanner = ({ country }) => {
-	const [childrenList, setChildrenList] = useState("");
-	const [activeChild, setActiveChild] = useState("");
+	const history = useHistory()
 	let images = country.photos;
 
 	const fadeOut = async () => {
@@ -39,6 +39,12 @@ const RegionBanner = ({ country }) => {
 		trial()
 	},[])
 
+
+	const regionRedirect = () => {
+		history.push(`/events/${country.short}`)
+
+	}
+
 	return (
 		<>
 			<div className="sizing-container">
@@ -53,7 +59,7 @@ const RegionBanner = ({ country }) => {
 							></div>
 						))}
 					</div>
-						<div className='region-feature-btn'>Explore {country.name}</div>
+						<div className='region-feature-btn' onClick={regionRedirect} >Explore {country.name}</div>
 				</div>
 			</div>
 		</>

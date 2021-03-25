@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom'
 const FeatureHeader = () => {
   const history = useHistory()
   const exploreHandler = () => {
-    history.push('/events/')
+    history.push('/events/all')
   }
 
   return(

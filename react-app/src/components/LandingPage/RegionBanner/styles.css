@@ -18,14 +18,34 @@
   }
   
   .region-feature-btn{
-    height:20px;
-    background-color:yellow;
+    z-index: 100;
+    background-image: linear-gradient(
+      to top,
+      rgba(64, 101, 173, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
     position: absolute;
-    top: 50%;  
+    /* top: 50%;   */
     left: 50%; 
     transform: translate(-50%, -50%);
     cursor:pointer;
+    font-weight: bold;
+    font-size: 40px;
+    width: 70%;
+    padding: 5% 5% 5% 5%;
+    text-align: center;
+    border-radius: 15px;
+    bottom: -50px;
+    color: white
+    /* bottom: .1vh; */
     
+  }
+  .region-feature-btn:hover {
+    background-image: linear-gradient(
+      to top,
+      rgba(13, 51, 128, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    )
   }
 
   .region-feature-img {
