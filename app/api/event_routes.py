@@ -16,7 +16,7 @@ def events(param):
         
     else:
         # Gets the events by country
-        events = db.session.query(Location.event_id, Location.region).filter(Location.region == region_param, Location.event_id == EventCalendar.event_id).all() 
+        events = db.session.query(Location.event_id, Location.region).filter(Location.region == param, Location.event_id == EventCalendar.event_id).all() 
         event_ids = [event[0]for event in events]
         # print(event_ids) # ALL EVENT IDS
 

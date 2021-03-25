@@ -2,7 +2,11 @@
 .navbar {
 	width: 100vw;
 	height: 70px;
-	background-color: rgba(0, 78, 124, 0.8);
+    background-image: linear-gradient(
+      to top,
+      rgba(13, 51, 128, 0.7) 50%,
+      rgba(0, 0, 0, .2) 100%
+    );
 	display: grid;
 	grid-template-columns: 33% 33% 33%;
 	box-sizing: border-box;
@@ -36,7 +40,7 @@
 }
 
 .nav-logo:hover {
-	color:rgba(120, 204, 253, 0.8)
+	color:rgba(86, 86, 87, 0.8)
 }
 
 .logout-btn {

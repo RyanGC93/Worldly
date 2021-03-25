@@ -10,6 +10,7 @@ const LandingPage = () => {
         <>
             <FeatureHeader />
             <div className='regions-container' />
+            <div className='feature-spacer' ></div>
             <div className='regions-title'>
                 {/* <div>Take a Tasty Trip</div> */}
                 Take a Tasty Trip

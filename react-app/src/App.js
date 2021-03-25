@@ -44,7 +44,7 @@ function App() {
           <LandingPage />
           {/* <UsersList/> */}
         </ProtectedRoute>
-        <ProtectedRoute path="/events/"  authenticated={authenticated}>
+        <ProtectedRoute path="/events/:region"  authenticated={authenticated}>
           <NavBar setAuthenticated={setAuthenticated} />
           <HomePage />
           {/* <UsersList/> */}
