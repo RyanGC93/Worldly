@@ -4,8 +4,16 @@ import {useDetectOutsideClick} from "../../../services/detectOustsideClick"
 import './styles.css';
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux'
+import { logout } from "../../../services/auth";
 
-const DropDownMenu = () => {
+const DropDownMenu = ({setAuthenticated}) => {
+
+  const onLogout = async (e) => {
+    await logout();
+    setAuthenticated(false);
+  };
+
+
   const history = useHistory()
   const username = useSelector(state => state.session.user.username)
 
@@ -40,7 +48,7 @@ const DropDownMenu = () => {
                 
               </li>
               <li>
-                <div className=''>Signout</div>
+                <div className='' onClick={onLogout}>Signout</div>
               </li>
               <li>
                 <div className=''>Signout</div>

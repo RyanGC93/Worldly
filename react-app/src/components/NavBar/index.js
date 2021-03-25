@@ -26,8 +26,8 @@ const NavBar = ({ setAuthenticated }) => {
                     <ReactSearchAutocomplete />
 				</div>
 				<div className="user-settings">
-					<DropDownMenu />
-                    {/* <LogoutButton setAuthenticated={setAuthenticated} /> */}
+					<DropDownMenu setAuthenticated={setAuthenticated} />
+                    {/* <LogoutButton  /> */}
 				</div>
 			</div>
 		</>
