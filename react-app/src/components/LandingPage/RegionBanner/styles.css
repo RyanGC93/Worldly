@@ -17,6 +17,17 @@
     
   }
   
+  .region-feature-btn{
+    height:20px;
+    background-color:yellow;
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    cursor:pointer;
+    
+  }
+
   .region-feature-img {
     z-index: 2;
     position: absolute;
@@ -29,8 +40,8 @@
   .overlay{
     position: relative;
     background-color:black;
-      height: 200px;
-    width: 200px;
+      height: 100%;
+    width: 100%;
   }
 
   

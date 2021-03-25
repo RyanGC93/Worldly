@@ -5,7 +5,7 @@ import './styles.css';
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux'
 
-const DropDownMenu = () => {
+const DropSearch = () => {
   const history = useHistory()
   const username = useSelector(state => state.session.user.username)
 
@@ -52,4 +52,4 @@ const DropDownMenu = () => {
     );
   }
   
-export default DropDownMenu
+export default DropSearch

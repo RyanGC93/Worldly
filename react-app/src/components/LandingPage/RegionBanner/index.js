@@ -53,6 +53,7 @@ const RegionBanner = ({ country }) => {
 							></div>
 						))}
 					</div>
+						<div className='region-feature-btn'>Explore {country.name}</div>
 				</div>
 			</div>
 		</>
