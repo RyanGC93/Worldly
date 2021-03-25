@@ -17,7 +17,7 @@
     
   }
   
-  .imgOne {
+  .region-feature-img {
     z-index: 2;
     position: absolute;
     background-size: cover;
@@ -32,14 +32,7 @@
       height: 200px;
     width: 200px;
   }
-  
-  .displayed{
-    opacity:1
-  }
-  
-  .active{
-      /* animation: color-me-in 5s infinite; */
-  }
+
   
   @keyframes transition-fade-out {
     0% {
