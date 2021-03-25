@@ -21,31 +21,18 @@ const DropSearch = () => {
     return (
       <>
         <div className="menu-container">
-          <button onClick={onClick} className="menu-trigger">
-            <span>User</span>
-            <img
-              src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/df/df7789f313571604c0e4fb82154f7ee93d9989c6.jpg"
-              alt="User avatar"
-            />
+          <button onClick={onClick} className="menu-trigger search-trigger">
+            <span>filter</span>
+     
           </button>
           <nav
             ref={dropdownRef}
             className={`menu ${isActive ? "active" : "inactive"}`}
           >
-            <ul>
-              <li>
-                <div className='' onClick={profileRedirect} >Profile</div>
-              </li>
-              <li>
-                
-              </li>
-              <li>
-                <div className=''>Signout</div>
-              </li>
-              <li>
-                <div className=''>Signout</div>
-              </li>
-            </ul>
+            <div className='dropped-menu'>
+                        
+            </div>
+
           </nav>
         </div>
       </>

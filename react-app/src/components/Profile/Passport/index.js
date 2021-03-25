@@ -20,6 +20,20 @@ const PageCover = React.forwardRef((props, ref) => {
 	);
 });
 
+const UserPage = React.forwardRef((props, ref) => {
+	return (
+		<div
+			className={"page page-cover page-cover-" + props.pos}
+			ref={ref}
+			data-density="soft"
+		>
+			<div className="page-content">
+				<h2>{props.children}</h2>
+			</div>
+		</div>
+	);
+});
+
 const Page = React.forwardRef((props, ref) => {
 	// const images = useSelector((state) => {
 	// 	return Object.values(state.photoGallery).filter((photo) => photo.event_id === event.event_id);
@@ -41,7 +55,6 @@ const Page = React.forwardRef((props, ref) => {
 			);
 		});
 	}
-	console.log(imagesOne, imagesTwo);
 
 	return (
 		<div className="page" ref={ref} data-density={props.density | "soft"}>
@@ -162,6 +175,7 @@ export default class Passport extends React.Component {
 		this.setState({
 			totalPage: this.flipBook.getPageFlip().getPageCount(),
 		});
+		console.log(this.props, '======================')
 		// this.createBook(this.props);
 	}
 
@@ -193,22 +207,7 @@ export default class Passport extends React.Component {
 					>
 						<PageCover key={0} pos="top"></PageCover>
 						<Page key={1}></Page>
-						<div className="page">
-							<BiEdit />
-							<div className="profile-pic"></div>
-							<div className="firstName">{this.props.user.first_name}</div>
-							<div className="lastName">{this.props.user.last_name}</div>
-							<div className="bio">{this.props.user.bio}</div>
-							<div className="phoneNumber">{this.props.phone_number}</div>
-						</div>
-						<div className="page">
-							<BiEdit />
-							<div className="profile-pic"></div>
-							<div className="firstName">{this.props.user.first_name}</div>
-							<div className="lastName">{this.props.user.last_name}</div>
-							<div className="bio">{this.props.user.bio}</div>
-							<div className="phoneNumber">{this.props.phone_number}</div>
-						</div>
+
 						{this.props.pastEvents &&
 							this.props.pastEvents.map((page) => (
 								<Page

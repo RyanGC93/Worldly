@@ -30,7 +30,7 @@ const DropDownMenu = () => {
           </button>
           <nav
             ref={dropdownRef}
-            className={`menu ${isActive ? "active" : "inactive"}`}
+            className={`menu abs ${isActive ? "active" : "inactive"}`}
           >
             <ul>
               <li>

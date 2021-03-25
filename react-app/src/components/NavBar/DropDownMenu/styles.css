@@ -40,13 +40,16 @@
     border-radius: 50%;
     height: 40px
   }
+  nav.abs{
+    right: 0
+  }
   
   .menu {
     background: #ffffff;
     border-radius: 8px;
     position: absolute;
     top: 60px;
-    right: 0;
+    /* right: 0; */
     width: 300px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
     opacity: 0;

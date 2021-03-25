@@ -31,10 +31,6 @@ const Profile = () => {
 	let upcomingBookEvents = contentDivider(sortedUpcomingEvents)
 	let pastBookEvents = contentDivider(sortedPastEvents)
 	
-	console.log("finished",upcomingBookEvents,pastBookEvents)
-	
-	console.log('upcomingEvents', upcomingEvents, sortedUpcomingEvents)
-	console.log('pastEvents', pastEvents, sortedPastEvents)
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
