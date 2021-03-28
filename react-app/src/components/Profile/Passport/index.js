@@ -184,7 +184,7 @@ export default class Passport extends React.Component {
 			<>
 				<div
 					id="passport"
-					className="container-md passport-active"
+					className="container-md "
 					style={{ position: "relative" }}
 				>
 					<HTMLFlipBook

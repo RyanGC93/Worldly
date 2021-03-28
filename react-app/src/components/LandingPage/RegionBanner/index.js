@@ -33,7 +33,7 @@ const RegionBanner = ({ country }) => {
 			await fadeOut();
 			await new Promise((resolve) => setTimeout(resolve, 5000));
 		}
-		//  if(!children[0]) trial()
+		 if(!children[0]) trial()
 	};
 	useEffect(() => {
 		trial()
