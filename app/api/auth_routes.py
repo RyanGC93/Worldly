@@ -36,8 +36,11 @@ def authenticate_ambassador():
     if current_user.is_authenticated:
         keys = ["a", "b", "c"]   
         ambassador= Ambassador.query.filter(Ambassador.user_id == current_user.id).first()
-
-        return ambassador.to_dict() if ambassador else {'errors': ['Unauthorized User']}, 403
+        print('======================',ambassador,'==============')
+        if(ambassador):
+            return ambassador.to_dict() 
+        if not(ambassador):
+            return  {'errors': ['Unauthorized User']}, 403  
     return {'errors': ['Unauthorized']}, 401
 
 
