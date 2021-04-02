@@ -18,6 +18,22 @@ def query_event():
     # print(values)
     # print(row)
     
+    
+@query_commands.command('ambassador')
+def query_ambassador():
+
+    # y = db.session.query.query(CommentLike) 
+    # for c, u, l in db.session.query(Comment, User, CommentLike).filter(Comment.id == CommentLike.commentId, User.id == Comment.userId ).with_entities(User.name, Comment):
+    x = Ambassador.query().filter(Ambassador.id == '1').all()
+    keys = ['event_id', 'title', 'description', 'region', 'country', 'username']
+    print(x[0])
+    values = list(x[0])
+    row = dict(zip(keys,values))
+    # print(values)
+    # print(row)
+        
+    
+    
 @query_commands.command('event-limited')
 def query_comments():
     x =db.session.query(EventCalendar).filter(EventCalendar.date <="2021-04-01").count()

@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, db, Ambassador
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -27,6 +27,19 @@ def authenticate():
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}, 401
 
+@auth_routes.route('/ambassador/')
+def authenticate_ambassador():
+    """
+    Authenticates a user.
+    """
+  
+    if current_user.is_authenticated:
+        keys = ["a", "b", "c"]   
+        ambassador= Ambassador.query.filter(Ambassador.user_id == current_user.id).first()
+       
+        return ambassador.to_dict()
+    return {'errors': ['Unauthorized']}, 401
+
 
 @auth_routes.route('/login', methods=['POST'])
 def login():
@@ -34,8 +47,6 @@ def login():
     Logs a user in
     """
     form = LoginForm()
-    print('==========================')
-    print(request.get_json())
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']

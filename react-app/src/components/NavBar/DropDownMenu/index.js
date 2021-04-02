@@ -1,6 +1,7 @@
 
 import React, { useRef } from 'react';
-import {useDetectOutsideClick} from "../../../services/detectOustsideClick"
+
+import {useDetectOutsideClick} from "../../../services/detectOutsideClick"
 import './styles.css';
 import { useHistory } from "react-router-dom";
 import { useSelector } from 'react-redux'

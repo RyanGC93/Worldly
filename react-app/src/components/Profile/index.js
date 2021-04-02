@@ -6,6 +6,7 @@ import * as eventActions from "../../store/events";
 import Map from "../Map";
 import * as userEventActions from "../../store/userEvents";
 import Passport from './Passport'
+import { checkAmbassador } from "../../services/checkAmbassador";
 
 const Profile = () => {
 	const userEvents = useSelector((state) => Object.values(state.userEvents));
@@ -34,12 +35,13 @@ const Profile = () => {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
+	const [isAmbassador, setAmbassador] = useState(false)
 
 
 
 
 	useEffect(() => {
-		// if (!user) return
+		if (!user) return
 
 		// if(userEvents && user ) return setLoaded(true)
 
@@ -50,7 +52,12 @@ const Profile = () => {
 			setEmail(res.email);
 			setPhoneNumber(res.phone_number);
 		})();
-
+		(async () => {
+			const response = await checkAmbassador()
+			console.log('yuppp', response)
+		})();
+		console.log('userrrrr', checkAmbassador)
+		setAmbassador(checkAmbassador())
 		dispatch(userEventActions.getUserEvents(user.username));
 	}, [user, dispatch]);
 
@@ -83,6 +90,9 @@ const Profile = () => {
 						</div>
 					</div>
 					<div className="profile-option">
+						{isAmbassador && (
+							<div> Is ambassador </div>
+					)}	
 						<div className="notification">
 							<i className="fa fa-bell"></i>
 							<span className="alert-message">3</span>

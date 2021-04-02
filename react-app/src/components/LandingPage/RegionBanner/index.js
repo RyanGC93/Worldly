@@ -13,22 +13,30 @@ const RegionBanner = ({ country }) => {
 		prevAct.classList.add("fade-out");
 	};
 	const fadeIn = async () => {
+		let parentQuery = document.getElementById(`${country.short}-imgs`)
+		if (!parentQuery)return
 		let children = document.getElementById(`${country.short}-imgs`).children;
 		let prev = document.querySelector(".fade-out");
 		let child = children[Math.floor(Math.random() * children.length)];
-		console.log(child, "child");
-
 		if (prev !== null) prev.classList.remove("fade-out");
-
 		child.classList.add("fade-in");
 	};
 
+	const checkDomChange = () => {
+		return document.getElementById(`${country.short}-imgs`)
+		
+	};
+
+
 	const trial = async () => {
-		// alert()
-		let children = document.getElementById(`${country.short}-imgs`).children;
+		let parentQuery = document.getElementById(`${country.short}-imgs`)
+		let children
+		if(parentQuery) children = parentQuery.children;
 
 		while (children[0]) {
 			await fadeIn();
+			let parentQuery = document.getElementById(`${country.short}-imgs`)
+			if(!parentQuery) return
 			await new Promise((resolve) => setTimeout(resolve, 10000));
 			await fadeOut();
 			await new Promise((resolve) => setTimeout(resolve, 5000));
