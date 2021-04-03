@@ -36,7 +36,6 @@ def authenticate_ambassador():
     if current_user.is_authenticated:
         keys = ["a", "b", "c"]   
         ambassador= Ambassador.query.filter(Ambassador.user_id == current_user.id).first()
-        print('======================',ambassador,'==============')
         if(ambassador):
             return ambassador.to_dict() 
         if not(ambassador):

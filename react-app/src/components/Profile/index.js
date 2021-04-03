@@ -54,10 +54,8 @@ const Profile = () => {
 		})();
 		(async () => {
 			const response = await checkAmbassador()
-			console.log('yuppp', response)
 			setAmbassador(response)
 		})();
-		console.log('userrrrr', checkAmbassador)
 		dispatch(userEventActions.getUserEvents(user.username));
 	}, [user, dispatch]);
 
