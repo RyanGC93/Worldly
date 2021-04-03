@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import HTMLFlipBook from "react-pageflip";
 // import "./styles.scss";
 import "./styles.css";
+import { BiEdit } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import Slider from "infinite-react-carousel";
 
