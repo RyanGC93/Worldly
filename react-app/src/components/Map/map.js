@@ -32,10 +32,22 @@ const rounded = (num) => {
   }
 };
 
-const MapChart = ({ setTooltipContent }) => {
-
-  const userEvents = useSelector((state) =>
-  Object.values(state.userEvents));
+const MapChart = ({ setTooltipContent, isChecked }) => {
+  console.log('isChecked', isChecked)
+  const userEvents = useSelector((state) => {
+    if (isChecked) return Object.values(state.userEvents);
+    if (!isChecked) return Object.values(state.ambassadorEvents);
+    
+  })
+  // let userEvents
+  // if (isChecked) {
+  //   userEvents = useSelector((state) =>
+  //   Object.values(state.userEvents));
+  // } else{
+  //   userEvents = useSelector((state) =>
+  //   Object.values(state.ambassadorEvents))
+  // }
+  
   useEffect(() =>{
     
   }, [userEvents])

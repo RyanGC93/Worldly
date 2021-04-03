@@ -4,15 +4,14 @@ import React, { useState, useEffect } from "react";
 import Passport from "../Profile/Passport";
 import { useSelector } from "react-redux";
 import ReactTooltip from "react-tooltip";
-//import HTMLFlipBook from 'react-pageflip'
 
-const Map = () => {
+const Map = ({isChecked}) => {
 	const [content, setContent] = useState("");
 
 	return (
 		<>
 			<div className="map-border">
-				<MapChart setTooltipContent={setContent} />
+				<MapChart isChecked={isChecked} setTooltipContent={setContent} />
 				<ReactTooltip>{content}</ReactTooltip>
 				<div className="sticky-note note-1">
 					<div className="sticky-tape"></div>

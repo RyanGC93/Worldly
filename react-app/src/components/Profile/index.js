@@ -57,8 +57,8 @@ const Profile = () => {
 			const response = await checkAmbassador()
 			setAmbassador(response)
 		})();
-		if (isAmbassador) dispatch(ambassadorEventActions.getAmbassadorEvents());
-		if (!isAmbassador) dispatch(userEventActions.getUserEvents(user.username));
+		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
+		if (isChecked) dispatch(userEventActions.getUserEvents(user.username));
 	
 	}, [user, dispatch,isChecked]);
 
@@ -126,7 +126,7 @@ const Profile = () => {
 						/>
 					</div>
 					<div className="right-side">
-						<Map className="map-wrapper" />
+						<Map  isChecked={isChecked} className="map-wrapper" />
 					</div>
 				</div>
 			</div>
