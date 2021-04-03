@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-const Slider = () => {
-	const [isChecked, setChecked] = useState(true);
+const Slider = ({isChecked, setChecked}) => {
+
 
 	const toggleHandler = () => {
 		setChecked(!isChecked);
@@ -10,7 +10,7 @@ const Slider = () => {
 
 	return (
 		<>
-			<div>
+			<div className='toggle-container'>
 				{isChecked && <div className="toggle-header">User</div>}
 				{!isChecked && <div className="toggle-header">Ambassador</div>}
 				<div

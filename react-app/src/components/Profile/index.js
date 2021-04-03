@@ -6,12 +6,19 @@ import * as eventActions from "../../store/events";
 import Slider from './Slider'
 import Map from "../Map";
 import * as userEventActions from "../../store/userEvents";
+import * as ambassadorEventActions from "../../store/ambassadorEvents";
+
 import Passport from './Passport'
 import { checkAmbassador } from "../../services/checkAmbassador";
 
 const Profile = () => {
 	const userEvents = useSelector((state) => Object.values(state.userEvents));
 	const user = useSelector((state) => state.session.user);
+	const [isChecked, setChecked] = useState(true);
+	const dispatch = useDispatch();
+	const [email, setEmail] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
+	const [isAmbassador, setAmbassador] = useState(false)
 
 
 		let dateNow = new Date()
@@ -33,19 +40,12 @@ const Profile = () => {
 	let upcomingBookEvents = contentDivider(sortedUpcomingEvents)
 	let pastBookEvents = contentDivider(sortedPastEvents)
 	
-	const dispatch = useDispatch();
-	const [email, setEmail] = useState("");
-	const [phoneNumber, setPhoneNumber] = useState("");
-	const [isAmbassador, setAmbassador] = useState(false)
 
 
 
 
 	useEffect(() => {
 		if (!user) return
-
-		// if(userEvents && user ) return setLoaded(true)
-
 		(async () => {
 			const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();
@@ -57,13 +57,14 @@ const Profile = () => {
 			const response = await checkAmbassador()
 			setAmbassador(response)
 		})();
-		dispatch(userEventActions.getUserEvents(user.username));
-	}, [user, dispatch]);
+		if (isAmbassador) dispatch(ambassadorEventActions.getAmbassadorEvents());
+		if (!isAmbassador) dispatch(userEventActions.getUserEvents(user.username));
+	
+	}, [user, dispatch,isChecked]);
 
 	if (!userEvents || !upcomingEvents[0] || !pastEvents[0] ) {
 		return null;
 	}
-
 
 	const manageBookings = () => {
 		let passport = document.getElementById('passport')
@@ -105,7 +106,7 @@ const Profile = () => {
 							<div className="profile-text">Email</div>
 							<div className="profile-text sub-text">{email}</div> */}
 							{isAmbassador && (
-							<Slider />
+								<Slider isChecked={isChecked} setChecked={setChecked}/>
 					)}	
 
 							<div className="user-bio">
