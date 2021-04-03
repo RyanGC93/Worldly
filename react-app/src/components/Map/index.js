@@ -1,8 +1,6 @@
 import "./styles.css";
 import MapChart from "./map";
-import React, { useState, useEffect } from "react";
-import Passport from "../Profile/Passport";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
 import ReactTooltip from "react-tooltip";
 
 const Map = ({isChecked}) => {

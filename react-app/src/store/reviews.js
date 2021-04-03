@@ -36,7 +36,6 @@ export const createReview = (review) => async dispatch => {
     }
     const res = await fetch('/api/reviews/', options)
     const json = await res.json()
-    // dispatch(setReviews([json]))
 }
 export const editReview = (id, description, isPrivate) => async dispatch => {
   const options = {
@@ -49,7 +48,6 @@ export const editReview = (id, description, isPrivate) => async dispatch => {
   const res = await fetch(`/api/reviews/${id}`, options)
   if (res.ok) {
     const newReview = await res.json()
-    // dispatch(setReviews([newReview]))
   }
 }
 

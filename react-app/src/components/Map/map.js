@@ -12,16 +12,7 @@ const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 
-  // [lon,lat]
-const markers = [
-  {
-    markerOffset: -30,
-    name: "Cooking South African Street Food",
-    coordinates: [18.423300,-33.918861]
-  },
-
-];
-
+  // coordinates are stored as >> [lon,lat]
 const rounded = (num) => {
   if (num > 1000000000) {
     return Math.round(num / 100000000) / 10 + "Bn";
@@ -33,21 +24,12 @@ const rounded = (num) => {
 };
 
 const MapChart = ({ setTooltipContent, isChecked }) => {
-  console.log('isChecked', isChecked)
   const userEvents = useSelector((state) => {
     if (isChecked) return Object.values(state.userEvents);
     if (!isChecked) return Object.values(state.ambassadorEvents);
     
   })
-  // let userEvents
-  // if (isChecked) {
-  //   userEvents = useSelector((state) =>
-  //   Object.values(state.userEvents));
-  // } else{
-  //   userEvents = useSelector((state) =>
-  //   Object.values(state.ambassadorEvents))
-  // }
-  
+
   useEffect(() =>{
     
   }, [userEvents])

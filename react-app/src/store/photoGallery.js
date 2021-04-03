@@ -34,9 +34,9 @@ export const createPhoto = (photos) => async dispatch => {
       },
       body: JSON.stringify({ isPrivate, description, url, userId })
     }
-    const res = await fetch('/api/photos/', options)
-    // const json = await res.json()
-    // dispatch(setPhotos([json]))
+  const res = await fetch('/api/photos/', options)
+  if (res.ok) return res
+
 }
 export const editPhoto = (id, description, isPrivate) => async dispatch => {
   const options = {
@@ -49,7 +49,7 @@ export const editPhoto = (id, description, isPrivate) => async dispatch => {
   const res = await fetch(`/api/photos/${id}`, options)
   if (res.ok) {
     const newPhoto = await res.json()
-    // dispatch(setPhotos([newPhoto]))
+    return newPhoto
   }
 }
 

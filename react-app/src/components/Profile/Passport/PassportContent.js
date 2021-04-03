@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import HTMLFlipBook from "react-pageflip";
-// import "./styles.scss";
 import "./styles.css";
-import { BiEdit } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import Slider from "infinite-react-carousel";
 
@@ -35,9 +33,7 @@ const UserPage = React.forwardRef((props, ref) => {
 });
 
 const Page = React.forwardRef((props, ref) => {
-	// const images = useSelector((state) => {
-	// 	return Object.values(state.photoGallery).filter((photo) => photo.event_id === event.event_id);
-	//   });
+
 	let imagesOne, imagesTwo;
 	const contentOne = props.contentOne;
 	const contentTwo = props.contentTwo;
@@ -113,9 +109,6 @@ const Page = React.forwardRef((props, ref) => {
 							<div className="page-date">{contentOne.date}</div>
 						</div>
 						<div className="page-name">{contentOne.firstName}</div>
-						{/* <div className='page-description'>
-            // {contentOne.description}
-                  </div> */}
 					</div>
 				)}
 			</div>
@@ -134,7 +127,6 @@ export default class PassportContent extends React.Component {
 				THE END
 			</PageCover>
 		);
-		console.log(props, "passport");
 
 		this.state = {
 			page: 0,
@@ -175,8 +167,6 @@ export default class PassportContent extends React.Component {
 		this.setState({
 			totalPage: this.flipBook.getPageFlip().getPageCount(),
 		});
-		console.log(this.props, '======================')
-		// this.createBook(this.props);
 	}
 
 	render() {
@@ -209,16 +199,18 @@ export default class PassportContent extends React.Component {
 						<Page key={1}></Page>
 
 						{this.props.pastEvents &&
-							this.props.pastEvents.map((page) => (
+							this.props.pastEvents.map((page,index) => (
 								<Page
+									key={index}
 									header={"Past"}
 									contentOne={page[0]}
 									contentTwo={page[1]}
 								/>
 							))}
 						{this.props.upcomingEvents &&
-							this.props.upcomingEvents.map((page) => (
+							this.props.upcomingEvents.map((page,index) => (
 								<Page
+									key={index}
 									header={"Upcoming"}
 									contentOne={page[0]}
 									contentTwo={page[1]}

@@ -11,7 +11,7 @@ export default () => {
     useEffect(() => {
         dispatch(eventActions.getEvents(region));
 
-    }, [dispatch]);  
+    }, [dispatch,region]);  
     return (
         <>
             <MainFeed />

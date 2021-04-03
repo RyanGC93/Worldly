@@ -39,7 +39,6 @@ export const createPost = (post) => async dispatch => {
     }
     const res = await fetch('/api/posts/', options)
     const json = await res.json()
-    // dispatch(setPosts([json]))
 }
 export const editPost = (id, description, isPrivate) => async dispatch => {
   const options = {
@@ -52,7 +51,6 @@ export const editPost = (id, description, isPrivate) => async dispatch => {
   const res = await fetch(`/api/posts/${id}`, options)
   if (res.ok) {
     const newPost = await res.json()
-    // dispatch(setPosts([newPost]))
   }
 }
 

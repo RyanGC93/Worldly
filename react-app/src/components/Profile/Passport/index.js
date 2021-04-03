@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import HTMLFlipBook from "react-pageflip";
-// import "./styles.scss";
 import "./styles.css";
 import { useSelector } from "react-redux";
 import Slider from "infinite-react-carousel";
@@ -19,24 +18,22 @@ const PageCover = React.forwardRef((props, ref) => {
 	);
 });
 
-const UserPage = React.forwardRef((props, ref) => {
-	return (
-		<div
-			className={"page page-cover page-cover-" + props.pos}
-			ref={ref}
-			data-density="soft"
-		>
-			<div className="page-content">
-				<h2>{props.children}</h2>
-			</div>
-		</div>
-	);
-});
+// const UserPage = React.forwardRef((props, ref) => {
+// 	return (
+// 		<div
+// 			className={"page page-cover page-cover-" + props.pos}
+// 			ref={ref}
+// 			data-density="soft"
+// 		>
+// 			<div className="page-content">
+// 				<h2>{props.children}</h2>
+// 			</div>
+// 		</div>
+// 	);
+// });
 
 const Page = React.forwardRef((props, ref) => {
-	// const images = useSelector((state) => {
-	// 	return Object.values(state.photoGallery).filter((photo) => photo.event_id === event.event_id);
-	//   });
+
 	let imagesOne, imagesTwo;
 	const contentOne = props.contentOne;
 	const contentTwo = props.contentTwo;
@@ -112,9 +109,6 @@ const Page = React.forwardRef((props, ref) => {
 							<div className="page-date">{contentOne.date}</div>
 						</div>
 						<div className="page-name">{contentOne.firstName}</div>
-						{/* <div className='page-description'>
-            // {contentOne.description}
-                  </div> */}
 					</div>
 				)}
 			</div>
@@ -133,8 +127,6 @@ export default class PassportContent extends React.Component {
 				THE END
 			</PageCover>
 		);
-		console.log(props, "passport");
-
 		this.state = {
 			page: 0,
 			totalPage: 0,
@@ -174,8 +166,6 @@ export default class PassportContent extends React.Component {
 		this.setState({
 			totalPage: this.flipBook.getPageFlip().getPageCount(),
 		});
-		console.log(this.props, '======================')
-		// this.createBook(this.props);
 	}
 
 	render() {

@@ -36,7 +36,6 @@ export const createCalendar = (calendar) => async dispatch => {
     }
     const res = await fetch('/api/calendar/', options)
     const json = await res.json()
-    // dispatch(setCalendars([json]))
 }
 export const editCalendar = (id, description, isPrivate) => async dispatch => {
   const options = {
@@ -49,7 +48,6 @@ export const editCalendar = (id, description, isPrivate) => async dispatch => {
   const res = await fetch(`/api/calendar/${id}`, options)
   if (res.ok) {
     const newCalendar = await res.json()
-    // dispatch(setCalendars([newCalendar]))
   }
 }
 

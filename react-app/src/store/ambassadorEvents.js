@@ -15,12 +15,12 @@ const setAmbassadorEvents = (events) => {
   };
 };
 
-const updateEvents = (event) => {
-  return {
-    type: UPDATE_POST,
-    event,
-  };
-};
+// const updateEvents = (event) => {
+//   return {
+//     type: UPDATE_POST,
+//     event,
+//   };
+// };
 const removePost = (id) => {
   return {
     type: REMOVE_POST,
@@ -40,7 +40,6 @@ export const createPost = (event) => async dispatch => {
     }
     const res = await fetch('/api/events/', options)
     const json = await res.json()
-    // dispatch(setEvents([json]))
 }
 export const editPost = (id, description, isPrivate) => async dispatch => {
   const options = {
@@ -53,7 +52,6 @@ export const editPost = (id, description, isPrivate) => async dispatch => {
   const res = await fetch(`/api/events/${id}`, options)
   if (res.ok) {
     const newPost = await res.json()
-    // dispatch(setEvents([newPost]))
   }
 }
 
@@ -72,8 +70,6 @@ export const updatePostLikes = (like) => async (dispatch) => {
   const response = await fetch(`/api/events/${eventId}`);
   if (response.ok) {
       const res = await response.json();
-      console.log(res)
-    // dispatch(updateEvents(res));
   }
   return response;
 };
@@ -82,19 +78,16 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
   const response = await fetch(`/api/ambassadors/`);
   if (response.ok) {
       let res = await response.json();
-    console.log('sdsadsdasdsadasds',res)
     let events = res.events
     let eventsInfo = events[0].events_info
     let eventPhotos = events[1].photo_gallery
     let eventCalendar =events[2].event_calendar
     let eventReviews = events[3].reviews
-    console.log(events)
-    console.log(eventsInfo)
+
 
     eventsInfo.forEach((event) => {
       event["dateObj"] = new Date(`${event.date} ${event.time}`)
     })
-    console.log(eventsInfo)
     dispatch(setAmbassadorEvents(eventsInfo));
     dispatch(eventCalendarActions.getCalendars(eventCalendar))
     dispatch(reviewActions.getReviews(eventReviews))

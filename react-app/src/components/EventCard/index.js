@@ -18,9 +18,7 @@ const EventCard = ({ event }) => {
   const bookingAvailability = useSelector((state) => {
     return Object.values(state.eventCalendar).filter((booking) => booking.event_id === event.event_id);
   });
-  console.log(bookingAvailability)
-  // const reviews = useSelector((state) => state.reviews)
-  // console.log('reviews', event)
+
 
   
   const title = event.title;
@@ -130,12 +128,12 @@ const EventCard = ({ event }) => {
                   >
                     Basic Info
                   </button>
-                  <a
+                  <div
                     className="btn-tickets blue on-back"
 
                   >
                     Event Page
-                  </a>
+                  </div>
                 </div>
               </section>
             )}

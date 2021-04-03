@@ -14,9 +14,7 @@ const DropSearch = () => {
     const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
     const onClick = () => setIsActive(!isActive);
 
-    const profileRedirect = () => {
-      history.push(`profile/${username}`)
-    }
+
   
     return (
       <>

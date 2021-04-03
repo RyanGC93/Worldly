@@ -13,11 +13,6 @@ import { checkAmbassador } from "../../services/checkAmbassador";
 
 const Profile = () => {
 	const [isChecked, setChecked] = useState(true);
-	// const userEvents = useSelector((state) => {
-	// 	if (isChecked) return Object.values(state.userEvents);
-	// 	if (!isChecked) return Object.values(state.ambassadorEvents);
-		
-	//   })
 
 	const userEvents = useSelector((state) => Object.values(state.userEvents));
 	const user = useSelector((state) => state.session.user);
@@ -55,7 +50,6 @@ const Profile = () => {
 		(async () => {
 			const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();
-			console.log(res, "res");
 			setEmail(res.email);
 			setPhoneNumber(res.phone_number);
 		})();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import {useHistory} from 'react-router-dom'
 import "./styles.css";
 
@@ -21,13 +21,6 @@ const RegionBanner = ({ country }) => {
 		if (prev !== null) prev.classList.remove("fade-out");
 		child.classList.add("fade-in");
 	};
-
-	const checkDomChange = () => {
-		return document.getElementById(`${country.short}-imgs`)
-		
-	};
-
-
 	const trial = async () => {
 		let parentQuery = document.getElementById(`${country.short}-imgs`)
 		let children
@@ -47,7 +40,6 @@ const RegionBanner = ({ country }) => {
 		trial()
 	},[])
 
-
 	const regionRedirect = () => {
 		history.push(`/events/${country.short}`)
 
@@ -58,12 +50,12 @@ const RegionBanner = ({ country }) => {
 			<div className="sizing-container">
 				<div className="landing-slide">
 					<div id={`${country.short}-imgs`} className="overlay">
-						{images.map((image) => (
+						{images.map((image,index) => (
 							<div
+								key={index}
 								className="region-feature-img"
 								id={image}
 								style={{ backgroundImage: `url(${image})` }}
-								// style={{backgroundImage: "url("{image}")"}}
 							></div>
 						))}
 					</div>

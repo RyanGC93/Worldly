@@ -20,14 +20,9 @@ def ambassadors():
         if(ambassador):
             ambassador_dict = ambassador.to_dict()
             ambassador_id = ambassador_dict.get('ambassador_id')
-            print(ambassador_dict)
-            print('----------',ambassador_dict.get('ambassador_id'))
-            print('sdaaaaaaaaaaaaaaaaaaaaaaaa') 
             events = db.session.query(Location.event_id, Location.region).filter( Location.event_id == EventCalendar.event_id, Event.ambassador_id == ambassador_id).all() 
             event_list = [event[0]for event in events]
             event_ids= list(set(event_list))
-            print(event_ids)
-            print('sdsdsd')
          
 
             event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname' , 'location_longitude', 'location_latitude']
@@ -38,20 +33,17 @@ def ambassadors():
             photo_gallery_keys = ['photo_id','event_id','photo_description','photo_url']
             photo_gallery_values = db.session.query(PhotoGallery.id,PhotoGallery.event_id,PhotoGallery.description,PhotoGallery.url).filter(PhotoGallery.event_id.in_(event_ids)).all()
             photo_gallery = {"photo_gallery": [dict(zip(photo_gallery_keys,photo)) for photo in photo_gallery_values]}    
-            # print(photos_gallery) 
+
             
             event_calendar_keys = ['event_calendar_id','event_id', 'date', 'time']
             event_calendar_values = db.session.query(EventCalendar.id,EventCalendar.event_id,EventCalendar.date,EventCalendar.time).filter(EventCalendar.event_id.in_(event_ids)).all()
             events_calendar = {"event_calendar": [dict(zip(event_calendar_keys,event_time)) for event_time in event_calendar_values]}    
-            # print(events_calendar) 
             
             review_keys = ['review_id', 'event_id', 'user_name', 'rating', 'comment', 'created_at']
             review_values = db.session.query(Review.id,Review.event_id,User.user_name,Review.rating,Review.comment, Review.date_created).filter(Review.event_id.in_(event_ids), Review.user_id == User.id).all()
             reviews = {"reviews": [dict(zip(review_keys,review)) for review in review_values]}
-            # print(reviews) 
 
             events = {'events':[events_info,photo_gallery,events_calendar,reviews]} 
-            # print(events)
             return json.dumps(events,  sort_keys=True, default=str)                        
         if not(ambassador):
             return  {'errors': ['Unauthorized User']}, 403  
