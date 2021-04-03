@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as eventActions from "../../store/events";
+import Slider from './Slider'
 import Map from "../Map";
 import * as userEventActions from "../../store/userEvents";
 import Passport from './Passport'
@@ -88,9 +89,7 @@ const Profile = () => {
 						</div>
 					</div>
 					<div className="profile-option">
-						{isAmbassador && (
-							<div> Is ambassador </div>
-					)}	
+
 						<div className="notification">
 							<i className="fa fa-bell"></i>
 							<span className="alert-message">3</span>
@@ -101,10 +100,13 @@ const Profile = () => {
 				<div className="main-bd">
 					<div className="left-side">
 						<div className="profile-side">
-							<div className="profile-text">Phone Number</div>
+							{/* <div className="profile-text">Phone Number</div>
 							<div className="profile-text sub-text">{phoneNumber}</div>
 							<div className="profile-text">Email</div>
-							<div className="profile-text sub-text">{email}</div>
+							<div className="profile-text sub-text">{email}</div> */}
+							{isAmbassador && (
+							<Slider />
+					)}	
 
 							<div className="user-bio">
 								<div className="profile-text">Bio</div>

@@ -1,0 +1,86 @@
+.ToggleSwitch {
+    position: relative;
+    width: 5vw;
+    height: 2.35vw;
+    display: inline-block;
+  }
+  .ToggleSwitch__rounded {
+    border-radius: 15vw;
+    border: 3px solid black;
+  }
+  .toggle-active{
+  
+    background-image: linear-gradient( to top, rgba(13, 51, 128, 0.7) 50%, rgba(0, 0, 0, .2) 100% );
+  }
+  
+  
+  .ToggleSwitch__rounded :before {
+    border-radius: 50%;
+  }
+  
+  .ToggleSwitch__wrapper {
+    position: relative;
+    width: 5vw;
+    height: 2.35vw;
+  }
+  .Slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s ease;
+  }
+  
+  .Slider:before {
+    width: 2.25vw;
+    height: 2.25vw;
+    position: absolute;
+    background: rgb(191, 99, 99);
+    border: .2vw solid red;
+    content: "";
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  
+  .toggle-header{
+      font-size: 20px;
+      font-weight: bold
+  }
+  
+  
+  .isChecked {
+    /* background: rgb(176, 24, 24); */
+    border-radius: 25%
+  }
+  .isChecked:before {
+    left: calc(100% - 0.1vw - 2.45vw);
+    background: #d1cbcb;
+    border: .2vw solid black;
+  }
+  
+@media screen and  (max-width:900px) {
+    .ToggleSwitch {
+        width: 20vw;
+        height: 7.05vw;
+      }
+      .ToggleSwitch__rounded {
+        border-radius: 45vw;
+        border: 3px solid black;
+    }
+    .ToggleSwitch__wrapper {
+        width: 15vw;
+        height: 7.05vw;
+      }
+      .Slider:before {
+        width: 6.75vw;
+        height: 6.75vw;
+      }
+}  
