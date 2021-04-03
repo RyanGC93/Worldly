@@ -12,9 +12,15 @@ import Passport from './Passport'
 import { checkAmbassador } from "../../services/checkAmbassador";
 
 const Profile = () => {
+	const [isChecked, setChecked] = useState(true);
+	// const userEvents = useSelector((state) => {
+	// 	if (isChecked) return Object.values(state.userEvents);
+	// 	if (!isChecked) return Object.values(state.ambassadorEvents);
+		
+	//   })
+
 	const userEvents = useSelector((state) => Object.values(state.userEvents));
 	const user = useSelector((state) => state.session.user);
-	const [isChecked, setChecked] = useState(true);
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
@@ -60,7 +66,7 @@ const Profile = () => {
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
 		if (isChecked) dispatch(userEventActions.getUserEvents(user.username));
 	
-	}, [user, dispatch,isChecked]);
+	}, [user, dispatch, isChecked]);
 
 	if (!userEvents || !upcomingEvents[0] || !pastEvents[0] ) {
 		return null;
@@ -122,7 +128,8 @@ const Profile = () => {
 							user={user}
 							email={email}
 							phoneNumber={phoneNumber}
-						pastEvents={pastBookEvents}	
+							pastEvents={pastBookEvents}
+							isChecked={isChecked}
 						/>
 					</div>
 					<div className="right-side">

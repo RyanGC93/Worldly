@@ -12,18 +12,7 @@ ambassador_routes = Blueprint('ambassadors', __name__)
 @ambassador_routes.route('/')
 # @login_required
 def ambassadors():
-    print(''' 
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          ''')
+
     # ambassadors = User.query.all()
     # return {"ambassadors": [ambassador.to_dict() for ambassador in ambassadors]}
     if current_user.is_authenticated:
@@ -41,8 +30,8 @@ def ambassadors():
             print('sdsdsd')
          
 
-            event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname']
-            event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name).filter(Event.id.in_(event_ids), Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
+            event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname' , 'location_longitude', 'location_latitude']
+            event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name, Location.longitude, Location.latitude).filter(Event.id.in_(event_ids), Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
             events_info = {"events_info": [dict(zip(event_keys,event)) for event in event_values]}
             
             

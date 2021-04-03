@@ -123,7 +123,7 @@ const Page = React.forwardRef((props, ref) => {
 	);
 });
 
-export default class Passport extends React.Component {
+export default class PassportContent extends React.Component {
 	constructor(props) {
 		super(props);
 
