@@ -25,6 +25,14 @@
 }
 .no-block{
 }
+.marker-text{
+    visibility:hidden;
+    font-size: 20px;
+}
+.marker:hover .marker-text{
+    visibility:visible;
+
+}
 
 path.rsm-geography{
  fill:rgba(175, 198, 240, 0.4) !important;

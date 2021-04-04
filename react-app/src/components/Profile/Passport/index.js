@@ -18,22 +18,7 @@ const PageCover = React.forwardRef((props, ref) => {
 	);
 });
 
-// const UserPage = React.forwardRef((props, ref) => {
-// 	return (
-// 		<div
-// 			className={"page page-cover page-cover-" + props.pos}
-// 			ref={ref}
-// 			data-density="soft"
-// 		>
-// 			<div className="page-content">
-// 				<h2>{props.children}</h2>
-// 			</div>
-// 		</div>
-// 	);
-// });
-
 const Page = React.forwardRef((props, ref) => {
-
 	let imagesOne, imagesTwo;
 	const contentOne = props.contentOne;
 	const contentTwo = props.contentTwo;
@@ -58,9 +43,19 @@ const Page = React.forwardRef((props, ref) => {
 			<div className="page-content">
 				{contentOne && (
 					<div className="content-section">
-						<div className="page-title">{contentOne.title}</div>
 						{imagesOne[0] && (
 							<Slider className="page-carousel">
+								<div className="page-event-info">
+									<div className="page-title">{contentOne.title}</div>
+
+									<div className="page-location">
+										<div className="page-country">
+											{contentOne.country}, {contentOne.region}
+										</div>
+										<div className="page-region"></div>
+									</div>
+									<div className="page-date">{contentOne.date.slice(5)}</div>
+								</div>
 								{imagesOne.map((image) => (
 									<div className="page-img-container" key={image.event_id}>
 										<img
@@ -69,13 +64,6 @@ const Page = React.forwardRef((props, ref) => {
 											alt={image.description}
 											src={image.photo_url}
 										/>
-										<div className="page-location">
-											<div className="page-country">
-												{contentOne.country}, {contentOne.region}
-											</div>
-											<div className="page-region"></div>
-										</div>
-										<div className="page-date">{contentOne.date.slice(5)}</div>
 									</div>
 								))}
 							</Slider>
@@ -84,10 +72,20 @@ const Page = React.forwardRef((props, ref) => {
 				)}
 				{contentTwo && (
 					<div className="content-section">
-						<div className="page-title">{contentTwo.title}</div>
-						{imagesTwo[0] && (
+						{imagesOne[0] && (
 							<Slider className="page-carousel">
-								{imagesTwo.map((image) => (
+								<div className="page-event-info">
+									<div className="page-title">{contentTwo.title}</div>
+
+									<div className="page-location">
+										<div className="page-country">
+											{contentTwo.country}, {contentTwo.region}
+										</div>
+										<div className="page-region"></div>
+									</div>
+									<div className="page-date">{contentTwo.date.slice(5)}</div>
+								</div>
+								{imagesOne.map((image) => (
 									<div className="page-img-container" key={image.event_id}>
 										<img
 											key={image.photo_id}
@@ -95,20 +93,10 @@ const Page = React.forwardRef((props, ref) => {
 											alt={image.description}
 											src={image.photo_url}
 										/>
-										<div className="page-location">
-											<div className="page-country">
-												{contentTwo.country}, {contentTwo.region}
-											</div>
-											<div className="page-region"></div>
-										</div>
 									</div>
 								))}
 							</Slider>
 						)}
-						<div className="page-time">
-							<div className="page-date">{contentOne.date}</div>
-						</div>
-						<div className="page-name">{contentOne.firstName}</div>
 					</div>
 				)}
 			</div>
@@ -116,7 +104,7 @@ const Page = React.forwardRef((props, ref) => {
 	);
 });
 
-export default class PassportContent extends React.Component {
+export default class Passport extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -127,13 +115,45 @@ export default class PassportContent extends React.Component {
 				THE END
 			</PageCover>
 		);
+		let userEvents = this.props.events
+
+		let dateNow = new Date();
+		let pastEvents = userEvents.filter((ev) => ev.dateObj < dateNow);
+		let upcomingEvents = userEvents.filter((ev) => ev.dateObj > dateNow);
+		let sortedUpcomingEvents = upcomingEvents.sort(
+			(a, b) => a.dateObj - b.dateObj
+		);
+		let sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj);
+		console.log(sortedUpcomingEvents,sortedPastEvents, 'past')
+		const contentDivider = (arr) => {
+			let newarr = [];
+			let i,
+				j,
+				temparray,
+				chunk = 2;
+			for (i = 0, j = arr.length; i < j; i += chunk) {
+				temparray = arr.slice(i, i + chunk);
+				newarr.push(temparray);
+			}
+			return newarr;
+		};
+
+		let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
+		let pastBookEvents = contentDivider(sortedPastEvents);
+
 		this.state = {
 			page: 0,
 			totalPage: 0,
 			orientation: "landscape",
 			state: "read",
 			pages: pages,
+			upcomingBookEvents: upcomingBookEvents,
+			pastBookEvents: pastBookEvents
+			
 		};
+		console.log(upcomingBookEvents, pastBookEvents, 'bookevents')
+		console.log(this.upcomingBookEvents,this.pastBookEvents, 'bookevents')
+
 	}
 
 	nextButtonClick = () => {
@@ -166,6 +186,9 @@ export default class PassportContent extends React.Component {
 		this.setState({
 			totalPage: this.flipBook.getPageFlip().getPageCount(),
 		});
+		console.log(
+
+		);
 	}
 
 	render() {
@@ -196,23 +219,23 @@ export default class PassportContent extends React.Component {
 					>
 						<PageCover key={0} pos="top"></PageCover>
 						<Page key={1}></Page>
-
-						{this.props.pastEvents &&
+{/* 
+						{this.pastBookEvents &&
 							this.props.pastEvents.map((page) => (
 								<Page
 									header={"Past"}
 									contentOne={page[0]}
 									contentTwo={page[1]}
 								/>
-							))}
-						{this.props.upcomingEvents &&
-							this.props.upcomingEvents.map((page) => (
+							))} */}
+						{/* {this.upcomingBookEvents &&
+							this.upcomingBookEvents.map((page) => (
 								<Page
 									header={"Upcoming"}
 									contentOne={page[0]}
 									contentTwo={page[1]}
 								/>
-							))}
+							))} */}
 					</HTMLFlipBook>
 				</div>
 				<div className="container mt-3">

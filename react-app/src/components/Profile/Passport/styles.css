@@ -48,6 +48,7 @@
   .content-section{
     height:50%;
   }
+  
 
   .passport-image{
     border-radius: 5%
@@ -77,16 +78,3 @@
    background-image: url('https://i.imgur.com/mzp2Uub.jpg');
    background-size: cover;
   }
-/*   
-  .page-cover-bottom {
-	box-shadow: inset 0px 0 30px 0px rgba(36, 10, 3, 0.5),
-	  10px 0 8px 0px rgba(0, 0, 0, 0.4);
-  }
-  .page-cover-top {
-	box-shadow: inset 0px 0 30px 0px rgba(36, 10, 3, 0.5),
-	  -2px 0 5px 2px rgba(0, 0, 0, 0.4);
-  }
-  .page-cover {
-	color: hsl(35, 35, 35);
-	border: solid 2px hsl(35, 20, 50);
-  } */

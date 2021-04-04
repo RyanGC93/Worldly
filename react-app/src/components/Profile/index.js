@@ -13,8 +13,23 @@ import { checkAmbassador } from "../../services/checkAmbassador";
 
 const Profile = () => {
 	const [isChecked, setChecked] = useState(true);
+	const userEvents = useSelector((state) => {
+		// WORKS
+		if (state.userEvents && isChecked) {
+			let res = Object.values(state.userEvents);
+			console.log('isChecked', res)
+			return res
+		} 
+			
+		if (state.ambassadorEvents && !isChecked) {
+			let res = Object.values(state.ambassadorEvents);
+			console.log('isChecked', res)
+			return res
 
-	const userEvents = useSelector((state) => Object.values(state.userEvents));
+		}
+	})
+	// const userEvents = useSelector((state) => Object.values(state.userEvents));
+	const ambassadorEvents = useSelector((state) => Object.values(state.ambassadorEvents));
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
@@ -23,10 +38,10 @@ const Profile = () => {
 
 
 		let dateNow = new Date()
-		const pastEvents = userEvents.filter(ev => ev.dateObj < dateNow )
-		const upcomingEvents = userEvents.filter(ev => ev.dateObj > dateNow)
-		const sortedUpcomingEvents = upcomingEvents.sort((a, b) =>a.dateObj - b.dateObj )
-		const sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj)
+		let pastEvents = userEvents.filter(ev => ev.dateObj < dateNow )
+		let upcomingEvents = userEvents.filter(ev => ev.dateObj > dateNow)
+		let sortedUpcomingEvents = upcomingEvents.sort((a, b) =>a.dateObj - b.dateObj )
+		let sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj)
 
 	const contentDivider = (arr) => {
 		let newarr = [];
@@ -41,6 +56,7 @@ const Profile = () => {
 	let upcomingBookEvents = contentDivider(sortedUpcomingEvents)
 	let pastBookEvents = contentDivider(sortedPastEvents)
 	
+	console.log(userEvents, 'sddsdsadasdasds')
 
 
 
@@ -61,8 +77,9 @@ const Profile = () => {
 		if (isChecked) dispatch(userEventActions.getUserEvents(user.username));
 	
 	}, [user, dispatch, isChecked]);
+	console.log(userEvents, upcomingBookEvents,pastEvents, "sdsadsdsadasdasdasdas")
 
-	if (!userEvents || !upcomingEvents[0] || !pastEvents[0] ) {
+	if (!userEvents, !upcomingBookEvents[0]) {
 		return null;
 	}
 
@@ -102,7 +119,7 @@ const Profile = () => {
 					<div className="left-side">
 						<div className="profile-side">
 							{/* <div className="profile-text">Phone Number</div>
-							<div className="profile-text sub-text">{phoneNumber}</div>
+							<lassName="profile-text sub-text">{phoneNumber}</div>
 							<div className="profile-text">Email</div>
 							<div className="profile-text sub-text">{email}</div> */}
 							{isAmbassador && (
@@ -118,13 +135,16 @@ const Profile = () => {
 								id="bookings-btn"
 								className="btn-ticket blue">Manage Events</div>
 						</div>
-						<Passport upcomingEvents={upcomingBookEvents}
+						<Passport
+							upcomingEvents={upcomingBookEvents}
 							user={user}
 							email={email}
 							phoneNumber={phoneNumber}
-							pastEvents={pastBookEvents}
+							// pastEvents={pastBookEvents ? pastBookEvents : null}
 							isChecked={isChecked}
-						/>
+							events={isChecked ? userEvents : ambassadorEvents}
+						/> 
+						
 					</div>
 					<div className="right-side">
 						<Map  isChecked={isChecked} className="map-wrapper" />
