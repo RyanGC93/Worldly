@@ -1,8 +1,6 @@
 import "./styles.css";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import * as eventActions from "../../store/events";
 import Slider from './Slider'
 import Map from "../Map";
 import * as userEventActions from "../../store/userEvents";
@@ -28,35 +26,11 @@ const Profile = () => {
 
 		}
 	})
-	// const userEvents = useSelector((state) => Object.values(state.userEvents));
-	const ambassadorEvents = useSelector((state) => Object.values(state.ambassadorEvents));
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
 	const [isAmbassador, setAmbassador] = useState(false)
-
-
-		let dateNow = new Date()
-		let pastEvents = userEvents.filter(ev => ev.dateObj < dateNow )
-		let upcomingEvents = userEvents.filter(ev => ev.dateObj > dateNow)
-		let sortedUpcomingEvents = upcomingEvents.sort((a, b) =>a.dateObj - b.dateObj )
-		let sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj)
-
-	const contentDivider = (arr) => {
-		let newarr = [];
-		let i, j, temparray, chunk = 2;
-		for (i = 0, j = arr.length; i < j; i += chunk) {
-			temparray = arr.slice(i, i + chunk);
-			newarr.push(temparray);
-		}
-		return newarr;
-	}
-		  
-	let upcomingBookEvents = contentDivider(sortedUpcomingEvents)
-	let pastBookEvents = contentDivider(sortedPastEvents)
-	
-	console.log(userEvents, 'sddsdsadasdasds')
 
 
 
@@ -77,9 +51,8 @@ const Profile = () => {
 		if (isChecked) dispatch(userEventActions.getUserEvents(user.username));
 	
 	}, [user, dispatch, isChecked]);
-	console.log(userEvents, upcomingBookEvents,pastEvents, "sdsadsdsadasdasdasdas")
 
-	if (!userEvents, !upcomingBookEvents[0]) {
+	if (!userEvents) {
 		return null;
 	}
 
@@ -135,15 +108,24 @@ const Profile = () => {
 								id="bookings-btn"
 								className="btn-ticket blue">Manage Events</div>
 						</div>
-						<Passport
-							upcomingEvents={upcomingBookEvents}
-							user={user}
-							email={email}
-							phoneNumber={phoneNumber}
-							// pastEvents={pastBookEvents ? pastBookEvents : null}
-							isChecked={isChecked}
-							events={isChecked ? userEvents : ambassadorEvents}
-						/> 
+						{isChecked && (
+							
+							<Passport
+								// upcomingEvents={upcomingBookEvents}
+								user={user}
+								email={email}
+								phoneNumber={phoneNumber}
+								// pastEvents={pastBookEvents ? pastBookEvents : null}
+								isChecked={isChecked}
+								// events={isChecked ? userEvents : ambassadorEvents}
+							/> 
+
+						)}
+						{!isChecked && (
+							<>
+							<div>sds</div>
+							</>
+						) }
 						
 					</div>
 					<div className="right-side">

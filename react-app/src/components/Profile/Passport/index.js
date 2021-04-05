@@ -12,16 +12,20 @@ const PageCover = React.forwardRef((props, ref) => {
 			data-density="hard"
 		>
 			<div className="page-content">
-				<h2>{props.children}</h2>
+				{/* <h2>{props.children}</h2> */}
 			</div>
 		</div>
 	);
 });
 
 const Page = React.forwardRef((props, ref) => {
-	let imagesOne, imagesTwo;
-	const contentOne = props.contentOne;
-	const contentTwo = props.contentTwo;
+	let imagesOne, imagesTwo, contentOne,contentTwo;
+	console.log(props, '=================props==============')
+	if (props.content) {
+		
+		contentOne = props.content[0];
+		contentTwo = props.content[1];
+	}
 	if (contentOne) {
 		imagesOne = useSelector((state) => {
 			return Object.values(state.photoGallery).filter(
@@ -37,10 +41,12 @@ const Page = React.forwardRef((props, ref) => {
 		});
 	}
 
+
 	return (
 		<div className="page" ref={ref} data-density={props.density | "soft"}>
 			<div className="page-header">{props.header} Events </div>
 			<div className="page-content">
+				<button onClick={() => console.log(props.content)} ></button>
 				{contentOne && (
 					<div className="content-section">
 						{imagesOne[0] && (
@@ -103,8 +109,7 @@ const Page = React.forwardRef((props, ref) => {
 		</div>
 	);
 });
-
-export default class Passport extends React.Component {
+class Passport extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -115,31 +120,7 @@ export default class Passport extends React.Component {
 				THE END
 			</PageCover>
 		);
-		let userEvents = this.props.events
 
-		let dateNow = new Date();
-		let pastEvents = userEvents.filter((ev) => ev.dateObj < dateNow);
-		let upcomingEvents = userEvents.filter((ev) => ev.dateObj > dateNow);
-		let sortedUpcomingEvents = upcomingEvents.sort(
-			(a, b) => a.dateObj - b.dateObj
-		);
-		let sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj);
-		console.log(sortedUpcomingEvents,sortedPastEvents, 'past')
-		const contentDivider = (arr) => {
-			let newarr = [];
-			let i,
-				j,
-				temparray,
-				chunk = 2;
-			for (i = 0, j = arr.length; i < j; i += chunk) {
-				temparray = arr.slice(i, i + chunk);
-				newarr.push(temparray);
-			}
-			return newarr;
-		};
-
-		let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
-		let pastBookEvents = contentDivider(sortedPastEvents);
 
 		this.state = {
 			page: 0,
@@ -147,12 +128,9 @@ export default class Passport extends React.Component {
 			orientation: "landscape",
 			state: "read",
 			pages: pages,
-			upcomingBookEvents: upcomingBookEvents,
-			pastBookEvents: pastBookEvents
+
 			
 		};
-		console.log(upcomingBookEvents, pastBookEvents, 'bookevents')
-		console.log(this.upcomingBookEvents,this.pastBookEvents, 'bookevents')
 
 	}
 
@@ -186,10 +164,13 @@ export default class Passport extends React.Component {
 		this.setState({
 			totalPage: this.flipBook.getPageFlip().getPageCount(),
 		});
-		console.log(
 
-		);
+
 	}
+
+
+
+
 
 	render() {
 		return (
@@ -219,23 +200,15 @@ export default class Passport extends React.Component {
 					>
 						<PageCover key={0} pos="top"></PageCover>
 						<Page key={1}></Page>
-{/* 
-						{this.pastBookEvents &&
-							this.props.pastEvents.map((page) => (
+					
+						{this.props.pastBookEvents &&
+							this.props.pastBookEvents.map((page) => (
 								<Page
 									header={"Past"}
-									contentOne={page[0]}
-									contentTwo={page[1]}
+									content={page}
 								/>
-							))} */}
-						{/* {this.upcomingBookEvents &&
-							this.upcomingBookEvents.map((page) => (
-								<Page
-									header={"Upcoming"}
-									contentOne={page[0]}
-									contentTwo={page[1]}
-								/>
-							))} */}
+							))}
+			
 					</HTMLFlipBook>
 				</div>
 				<div className="container mt-3">
@@ -267,4 +240,43 @@ export default class Passport extends React.Component {
 			</>
 		);
 	}
+}
+
+export default function (props) {
+		let userEvents = useSelector((state) => {
+			if (props.isChecked) return Object.values(state.userEvents);
+			if (!props.isChecked) return Object.values(state.ambassadorEvents);
+		});
+	
+		let dateNow = new Date();
+		let pastEvents = userEvents.filter((ev) => ev.dateObj < dateNow);
+		let upcomingEvents = userEvents.filter((ev) => ev.dateObj > dateNow);
+		let sortedUpcomingEvents = upcomingEvents.sort(
+			(a, b) => a.dateObj - b.dateObj
+		);
+		let sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj);
+		console.log(sortedUpcomingEvents,sortedPastEvents, 'past')
+		const contentDivider = (arr) => {
+			let newarr = [];
+			let i,
+				j,
+				temparray,
+				chunk = 2;
+			for (i = 0, j = arr.length; i < j; i += chunk) {
+				temparray = arr.slice(i, i + chunk);
+				newarr.push(temparray);
+			}
+			return newarr;
+		};
+
+		let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
+		// this.upcomingBookEvents = upcomingBookEvents
+		let pastBookEvents = contentDivider(sortedPastEvents);
+		// this.pastBookEvents = pastBookEvents
+
+	return (
+		<>
+			<Passport upcomingBookEvents={upcomingBookEvents} pastBookEvents={pastBookEvents}/>
+		</>
+	)
 }
