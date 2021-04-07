@@ -2,6 +2,12 @@
 @import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
+.left-side{
+	width: 25vw;
+}
+
+
+
 .note-1 {
 	bottom: 2%;
 	right:10%;
@@ -108,7 +114,8 @@
 .profile-header {
 	background: #fff;
 	width: 100%;
-	display: flex;
+	display: grid;
+	grid-template-columns: 25vw 75vw;
 	height: 15vh;
 	position: relative;
 	border-radius: 0.5rem;
@@ -136,9 +143,8 @@
 }
 
 .profile-nav-info {
-	float: left;
+
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 }
 
@@ -220,15 +226,15 @@
 
 .profile-side {
 	font-size: 1.3vw;
-	width: 25vw;
+	width: 22vw;
 	height: 35vw;
+	margin-left: 1.5vw;
 	background: #fff;
 	border-radius: 0.5rem;
 	box-sizing: border-box;
 	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
 	padding: 8vw 30px 20px;
 	font-family: "Bree Serif", serif;
-	margin-left: 10px;
 	z-index: 99;
 }
 

@@ -204,6 +204,7 @@ class Passport extends React.Component {
 						{this.props.pastBookEvents &&
 							this.props.pastBookEvents.map((page) => (
 								<Page
+									
 									header={"Past"}
 									content={page}
 								/>
