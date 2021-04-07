@@ -36,7 +36,6 @@ button.carousel-next {
 .grid-container {
 	max-width: 100%;
 	margin: 0;
-	padding: 2%;
 	height: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -105,9 +104,7 @@ button.carousel-next {
 
 /*  620/16 = 37.5 */
 @media screen and (min-width: 38.75rem) {
-	.grid-container {
-		padding: 4%;
-	}
+
 	.grid-item {
 		width: 42%;
 		float: left;

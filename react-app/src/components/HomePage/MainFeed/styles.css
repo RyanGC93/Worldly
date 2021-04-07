@@ -2,3 +2,20 @@
 
     height: 450px;
 }
+
+.search-options{
+
+    margin-bottom: 30px;
+}
+
+.eventsfeed-title{
+    padding: 30px 20px 20px 20px;
+    text-align: center;
+    font-size: 20vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    
+}

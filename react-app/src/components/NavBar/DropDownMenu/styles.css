@@ -16,8 +16,7 @@
     align-items: center;
     outline: none;
     padding: 10px 2px;
-    /* padding: 4px 6px; */
-
+    margin-right: 30px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     border: none;
     vertical-align: middle;

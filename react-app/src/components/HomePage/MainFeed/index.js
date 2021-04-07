@@ -18,10 +18,12 @@ const MainFeed = () => {
 		<>
 			{loaded && (
                 <>
-                    <div>
+                    <div className='eventsfeed-title'>
+					Events
                         <DropSearch />
-                    </div>
-					<div className="search-options"> </div>
+					
+					</div>
+				
 					<div className="eventCard-container grid-container">
 						{eventList &&
 							eventList.map((event) => (

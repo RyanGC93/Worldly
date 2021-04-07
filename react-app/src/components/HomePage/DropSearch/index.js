@@ -18,7 +18,7 @@ const DropSearch = () => {
   
     return (
       <>
-        <div className="menu-container">
+        <div className="search-menu-container">
           <button onClick={onClick} className="menu-trigger search-trigger">
             <span>filter</span>
      

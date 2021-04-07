@@ -33,13 +33,13 @@
 <br />
 <p align="center">
   <a href="https://github.com/RyanGC93/Worldly">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://i.imgur.com/UtH101e.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Worldly</h3>
 
   <p align="center">
-    project_description
+    A culinary class booking site focused on bring cultures together one bite ate a time
     <br />
     <a href="https://github.com/RyanGC93/Worldly"><strong>Explore the docs »</strong></a>
     <br />
@@ -82,77 +82,122 @@
 
 
 
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+Worldy is a cultural centered event booking focused on bringing people together. The site seeks to solve the problem of teaching how to cook different other cultures foods and learning a little bit about the culture in the process. The site was built upon a Flask/SQLAlchemy Backend and a React/Redux backend. It a full stack, feature rich website.
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`RyanGC93`, `Worldly`, `twitter_handle`, `ryangconk@gmail.com`, `Worldly`, `project_description`
+*To Learn more about the features, user stories,and the development of the project please click [here](https://github.com/RyanGC93/Worldly/wiki)*
+
+![product-screenshot](https://i.imgur.com/ZVn9TqI.png)
 
 
+
+<br></br>
 ### Built With
 
-Front-end
+* [Flask](https://flask.palletsprojects.com/)
 * [React](https://reactjs.org/)
-
-Backend
-* [Flask](flask.palletsprojects.com)
-
-Database
-* [PostgreSQL](https://www.postgresql.org/)
+* [Redux](https://redux.js.org/)
 
 
-
+<br></br>
 <!-- GETTING STARTED -->
 ## Getting Started
 
+To get a local copy and (optional: a heroku deployed version) up and running follow these simple steps.
 
 ### Prerequisites
 
-To get a local copy up and running follow these simple steps.
-
+This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
-    ```
-    
-    ### Installation
-    
-    TODO >> list all the api key you may need to use
-    
-    1. Get a free API Key at [https://example.com](https://example.com)
-    2. Clone the repo
-       ```sh
-          git clone https://github.com/RyanGC93/Worldly.git
-             ```
-             3. Install NPM packages
-                ```sh
-   cd ~/react-app
-      npm install
-      ```
-   3. Install pipenv packages
-      ```sh
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-         ```   
-4. Create .env file   
-   - Look at .env-example to set proper enviromental variables
-   5. Enter your API in `config.js`
-      ```JS
-         const API_KEY = 'ENTER YOUR API';
-            ```
+  ```
+* pipenv
+  ```sh
+  pipenv install
+  ```
+### Installation
+
+1. Clone the InstantaneousGramme
+   ```sh
+   git clone https://github.com/TolulopeVerissimo/InstantaneousGramme
+   ```
+
+2. Backend Installation
+- Follow Instructions for Backend [Instructions]()
+
+3. Frontend Installation
+- Follow Instructions for Frontend [Instructions]()
 
 
+<br></br>
+## Project Challenges
+Creating responsive querying that only return relevant information that is maximized for runtime efficiency and future scalability
+
+
+### Summary of Problem And Solution
+
+<details>
+  <summary>Click to expand!</summary>
+ 
+- **The Challenge**
+  - A challenge in this project was to design the database and querying upon it  so that only necessary data was being pulled from the database as needed. This meant making sure the data only contained the relevent data fields and the amount. Although not necesarry I found this to make an important feature so that the app would maximize runtime efficiency, make sure that we are not exposing any extra data, and was very capabilitble with scalibility and proposed future features. 
+- **The Solution**
+   - The solution that implemented was to make an initial query to the database that returned an array of the primary keys to the information required given that it met certain conditions. Then addtional custom queries were made using the keys selecting certain columns across many tables. This allowed for a well designed responses object that was responsive on initial query.   
+</details>
+
+### Code Snippet
+<details>
+  <summary>Click to expand!</summary>
+ 
+- **The Challenge**
+  - A challenge in this project was to design the database and querying upon it  so that only necessary data was being pulled from the database as needed. This meant making sure the data only contained the relevent data fields and the amount. Although not necesarry I found this to make an important feature so that the app would maximize runtime efficiency, make sure that we are not exposing any extra data, and was very capabilitble with scalibility and proposed future features. 
+- **The Solution**
+   - The solution that implemented was to make an initial query to the database that returned an array of the primary keys to the information required given that it met certain conditions. Then addtional custom queries were made using the keys selecting certain columns across many tables. This allowed for a well designed responses object that was responsive on initial query.   
+</details>
+
+<br></br>
+## Features Highlight
+
+### Map Feature
+GIF Example
+<details>
+  <summary>Click to expand!</summary>
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+
+Code Snippet
+<details>
+  <summary>Click to expand!</summary>
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+
+<br></br>
+## Code Snippets
+<details>
+  <summary>Click to expand!</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
 
 
 <!-- ROADMAP -->
@@ -163,18 +208,6 @@ See the [open issues](https://github.com/RyanGC93/Worldly/issues) for a list of 
 
 
 <!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-
-
 <!-- LICENSE -->
 ## License
 
@@ -185,19 +218,13 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - ryangconk@gmail.com
+Ryan Conk- [@twitter_handle](https://twitter.com/twitter_handle) - ryangconk@gmail.com
 
 Project Link: [https://github.com/RyanGC93/Worldly](https://github.com/RyanGC93/Worldly)
 
 
 
 <!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
-
-* []()
-* []()
-* []()
-
 
 
 
