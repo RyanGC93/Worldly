@@ -1,12 +1,13 @@
 import "./styles.css";
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Slider from './Slider'
+import Slider from "./Slider";
 import Map from "../Map";
 import * as userEventActions from "../../store/userEvents";
 import * as ambassadorEventActions from "../../store/ambassadorEvents";
+import EventManagement from '../EventsManagement'
 
-import Passport from './Passport'
+import Passport from "./Passport";
 import { checkAmbassador } from "../../services/checkAmbassador";
 
 const Profile = () => {
@@ -15,28 +16,22 @@ const Profile = () => {
 		// WORKS
 		if (state.userEvents && isChecked) {
 			let res = Object.values(state.userEvents);
-			console.log('isChecked', res)
-			return res
-		} 
-			
+			return res;
+		}
+
 		if (state.ambassadorEvents && !isChecked) {
 			let res = Object.values(state.ambassadorEvents);
-			console.log('isChecked', res)
-			return res
-
+			return res;
 		}
-	})
+	});
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
-	const [isAmbassador, setAmbassador] = useState(false)
-
-
-
+	const [isAmbassador, setAmbassador] = useState(false);
 
 	useEffect(() => {
-		if (!user) return
+		if (!user) return;
 		(async () => {
 			const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();
@@ -44,12 +39,11 @@ const Profile = () => {
 			setPhoneNumber(res.phone_number);
 		})();
 		(async () => {
-			const response = await checkAmbassador()
-			setAmbassador(response)
+			const response = await checkAmbassador();
+			setAmbassador(response);
 		})();
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
 		if (isChecked) dispatch(userEventActions.getUserEvents(user.username));
-	
 	}, [user, dispatch, isChecked]);
 
 	if (!userEvents) {
@@ -57,15 +51,14 @@ const Profile = () => {
 	}
 
 	const manageBookings = () => {
-		let passport = document.getElementById('passport')
-		passport.classList.add('passport-active')
-	}
+		let passport = document.getElementById("passport");
+		passport.classList.add("passport-active");
+	};
+	const createBookings = () => {};
 
 	return (
 		<>
-			<div className="container"
-			
-			>
+			<div className="container">
 				<div className="profile-header">
 					<div className="profile-img">
 						<img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" />
@@ -80,7 +73,6 @@ const Profile = () => {
 						</div>
 					</div>
 					<div className="profile-option">
-
 						<div className="notification">
 							<i className="fa fa-bell"></i>
 							<span className="alert-message">3</span>
@@ -96,40 +88,48 @@ const Profile = () => {
 							<div className="profile-text">Email</div>
 							<div className="profile-text sub-text">{email}</div> */}
 							{isAmbassador && (
-								<Slider isChecked={isChecked} setChecked={setChecked}/>
-					)}	
+								<Slider isChecked={isChecked} setChecked={setChecked} />
+							)}
 
 							<div className="user-bio">
 								<div className="profile-text">Bio</div>
 								<div className="profile-text sub-text">{user.bio}</div>
 							</div>
-							<div
-								onClick={manageBookings}
-								id="bookings-btn"
-								className="btn-ticket blue">Manage Events</div>
+							{isChecked && (
+								<div
+									onClick={manageBookings}
+									id="bookings-btn"
+									className="btn-ticket blue"
+								>
+									Manage Events
+								</div>
+							)}
+							{!isChecked && (
+								<div
+									onClick={createBookings}
+									id="bookings-btn"
+									className="btn-ticket blue"
+								>
+									Create Event
+								</div>
+							)}
 						</div>
 						{isChecked && (
-							
 							<Passport
-								// upcomingEvents={upcomingBookEvents}
 								user={user}
 								email={email}
 								phoneNumber={phoneNumber}
-								// pastEvents={pastBookEvents ? pastBookEvents : null}
 								isChecked={isChecked}
-								// events={isChecked ? userEvents : ambassadorEvents}
-							/> 
-
+							/>
 						)}
-						{!isChecked && (
-							<>
-							<div>sds</div>
-							</>
-						) }
-						
 					</div>
 					<div className="right-side">
-						<Map  isChecked={isChecked} className="map-wrapper" />
+						{isChecked && (
+							<Map isChecked={isChecked} className="map-wrapper" />
+						)}
+						{!isChecked && (
+							<EventManagement />
+						)}
 					</div>
 				</div>
 			</div>

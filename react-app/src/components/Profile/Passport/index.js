@@ -19,8 +19,10 @@ const PageCover = React.forwardRef((props, ref) => {
 });
 
 const Page = React.forwardRef((props, ref) => {
+	console.log(props)
+
 	let imagesOne, imagesTwo, contentOne,contentTwo;
-	console.log(props, '=================props==============')
+
 	if (props.content) {
 		
 		contentOne = props.content[0];
@@ -91,7 +93,7 @@ const Page = React.forwardRef((props, ref) => {
 									</div>
 									<div className="page-date">{contentTwo.date.slice(5)}</div>
 								</div>
-								{imagesOne.map((image) => (
+								{imagesTwo.map((image) => (
 									<div className="page-img-container" key={image.event_id}>
 										<img
 											key={image.photo_id}
@@ -171,7 +173,7 @@ class Passport extends React.Component {
 
 
 
-
+e
 	render() {
 		return (
 			<>
@@ -199,13 +201,24 @@ class Passport extends React.Component {
 						ref={(el) => (this.flipBook = el)}
 					>
 						<PageCover key={0} pos="top"></PageCover>
-						<Page key={1}></Page>
+					
 					
 						{this.props.pastBookEvents &&
-							this.props.pastBookEvents.map((page) => (
+							this.props.pastBookEvents.map((page,i) => (
 								<Page
-									
+									array={this.props.pastBookEvents}
+									key={`pastBookPage-${i}`}
 									header={"Past"}
+									content={page}
+								/>
+							))}
+						
+						
+						{this.props.upcomingBookEvents &&
+							this.props.upcomingBookEvents.map((page,i) => (
+								<Page
+									key={`pastBookPage-${i}`}
+									header={"Upcoming"}
 									content={page}
 								/>
 							))}
@@ -271,10 +284,8 @@ export default function (props) {
 		};
 
 		let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
-		// this.upcomingBookEvents = upcomingBookEvents
 		let pastBookEvents = contentDivider(sortedPastEvents);
-		// this.pastBookEvents = pastBookEvents
-
+		console.log(upcomingBookEvents,pastBookEvents, 'books')
 	return (
 		<>
 			<Passport upcomingBookEvents={upcomingBookEvents} pastBookEvents={pastBookEvents}/>
