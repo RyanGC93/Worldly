@@ -1,4 +1,5 @@
 import React from "react";
+import {useSelector} from "react-redux";
 import { useHistory } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 import './styles.css'
@@ -9,11 +10,12 @@ import DropDownMenu from './DropDownMenu'
 
 const NavBar = ({ setAuthenticated }) => {
 	const history = useHistory()
+	const username = useSelector(state => state.session.user.username)
 
 	const homeRedirect = () => {
 		history.push('/')
 	}
-
+	
 
 
 	return (
@@ -26,7 +28,7 @@ const NavBar = ({ setAuthenticated }) => {
                     <ReactSearchAutocomplete />
 				</div>
 				<div className="user-settings">
-					<DropDownMenu setAuthenticated={setAuthenticated} />
+					<DropDownMenu username={username} setAuthenticated={setAuthenticated} />
                     {/* <LogoutButton  /> */}
 				</div>
 			</div>
