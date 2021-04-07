@@ -49,7 +49,9 @@ const MapChart = ({ setTooltipContent, isChecked }) => {
 			markerOffset: -30,
 			name: `${event.title}`,
 			coordinates: [event.location_longitude, event.location_latitude],
+			id: event.event_id
 		});
+		console.log(markers,'markers')
 	});
 
 
@@ -95,8 +97,8 @@ const MapChart = ({ setTooltipContent, isChecked }) => {
 										))
 									}
 								</Geographies>
-								{markers.map(({ name, coordinates, markerOffset }) => (
-									<MarkerComponent name={name} coordinates={coordinates} markerOffset={markerOffset}/>
+								{markers.map(({ name, coordinates, markerOffset, id }) => (
+									<MarkerComponent key={id} name={name} coordinates={coordinates} markerOffset={markerOffset}/>
 					// 				<Marker
 					// 					className="marker"
 					// 					key={name}
