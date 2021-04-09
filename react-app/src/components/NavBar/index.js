@@ -16,7 +16,16 @@ const NavBar = ({ setAuthenticated }) => {
 		history.push('/')
 	}
 	
+	const searchHandler = () => {
 
+
+
+	}
+	const focusHandler = () => {
+
+
+
+	}
 
 	return (
 	<>
@@ -25,7 +34,12 @@ const NavBar = ({ setAuthenticated }) => {
 					<div className='nav-logo' onClick={homeRedirect}>Worldy </div>
 				</div>
 				<div className="searchBar-wrapper">
-                    <ReactSearchAutocomplete />
+					<ReactSearchAutocomplete
+						inputDebounce={searchHandler}
+						onFocus={focusHandler}
+						
+					
+					/>
 				</div>
 				<div className="user-settings">
 					<DropDownMenu username={username} setAuthenticated={setAuthenticated} />
