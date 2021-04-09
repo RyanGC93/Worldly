@@ -128,7 +128,7 @@ const Profile = () => {
 							<Map isChecked={isChecked} className="map-wrapper" />
 						)}
 						{!isChecked && (
-							<EventManagement />
+							<EventManagement className='event-management' isChecked={isChecked} />
 						)}
 					</div>
 				</div>
