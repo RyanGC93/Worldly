@@ -6,7 +6,7 @@ import Map from "../Map";
 import './styles.css'
 import EventViewer from './EventViewer'
 import Slider from 'infinite-react-carousel'
-
+import AmbassadorCalendar from './AmbassadorCalendar'
 
 const EventManagement = ({ isChecked }) => {
 
@@ -50,13 +50,13 @@ const EventManagement = ({ isChecked }) => {
     </TabList>
 
     <TabPanel>
-      <h2>Any content 1</h2>
+      {/* <AmbassadorCalendar /> */}
     </TabPanel>
           <TabPanel>
             <div className='ambassador-slider'>
       <Slider >
                 {dividedContent && dividedContent.map((event) => (
-                  <div className='ambasador-slide'>
+                  <div className='ambassador-slide'>
 
                   {
                     event[0] &&
