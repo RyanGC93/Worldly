@@ -9,6 +9,7 @@ import {useSelector} from 'react-redux'
 
 
 const EventCard = ({ event }) => {
+
   const reviews = useSelector((state) => {
     return Object.values(state.reviews).filter((review) => review.event_id === event.event_id);
   });
@@ -25,15 +26,16 @@ const EventCard = ({ event }) => {
   const badge = '';
   const country = event.country;
   const continent = event.region;
-  const closest_event_date = bookingAvailability[0].date;
-  const closest_event_time = bookingAvailability[0].time;
+  // const closest_event_date = bookingAvailability[0].date;
+  // const closest_event_time = bookingAvailability[0].time;
   const description = event.description;
   let value = 0;
   
   
   const [isLoaded,setIsLoaded] = useState(false)
   useEffect(() => {
-    if (reviews) setIsLoaded(true);
+    if (reviews && images && event && bookingAvailability) setIsLoaded(true);
+    console.log(reviews,images,event)
   }, [reviews]);
   
   for (let element of reviews) value += element.rating
@@ -70,14 +72,14 @@ const EventCard = ({ event }) => {
 
                   {/* TODO >> add a carousel */}
                 </div>
-                <div className="item-time-date">
+                {/* <div className="item-time-date">
                   <time className="date" dateTime="2018-10-16">
                     {closest_event_date}
                   </time>
                   <time className="time" dateTime="19:00">
                     {closest_event_time}
                   </time>
-                </div>
+                </div> */}
                 <div className="item-buttons front-buttons">
                 <button
                     id="btn-details"

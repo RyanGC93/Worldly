@@ -39,8 +39,6 @@ const EventManagement = ({ isChecked }) => {
   console.log(dividedContent, "divided")
 
   const events = userEvents.map((event) => event.event_id)
-  const uniqueEvents = Array.from(new Set(events))
-
     return (
       <>
   <Tabs>

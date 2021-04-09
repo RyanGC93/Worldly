@@ -78,7 +78,6 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
   const response = await fetch(`/api/ambassadors/`);
   if (response.ok) {
       let res = await response.json();
-    console.log('dsdsadsdsdsadsadas',res)
     
     
     let events = res.events
