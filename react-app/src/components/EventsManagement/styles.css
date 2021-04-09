@@ -1,0 +1,11 @@
+.eventManagement-container {
+    width: 100%;
+}
+
+.react-tabs{
+    width: 100%
+}
+.react-tabs__tab-list{
+    display:flex;
+    justify-content: center;
+}
