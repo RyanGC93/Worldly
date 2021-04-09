@@ -5,12 +5,16 @@ import Slider from "./Slider";
 import Map from "../Map";
 import * as userEventActions from "../../store/userEvents";
 import * as ambassadorEventActions from "../../store/ambassadorEvents";
-import EventManagement from '../EventsManagement'
+import EventManagement from "../EventsManagement";
+import { Modal } from "../../context/Modal";
 
 import Passport from "./Passport";
 import { checkAmbassador } from "../../services/checkAmbassador";
+import CreateEventModal from "../CreateEventModal";
+
 
 const Profile = () => {
+	const [showModal, setShowModal] = useState(false);
 	const [isChecked, setChecked] = useState(true);
 	const userEvents = useSelector((state) => {
 		// WORKS
@@ -105,13 +109,20 @@ const Profile = () => {
 								</div>
 							)}
 							{!isChecked && (
-								<div
-									onClick={createBookings}
-									id="bookings-btn"
-									className="btn-ticket blue"
-								>
-									Create Event
-								</div>
+								<>
+									<div
+										onClick={() => setShowModal(true)}
+										id="bookings-btn"
+										className="btn-ticket blue"
+									>
+										Create Event
+									</div>
+									{showModal && (
+										<Modal onClose={() => setShowModal(false)}>
+											<CreateEventModal setShowModal={setShowModal} />
+										</Modal>
+									)}
+								</>
 							)}
 						</div>
 						{isChecked && (
@@ -124,11 +135,12 @@ const Profile = () => {
 						)}
 					</div>
 					<div className="right-side">
-						{isChecked && (
-							<Map isChecked={isChecked} className="map-wrapper" />
-						)}
+						{isChecked && <Map isChecked={isChecked} className="map-wrapper" />}
 						{!isChecked && (
-							<EventManagement className='event-management' isChecked={isChecked} />
+							<EventManagement
+								className="event-management"
+								isChecked={isChecked}
+							/>
 						)}
 					</div>
 				</div>
