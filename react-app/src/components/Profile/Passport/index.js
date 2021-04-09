@@ -19,8 +19,6 @@ const PageCover = React.forwardRef((props, ref) => {
 });
 
 const Page = React.forwardRef((props, ref) => {
-	console.log(props)
-
 	let imagesOne, imagesTwo, contentOne,contentTwo;
 
 	if (props.content) {
@@ -269,7 +267,6 @@ export default function (props) {
 			(a, b) => a.dateObj - b.dateObj
 		);
 		let sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj);
-		console.log(sortedUpcomingEvents,sortedPastEvents, 'past')
 		const contentDivider = (arr) => {
 			let newarr = [];
 			let i,

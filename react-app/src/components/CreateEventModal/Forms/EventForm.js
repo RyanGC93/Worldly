@@ -11,15 +11,13 @@ const EventForm = () => {
   
   const geoHandler = async (e) => {
     e.preventDefault()
-    let replacedStr = city.replaceAll(' ', '+')
-    console.log(replacedStr, country)
-    let url = `https://maps.googleapis.com/maps/api/geocode/json?&address=${city}%${country}&key=${process.env.REACT_APP_GOOGLE_GEO_KEY}`
-    console.log(process.env, process.env.REACT_APP_GOOGLE_GEO_KEY)
-    console.log('url',url)
+    let replacedCity = city.replaceAll(' ', '+')
+    let replacedCountry = country.replaceAll(' ', '+')
+
+    let url = `https://maps.googleapis.com/maps/api/geocode/json?&address=${replacedCity}%${replacedCountry}&key=${process.env.REACT_APP_GOOGLE_GEO_KEY}`
     const response = await fetch(url)
     if (!response.ok) return
     let data = await response.json();
-    console.log(data)
   }
   
   const onSubmit = async (e) => {
@@ -27,9 +25,7 @@ const EventForm = () => {
 
   };
   const check = (e) => {
-    setCountry(e.target.value)
-    console.log(e.target.value)
-    console.log(city,country)
+
   }
 
   return (
@@ -42,6 +38,7 @@ const EventForm = () => {
       <div>
         <label htmlFor="title">Title</label>
         <input
+          required
           name="title"
           type="text"
           placeholder="title"
@@ -52,6 +49,7 @@ const EventForm = () => {
           <div>
         <label htmlFor="cost">cost</label>
         <input
+          required
           name="cost"
           type="text"
           placeholder="cost"
@@ -62,6 +60,7 @@ const EventForm = () => {
       <div>
         <label htmlFor="description">Description</label>
         <input
+          required
           name="description"
           type="description"
           placeholder="Description"
@@ -72,6 +71,7 @@ const EventForm = () => {
       <div>
         <label htmlFor="city">City</label>
         <input
+          required
           name="city"
           type="city"
           placeholder="City"
@@ -82,6 +82,7 @@ const EventForm = () => {
       <div>
         <label htmlFor="country">Country</label>
         <input
+          required
           name="country"
           type="country"
           placeholder="Country"

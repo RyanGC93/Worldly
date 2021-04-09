@@ -5,6 +5,7 @@ import Slider from "./Slider";
 import Map from "../Map";
 import * as userEventActions from "../../store/userEvents";
 import * as ambassadorEventActions from "../../store/ambassadorEvents";
+
 import EventManagement from "../EventsManagement";
 import { Modal } from "../../context/Modal";
 
@@ -44,6 +45,7 @@ const Profile = () => {
 		})();
 		(async () => {
 			const response = await checkAmbassador();
+			console.log(response, 'sdsadsadsad')
 			setAmbassador(response);
 		})();
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());

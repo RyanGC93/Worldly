@@ -78,6 +78,9 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
   const response = await fetch(`/api/ambassadors/`);
   if (response.ok) {
       let res = await response.json();
+    console.log('dsdsadsdsdsadsadas',res)
+    
+    
     let events = res.events
     let eventsInfo = events[0].events_info
     let eventPhotos = events[1].photo_gallery
@@ -85,7 +88,7 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
     let eventReviews = events[3].reviews
 
 
-    eventsInfo.forEach((event) => {
+    eventCalendar.forEach((event) => {
       event["dateObj"] = new Date(`${event.date} ${event.time}`)
     })
     dispatch(setAmbassadorEvents(eventsInfo));
@@ -93,6 +96,7 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
     dispatch(reviewActions.getReviews(eventReviews))
     dispatch(photoActions.getPhotos(eventPhotos))
   }
+  console.log(response,'sdsadsadsa')
   return response;
 };
 
