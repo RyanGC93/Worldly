@@ -113,7 +113,8 @@ const Profile = () => {
 									<div
 										onClick={() => setShowModal(true)}
 										id="bookings-btn"
-										className="btn-ticket blue"
+										className="btn
+										-ticket blue"
 									>
 										Create Event
 									</div>
