@@ -6,7 +6,7 @@ function CreateEventModal() {
 
 
   return (
-    <div >
+    <div className='creation-form-container' >
       <EventForm />
     </div>
   );

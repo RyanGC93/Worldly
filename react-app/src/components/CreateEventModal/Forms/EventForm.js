@@ -29,16 +29,17 @@ const EventForm = () => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className='first-form' onSubmit={onSubmit}>
       <div>
         {errors.map((error) => (
           <div>{error}</div>
         ))}
       </div>
-      <div>
-        <label htmlFor="title">Title</label>
+      <div className='group' >
+        <label className="label" htmlFor="title">Title</label>
         <input
           required
+          className="input"
           name="title"
           type="text"
           placeholder="title"
@@ -46,10 +47,11 @@ const EventForm = () => {
           onChange={(e) => setTitle(e.target.value) }
         />
           </div>
-          <div>
-        <label htmlFor="cost">cost</label>
+          <div className='group' >
+        <label className="label" htmlFor="cost">cost</label>
         <input
           required
+          className="input"
           name="cost"
           type="text"
           placeholder="cost"
@@ -57,10 +59,11 @@ const EventForm = () => {
           onChange={(e) => setCost(e.target.value) }
         />
       </div>
-      <div>
-        <label htmlFor="description">Description</label>
+      <div className='group' >
+        <label className="label" htmlFor="description">Description</label>
         <input
           required
+          className="input"
           name="description"
           type="description"
           placeholder="Description"
@@ -68,9 +71,10 @@ const EventForm = () => {
           onChange={(e)=> setDescription(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="city">City</label>
+      <div className='group' >
+        <label className="label" htmlFor="city">City</label>
         <input
+          className="input"
           required
           name="city"
           type="city"
@@ -79,9 +83,10 @@ const EventForm = () => {
           onChange={(e)=> setCity(e.target.value)}
         />
       </div>
-      <div>
-        <label htmlFor="country">Country</label>
+      <div className='group' >
+        <label className="label" htmlFor="country">Country</label>
         <input
+          className="input"
           required
           name="country"
           type="country"

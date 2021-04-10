@@ -1,0 +1,11 @@
+.creation-form-container {
+    width: 450px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+}
+
+.first-form {
+    width: 100%;
+    height: 100%
+}
