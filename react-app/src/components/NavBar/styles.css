@@ -19,8 +19,9 @@
 	align-items:center;
 }
 
-.searchBar-wrapper {
-	margin-top: 5px
+.searchBar-wrapper .wrapper {
+	margin-top: 10px;
+	z-index:40;
 }
 /*  */
 .igZibq {

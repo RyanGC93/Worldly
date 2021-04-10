@@ -3,11 +3,13 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./styles.css";
 import { IoChevronBackCircle } from "react-icons/io5";
-function CalendarModal() {
+function CalendarModal(props) {
   const [value, onChange] = useState(new Date());
   const [toggle, setToggle] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [timeslot, setTimeslot] = useState("");
+
+  let time = ['']
 
   const calendarHandler = (value, event) => {
     alert(value);
@@ -37,18 +39,38 @@ let dia = value.getDate();
     alert(timeslot);
   };
 
-  const time = [
-    "4:30",
-    "5:30",
-    "2:00",
-    "4:30",
-    "5:30",
-    "2:00",
-    "2:00",
-    "4:30",
-    "5:30",
-    "2:00"
-  ];
+
+
+
+  const tileContent = ({ date, view }) => {
+    console.log(props)
+
+    let dateOne = date.toDateString()
+    let isSame = false
+    let activeBooking
+    let datesArray = props.bookingAvailability.forEach((booking) => {
+      let conv = booking.dateObj.toDateString()
+      if (conv === dateOne) {
+        isSame = true
+        activeBooking = booking
+      }
+    })
+
+
+    return (
+      <>
+        {isSame && (
+
+          <div className='active-tile'>
+           
+          </div>
+        )
+        }
+      </>  
+    )
+    
+  };
+
 
   return (
     <div className="booking-container">
@@ -56,6 +78,8 @@ let dia = value.getDate();
         <>
           <header className="header">Dates</header>
           <Calendar
+            // tileContent={tileContentTwo}
+            tileContent={tileContent}
             className="calendar"
             onChange={onChange}
             value={value}

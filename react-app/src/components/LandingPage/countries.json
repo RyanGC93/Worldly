@@ -49,7 +49,7 @@
       "https://images.pexels.com/photos/5376665/pexels-photo-5376665.jpeg?cs=srgb&dl=pexels-kenrick-baksh-5376665.jpg&fm=jpg"
     ],
     "name": "S.America",
-    "short": "Samerica"
+    "short": "samerica"
   },
   "northamerica": {
     "info": "We can define Cuisine as a style of cooking and tradition associated with a specific culture. Asia is the largest continent in the world shelters many cultures and cuisines. Some of the major regional cuisines are East Asian, Southeast Asian, South Asian, Central Asian and Middle Eastern cuisines. Besides the difference, all of these varieties of Asian foods share some common features. Ingredients like Rice, Ginger, Garlic, Tofu, Chilies, Dried Onions, Soy and Sesame seeds are used in almost all Asian foods. Cooking practices like Steaming and Stir frying are common in every Asian restaurant.Rice is a staple ingredient in every Asian food; Different varieties are popular in various regions. Basmati is a popular rice variety in subcontinents while long grain rice is popular in China and short grain in Japan and Korea. Curry dishes with its origin in South Asian countries are also common in Southern, Western and Southeastern regions. These are Yogurt based soup with meat or vegetables as optional ingredients",
@@ -61,7 +61,7 @@
       "https://images.pexels.com/photos/5376665/pexels-photo-5376665.jpeg?cs=srgb&dl=pexels-kenrick-baksh-5376665.jpg&fm=jpg"
     ],
     "name": "N.America",
-    "short": "Namerica"
+    "short": "namerica"
   },
   "centralamerica": {
     "info": "We can define Cuisine as a style of cooking and tradition associated with a specific culture. Asia is the largest continent in the world shelters many cultures and cuisines. Some of the major regional cuisines are East Asian, Southeast Asian, South Asian, Central Asian and Middle Eastern cuisines. Besides the difference, all of these varieties of Asian foods share some common features. Ingredients like Rice, Ginger, Garlic, Tofu, Chilies, Dried Onions, Soy and Sesame seeds are used in almost all Asian foods. Cooking practices like Steaming and Stir frying are common in every Asian restaurant.Rice is a staple ingredient in every Asian food; Different varieties are popular in various regions. Basmati is a popular rice variety in subcontinents while long grain rice is popular in China and short grain in Japan and Korea. Curry dishes with its origin in South Asian countries are also common in Southern, Western and Southeastern regions. These are Yogurt based soup with meat or vegetables as optional ingredients",
@@ -74,7 +74,7 @@
       "https://images.pexels.com/photos/6037915/pexels-photo-6037915.jpeg?cs=srgb&dl=pexels-victoria-emerson-6037915.jpg&fm=jpg"
     ],
     "name": "C.America",
-    "short": "Camerica"
+    "short": "camerica"
   }
 
 }

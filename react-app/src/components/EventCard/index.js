@@ -62,7 +62,7 @@ const EventCard = ({ event }) => {
                     {showModal && (
                       
                       <Modal onClose={() => setShowModal(false)}>
-                        <CalendarModal setShowModal={setShowModal} />
+                      <CalendarModal event={event} bookingAvailability={bookingAvailability} setShowModal={setShowModal} />
                       </Modal>
                     )}
                   </div>
@@ -91,7 +91,7 @@ const EventCard = ({ event }) => {
                   <a
                     className="btn-tickets blue"
                     aria-label="Purchase tickets for this event"
-                    href="/"
+                      onClick={()=>setShowModal(true)}
                   >
                     Book
                   </a>

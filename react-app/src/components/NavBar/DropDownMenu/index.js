@@ -52,9 +52,7 @@ const DropDownMenu = ({ setAuthenticated }) => {
               <li>
                 <div className='' onClick={onLogout}>Signout</div>
               </li>
-              <li>
-                <div className=''>Signout</div>
-              </li>
+
             </ul>
           </nav>
         </div>

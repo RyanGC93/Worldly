@@ -78,12 +78,16 @@ export const getEvents = (param) => async (dispatch) => {
   const response = await fetch(`/api/events/${param}`);
   if (response.ok) {
     let res = await response.json();
+    console.log('res',res)
     let events = res.events
     let eventsInfo = events[0].events_info
     let eventPhotos = events[1].photo_gallery
     let eventCalendar =events[2].event_calendar
     let eventReviews = events[3].reviews
 
+    eventCalendar.forEach((event) => {
+      event["dateObj"] = new Date(`${event.date} ${event.time}`)
+    })
     dispatch(eventCalendarActions.getCalendars(eventCalendar))
     dispatch(reviewActions.getReviews(eventReviews))
     dispatch(photoActions.getPhotos(eventPhotos))

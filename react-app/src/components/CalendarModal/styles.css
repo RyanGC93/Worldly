@@ -4,6 +4,29 @@
   position: relative;
 }
 
+.react-calendar__tile{
+  position: relative;
+}
+.hover-tile{
+  /* visibility: hidden; */
+}
+
+.hover-tile:hover{
+  font-size: 20px;
+  visibility: visible;
+  display: absolute;
+  padding: 10px 10px 10px 10px;
+  z-index: 100;
+}
+
+.active-tile{
+  height:100%;
+  width: 100%;
+  position:absolute;
+  bottom:0;
+  border: 3px solid blue
+}
+
 #modal-content{
   border-radius:15%;
 }

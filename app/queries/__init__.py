@@ -5,6 +5,16 @@ from app.models import db, Event, Location, Ambassador, User, Review, PhotoGalle
 # So we can type `flask query --help`
 query_commands = AppGroup('query')
 
+@query_commands.command('search')
+def query_event():
+    query = 'a'
+
+    # q = session.query(User).filter(User.name.like('e%')).limit(5)
+    x = db.session.query(Location.region,Event.id, Event.title).filter(Location.event_id == Event.id).limit(30)
+    keys = ['event_id', 'title', 'region']
+    search = {"search": [dict(zip(keys,values)) for values in x]}
+    print(search)
+
 @query_commands.command('event')
 def query_event():
 
@@ -13,6 +23,12 @@ def query_event():
     values = list(x[0])
     row = dict(zip(keys,values))
     
+@query_commands.command('eventid')
+def query_event():
+
+    events = db.session.query(Event.id, Event.title).all() 
+    event_ids = [event[0]for event in events]
+    print(event_ids)        
     
 @query_commands.command('ambassador')
 def query_ambassador():

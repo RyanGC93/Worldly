@@ -83,7 +83,7 @@ const calendarReducer = (state = initialState, action) => {
     case SET_EVENTCALENDAR:
       const calendar = action.calendar.reduce((acc, ele) => {
 
-        acc[ele.event_id] = ele;
+        acc[ele.event_calendar_id] = ele;
         return acc;
       }, {});
       return { ...state, ...calendar };
