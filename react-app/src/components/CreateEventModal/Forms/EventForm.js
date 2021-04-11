@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from './styles.module.css'
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
 
 const EventForm = () => {
@@ -26,19 +27,19 @@ const EventForm = () => {
 	const check = (e) => {};
 
 	return (
-		<form className="first-form" onSubmit={onSubmit}>
-			<div>
+		<form onSubmit={onSubmit}>
+			<div className={styles.errorContainer}>
 				{errors.map((error) => (
-					<div>{error}</div>
+					<div className={styles.error}>{error}</div>
 				))}
 			</div>
-			<div className="group">
-				<label className="label" htmlFor="title">
+			<div className={styles.group}>
+				<label className={styles.label} htmlFor="title">
 					Title
 				</label>
 				<input
 					required
-					className="input"
+					className={styles.input}
 					name="title"
 					type="text"
 					placeholder="title"
@@ -46,13 +47,13 @@ const EventForm = () => {
 					onChange={(e) => setTitle(e.target.value)}
 				/>
 			</div>
-			<div className="group">
-				<label className="label" htmlFor="cost">
+			<div className={styles.group}>
+				<label className={styles.label} htmlFor="cost">
 					cost
 				</label>
 				<input
 					required
-					className="input"
+					className={styles.input}
 					name="cost"
 					type="text"
 					placeholder="cost"
@@ -60,13 +61,13 @@ const EventForm = () => {
 					onChange={(e) => setCost(e.target.value)}
 				/>
 			</div>
-			<div className="group">
-				<label className="label" htmlFor="description">
+			<div className={styles.group}>
+				<label className={styles.label} htmlFor="description">
 					Description
 				</label>
 				<input
 					required
-					className="input"
+					className={styles.input}
 					name="description"
 					type="description"
 					placeholder="Description"
@@ -74,12 +75,12 @@ const EventForm = () => {
 					onChange={(e) => setDescription(e.target.value)}
 				/>
 			</div>
-			<div className="group">
-				<label className="label" htmlFor="city">
+			<div className={styles.group}>
+				<label className={styles.label} htmlFor="city">
 					City
 				</label>
 				<input
-					className="input"
+					className={styles.input}
 					required
 					name="city"
 					type="city"
@@ -88,12 +89,12 @@ const EventForm = () => {
 					onChange={(e) => setCity(e.target.value)}
 				/>
 			</div>
-			<div className="group">
-				<label className="label" htmlFor="country">
+			<div className={styles.group}>
+				<label className={styles.label} htmlFor="country">
 					Country
 				</label>
 				<input
-					className="input"
+					className={styles.input}
 					required
 					name="country"
 					type="country"

@@ -9,13 +9,15 @@ const LandingPage = () => {
 			<FeatureHeader />
 			<div className={styles.featureSpacer}></div>
 			<div className={styles.regionsTitle}>Take a Tasty Trip</div>
-			<div className={styles.regionsFeed}>
-				<RegionBanner country={countries.africa} />
-				<RegionBanner country={countries.asia} />
-				<RegionBanner country={countries.southamerica} />
-				<RegionBanner country={countries.europe} />
-				<RegionBanner country={countries.northamerica} />
-				<RegionBanner country={countries.centralamerica} />
+			<div className={styles.regionsFeedContainer}>
+				<div className={styles.regionsFeed}>
+					<RegionBanner country={countries.africa} />
+					<RegionBanner country={countries.asia} />
+					<RegionBanner country={countries.southamerica} />
+					<RegionBanner country={countries.europe} />
+					<RegionBanner country={countries.northamerica} />
+					<RegionBanner country={countries.centralamerica} />
+				</div>
 			</div>
 		</>
 	);

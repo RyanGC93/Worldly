@@ -1,0 +1,62 @@
+.input {
+    text-align: center;
+}
+
+.groupbutton,.button{
+	text-transform:uppercase;
+}
+.input, .signInBtn{
+    border:none;
+	padding: 15px 0px 15px 0px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+    width: 100%;
+    display: block;
+    text-align: center;
+    outline-style: none;
+    color: #fff;
+
+}
+
+.label {
+    padding: 1px 0px 5px 3px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    display: block;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+color: white;
+opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+color: white
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+color: white
+}
+
+.group {
+    margin-top:10px
+    /* padding: 3px 3px 3px 3px */
+}
+
+.check-box:hover {
+    cursor:pointer
+}
+
+.error{
+    color: red;
+    padding: 4px 4px 4px 4px;
+}
+
+.errorContainer{
+    margin-top:8px
+}
+
+.label:focus{
+    border-style:none;
+}

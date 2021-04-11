@@ -2,8 +2,8 @@ import "./styles.css";
 import SocialLogins from "../SocialLogins";
 import PortfolioNavigator from "../PortfolioNavigator";
 import React from "react";
-import LoginForm from "../LoginForm";
-import SignUpForm from "../SignUpForm";
+import LoginForm from "../Forms/SignInForm";
+import SignUpForm from "../Forms/SignUpForm";
 
 const LoginPage = ({ setAuthenticated }) => {
 	return (

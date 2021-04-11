@@ -3,6 +3,9 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import { signUp } from '../../../services/auth';
 import { registerUser } from '../../../store/session';
+import styles from './styles.module.css';
+
+
 const SignUpForm = (authenticated,setAuthenticated) => {
   const dispatch = useDispatch()
 
@@ -31,11 +34,11 @@ const SignUpForm = (authenticated,setAuthenticated) => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div className="group">
-        <label className="label">User Name</label>
+      <div className={styles.group}>
+        <label className={styles.label}>User Name</label>
         <input
             // placeholder="Username"
-                  className="input"
+                  className={styles.input}
           type="text"
           name="username"
           onChange={updateUserName}
@@ -43,10 +46,10 @@ const SignUpForm = (authenticated,setAuthenticated) => {
           required={true}
         ></input>
       </div>
-      <div className="group">
-        <label className="label">Email</label>
+      <div className={styles.group}>
+        <label className={styles.label}>Email</label>
         <input
-          className="input"  
+          className={styles.input}  
           type="text"
           name="email"
           onChange={updateEmail}
@@ -55,10 +58,10 @@ const SignUpForm = (authenticated,setAuthenticated) => {
         ></input>
         
       </div>
-      <div className="group">
-        <label className="label">Password</label>
+      <div className={styles.group}>
+        <label className={styles.label}>Password</label>
               <input
-          className="input"        
+          className={styles.input}        
           type="password"
           name="password"
           onChange={(e) => setPassword(e.target.value)}
@@ -66,10 +69,10 @@ const SignUpForm = (authenticated,setAuthenticated) => {
           required={true}
         ></input>
       </div>
-      <div className="group">
-        <label className="label">Repeat Password</label>
+      <div className={styles.group}>
+        <label className={styles.label}>Repeat Password</label>
           <input
-          className="input"        
+          className={styles.input}        
           type="password"
           name="repeat_password"
           onChange={(e) =>setRepeatPassword(e.target.value)}
@@ -77,8 +80,8 @@ const SignUpForm = (authenticated,setAuthenticated) => {
           required={true}
         ></input>
       </div>
-      <div className="group">
-            <input type="submit" className="button sign-in-btn" value="Sign Up"/>
+      <div className={styles.group}>
+        <input type="submit" className={styles.signInBtn} value="Sign Up"/>
           </div>
     </form>
   );
