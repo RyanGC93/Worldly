@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux'
 import LoginPage from './components/LoginPage'
 import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import HomePage from './components/HomePage'
+import EventsFeed from './components/EventsFeed'
 import Profile from './components/Profile'
 import LandingPage from './components/LandingPage'
 import { restoreUser } from './store/session'
@@ -46,7 +46,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/events/:region"  authenticated={authenticated}>
           <NavBar setAuthenticated={setAuthenticated} />
-          <HomePage />
+          <EventsFeed />
           {/* <UsersList/> */}
         </ProtectedRoute>
         <ProtectedRoute path="/profile/:userId" exact={true} authenticated={authenticated}>
