@@ -13,24 +13,18 @@
 	box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
 }
 
-.centered {
+
+.searchBarWrapper{
+	margin-top: 10px;
+	z-index:40;
+}
+
+.logoHolder{
 	display:flex;
 	justify-content:center;
 	align-items:center;
 }
-
-.searchBar-wrapper .wrapper {
-	margin-top: 10px;
-	z-index:40;
-}
-/*  */
-.igZibq {
-	min-height: 30px;
-	padding: 5px 5px 5px 5px;
-}
-
-
-.logo-holder div {
+.navLogo{
 	font-family: "Rochester", cursive;
 	color: white;
 	font-size: 50px;
@@ -40,27 +34,8 @@
 	text-align: center;
 }
 
-.nav-logo:hover {
+.navLogo:hover {
 	color:rgba(86, 86, 87, 0.8)
 }
 
-.logout-btn {
-	position: relative;
-	top: 10%;
-	height: 70%;
-	background-color: cornsilk;
-	border-radius: 20%;
-	border: none;
-	width: 80%;
-}
-
-.profile {
-	transition: .6s;
-	color: white;
-	text-align: center;
-	font-size: 40px
-	/* margin-top: 4vh; */
-
-
-}
 

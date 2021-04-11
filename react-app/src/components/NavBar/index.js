@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import { useHistory } from "react-router-dom";
 import LogoutButton from "./LogoutButton";
-import './styles.css'
+import styles from './styles.module.css'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import DropDownMenu from './DropDownMenu'
 
@@ -18,8 +18,9 @@ const NavBar = ({ setAuthenticated }) => {
 	const handleOnSelect = (item) => {
 		// the item selected
 		console.log(item)
-	  }
-	const styles = {
+	}
+	
+	const searchStyles = {
 	marginTop:"15px",
     height: "50px",
     border: "1px solid #dfe1e5",
@@ -47,14 +48,14 @@ const NavBar = ({ setAuthenticated }) => {
 	  }, []);
 	return (
 	<>
-			<div className="navbar">
-				<div className="logo-holder centered" >
-					<div className='nav-logo' onClick={homeRedirect}>Worldy </div>
+			<div className={styles.navbar}>
+				<div className={styles.logoHolder} >
+					<div className={styles.navLogo} onClick={homeRedirect}>Worldy </div>
 				</div>
-				<div className="searchBar-wrapper">
+				<div className={styles.searchBarWrapper}>
 					{searchItems && (
 						<ReactSearchAutocomplete
-							styling={styles}
+							styling={searchStyles}
 							onSelect={handleOnSelect}
 							key={searchItems.event_id}
 							items={searchItems}
@@ -63,7 +64,7 @@ const NavBar = ({ setAuthenticated }) => {
 						/>
 						)}
 				</div>
-				<div className="user-settings">
+				<div className={styles.userSettings}>
 					<DropDownMenu username={username} setAuthenticated={setAuthenticated} />
 				</div>
 			</div>

@@ -45,7 +45,6 @@ const Profile = () => {
 		})();
 		(async () => {
 			const response = await checkAmbassador();
-			console.log(response, 'sdsadsadsad')
 			setAmbassador(response);
 		})();
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
@@ -89,10 +88,6 @@ const Profile = () => {
 				<div className="main-bd">
 					<div className="left-side">
 						<div className="profile-side">
-							{/* <div className="profile-text">Phone Number</div>
-							<lassName="profile-text sub-text">{phoneNumber}</div>
-							<div className="profile-text">Email</div>
-							<div className="profile-text sub-text">{email}</div> */}
 							{isAmbassador && (
 								<Slider isChecked={isChecked} setChecked={setChecked} />
 							)}

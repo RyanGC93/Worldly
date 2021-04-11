@@ -52,13 +52,13 @@ const DropDownMenu = ({ setAuthenticated }) => {
           >
             <ul>
               <li>
-                <div className='' onClick={profileRedirect} >Profile</div>
+                <div onClick={profileRedirect} >Profile</div>
               </li>
               <li>
                 
               </li>
               <li>
-                <div className='' onClick={onLogout}>Signout</div>
+                <div onClick={onLogout}>Sign Out</div>
               </li>
 
             </ul>

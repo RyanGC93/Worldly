@@ -1,8 +1,8 @@
-import "./styles.css";
 import React from "react"
 import { GoogleLogin } from "react-google-login";
 import FacebookLogin from "react-facebook-login";
 import { SocialIcon } from "react-social-icons";
+import styles from "./styles.module.css"
 
 const responseFacebook = (response) => {
   console.log(response);
@@ -13,10 +13,9 @@ const responseGoogle = (response) => {
 
 export default function SocialLogins(props) {
 
-
   return (
-    <div className="App">
-      <div className="social-login-row">
+    <>
+      <div className={styles.socialLoginRow}>
         <div>
           <FacebookLogin
             // https://github.com/keppelen/react-facebook-login
@@ -26,24 +25,22 @@ export default function SocialLogins(props) {
             textButton={props.type + ' with Facebook'} 
             fields="name,email,picture"
             callback={responseFacebook}
-            cssClass="my-facebook-button-class"
-            icon={<SocialIcon className="social-icon" width="50px" url="http://facebook.com" />}
+            cssClass={styles.myFacebookButtonClass }
+            icon={<SocialIcon className={styles.socialIcon} width="50px" url="http://facebook.com" />}
           />
-
         </div>
-
         <div>
           <GoogleLogin
-            className="google-login-button"
+            className={styles.googleLoginButton}
             clientId={process.env.REACT_APP_GOOGLE_LOGIN_KEY}
             render={(renderProps) => (
               <button
-                className="google-login-button"
+                className={styles.googleLoginBtn}
                 onClick={renderProps.onClick}
                 disabled={renderProps.disabled}
               >
-                <SocialIcon className="social-icon" url="http://google.com" />
-                <div className="login-button">{props.type} with Google</div>
+                <SocialIcon className={styles.socialIcon} url="http://google.com" />
+                <div className={styles.loginButton}>{props.type} with Google</div>
               </button>
             )}
             buttonText="Login"
@@ -54,6 +51,6 @@ export default function SocialLogins(props) {
 
         </div>
       </div>
-    </div>
+    </>
   );
 }
