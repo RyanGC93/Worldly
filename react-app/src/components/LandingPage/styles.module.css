@@ -1,4 +1,4 @@
-.regions-title{
+.regionsTitle{
     height: 30vh;
     font-size: 8vw;
     display: flex;
@@ -8,19 +8,19 @@
     text-shadow: 6px 3px #8a8a8a;
 
 }
-.regions-feed{
+.regionsFeed{
     display: grid;
     grid-gap: 3vw;
     grid-template-columns: 30vw 30vw 30vw ;
-    grid-template-rows: 30vw 30vw 30vw ;
+    grid-template-rows: 30vw 30vw ;
 
 }
-.feature-spacer {
-    height: 20vh
+.featureSpacer {
+
 }
 
 @media (max-width: 989px) and (min-width: 768px) {
-    .regions-feed{
+    .regionsFeed{
         grid-template-columns: 40vw 40vw  ;
         grid-template-rows: 40vw 40vw 40vw ;
     }

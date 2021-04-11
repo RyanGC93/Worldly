@@ -1,6 +1,7 @@
 import React, {useEffect } from "react";
 import {useHistory} from 'react-router-dom'
 import "./styles.css";
+import styles from './styles.module.css'
 
 const RegionBanner = ({ country }) => {
 	const history = useHistory()
@@ -47,9 +48,9 @@ const RegionBanner = ({ country }) => {
 
 	return (
 		<>
-			<div className="sizing-container">
-				<div className="landing-slide">
-					<div id={`${country.short}-imgs`} className="overlay">
+			<div className={styles.sizingContainer}>
+				<div className={styles.landingSlide}>
+					<div id={`${country.short}-imgs`} className={styles.overlay}>
 						{images.map((image,index) => (
 							<div
 								key={index}
@@ -59,7 +60,7 @@ const RegionBanner = ({ country }) => {
 							></div>
 						))}
 					</div>
-						<div className='region-feature-btn' onClick={regionRedirect} >Explore {country.name}</div>
+						<div className={styles.regionFeatureBtn} onClick={regionRedirect} >{country.name}</div>
 				</div>
 			</div>
 		</>

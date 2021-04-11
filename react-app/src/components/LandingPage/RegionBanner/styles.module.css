@@ -1,0 +1,62 @@
+.sizingContainer{
+    width: 100%;
+    height: 100%;
+    padding: 20px 20px 20px 20px;
+    background-image: url('https://images.pexels.com/photos/129733/pexels-photo-129733.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
+}
+
+.landingSlide {
+    height: 100%;
+    width: 100%;
+    border-radius: 5%;
+    position: relative;
+    background-image: url('https://images.pexels.com/photos/242236/pexels-photo-242236.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+}
+
+.regionFeatureBtn{
+    z-index: 100;
+    background-image: linear-gradient(
+      to top,
+      rgba(64, 101, 173, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    position: absolute;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    cursor:pointer;
+    font-weight: bold;
+    font-size: 40px;
+    width: 70%;
+    padding: 5% 5% 5% 5%;
+    text-align: center;
+    border-radius: 15px;
+    bottom: -50px;
+    color: white
+}
+
+.regionFeatureBtn:hover {
+    background-image: linear-gradient(
+      to top,
+      rgba(13, 51, 128, 0.7) 0%,
+      rgba(0, 0, 0, 0) 100%
+    )
+}
+
+.regionFeatureImg {
+    z-index: 2;
+    position: absolute;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    opacity:0;
+}
+
+.overlay{
+    position: relative;
+    background-color:black;
+      height: 100%;
+    width: 100%;
+}
