@@ -1,11 +1,17 @@
-.creation-form-container {
+.create-event-container {
     width: 450px;
     height: 800px;
     display: flex;
     justify-content: center;
+    background-color: rgba(40,57,101,.9);
 }
 
 .first-form {
     width: 100%;
     height: 100%
+}
+
+.group input,label {
+    width: 100%;
+    display: block;
 }

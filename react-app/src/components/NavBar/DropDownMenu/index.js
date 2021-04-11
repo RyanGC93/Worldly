@@ -1,5 +1,6 @@
 
 import React, { useRef } from 'react';
+import {useLocation} from 'react-router-dom'
 
 import {useDetectOutsideClick} from "../../../services/detectOutsideClick"
 import './styles.css';
@@ -8,7 +9,7 @@ import { useSelector } from 'react-redux'
 import { logout } from "../../../services/auth";
 
 const DropDownMenu = ({ setAuthenticated }) => {
-
+  let location = useLocation()
   const onLogout = async (e) => {
     await logout();
     setAuthenticated(false);
@@ -24,9 +25,16 @@ const DropDownMenu = ({ setAuthenticated }) => {
     const onClick = () => setIsActive(!isActive);
 
   const profileRedirect = () => {
+    let pathname = location.pathname;
+
+    if (pathname.startsWith("/profile/")) {
+      setIsActive(false)
+      return
+    }
       setIsActive(false)
       history.push(`profile/${username}`)
-    }
+  }
+  
   
     return (
       <>
