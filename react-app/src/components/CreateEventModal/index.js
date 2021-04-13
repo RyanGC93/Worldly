@@ -7,11 +7,10 @@ import { MultiStepForm, Step } from "react-multi-form";
 const CreateEventModal = () => {
 
 
-  const [formStep, setFormStep] = useState(2);
+  const [formStep, setFormStep] = useState(3);
   return (
     <div className={styles.createEventContainer} >
       <div className={styles.eventWrap}>
-        {/* <div className={styles.title}>{titles[formStep]}</div> */}
           <MultiStepForm activeStep={formStep}>
             <Step className={styles.formStep} label="Basic Info">
               <EventForm setFormStep={setFormStep} />

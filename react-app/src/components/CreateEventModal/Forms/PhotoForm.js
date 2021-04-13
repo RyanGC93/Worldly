@@ -1,139 +1,195 @@
-import React, { useState } from "react";
-import styles from './styles.module.css'
+import React, { useState,useEffect } from "react";
+import styles from "./styles.module.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import { BsFillTrashFill } from "react-icons/bs";
+
+
+const settings = {
+  autoplay: false,
+  showThumbs: false
+  // autoplaySpeed: 3000,
+  // dots: true
+};
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
+const Slide = ({photo,setPhotos,photos}) => {
+  
+  const [description,setDescription] = useState('')
 
-const EventForm = ({setFormStep}) => {
-	const [errors, setErrors] = useState([]);
-	const [title, setTitle] = useState("");
-	const [description, setDescription] = useState("");
-	const [cost, setCost] = useState("");
-	const [city, setCity] = useState("");
-	const [country, setCountry] = useState("");
+  useEffect(() => {
+setDescription(photo.description)
+  },[photo.description])
 
-
-  function success(position) {
-    const latitude  = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    console.log(latitude,longitude)
+  const updateDescription =(e) => {
+    console.log(e.target.value)
+    setDescription(e.target.value)
   }
 
-  const findLocation = () => {
-    if (navigator.geolocation) {
-      let geo = navigator.geolocation.getCurrentPosition(success)
-      console.log(geo)
-    } else {
-      alert("Geolocation is not supported by this browser.");
-    }
+  const cancelHandler = () => {
+    setDescription(photo.description)
   }
 
-	const geoHandler = async (e) => {
-		e.preventDefault();
-		let replacedCity = city.replaceAll(" ", "+");
-		let replacedCountry = country.replaceAll(" ", "+");
+  const deleteHandler = (e) => {
+    console.log(e.target.value)
+    if(photos.length === 1)return setPhotos([])
+    let updatedArr = photos.filter(item => item.id !== photo.id);
 
-		let url = `https://maps.googleapis.com/maps/api/geocode/json?&address=${replacedCity}%${replacedCountry}&key=${process.env.REACT_APP_GOOGLE_GEO_KEY}`;
-		const response = await fetch(url);
-		if (!response.ok) return;
-		let data = await response.json();
-	};
-
-  const formValidation = () => {
-
-
+   setPhotos(updatedArr)
   }
 
-	const onSubmit = async (e) => {
-    e.preventDefault();
-    setFormStep(2)
-	};
-	const check = (e) => {};
-
-	return (
-		<form className={styles.formContainer} onSubmit={onSubmit}>
-			<div>Basic Info</div>
-      <div className={styles.errorContainer}>
-				{errors.map((error) => (
-					<div className={styles.error}>{error}</div>
-				))}
-			</div>
-			<div className={styles.group}>
-				<label className={styles.label} htmlFor="title">
-					Title
-				</label>
-				<input
-					required
-					className={styles.input}
-					name="title"
-					type="text"
-					value={title}
-					onChange={(e) => setTitle(e.target.value)}
-				/>
-			</div>
-			<div className={styles.group}>
-				<label className={styles.label} htmlFor="description">
-					Description
-				</label>
-          <div className={styles.textAreaContainer}>
-            <textarea
-              required
-              className={styles.textInput}
-              name="description"
-              type="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-
-          </div>
-			</div>
-			<div className={styles.group}>
-				<label className={styles.label} htmlFor="cost">
-					Cost
-				</label>
-				<input
-					required
-					className={styles.input}
-					name="cost"
-          type="number" 
-          min="1" 
-          step="any"
-					value={cost}
-					onChange={(e) => setCost(e.target.value)}
-				/>
-			</div>
-      <div>
-      <div className={styles.label}>Location </div>
-      <div onClick={findLocation}>Find My Location </div>
-      <div className={styles.locationGroup} > 
-      <input
-					className={styles.input}
-          required
-          placeholder="City"
-					name="city"
-					type="city"
-					value={city}
-					onChange={(e) => setCity(e.target.value)}
-				/>
-        	<input
-					className={styles.input}
-          required
-          placeholder="Country"
-					name="country"
-					type="country"
-					value={country}
-					onChange={check}
-					// onChange={(e)=> setCountry(e.target.value)}
-          /> 
+  const updateHandler = () => {
+    console.log(photos)
+    setPhotos(
+      photos.map(item => 
+          item.id === photo.id 
+          ? {...item, description : "changed"} 
+          : item 
+  ))  
+  console.log(photos)
+  }
 
 
+
+ return (
+   <>
+<div className={styles.carousel}>
+              <div className={styles.carouselImgContainer}>
+              <img className={styles.carouselImg} src={photo.src} alt='' />
+              <BsFillTrashFill className={styles.trash} />
+            </div>
+<div>
+              <div className={styles.group}>
+              <label className={styles.label} htmlFor="description">
+                Short Description
+              </label>
+        <div className={styles.textAreaContainer}>
+          <textarea
+            required
+            className={styles.textInput}
+            name="description"
+            type="description"
+            value={description}
+            onChange={updateDescription}
+          />
+        </div>
       </div>
+      <div onClick={updateHandler}>Update</div>
+      <div onClick={cancelHandler}>Cancel </div>
+      <div value={photo.id} onClick={deleteHandler}>Delete </div>
       </div>
-			<div onClick={geoHandler}>Geo test</div>
-      <div className={styles.stepHandler}>
+            </div>
+   </>
+ )
 
-			    <button type="submit">Next</button>
-      </div>
-		</form>
-	);
+}
+
+
+const PhotoFormSlider = ({ photos, setPhotos }) => {
+
+  
+  return (
+    <>
+      <Carousel styling={{height:'50%'}} {...settings} >
+        {photos.map((photo) => (
+            <Slide key={photo.id} photos={photos} photo={photo} setPhotos={setPhotos} />
+
+        ))}
+      </Carousel>
+    </>
+  );
 };
 
-export default EventForm;
+//     setItems(prevItems => [...prevItems, {
+//   id: prevItems.length,
+//   value: getRandomNumber()
+// }]);
+
+const PhotoForm = ({ setFormStep }) => {
+  
+  const [photos, setPhotos] = useState([]);
+  const [url,setUrl] =useState('')
+  const [file,setFile] = useState('')
+
+  let [photoKey,setPhotoKey] = useState(0)
+
+  const confirmHandler = () => {
+      console.log(photos)
+  }
+
+  const onSubmit = () => {};
+  const readUrl = (e) => {
+    if (e.target.files[0]) {
+      const src = URL.createObjectURL(e.target.files[0]);
+
+      setFile(src)
+
+
+      // setPhotos( prevState => [...prevState, newPhoto]);
+      console.log(photos)
+    }
+  };
+  const urlHandler = (e) =>{
+    if(!e.target.value){
+      setUrl(e.target.value)
+
+    } 
+      setUrl(e.target.value)
+
+  }
+  const addPhotoHandler = () => {
+      let src
+      (url) ? src=url : src=file
+      let newPhoto = {
+      id: photoKey,
+      src: src,
+      description: "sdsdsdsds"
+    };
+    setPhotos( prevState => [...prevState, newPhoto]);
+    setUrl("")
+    setFile("")
+    let increaser = photoKey +=1
+    setPhotoKey(increaser)
+    document.getElementById('file-input').value = null
+
+  }
+
+  return (
+    <form className={styles.formContainer} onSubmit={onSubmit}>
+      <PhotoFormSlider id='xxxxx' photos={photos} setPhotos={setPhotos} />
+        <div className={styles.label}>Add a new photo </div>
+        {photos && (
+<div onClick={addPhotoHandler}>Add Photo</div>
+        )}
+      <div className={styles.photoOptions}>
+        <div className={styles.group}>
+          <label className={styles.label}>
+            Choose a Photo
+            <input id='file-input' type="file" className={`${styles.input} ${styles.fileInput}`} onChange={readUrl} />
+          </label>
+        </div>
+        <div className={styles.group}>
+          <label className={styles.label}>
+            From Url
+            <input
+            value={url}
+            onChange={urlHandler}
+              type="url"
+              className={`${styles.input} ${styles.urlInput}`}
+              // onChange={readUrl}
+            />
+          </label>
+        </div>
+     
+      </div>
+      {photos[1] && (
+        <div onClick={confirmHandler}>
+            Confirm
+        </div>
+      )}
+
+
+    </form>
+  );
+};
+
+export default PhotoForm;
