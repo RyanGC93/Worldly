@@ -49,6 +49,7 @@ def new_event():
     if(ambassador):
         ambassador_dict = ambassador.to_dict()
         user_ambassador_id = ambassador_dict.get('ambassador_id')
+        
     data = request.get_json()
     print('''
           a

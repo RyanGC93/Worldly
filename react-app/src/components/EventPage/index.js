@@ -1,31 +1,13 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import {useParams} from 'react-router-dom'
 
 
 const EventPage = () => {
 
 
+
   return (
     <>
-    <div className="event-page-container">
-      <div className="main-event-page">
-        <div className='main-left'>
-          
-        </div>
-        <div className='main-right'>
-          
-        </div>
-        
-      </div>
-      <div className='comments-feed'>
-
-
-
-      </div>
-      </div>
-
-
-
-
     </>
 
   )

@@ -1,4 +1,5 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import {useHistory} from 'react-router-dom'
 import "./styles.css";
 import { BsCalendarFill } from "react-icons/bs";
 import EventCarousel from "./EventCarousel";
@@ -9,6 +10,8 @@ import {useSelector} from 'react-redux'
 
 
 const EventCard = ({ event }) => {
+  const history = useHistory()
+
   const reviews = useSelector((state) => {
     return Object.values(state.reviews).filter((review) => review.event_id === event.event_id);
   });
@@ -19,14 +22,21 @@ const EventCard = ({ event }) => {
     return Object.values(state.eventCalendar).filter((booking) => booking.event_id === event.event_id);
   });
 
-
+  const eventPageRedirect = () => {
+    history.push(`/bookings/${event.event_id}`)
+  }
   
   const title = event.title;
   const badge = '';
+  let closest_event_time 
+  let closest_event_date 
   const country = event.country;
   const continent = event.region;
-  const closest_event_date = bookingAvailability[0].date;
-  const closest_event_time = bookingAvailability[0].time;
+  if (bookingAvailability[0]) {
+    
+    closest_event_date = bookingAvailability[0].date;
+    closest_event_time = bookingAvailability[0].time;
+  }
   const description = event.description;
   let value = 0;
   
@@ -130,7 +140,7 @@ const EventCard = ({ event }) => {
                   </button>
                   <div
                     className="btn-tickets blue on-back"
-
+                    onClick={eventPageRedirect}
                   >
                     Event Page
                   </div>

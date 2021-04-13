@@ -53,6 +53,10 @@ function App() {
           <NavBar setAuthenticated={setAuthenticated} />
           <Profile />
         </ProtectedRoute>
+        <ProtectedRoute path="/booking/:eventId" exact={true} authenticated={authenticated}>
+          <EventCard/>
+          <Profile />
+        </ProtectedRoute>
         <Route path='*'>
           <PageNoteFound />
 
