@@ -5,6 +5,7 @@ import {createEvent} from '../../../store/events'
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
 
 const EventForm = ({ setFormStep }) => {
+	const dispatch = useDispatch()
 	const [errors, setErrors] = useState([]);
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
@@ -42,6 +43,7 @@ const EventForm = ({ setFormStep }) => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
+		await dispatch(createEvent(title,description,cost))
 		// TODO add the call to the backEnd
 		setFormStep(2);
 	};
