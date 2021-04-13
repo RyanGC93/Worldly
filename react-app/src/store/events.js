@@ -28,14 +28,15 @@ const removeEvent = (id) => {
 }
 
 export const createEvent = (event) => async dispatch => {
-    const { title, description, cost} = event
+  const { title, description, cost } = event
+  console.log(event)
     const options =
     {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/json'
       },
-      body: JSON.stringify({ title, description, url, cost })
+      body: JSON.stringify(event)
     }
     const res = await fetch('/api/events/', options)
     const json = await res.json()

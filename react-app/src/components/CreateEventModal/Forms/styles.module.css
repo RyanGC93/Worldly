@@ -4,6 +4,10 @@
     position: relative;
   
   }
+.imageOptions{
+  height: 1em
+}
+
   .stepHandler{
     display: flex;
     justify-content: space-around;

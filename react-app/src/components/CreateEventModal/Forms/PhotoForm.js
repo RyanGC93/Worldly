@@ -55,7 +55,6 @@ setDescription(photo.description)
 <div className={styles.carousel}>
               <div className={styles.carouselImgContainer}>
               <img className={styles.carouselImg} src={photo.src} alt='' />
-              <BsFillTrashFill className={styles.trash} />
             </div>
 <div>
               <div className={styles.group}>
@@ -73,9 +72,9 @@ setDescription(photo.description)
           />
         </div>
       </div>
-      <div onClick={updateHandler}>Update</div>
-      <div onClick={cancelHandler}>Cancel </div>
-      <div value={photo.id} onClick={deleteHandler}>Delete </div>
+      <div className={styles.imageOptions} onClick={updateHandler}>Update</div>
+      <div onClick={cancelHandler} className={styles.imageOptions} >Cancel </div>
+      <div value={photo.id} onClick={deleteHandler} className={styles.imageOptions}>Delete </div>
       </div>
             </div>
    </>

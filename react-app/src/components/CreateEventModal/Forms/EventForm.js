@@ -43,7 +43,7 @@ const EventForm = ({ setFormStep }) => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		await dispatch(createEvent(title,description,cost))
+		await dispatch(createEvent({ title, description, cost }))
 		// TODO add the call to the backEnd
 		setFormStep(2);
 	};

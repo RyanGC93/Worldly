@@ -1,8 +1,8 @@
-from flask import Blueprint, jsonify
-import json
-from flask_login import login_required
-from app.models import db, Event, Location, Ambassador, User, Review, PhotoGallery, EventCalendar, BookingCalendar
 
+from flask import Blueprint, jsonify, request
+import json
+from app.models import db, Event, Location, Ambassador, User, Review, PhotoGallery, EventCalendar, BookingCalendar
+from flask_login import current_user, login_required
 event_routes = Blueprint('events', __name__)
 
 # Gets All the events
@@ -38,6 +38,39 @@ def events(param):
 
     events = {'events':[events_info,photo_gallery,events_calendar,reviews]} 
     return json.dumps(events,  sort_keys=True, default=str)
+
+
+
+@event_routes.route('/', methods=['POST'])
+def new_event():
+    if current_user.is_authenticated:
+        ambassador= Ambassador.query.filter(Ambassador.user_id == current_user.id).first()
+    
+    if(ambassador):
+        ambassador_dict = ambassador.to_dict()
+        user_ambassador_id = ambassador_dict.get('ambassador_id')
+    data = request.get_json()
+    print('''
+          a
+          a
+          ambassador_ida
+          a
+          
+          ambassador_idaa
+          aaa
+          ''')
+    print(data)
+    description = data['description']
+    title = data['title']
+    cost = data['cost']
+    new_event = Event(ambassador_id=user_ambassador_id, description=description, title=title,
+                    cost=cost)
+    db.session.add(new_event)
+    db.session.commit()
+    return(new_event.to_dict())
+
+
+
 
 @event_routes.route('/user/<string:user>')
 @login_required
