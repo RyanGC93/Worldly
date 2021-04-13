@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 import { useHistory } from "react-router-dom";
-import LogoutButton from "./LogoutButton";
 import styles from './styles.module.css'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import DropDownMenu from './DropDownMenu'

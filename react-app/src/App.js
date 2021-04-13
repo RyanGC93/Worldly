@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import EventsFeed from './components/EventsFeed'
 import Profile from './components/Profile'
+import EventPage from "./components/EventPage"
 import LandingPage from './components/LandingPage'
 import { restoreUser } from './store/session'
 import PageNoteFound from './components/PageNoteFound'
@@ -53,9 +54,8 @@ function App() {
           <NavBar setAuthenticated={setAuthenticated} />
           <Profile />
         </ProtectedRoute>
-        <ProtectedRoute path="/booking/:eventId" exact={true} authenticated={authenticated}>
-          <EventCard/>
-          <Profile />
+        <ProtectedRoute path="/bookings/:eventId" exact={true} authenticated={authenticated}>
+          <EventPage/>
         </ProtectedRoute>
         <Route path='*'>
           <PageNoteFound />
