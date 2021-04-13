@@ -1,42 +1,36 @@
 import React, { useState } from "react";
-import "./styles.css";
+import styles from "./styles.module.css";
 import EventForm from "./Forms/EventForm";
-import LoginForm from "../LoginPage/LoginForm"
-import { MultiStepForm, Step } from 'react-multi-form'
-
-
+import PhotoForm from "./Forms/PhotoForm";
+import DatesForm from "./Forms/DatesForm"
+import { MultiStepForm, Step } from "react-multi-form";
 const CreateEventModal = () => {
-	const [formStep,setFormStep] = useState(1)
+
+  const titles = ['', 'Basic Info']
+
+  const [formStep, setFormStep] = useState(3
+    );
   return (
-    <div className='create-event-container' >
-		<div className="event-wrap">
-			<div className="">
-				<div className="login-title">Create Event</div>
-				<div className="">
-					<div className=""> 
-						  <div className="creation-form-container">
-						  <MultiStepForm activeStep={formStep}>
-							<Step label='Basic Info'>
-								<EventForm />
-							</Step>
-							<Step label='Photos'>
-							<div>sdfdf</div>
-							</Step>
-							<Step label='Dates'>
-							<div></div>
-							</Step>
-							<Step label='Confirmation'>
-							<div></div>
-							</Step>
-						</MultiStepForm>
-        					
-						</div>
-					</div>
-				</div>
-			</div>
-      </div>
-      </div>
-	);
-}
+    <div className={styles.createEventContainer}>
+      <div className={styles.eventWrap}>
+        {/* <div className={styles.title}>{titles[formStep]}</div> */}
+          <MultiStepForm activeStep={formStep}>
+            <Step className={styles.formStep} label="Basic Info">
+              <EventForm setFormStep={setFormStep} />
+            </Step>
+            <Step className={styles.formStep} label="Photos">
+              <PhotoForm setFormStep={setFormStep} />
+            </Step>
+            <Step label="Dates">
+              <DatesForm />
+            </Step>
+            <Step label="Confirmation">
+              <div></div>
+            </Step>
+          </MultiStepForm>
+        </div>
+    </div>
+  );
+};
 
 export default CreateEventModal;
