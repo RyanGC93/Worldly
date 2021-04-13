@@ -1,180 +1,42 @@
-.formContainer {
-    width: 100%;
-    height: 100%;
-    position: relative;
-  
-  }
-  .stepHandler{
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    bottom: 0;
-    width: 100%
-  }
-  
-  
-  .locationGroup{
-    width: 100%;
-    display: flex;
-  }
-  
-  .input {
-      text-align: center;
-  }
-  
-  .groupbutton,.button{
-      text-transform:uppercase;
-  }
-  .input, .signInBtn{
-      border:none;
-      padding: 15px 0px 15px 0px;
-      border-radius:25px;
-      background:rgba(255,255,255,.1);
-      width: 100%;
-      display: block;
-      text-align: center;
-      outline-style: none;
-      color: #fff;
-  
-  }
-  
-  .label {
-      padding: 1px 0px 5px 3px;
-      text-align: center;
-      width: 100%;
-      color: #fff;
-      display: block;
-  }
-  
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white;
-  opacity: 1; /* Firefox */
-  }
-  
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: white
-  }
-  
-  ::-ms-input-placeholder { /* Microsoft Edge */
-  color: white
-  }
-  
-  .group {
-      margin-top:10px;
-      width: 100%;
-  }
-  
-  .check-box:hover {
-      cursor:pointer
-  }
-  
-  .error{
-      color: red;
-      padding: 4px 4px 4px 4px;
-  }
-  
-  .errorContainer{
-      margin-top:8px
-  }
-  
-  .label:focus{
-      border-style:none;
-  }
-  
-  .textAreaContainer {
-    border:none;
-      padding: 15px 0px 15px 0px;
-      border-radius:25px;
-      background:rgba(255,255,255,.1);
-      width: 100%;
-      display: block;
-      outline-style: none;
-  }
-  
-  .textInput{
-    border:none;
-    height: 20vh;
-      padding: 2px 15px 2px 15px;
-      border-radius:25px;
-      background:rgba(255,255,255,0);
-      width: 100%;
-      resize: none;
-  
-      outline-style: none;
-      color: #fff;
-      overflow:hidden;
-  }
-  
-  .formContainer .carousel-root{
-    background-color: red
-  }
-  
-  /* Size the carousel */
-  .carousel {
-  /* height: 200px; */
-  display: flex;
-  }
-  
-  .carouselImgContainer{
-   height: 350px;
-   width: 350px
-  }
-  .carouselImg{
-    height: 100%;
-    position: relative;
-  }
-  
-  .photoOptions {
-    display: flex;
-  
-  }
-  
-  .urlInput{
-    height: 21px
-  }
-  
-  .trash{
-    cursor:pointer;
-    height: 40px;
-    width: 40px;
+.createEventContainer {
+  width: 80vw;
+  margin: auto;
+  max-width: 525px;
+  top: 80px;
+  min-height: 600px;
+  position: relative;
+}
+
+.eventWrap {
+  width: 100%;
+  height: 100%;
   position: absolute;
-  left:0;
-  bottom: 0;
-  }
-  .fileInput{
-    cursor:pointer
-  }
-  
-  .timeOptions{
-    display:flex;
-    justify-content:center;
-    align-items:center
-  }
-  
-  .rowIcon {
-    width: 30px;
-    height: 30px;
-    margin-left: 15px;
-  }
-  
-  .rowIcon:hover, .timeTrash:hover{
-  transform: scale(1.4);
-  cursor: pointer;
-  
-  }
-  
-  .monthTitle{
-    font-size: 2em;
-    font-weight: bold;
-    padding: 4px 4px 4px 4px;
-  }
-  
-  .timesContainer {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  }
-  
-  .timeRow{
-  padding: 4px 4px 4px 4px;
-  display: flex
-  }
+  padding: 10px 70px 50px 70px;
+  background: rgba(40,57,101,.9);
+}
+
+.eventWrap > div {
+  height: 100%;
+  position: relative;
+}
+
+.title{
+  font-family: 'Rochester', cursive;
+  font-weight: bolder;
+  letter-spacing: 4.7px;
+  color: white;
+  font-size: 40px;
+  height: 40px;
+  margin-top: 10px;
+  padding: 5px 5px 15px 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.multiStepForm {
+  height: 100%;
+  width: 100%;
+}
+
+.formStep {
+  height: 90%
+}
