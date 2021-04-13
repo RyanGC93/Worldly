@@ -27,7 +27,7 @@ const EventForm = () => {
 	const check = (e) => {};
 
 	return (
-		<form onSubmit={onSubmit}>
+		<form className={styles.formContainer} onSubmit={onSubmit}>
 			<div className={styles.errorContainer}>
 				{errors.map((error) => (
 					<div className={styles.error}>{error}</div>
@@ -42,7 +42,6 @@ const EventForm = () => {
 					className={styles.input}
 					name="title"
 					type="text"
-					placeholder="title"
 					value={title}
 					onChange={(e) => setTitle(e.target.value)}
 				/>
@@ -56,7 +55,6 @@ const EventForm = () => {
 					className={styles.input}
 					name="cost"
 					type="text"
-					placeholder="cost"
 					value={cost}
 					onChange={(e) => setCost(e.target.value)}
 				/>
@@ -70,7 +68,6 @@ const EventForm = () => {
 					className={styles.input}
 					name="description"
 					type="description"
-					placeholder="Description"
 					value={description}
 					onChange={(e) => setDescription(e.target.value)}
 				/>
@@ -84,7 +81,6 @@ const EventForm = () => {
 					required
 					name="city"
 					type="city"
-					placeholder="City"
 					value={city}
 					onChange={(e) => setCity(e.target.value)}
 				/>
@@ -98,7 +94,6 @@ const EventForm = () => {
 					required
 					name="country"
 					type="country"
-					placeholder="Country"
 					value={country}
 					onChange={check}
 					// onChange={(e)=> setCountry(e.target.value)}
