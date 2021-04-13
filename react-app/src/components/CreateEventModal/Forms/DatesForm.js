@@ -112,7 +112,7 @@ const MonthDates = ({ month, upcomingArrays, setUpcomingArrays }) => {
   );
 };
 
-export default function DateForm() {
+export default function DateForm({setFormStep}) {
   const [timesArray, setTimesArrays] = useState([]);
   const [sortedArray, setSortedArray] = useState([]);
   const [value, onChange] = useState(new Date());
@@ -134,6 +134,12 @@ export default function DateForm() {
     splitFunc();
   };
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (!timesArray[0]) return null;
+		setFormStep(4);
+  }
+
   const splitFunc = () => {
     let dateToday = new Date();
     let sortedArr = timesArray.sort((a, b) => b.date - a.date);
@@ -147,6 +153,12 @@ export default function DateForm() {
     setSortedArray(newArr);
     console.log(newArr)
   };
+
+  useEffect(() => {
+    if(!timesArray) return
+    console.log(timesArray)
+    splitFunc()
+  },[timesArray])
 
   return (
     <div className="Sample">
@@ -183,7 +195,13 @@ export default function DateForm() {
 
           </>
         ))}
+        
       </div>
+      {sortedArray && (
+        <>
+          <div onClick={handleClick}>next</div>
+        </>  
+      )}
     </div>
   );
 }

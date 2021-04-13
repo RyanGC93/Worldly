@@ -93,7 +93,7 @@
   
   .textInput{
     border:none;
-    height: 20vh;
+    height: 10vh;
       padding: 2px 15px 2px 15px;
       border-radius:25px;
       background:rgba(255,255,255,0);
@@ -177,4 +177,11 @@
   .timeRow{
   padding: 4px 4px 4px 4px;
   display: flex
+  }
+
+  .addPhoto{
+    padding: 2px 2px 2px 2px ;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
   }

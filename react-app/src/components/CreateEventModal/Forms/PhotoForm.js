@@ -156,9 +156,9 @@ const PhotoForm = ({ setFormStep }) => {
   return (
     <form className={styles.formContainer} onSubmit={onSubmit}>
       <PhotoFormSlider id='xxxxx' photos={photos} setPhotos={setPhotos} />
-        <div className={styles.label}>Add a new photo </div>
+
         {photos && (
-<div onClick={addPhotoHandler}>Add Photo</div>
+        <div className={styles.addPhoto} onClick={addPhotoHandler}>Add Photo</div>
         )}
       <div className={styles.photoOptions}>
         <div className={styles.group}>

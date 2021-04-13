@@ -3,9 +3,9 @@ import * as photoActions from './photoGallery'
 import * as eventCalendarActions from './eventCalendar'
 const SET_EVENTS = "events/SET_EVENTS";
 
-const CREATE_POSTS = "posts/CREATE_POSTS";
-const REMOVE_POST = "posts/REMOVE_POST";
-const UPDATE_POST = "posts/UPDATE_POST";
+const CREATE_EVENTS = "events/CREATE_EVENTS";
+const REMOVE_POST = "events/REMOVE_POST";
+const UPDATE_POST = "events/UPDATE_POST";
 
 const setEvents = (events) => {
   return {
@@ -14,21 +14,21 @@ const setEvents = (events) => {
   };
 };
 
-const updatePosts = (post) => {
+const updateEvents = (event) => {
   return {
     type: UPDATE_POST,
-    post,
+    event,
   };
 };
-const removePost = (id) => {
+const removeEvent = (id) => {
   return {
     type: REMOVE_POST,
     id
   }
 }
 
-export const createPost = (post) => async dispatch => {
-    const { isPrivate, description, url, userId} = post
+export const createEvent = (event) => async dispatch => {
+    const { isPrivate, description, url, userId} = event
     const options =
     {
       method: 'POST',
@@ -37,10 +37,10 @@ export const createPost = (post) => async dispatch => {
       },
       body: JSON.stringify({ isPrivate, description, url, userId })
     }
-    const res = await fetch('/api/posts/', options)
+    const res = await fetch('/api/events/', options)
     const json = await res.json()
 }
-export const editPost = (id, description, isPrivate) => async dispatch => {
+export const editEvent = (id, description, isPrivate) => async dispatch => {
   const options = {
     method: 'PUT',
     headers: {
@@ -48,28 +48,28 @@ export const editPost = (id, description, isPrivate) => async dispatch => {
     },
     body: JSON.stringify({description, isPrivate})
   }
-  const res = await fetch(`/api/posts/${id}`, options)
+  const res = await fetch(`/api/events/${id}`, options)
   if (res.ok) {
-    const newPost = await res.json()
+    const newEvent = await res.json()
   }
 }
 
-export const deletePost = (id) => async dispatch => {
+export const deleteEvent = (id) => async dispatch => {
   const options = {
     method: 'DELETE'
   }
-  const res =await fetch(`/api/posts/${id}`, options)
+  const res =await fetch(`/api/events/${id}`, options)
   if ( res.ok) {
-    dispatch(removePost(id))
+    dispatch(removeEvent(id))
   }
 }
 
-export const updatePostLikes = (like) => async (dispatch) => {
-  const { postId } = like;
-  const response = await fetch(`/api/posts/${postId}`);
+export const updateEventLikes = (like) => async (dispatch) => {
+  const { eventId } = like;
+  const response = await fetch(`/api/events/${eventId}`);
   if (response.ok) {
     const res = await response.json();
-    dispatch(updatePosts(res));
+    dispatch(updateEvents(res));
   }
   return response;
 };
@@ -107,17 +107,17 @@ const eventsReducer = (state = initialState, action) => {
         return acc;
       }, {});
       return { ...state, ...events };
-    case CREATE_POSTS:
+    case CREATE_EVENTS:
       return { ...state, [action.drink.id]: action.drink };
     case REMOVE_POST:
       const newState = { ...state };
       delete newState[action.id];
       return newState;
     case UPDATE_POST:
-      const newPosts = { ...state };
-      const index = action.post.id;
-      newPosts[index] = action.post;
-      return newPosts;
+      const newEvents = { ...state };
+      const index = action.event.id;
+      newEvents[index] = action.event;
+      return newEvents;
     default:
       return state;
   }

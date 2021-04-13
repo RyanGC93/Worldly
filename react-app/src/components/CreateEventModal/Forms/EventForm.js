@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import {useDispatch} from 'react-redux'
 import styles from "./styles.module.css";
+import {createEvent} from '../../../store/events'
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
 
 const EventForm = ({ setFormStep }) => {
@@ -40,6 +42,7 @@ const EventForm = ({ setFormStep }) => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
+		// TODO add the call to the backEnd
 		setFormStep(2);
 	};
 	const check = (e) => {};
@@ -116,7 +119,7 @@ const EventForm = ({ setFormStep }) => {
 						type="country"
 						value={country}
 						onChange={check}
-						// onChange={(e)=> setCountry(e.target.value)}
+						onChange={(e)=> setCountry(e.target.value)}
 					/>
 				</div>
 			</div>
