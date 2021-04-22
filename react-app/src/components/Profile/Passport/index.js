@@ -1,9 +1,10 @@
 import React from "react";
 import HTMLFlipBook from "react-pageflip";
 import "./styles.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Slider from "infinite-react-carousel";
 import { BsFillTrashFill } from "react-icons/bs";
+import {deleteUserEvent} from '../../../store/userEvents'
 
 const PageCover = React.forwardRef((props, ref) => {
 	return (
@@ -18,6 +19,7 @@ const PageCover = React.forwardRef((props, ref) => {
 });
 
 const Page = React.forwardRef((props, ref) => {
+	const dispatch = useDispatch()
 	let imagesOne, imagesTwo, contentOne, contentTwo;
 
 	if (props.content) {
@@ -38,8 +40,13 @@ const Page = React.forwardRef((props, ref) => {
 			);
 		});
 	}
-	const removeEvent = () => {
+	const removeEvent = (e, id) => {
+		alert(id)
+		// e.preventDefault()
+		console.log(contentOne.event_id)
+		alert(id)
 
+		dispatch(deleteUserEvent(id))
 	}
 
 
@@ -64,40 +71,40 @@ const Page = React.forwardRef((props, ref) => {
 								<div className="page-date">
 									{contentOne.date.slice(5)}, {contentOne.time}
 								</div>
-								<BsFillTrashFill onClick={removeEvent} className='trash'/>
+								<button onClick={(e) => removeEvent(e,contentOne.booking_id)} >DELETE
+								</button>
+								<button onClick={(e) => removeEvent(e,contentOne.booking_id)} >EDIT
+								</button>
 							</div>
 						</div>
 					</div>
 				)}
-				{/* {contentTwo && (
+				
+				{contentOne && (
 					<div className="content-section">
-						{imagesOne[0] && (
-							<Slider className="page-carousel">
-								<div className="page-event-info">
-									<div className="page-title">{contentTwo.title}</div>
+						<button onClick={() => console.log(props.content)}></button>
 
-									<div className="page-location">
-										<div className="page-country">
-											{contentTwo.country}, {contentTwo.region}
-										</div>
-										<div className="page-region"></div>
+						<div className="page-carousel">
+							<div className="page-event-info">
+								<div className="page-title">{contentOne.title}</div>
+								<div className="page-location">
+									<div className="page-country">
+										{contentOne.country}, {contentOne.region}
 									</div>
-									<div className="page-date">{contentTwo.date.slice(5)}</div>
+									<div className="page-region"></div>
 								</div>
-								{imagesTwo.map((image) => (
-									<div className="page-img-container" key={image.event_id}>
-										<img
-											key={image.photo_id}
-											className="event-image passport-image"
-											alt={image.description}
-											src={image.photo_url}
-										/>
-									</div>
-								))}
-							</Slider>
-						)}
+								<div className="page-date">
+									{contentOne.date.slice(5)}, {contentOne.time}
+								</div>
+								<button onClick={(e) => removeEvent(e,contentOne.event_id)} >DELETE
+								</button>
+								<button onClick={(e) => removeEvent(e,contentOne.event_id)} >EDIT
+								</button>
+							</div>
+						</div>
 					</div>
-				)} */}
+				)}
+
 			</div>
 		</div>
 	);

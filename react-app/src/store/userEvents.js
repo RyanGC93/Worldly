@@ -3,6 +3,7 @@ import * as reviewActions from './reviews'
 import * as eventCalendarActions from './eventCalendar'
 
 const SET_USER_EVENTS = "events/SET_USER_EVENTS";
+const REMOVE_USER_EVENT = "events/REMOVE_USER_EVENT";
 
 
 const setUserEvents = (events) => {
@@ -12,12 +13,18 @@ const setUserEvents = (events) => {
   };
 };
 
+const removeUserEvent = (id) => {
+  return {
+    type: REMOVE_USER_EVENT,
+    id
+  }
+}
+
 
 export const getUserEvents = (user) => async (dispatch) => {
   const response = await fetch(`/api/events/user/${user}`);
   if (response.ok) {
     let res = await response.json();
-    console.log(res,'rezzzzzzzzzz')
     let events = res.events
     let eventsInfo = events[0].user_events_info
     let eventPhotos = events[1].photo_gallery
@@ -34,17 +41,33 @@ export const getUserEvents = (user) => async (dispatch) => {
   return response;
 };
 
+export const deleteUserEvent = (id) => async dispatch => {
+  const options = {
+    method: 'DELETE'
+  }
+
+  const res = await fetch(`/api/events/user/${id}`, options);
+  console.log(res)
+
+  if ( res.ok) {
+    dispatch(removeUserEvent(id))
+  }
+}
+
 const initialState = {};
 
 const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER_EVENTS:
       const events = action.events.reduce((acc, ele) => {
-
-        acc[ele.event_id] = ele;
+        acc[ele.booking_id] = ele;
         return acc;
       }, {});
       return { ...state, ...events };
+      case REMOVE_USER_EVENT:
+        const newState = { ...state };
+        delete newState[action.bid];
+        return newState;
     default:
       return state;
   }

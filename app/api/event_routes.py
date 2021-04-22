@@ -69,8 +69,8 @@ def user_events(user):
     user = db.session.query(User.user_name, User.id).filter( User.user_name == user).first()
 
 
-    event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname' ,'date','time', 'location_longitude', 'location_latitude']
-    event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name, EventCalendar.date, EventCalendar.time, Location.longitude, Location.latitude).filter(BookingCalendar.user_id == user[1], BookingCalendar.timeslot == EventCalendar.id, EventCalendar.event_id == Event.id, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
+    event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname' ,'date','time', 'location_longitude', 'location_latitude', 'booking_id']
+    event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name, EventCalendar.date, EventCalendar.time, Location.longitude, Location.latitude, BookingCalendar.id).filter(BookingCalendar.user_id == user[1], BookingCalendar.timeslot == EventCalendar.id, EventCalendar.event_id == Event.id, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
 
     event_ids = [event[0]for event in event_values]
                                                                                                    
@@ -93,8 +93,14 @@ def user_events(user):
 
 
 
-@event_routes.route('/<int:id>')
+
+# DELETES USER EVENT BOOKINg
+@event_routes.route('/user/<int:id>', methods=['DELETE'])
 @login_required
-def user(id):
-    user = User.query.get(id)
-    return user.to_dict()
+def delete_booking(id):
+    print('saddasdsa')
+    booking = BookingCalendar.query.filter(id == BookingCalendar.id).first()
+    
+    db.session.delete(booking)
+    db.session.commit()
+    return 'Booking Deleted'

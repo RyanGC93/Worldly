@@ -48,8 +48,8 @@ const Profile = () => {
 			setAmbassador(response);
 		})();
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
-		if (isChecked) dispatch(userEventActions.getUserEvents(user.username));
-	}, [user, dispatch, isChecked]);
+		if (isChecked ) dispatch(userEventActions.getUserEvents(user.username));
+	}, [user, dispatch, isChecked, userEvents]);
 
 	if (!userEvents) {
 		return null;
