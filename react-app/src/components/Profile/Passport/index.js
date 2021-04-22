@@ -40,12 +40,7 @@ const Page = React.forwardRef((props, ref) => {
 			);
 		});
 	}
-	const removeEvent = (e, id) => {
-		alert(id)
-		// e.preventDefault()
-		console.log(contentOne.event_id)
-		alert(id)
-
+	const removeEvent = (id) => {
 		dispatch(deleteUserEvent(id))
 	}
 
@@ -71,40 +66,40 @@ const Page = React.forwardRef((props, ref) => {
 								<div className="page-date">
 									{contentOne.date.slice(5)}, {contentOne.time}
 								</div>
-								<button onClick={(e) => removeEvent(e,contentOne.booking_id)} >DELETE
-								</button>
-								<button onClick={(e) => removeEvent(e,contentOne.booking_id)} >EDIT
-								</button>
+								<BsFillTrashFill onClick={() => removeEvent(contentOne.event_id)} className='trash'/>
 							</div>
 						</div>
 					</div>
 				)}
-				
-				{contentOne && (
-					<div className="content-section">
-						<button onClick={() => console.log(props.content)}></button>
+				{/* {contentTwo && (
+					<div className="conytent-section">
+						{imagesOne[0] && (
+							<Slider className="page-carousel">
+								<div className="page-event-info">
+									<div className="page-title">{contentTwo.title}</div>
 
-						<div className="page-carousel">
-							<div className="page-event-info">
-								<div className="page-title">{contentOne.title}</div>
-								<div className="page-location">
-									<div className="page-country">
-										{contentOne.country}, {contentOne.region}
+									<div className="page-location">
+										<div className="page-country">
+											{contentTwo.country}, {contentTwo.region}
+										</div>
+										<div className="page-region"></div>
 									</div>
-									<div className="page-region"></div>
+									<div className="page-date">{contentTwo.date.slice(5)}</div>
 								</div>
-								<div className="page-date">
-									{contentOne.date.slice(5)}, {contentOne.time}
-								</div>
-								<button onClick={(e) => removeEvent(e,contentOne.event_id)} >DELETE
-								</button>
-								<button onClick={(e) => removeEvent(e,contentOne.event_id)} >EDIT
-								</button>
-							</div>
-						</div>
+								{imagesTwo.map((image) => (
+									<div className="page-img-container" key={image.event_id}>
+										<img
+											key={image.photo_id}
+											className="event-image passport-image"
+											alt={image.description}
+											src={image.photo_url}
+										/>
+									</div>
+								))}
+							</Slider>
+						)}
 					</div>
-				)}
-
+				)} */}
 			</div>
 		</div>
 	);

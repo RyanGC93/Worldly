@@ -36,7 +36,6 @@ const Profile = () => {
 	const [isAmbassador, setAmbassador] = useState(false);
 
 	useEffect(() => {
-		if (!user) return;
 		(async () => {
 			const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();
@@ -48,8 +47,9 @@ const Profile = () => {
 			setAmbassador(response);
 		})();
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
-		if (isChecked ) dispatch(userEventActions.getUserEvents(user.username));
-	}, [user, dispatch, isChecked, userEvents]);
+		if (isChecked) dispatch(userEventActions.getUserEvents(user.username));
+
+	}, [user, dispatch, isChecked]);
 
 	if (!userEvents) {
 		return null;
@@ -57,9 +57,8 @@ const Profile = () => {
 
 	const manageBookings = () => {
 		let passport = document.getElementById("passport");
-		passport.classList.add("passport-active");
+		if(passport)passport.classList.add("passport-active");
 	};
-	const createBookings = () => {};
 
 	return (
 		<>

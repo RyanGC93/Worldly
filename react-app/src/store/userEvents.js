@@ -47,9 +47,9 @@ export const deleteUserEvent = (id) => async dispatch => {
   }
 
   const res = await fetch(`/api/events/user/${id}`, options);
-  console.log(res)
-
-  if ( res.ok) {
+  if (res.ok) {
+    alert(id)
+    console.log(id)
     dispatch(removeUserEvent(id))
   }
 }
@@ -66,7 +66,8 @@ const eventsReducer = (state = initialState, action) => {
       return { ...state, ...events };
       case REMOVE_USER_EVENT:
         const newState = { ...state };
-        delete newState[action.bid];
+      delete newState[action.id];
+      console.log(newState)
         return newState;
     default:
       return state;

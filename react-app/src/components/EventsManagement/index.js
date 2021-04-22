@@ -16,7 +16,7 @@ const EventManagement = ({ isChecked }) => {
 	});
 
   useEffect(() => {
-    console.log(userEvents, 'sdsadsadsad')
+
     if (!userEvents[0]) return
 
     
