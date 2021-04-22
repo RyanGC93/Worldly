@@ -1,80 +1,85 @@
 .page {
 	background-image: url(https://images.unsplash.com/photo-1603513492128-ba7bc9b3e143?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGFwZXIlMjB0ZXh0dXJlfGVufDB8fDB8&ixlib=rb-1.2.1&w=1000&q=80);
 	/* border: 1px solid rgb(198, 194, 194); */
-	  /* border-radius: 0.5rem; */
-	  box-sizing: border-box;
-	  box-shadow: 0 1.5em 3em -1em rgb(88, 88, 88);
-	  box-shadow: 0 1.5em 3em -1em rgb(22, 22, 22);
-    height: 100%;
-
-  }
-  .page-title {
-    text-align: center;
-  }
- .page-carousel {
-   margin-left: 10%;
-   width: 80%;
-   height: 50%;
- }
- .passport-image {
-   opacity: 0.7
- }
+	/* border-radius: 0.5rem; */
+	box-sizing: border-box;
+	box-shadow: 0 1.5em 3em -1em rgb(88, 88, 88);
+	box-shadow: 0 1.5em 3em -1em rgb(22, 22, 22);
+	height: 100%;
+}
+.page-title {
+	text-align: center;
+}
+.page-carousel {
+	margin-left: 10%;
+	width: 80%;
+	height: 50%;
+}
+.passport-image {
+	opacity: 0.7;
+}
 .page-img-container {
+	position: relative;
+}
+.page-location {
+	display: flex;
+	justify-content: space-around;
+	/* position: absolute; */
+	/* background-color: yellow; */
+	font-size: 12px;
+	/* bottom: 4px;
+	left: 4px; */
+}
+
+.page-header {
+	padding: 1% 1% 1% 1%;
+	height: 8%;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.page-content {
+	height: 90%;
+	margin: 0% 5% 0% 5%;
+	/* padding: 10px 10px 10px 10px; */
+}
+
+.content-section {
+	height: 46%;
+	padding: 2% 2% 2% 2%;
+	border: black solid 1px;
   position: relative;
 }
-  .page-location {
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    /* background-color: yellow; */
-    font-size: 12px;
-    bottom: 4px;
-    left: 4px;
-  }
 
-  .page-header{
-    padding: 1% 1% 1% 1%;
-    height: 4%;
-    text-align:center;
-    text-decoration: underline;
-  }
-
-  .page-content {
-    height: 94%;
-    margin: 0% 5% 5% 5%;
-    /* padding: 10px 10px 10px 10px; */
-  }
-
-  .content-section{
-    height:50%;
-  }
-  
-
-  .passport-image{
-    border-radius: 5%
-  }
-
-  .page-date{
-    position: absolute;
-    bottom: 4px;
-    right: 4px;
-  }
-  
-  .container-md{
-  z-index: 6;
-	width: 30vw;
-  position:absolute;
-	transform: rotate(15deg);
-  /* left:-33vw;
-  bottom:25vh */
-  bottom:3vh;
-  transition: transform 3s;
-  }
-.passport-active {
-  transform: rotate(0deg) scale(2.2) translate(15vw, -5vh);
+.passport-image {
+	border-radius: 5%;
 }
 
-  .page-cover{
-   background-image: url('https://i.imgur.com/mzp2Uub.jpg');
-   background-size: cover;
-  }
+.page-date {
+	position: absolute;
+	bottom: 4px;
+	left: 4px;
+}
+
+.container-md {
+	z-index: 6;
+	width: 30vw;
+	position: absolute;
+	transform: rotate(15deg);
+	/* left:-33vw;
+  bottom:25vh */
+	bottom: 3vh;
+	transition: transform 3s;
+}
+.passport-active {
+	transform: rotate(0deg) scale(2.2) translate(15vw, -5vh);
+}
+
+.page-cover {
+	background-image: url("https://i.imgur.com/mzp2Uub.jpg");
+	background-size: cover;
+}
+
+.trash{
+  cursor: pointer
+}

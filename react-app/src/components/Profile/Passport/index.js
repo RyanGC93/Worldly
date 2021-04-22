@@ -3,6 +3,7 @@ import HTMLFlipBook from "react-pageflip";
 import "./styles.css";
 import { useSelector } from "react-redux";
 import Slider from "infinite-react-carousel";
+import { BsFillTrashFill } from "react-icons/bs";
 
 const PageCover = React.forwardRef((props, ref) => {
 	return (
@@ -11,17 +12,15 @@ const PageCover = React.forwardRef((props, ref) => {
 			ref={ref}
 			data-density="hard"
 		>
-			<div className="page-content">
-			</div>
+			<div className="page-content"></div>
 		</div>
 	);
 });
 
 const Page = React.forwardRef((props, ref) => {
-	let imagesOne, imagesTwo, contentOne,contentTwo;
+	let imagesOne, imagesTwo, contentOne, contentTwo;
 
 	if (props.content) {
-		
 		contentOne = props.content[0];
 		contentTwo = props.content[1];
 	}
@@ -39,43 +38,38 @@ const Page = React.forwardRef((props, ref) => {
 			);
 		});
 	}
+	const removeEvent = () => {
+
+	}
+
 
 
 	return (
 		<div className="page" ref={ref} data-density={props.density | "soft"}>
 			<div className="page-header">{props.header} Events </div>
 			<div className="page-content">
-				<button onClick={() => console.log(props.content)} ></button>
 				{contentOne && (
 					<div className="content-section">
-						{imagesOne[0] && (
-							<Slider className="page-carousel">
-								<div className="page-event-info">
-									<div className="page-title">{contentOne.title}</div>
+						<button onClick={() => console.log(props.content)}></button>
 
-									<div className="page-location">
-										<div className="page-country">
-											{contentOne.country}, {contentOne.region}
-										</div>
-										<div className="page-region"></div>
+						<div className="page-carousel">
+							<div className="page-event-info">
+								<div className="page-title">{contentOne.title}</div>
+								<div className="page-location">
+									<div className="page-country">
+										{contentOne.country}, {contentOne.region}
 									</div>
-									<div className="page-date">{contentOne.date.slice(5)}</div>
+									<div className="page-region"></div>
 								</div>
-								{imagesOne.map((image) => (
-									<div className="page-img-container" key={image.event_id}>
-										<img
-											key={image.photo_id}
-											className="event-image passport-image"
-											alt={image.description}
-											src={image.photo_url}
-										/>
-									</div>
-								))}
-							</Slider>
-						)}
+								<div className="page-date">
+									{contentOne.date.slice(5)}, {contentOne.time}
+								</div>
+								<BsFillTrashFill onClick={removeEvent} className='trash'/>
+							</div>
+						</div>
 					</div>
 				)}
-				{contentTwo && (
+				{/* {contentTwo && (
 					<div className="content-section">
 						{imagesOne[0] && (
 							<Slider className="page-carousel">
@@ -103,7 +97,7 @@ const Page = React.forwardRef((props, ref) => {
 							</Slider>
 						)}
 					</div>
-				)}
+				)} */}
 			</div>
 		</div>
 	);
@@ -120,17 +114,13 @@ class Passport extends React.Component {
 			</PageCover>
 		);
 
-
 		this.state = {
 			page: 0,
 			totalPage: 0,
 			orientation: "landscape",
 			state: "read",
 			pages: pages,
-
-			
 		};
-
 	}
 
 	nextButtonClick = () => {
@@ -163,14 +153,9 @@ class Passport extends React.Component {
 		this.setState({
 			totalPage: this.flipBook.getPageFlip().getPageCount(),
 		});
-
-
 	}
 
-
-
-
-e
+	e;
 	render() {
 		return (
 			<>
@@ -198,10 +183,9 @@ e
 						ref={(el) => (this.flipBook = el)}
 					>
 						<PageCover key={0} pos="top"></PageCover>
-					
-					
+
 						{this.props.pastBookEvents &&
-							this.props.pastBookEvents.map((page,i) => (
+							this.props.pastBookEvents.map((page, i) => (
 								<Page
 									array={this.props.pastBookEvents}
 									key={`pastBookPage-${i}`}
@@ -209,20 +193,18 @@ e
 									content={page}
 								/>
 							))}
-						
-						
+
 						{this.props.upcomingBookEvents &&
-							this.props.upcomingBookEvents.map((page,i) => (
+							this.props.upcomingBookEvents.map((page, i) => (
 								<Page
 									key={`pastBookPage-${i}`}
 									header={"Upcoming"}
 									content={page}
 								/>
 							))}
-			
 					</HTMLFlipBook>
 				</div>
-				<div className="container mt-3">
+				{/* <div className="container mt-3">
 					<div className="row">
 						<div className="col-md-6">
 							<button
@@ -247,49 +229,49 @@ e
 							<i>{this.state.orientation}</i>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			</>
 		);
 	}
 }
 
 export default function (props) {
-		let userEvents = useSelector((state) => {
-			if (props.isChecked) return Object.values(state.userEvents);
-			if (!props.isChecked) return Object.values(state.ambassadorEvents);
-		});
-	
-		let dateNow = new Date();
-		let pastEvents = userEvents.filter((ev) => ev.dateObj < dateNow);
-		let upcomingEvents = userEvents.filter((ev) => ev.dateObj > dateNow);
-		let sortedUpcomingEvents = upcomingEvents.sort(
-			(a, b) => a.dateObj - b.dateObj
-		);
-		let sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj);
-		const contentDivider = (arr) => {
-			let newarr = [];
-			let i,
-				j,
-				temparray,
-				chunk = 2;
-			for (i = 0, j = arr.length; i < j; i += chunk) {
-				temparray = arr.slice(i, i + chunk);
-				newarr.push(temparray);
-			}
-			return newarr;
-		};
+	let userEvents = useSelector((state) => {
+		if (props.isChecked) return Object.values(state.userEvents);
+		if (!props.isChecked) return Object.values(state.ambassadorEvents);
+	});
 
-		let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
-		let pastBookEvents = contentDivider(sortedPastEvents);
-		console.log(upcomingBookEvents,pastBookEvents, 'books')
-		console.log(userEvents, 'books')
-		console.log(sortedPastEvents,sortedUpcomingEvents, 'books')
+	let dateNow = new Date();
+	let pastEvents = userEvents.filter((ev) => ev.dateObj < dateNow);
+	let upcomingEvents = userEvents.filter((ev) => ev.dateObj > dateNow);
+	let sortedUpcomingEvents = upcomingEvents.sort(
+		(a, b) => a.dateObj - b.dateObj
+	);
+	let sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj);
+	const contentDivider = (arr) => {
+		let newarr = [];
+		let i,
+			j,
+			temparray,
+			chunk = 2;
+		for (i = 0, j = arr.length; i < j; i += chunk) {
+			temparray = arr.slice(i, i + chunk);
+			newarr.push(temparray);
+		}
+		return newarr;
+	};
+
+	let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
+	let pastBookEvents = contentDivider(sortedPastEvents);
 
 	return (
 		<>
 			{userEvents[0] && (
-			<Passport upcomingBookEvents={upcomingBookEvents} pastBookEvents={pastBookEvents}/>
+				<Passport
+					upcomingBookEvents={upcomingBookEvents}
+					pastBookEvents={pastBookEvents}
+				/>
 			)}
 		</>
-	)
+	);
 }
