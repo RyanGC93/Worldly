@@ -12,7 +12,6 @@ const PageCover = React.forwardRef((props, ref) => {
 			data-density="hard"
 		>
 			<div className="page-content">
-				{/* <h2>{props.children}</h2> */}
 			</div>
 		</div>
 	);
@@ -283,9 +282,14 @@ export default function (props) {
 		let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
 		let pastBookEvents = contentDivider(sortedPastEvents);
 		console.log(upcomingBookEvents,pastBookEvents, 'books')
+		console.log(userEvents, 'books')
+		console.log(sortedPastEvents,sortedUpcomingEvents, 'books')
+
 	return (
 		<>
+			{userEvents[0] && (
 			<Passport upcomingBookEvents={upcomingBookEvents} pastBookEvents={pastBookEvents}/>
+			)}
 		</>
 	)
 }

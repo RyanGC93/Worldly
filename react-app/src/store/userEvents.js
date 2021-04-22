@@ -16,7 +16,8 @@ const setUserEvents = (events) => {
 export const getUserEvents = (user) => async (dispatch) => {
   const response = await fetch(`/api/events/user/${user}`);
   if (response.ok) {
-      let res = await response.json();
+    let res = await response.json();
+    console.log(res,'rezzzzzzzzzz')
     let events = res.events
     let eventsInfo = events[0].user_events_info
     let eventPhotos = events[1].photo_gallery
