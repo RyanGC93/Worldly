@@ -2,7 +2,6 @@ import * as reviewActions from './reviews'
 import * as photoActions from './photoGallery'
 import * as eventCalendarActions from './eventCalendar'
 const SET_EVENTS = "events/SET_EVENTS";
-
 const CREATE_EVENTS = "events/CREATE_EVENTS";
 const REMOVE_POST = "events/REMOVE_POST";
 const UPDATE_POST = "events/UPDATE_POST";

@@ -465,6 +465,7 @@ button.carousel-next {
 
 .btn-details,
 .btn-tickets {
+	cursor: pointer;
 	display: block;
 	color: #fff;
 	float: left;
