@@ -1,0 +1,27 @@
+.carouselImg{
+    height: 100%;
+    width: 100%;
+}
+
+.carouselContainer *{
+    height: 60vh;
+
+}
+.carouselContainer{
+    width: 60vw;
+    margin-left: 10vw;
+}
+
+.eventTitle {
+    font-size: 4vw;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.eventInfo{
+    display:grid;
+    grid-template-columns: 40% 60%
+}
+
+.description
