@@ -41,7 +41,7 @@ const EventPage = () => {
 		<div className={styles.eventPage}>
 			<div className={styles.carouselContainer}>
 				<Carousel
-					className={styles.carouselContainer}
+					className={styles.carouselWrapper}
 					styling={{ height: "50%" }}
 					{...settings}
 				>

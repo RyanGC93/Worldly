@@ -2,14 +2,19 @@
     height: 100%;
     width: 100%;
 }
+.carouselContainer{
+    display: flex;
+    justify-content: center;
+}
 
-.carouselContainer *{
+
+.carouselWrapper *{
     height: 60vh;
 
 }
-.carouselContainer{
-    width: 60vw;
-    margin-left: 10vw;
+.carouselWrapper{
+    width: 70vw;
+    /* margin-left: 6vw; */
 }
 
 .eventTitle {
@@ -24,4 +29,9 @@
     grid-template-columns: 40% 60%
 }
 
-.description
+.description{
+    font-size: 3vw;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}

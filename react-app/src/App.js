@@ -55,6 +55,7 @@ function App() {
           <Profile />
         </ProtectedRoute>
         <ProtectedRoute path="/bookings/:eventId" exact={true} authenticated={authenticated}>
+        <NavBar setAuthenticated={setAuthenticated} />
           <EventPage/>
         </ProtectedRoute>
         <Route path='*'>
