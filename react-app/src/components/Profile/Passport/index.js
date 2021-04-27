@@ -66,7 +66,8 @@ const Page = React.forwardRef((props, ref) => {
 								<div className="page-date">
 									{contentOne.date.slice(5)}, {contentOne.time}
 								</div>
-								<BsFillTrashFill onClick={() => removeEvent(contentOne.event_id)} className='trash'/>
+								<button onClick={()=>removeEvent(contentOne.booking_id)}>DELETE</button>
+								{/* <BsFillTrashFill onClick={} className='trash'/> */}
 							</div>
 						</div>
 					</div>

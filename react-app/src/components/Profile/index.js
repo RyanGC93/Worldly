@@ -36,6 +36,10 @@ const Profile = () => {
 	const [isAmbassador, setAmbassador] = useState(false);
 
 	useEffect(() => {
+		
+			if (!userEvents) {
+				return null;
+			}
 		(async () => {
 			const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();
@@ -50,10 +54,6 @@ const Profile = () => {
 		if (isChecked) dispatch(userEventActions.getUserEvents(user.username));
 
 	}, [user, dispatch, isChecked]);
-
-	if (!userEvents) {
-		return null;
-	}
 
 	const manageBookings = () => {
 		let passport = document.getElementById("passport");
