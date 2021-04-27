@@ -3,6 +3,9 @@ import styles from "./styles.module.css";
 import { useParams } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
+import ReactStarsRating from "react-awesome-stars-rating";
+import CalendarModal from "../CalendarModal";
+import { Modal } from "../../context/Modal";
 
 const EventPage = () => {
 	let { eventId } = useParams();
@@ -11,6 +14,7 @@ const EventPage = () => {
 	const [eventCalendar, setEventCalendar] = useState([]);
 	const [reviews, setReviews] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
 		(async () => {
@@ -58,10 +62,16 @@ const EventPage = () => {
 			<div className={styles.eventInfo}>
 				<div>
 					<div className={styles}>Chef {events.firstname}</div>
-					<div className={styles}>{events.country}, {events.region}</div>
-
-					<div>Check Dates</div>
+					<div className={styles}>
+						{events.country}, {events.region}
+					</div>
+					<div onClick={() => setShowModal(true)} />{" "}
 				</div>
+				{showModal && (
+					<Modal onClose={() => setShowModal(false)}>
+						<CalendarModal setShowModal={setShowModal} />
+					</Modal>
+				)}
 				<div>
 					<div className={styles.description}>Description</div>
 					<div className={styles}>{events.description}</div>
