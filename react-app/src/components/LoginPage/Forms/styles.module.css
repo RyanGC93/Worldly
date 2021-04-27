@@ -1,5 +1,6 @@
 .input {
     text-align: center;
+    width: 100%;
 }
 
 .groupbutton,.button{
@@ -15,7 +16,16 @@
     text-align: center;
     outline-style: none;
     color: #fff;
+    cursor: pointer;
 
+}
+/* .signInBtn{
+    width: 60%;
+    margin-left: 20%;
+} */
+
+.signInBtn:hover {
+    background-color:rgba(13, 51, 128, 0.7)
 }
 
 .label {
