@@ -17,18 +17,18 @@ import CreateEventModal from "../CreateEventModal";
 const Profile = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [isChecked, setChecked] = useState(true);
-	const userEvents = useSelector((state) => {
-		// WORKS
-		if (state.userEvents && isChecked) {
-			let res = Object.values(state.userEvents);
-			return res;
-		}
+	// const userEvents = useSelector((state) => {
+	// 	// WORKS
+	// 	if (state.userEvents && isChecked) {
+	// 		let res = Object.values(state.userEvents);
+	// 		return res;
+	// 	}
 
-		if (state.ambassadorEvents && !isChecked) {
-			let res = Object.values(state.ambassadorEvents);
-			return res;
-		}
-	});
+	// 	if (state.ambassadorEvents && !isChecked) {
+	// 		let res = Object.values(state.ambassadorEvents);
+	// 		return res;
+	// 	}
+	// });
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
@@ -36,21 +36,17 @@ const Profile = () => {
 	const [isAmbassador, setAmbassador] = useState(false);
 
 	useEffect(() => {
-		
-		if(!email.length || !phoneNumber.length) (async () => {
+		(async () => {
 			const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();
 			setEmail(res.email);
 			setPhoneNumber(res.phone_number);
-		})();
-		(async () => {
-			const response = await checkAmbassador();
-			setAmbassador(response);
+			const ifAmbassador = await checkAmbassador();
+			setAmbassador(ifAmbassador);
 		})();
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
 		if (isChecked) dispatch(userEventActions.getUserEvents());
-
-	}, [user, dispatch, isChecked]);
+	},[isChecked,dispatch,user]);
 
 	const manageBookings = () => {
 		let passport = document.getElementById("passport");
@@ -62,7 +58,7 @@ const Profile = () => {
 			<div className="container">
 				<div className="profile-header">
 					<div className="profile-img">
-						<img src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" />
+						<img alt='' src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" />
 					</div>
 					<div className="profile-nav-info">
 						<div className="name-header">
@@ -119,6 +115,8 @@ const Profile = () => {
 								</>
 							)}
 						</div>
+						
+						{/* PASSPORT */}
 						{isChecked && (
 							<Passport
 								user={user}

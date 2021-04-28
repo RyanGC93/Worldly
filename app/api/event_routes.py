@@ -39,7 +39,7 @@ def single_event(eventId):
 
 # Gets All the events
 @event_routes.route('/<string:param>')
-@login_required
+# @login_required
 def events(param):
     
     if param == 'all':

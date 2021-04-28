@@ -22,7 +22,8 @@ const PageCover = React.forwardRef((props, ref) => {
 	);
 });
 
-const Page = React.forwardRef((props, ref) => {
+// const Page = React.forwardRef((props, ref) => {
+	const Page = (props) => {
 	const dispatch = useDispatch()
 	let imagesOne, imagesTwo, contentOne, contentTwo;
 
@@ -30,20 +31,20 @@ const Page = React.forwardRef((props, ref) => {
 		contentOne = props.content[0];
 		contentTwo = props.content[1];
 	}
-	if (contentOne) {
-		imagesOne = useSelector((state) => {
-			return Object.values(state.photoGallery).filter(
-				(photo) => photo.event_id === contentOne.event_id
-			);
-		});
-	}
-	if (contentTwo) {
-		imagesTwo = useSelector((state) => {
-			return Object.values(state.photoGallery).filter(
-				(photo) => photo.event_id === contentTwo.event_id
-			);
-		});
-	}
+	// if (contentOne) {
+	// 	imagesOne = useSelector((state) => {
+	// 		return Object.values(state.photoGallery).filter(
+	// 			(photo) => photo.event_id === contentOne.event_id
+	// 		);
+	// 	});
+	// }
+	// if (contentTwo) {
+	// 	imagesTwo = useSelector((state) => {
+	// 		return Object.values(state.photoGallery).filter(
+	// 			(photo) => photo.event_id === contentTwo.event_id
+	// 		);
+	// 	});
+	// }
 	const removeEvent = (id) => {
 		dispatch(deleteUserEvent(id))
 	}
@@ -51,7 +52,7 @@ const Page = React.forwardRef((props, ref) => {
 
 
 	return (
-		<div className="page" ref={ref} data-density={props.density | "soft"}>
+		<div className="page"  data-density={props.density | "soft"}>
 			<div className="page-header">{props.header} Events </div>
 			<div className="page-content">
 				{contentOne && (
@@ -108,7 +109,8 @@ const Page = React.forwardRef((props, ref) => {
 			</div>
 		</div>
 	);
-});
+// });
+}
 class Passport extends React.Component {
 	constructor(props) {
 		super(props);
@@ -269,19 +271,14 @@ export default function (props) {
 		}
 		return newarr;
 	};
-
-	
-	
 	let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
 	let pastBookEvents = contentDivider(sortedPastEvents);
 	useEffect(() => {
-		if (!props.isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
-		if (props.isChecked) dispatch(userEventActions.getUserEvents())
-		
-		setIsLoading(false)
 
+		if (userEvents[0]) setIsLoading(false)
+		console.log(userEvents)
 
-	},[])
+	},[isLoading,userEvents])
 	return (
 		<>
 			{userEvents[0] && (

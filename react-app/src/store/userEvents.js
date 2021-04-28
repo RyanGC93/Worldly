@@ -50,7 +50,7 @@ export const deleteUserEvent = (id) => async dispatch => {
   if (res.ok) {
     alert(id)
     console.log(id)
-    dispatch(getUserEvents())
+    dispatch(removeUserEvent(id))
   }
 }
 
