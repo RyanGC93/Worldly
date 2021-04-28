@@ -95,14 +95,14 @@ def new_event():
 
 
 # TODO Redo the routing of the 
-@event_routes.route('/user/<string:user>')
+@event_routes.route('/user')
 @login_required
-def user_events(user):
-    user = db.session.query(User.user_name, User.id).filter( User.user_name == user).first()
+def user_events():
+
 
 
     event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname' ,'date','time', 'location_longitude', 'location_latitude', 'booking_id']
-    event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name, EventCalendar.date, EventCalendar.time, Location.longitude, Location.latitude, BookingCalendar.id).filter(BookingCalendar.user_id == user[1], BookingCalendar.timeslot == EventCalendar.id, EventCalendar.event_id == Event.id, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
+    event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name, EventCalendar.date, EventCalendar.time, Location.longitude, Location.latitude, BookingCalendar.id).filter(BookingCalendar.user_id == current_user.id, BookingCalendar.timeslot == EventCalendar.id, EventCalendar.event_id == Event.id, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
 
     event_ids = [event[0]for event in event_values]
                                                                                                    

@@ -37,10 +37,7 @@ const Profile = () => {
 
 	useEffect(() => {
 		
-			if (!userEvents) {
-				return null;
-			}
-		(async () => {
+		if(!email.length || !phoneNumber.length) (async () => {
 			const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();
 			setEmail(res.email);

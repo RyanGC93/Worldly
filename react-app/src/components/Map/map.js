@@ -49,7 +49,7 @@ const MapChart = ({ setTooltipContent, isChecked }) => {
 			markerOffset: -30,
 			name: `${event.title}`,
 			coordinates: [event.location_longitude, event.location_latitude],
-			id: event.event_id
+			id: event.booking_id
 		});
 	});
 

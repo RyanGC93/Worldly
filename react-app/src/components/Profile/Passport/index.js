@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import HTMLFlipBook from "react-pageflip";
-import "./styles.css";
+import "./styles.css"; 
+import * as userEventActions from "../../../store/userEvents";
 import { useSelector, useDispatch } from "react-redux";
 import Slider from "infinite-react-carousel";
 import { BsFillTrashFill } from "react-icons/bs";
@@ -239,6 +240,8 @@ class Passport extends React.Component {
 }
 
 export default function (props) {
+	const dispatch = useDispatch()
+	const [isLoading, setIsLoading] = useState(true)
 	let userEvents = useSelector((state) => {
 		if (props.isChecked) return Object.values(state.userEvents);
 		if (!props.isChecked) return Object.values(state.ambassadorEvents);
@@ -264,9 +267,17 @@ export default function (props) {
 		return newarr;
 	};
 
+	
+	
 	let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
 	let pastBookEvents = contentDivider(sortedPastEvents);
+	useEffect(() => {
+		(async () => {
+			await dispatch(userEventActions.getUserEvents())
+			setIsLoading(false)
+		})()
 
+	}, [isLoading])
 	return (
 		<>
 			{userEvents[0] && (
