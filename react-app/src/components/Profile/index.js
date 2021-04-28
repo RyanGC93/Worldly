@@ -48,7 +48,7 @@ const Profile = () => {
 			setAmbassador(response);
 		})();
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
-		if (isChecked) dispatch(userEventActions.getUserEvents(user.username));
+		if (isChecked) dispatch(userEventActions.getUserEvents());
 
 	}, [user, dispatch, isChecked]);
 

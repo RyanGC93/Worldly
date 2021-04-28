@@ -7,6 +7,9 @@ import Slider from "infinite-react-carousel";
 import { BsFillTrashFill } from "react-icons/bs";
 import {deleteUserEvent} from '../../../store/userEvents'
 
+import * as ambassadorEventActions from "../../../store/ambassadorEvents";
+
+
 const PageCover = React.forwardRef((props, ref) => {
 	return (
 		<div
@@ -272,12 +275,13 @@ export default function (props) {
 	let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
 	let pastBookEvents = contentDivider(sortedPastEvents);
 	useEffect(() => {
-		(async () => {
-			await dispatch(userEventActions.getUserEvents())
-			setIsLoading(false)
-		})()
+		if (!props.isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
+		if (props.isChecked) dispatch(userEventActions.getUserEvents())
+		
+		setIsLoading(false)
 
-	}, [isLoading])
+
+	},[])
 	return (
 		<>
 			{userEvents[0] && (
