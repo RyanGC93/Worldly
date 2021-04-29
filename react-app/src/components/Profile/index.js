@@ -1,9 +1,8 @@
 import styles from "./styles.module.css";
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Slider from "./Slider";
 import Map from "../Map";
-import {useDetectOutsideClick} from "../../services/detectOutsideClick"
 import * as userEventActions from "../../store/userEvents";
 import * as ambassadorEventActions from "../../store/ambassadorEvents";
 
@@ -19,8 +18,7 @@ const Profile = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [isChecked, setChecked] = useState(true);
 	
-    const passportRef = useRef(null);
-    const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+
 
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
@@ -77,15 +75,15 @@ const Profile = () => {
 								<Slider isChecked={isChecked} setChecked={setChecked} />
 							)}
 
-							<div className="user-bio">
-								<div className="profile-text">Bio</div>
-								<div className="profile-text sub-text">{user.bio}</div>
+							<div className={styles.userBio}>
+								<div className={styles.profileText}>Bio</div>
+								<div className={`${styles.profileText} ${styles.subText}`}>{user.bio}</div>
 							</div>
 							{isChecked && (
 								<div
 									onClick={manageBookings}
 									id="bookings-btn"
-									className="btn-ticket blue"
+									className={`${styles.bookingsBtn} btn-ticket blue`}
 								>
 									Manage Events
 								</div>
@@ -95,8 +93,8 @@ const Profile = () => {
 									<div
 										onClick={() => setShowModal(true)}
 										id="bookings-btn"
-										className="btn
-										-ticket blue"
+										className={`btn
+										-ticket blue`}
 									>
 										Create Event
 									</div>
@@ -119,7 +117,7 @@ const Profile = () => {
 							/>
 						)}
 					</div>
-					<div className="right-side">
+					<div className={styles.rightSide}>
 						{isChecked && <Map isChecked={isChecked} className="map-wrapper" />}
 						{!isChecked && (
 							<EventManagement

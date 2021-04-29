@@ -55,7 +55,7 @@
 	height: 1.8vw
 }
 
-#bookings-btn{
+.bookingsBtn{
 	cursor: pointer;
 	margin: 10% 10% 10% 10%;
 	width: 60%;
@@ -84,12 +84,12 @@
 	font-size:3vh;
 }
 
-.profile-text{
+.profileText{
 	color:black;
 	line-height: 1.5vw;
 }
 
-.sub-text{
+.subText{
 	color:gray;
 	padding-left: 4vw;
 	padding-right: 4vw;
@@ -129,7 +129,7 @@
 
 }
 
-.profile-img img {
+.profileImg img {
 	border-radius: 50%;
 	height: 12.5vw;
 	width: 12.5w;
@@ -366,13 +366,13 @@ button.createbtn i {
 		padding-bottom: 20px;
 	}
 
-	.profile-img {
+	.profileImg {
 		float: left;
 		width: 100%;
 		height: 200px;
 	}
 
-	.profile-img img {
+	.profileImg img {
 		/* position: relative;
 		margin-bottom: 200px;
 		height: 120px;
@@ -460,7 +460,7 @@ button.createbtn i {
 }
 
 
-.right-side{
+.rightSide{
 	display:flex;
 	justify-content: center;
 	width:100%;

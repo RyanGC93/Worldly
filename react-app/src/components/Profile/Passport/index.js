@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
+import {useDetectOutsideClick} from "../../../services/detectOutsideClick"
+
 import HTMLFlipBook from "react-pageflip";
 import "./styles.css";
 import * as userEventActions from "../../../store/userEvents";
 import { useSelector, useDispatch } from "react-redux";
-import Slider from "infinite-react-carousel";
 import { BsFillTrashFill } from "react-icons/bs";
 import { deleteUserEvent } from "../../../store/userEvents";
 
@@ -21,97 +22,12 @@ const PageCover = React.forwardRef((props, ref) => {
 	);
 });
 
-const Page = React.forwardRef((props, ref) => {
-	// const Page = (props) => {
-	const dispatch = useDispatch();
-	let imagesOne, imagesTwo, contentOne, contentTwo;
 
-	if (props.content) {
-		contentOne = props.content[0];
-		contentTwo = props.content[1];
-	}
-	// if (contentOne) {
-	// 	imagesOne = useSelector((state) => {
-	// 		return Object.values(state.photoGallery).filter(
-	// 			(photo) => photo.event_id === contentOne.event_id
-	// 		);
-	// 	});
-	// }
-	// if (contentTwo) {
-	// 	imagesTwo = useSelector((state) => {
-	// 		return Object.values(state.photoGallery).filter(
-	// 			(photo) => photo.event_id === contentTwo.event_id
-	// 		);
-	// 	});
-	// }
-	const removeEvent = (id) => {
-		dispatch(deleteUserEvent(id));
-	};
-
-	return (
-		<div className="page" ref={ref} data-density={props.density | "soft"}>
-			<div className="page-header">{props.header} Events </div>
-			<div className="page-content">
-				{contentOne && (
-					<div className="content-section">
-						<button onClick={() => console.log(props.content)}></button>
-
-						<div className="page-carousel">
-							<div className="page-event-info">
-								<div className="page-title">{contentOne.title}</div>
-								<div className="page-location">
-									<div className="page-country">
-										{contentOne.country}, {contentOne.region}
-									</div>
-									<div className="page-region"></div>
-								</div>
-								<div className="page-date">
-									{contentOne.date.slice(5)}, {contentOne.time}
-								</div>
-								<button onClick={() => removeEvent(contentOne.booking_id)}>
-									DELETE
-								</button>
-								{/* <BsFillTrashFill onClick={} className='trash'/> */}
-							</div>
-						</div>
-					</div>
-				)}
-				{/* {contentTwo && (
-					<div className="conytent-section">
-						{imagesOne[0] && (
-							<Slider className="page-carousel">
-								<div className="page-event-info">
-									<div className="page-title">{contentTwo.title}</div>
-
-									<div className="page-location">
-										<div className="page-country">
-											{contentTwo.country}, {contentTwo.region}
-										</div>
-										<div className="page-region"></div>
-									</div>
-									<div className="page-date">{contentTwo.date.slice(5)}</div>
-								</div>
-								{imagesTwo.map((image) => (
-									<div className="page-img-container" key={image.event_id}>
-										<img
-											key={image.photo_id}
-											className="event-image passport-image"
-											alt={image.description}
-											src={image.photo_url}
-										/>
-									</div>
-								))}
-							</Slider>
-						)}
-					</div>
-				)} */}
-			</div>
-		</div>
-	);
-});
 
 const Passport = (props) => {
 	const dispatch = useDispatch();
+	const passportRef = useRef(null);
+    const [isActive, setIsActive] = useDetectOutsideClick(passportRef, false);
 	const removeEvent = async(id) => {
 		await dispatch(deleteUserEvent(id));
 		window.location.reload()
@@ -243,7 +159,6 @@ const Passport = (props) => {
 };
 
 export default function (props) {
-	const dispatch = useDispatch();
 	const [isLoading, setIsLoading] = useState(true);
 	let userEvents = useSelector((state) => {
 		if (props.isChecked) return Object.values(state.userEvents);
