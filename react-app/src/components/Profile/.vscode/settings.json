@@ -32,5 +32,6 @@
         "terminal.ansiRed": "#FF6C60",
         "terminal.ansiWhite": "#B5B3AA",
         "terminal.ansiYellow": "#FFFFB6"
-    }
+    },
+    "python.pythonPath": "/usr/bin/python2"
 }

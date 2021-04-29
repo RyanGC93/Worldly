@@ -1,4 +1,4 @@
-import "./styles.css";
+import styles from "./styles.module.css";
 import React, { useEffect, useState,useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Slider from "./Slider";
@@ -48,31 +48,31 @@ const Profile = () => {
 
 	return (
 		<>
-			<div className="container">
-				<div className="profile-header">
-					<div className="profile-img">
+			<div className={styles.container}>
+				<div className={styles.profileHeader}>
+					<div className={styles.profileImg}>
 						<img alt='' src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" />
 					</div>
-					<div className="profile-nav-info">
-						<div className="name-header">
+					<div className={styles.profileNavInfo}>
+						<div className={styles.nameHeader}>
 							{user.first_name} {user.last_name}
 						</div>
-						<div className="address">
+						<div className={styles.address}>
 							{/* TODO> Add Location for the user */}
 							NY,Newyork
 						</div>
 					</div>
-					<div className="profile-option">
-						<div className="notification">
+					<div className={styles.profileOption}>
+						<div className={styles.notification} >
 							<i className="fa fa-bell"></i>
-							<span className="alert-message">3</span>
+							<span className={styles.alertMessage}>3</span>
 						</div>
 					</div>
 				</div>
 
-				<div className="main-bd">
-					<div className="left-side">
-						<div className="profile-side">
+				<div className={styles.mainBd}>
+					<div className={styles.leftSide}>
+						<div className={styles.profileSide}>
 							{isAmbassador && (
 								<Slider isChecked={isChecked} setChecked={setChecked} />
 							)}
