@@ -9,7 +9,7 @@ const CreateEventModal = () => {
 
 
 
-  const [formStep, setFormStep] = useState(1);
+  const [formStep, setFormStep] = useState(3);
   return (
     <div className={styles.createEventContainer} >
       <div className={styles.eventWrap}>

@@ -16,10 +16,7 @@ const EventManagement = ({ isChecked }) => {
 	});
 
   useEffect(() => {
-
     if (!userEvents[0]) return
-
-    
 	}, [userEvents]);
   
   const contentDivider = (arr) => {
@@ -36,9 +33,6 @@ const EventManagement = ({ isChecked }) => {
   };
 
   const dividedContent = contentDivider(userEvents)
-  console.log(dividedContent, "divided")
-
-  const events = userEvents.map((event) => event.event_id)
     return (
       <>
   <Tabs>

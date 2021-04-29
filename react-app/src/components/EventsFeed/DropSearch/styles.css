@@ -10,9 +10,8 @@
 }
 
 .search-menu-container{
-    position: absolute;
+    position: relative;
     display: flex;
     justify-content: center;
-    bottom: 0;
     padding: 20px 20px 20px 20px;
 }
