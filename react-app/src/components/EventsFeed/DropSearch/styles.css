@@ -11,7 +11,8 @@
 
 .search-menu-container{
     position: absolute;
-    right: 20px;
+    display: flex;
+    justify-content: center;
     bottom: 0;
     padding: 20px 20px 20px 20px;
 }
