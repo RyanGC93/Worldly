@@ -1,8 +1,9 @@
 import "./styles.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Slider from "./Slider";
 import Map from "../Map";
+import {useDetectOutsideClick} from "../../services/detectOutsideClick"
 import * as userEventActions from "../../store/userEvents";
 import * as ambassadorEventActions from "../../store/ambassadorEvents";
 
@@ -17,18 +18,10 @@ import CreateEventModal from "../CreateEventModal";
 const Profile = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [isChecked, setChecked] = useState(true);
-	// const userEvents = useSelector((state) => {
-	// 	// WORKS
-	// 	if (state.userEvents && isChecked) {
-	// 		let res = Object.values(state.userEvents);
-	// 		return res;
-	// 	}
+	
+    const passportRef = useRef(null);
+    const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
 
-	// 	if (state.ambassadorEvents && !isChecked) {
-	// 		let res = Object.values(state.ambassadorEvents);
-	// 		return res;
-	// 	}
-	// });
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
