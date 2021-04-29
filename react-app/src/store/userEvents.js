@@ -66,7 +66,8 @@ const eventsReducer = (state = initialState, action) => {
       return { ...state, ...events };
       case REMOVE_USER_EVENT:
         const newState = { ...state };
-        delete newState[action.id];
+      delete newState[action.id];
+      console.log(newState,'sdsadsad')
         return newState;
     default:
       return state;

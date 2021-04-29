@@ -112,8 +112,9 @@ const Page = React.forwardRef((props, ref) => {
 
 const Passport = (props) => {
 	const dispatch = useDispatch();
-	const removeEvent = (id) => {
-		dispatch(deleteUserEvent(id));
+	const removeEvent = async(id) => {
+		await dispatch(deleteUserEvent(id));
+		window.location.reload()
 	};
 
 	return (
@@ -137,7 +138,6 @@ const Passport = (props) => {
 					className="flip-book html-book demo-book"
 				>
 					<PageCover key={0} pos="top"></PageCover>
-					<div>sadasdsadsadsad</div>
 
 					{props.upcomingBookEvents &&
 						props.upcomingBookEvents.map((page, i) => (
@@ -145,62 +145,63 @@ const Passport = (props) => {
 								<div className="page-header">{page.header} Events </div>
 								<div className="page-content">
 									{page && (
-										<div className="content-section">
-											<button onClick={() => console.log(page)}></button>
+										<>
+											<div className="content-section">
+												<button onClick={() => console.log(page)}></button>
 
-											<div className="page-carousel">
-												<div className="page-event-info">
-													<div className="page-title">{page[0].title}</div>
-													<div className="page-location">
-														<div className="page-country">
-															{page[0].country}, {page[0].region}
-														</div>
-														<div className="page-region"></div>
-													</div>
-													<div className="page-date">
-														{page[0].date.slice(5)}, {page[0].time}
-													</div>
-													<button >
-														DELETE
-													</button>
-													{/* <BsFillTrashFill onClick={} className='trash'/> */}
-												</div>
-											</div>
-										</div>
-									)}
-									{/* {contentTwo && (
-										<div className="conytent-section">
-											{imagesOne[0] && (
-												<Slider className="page-carousel">
+												<div className="page-carousel">
 													<div className="page-event-info">
-														<div className="page-title">{contentTwo.title}</div>
-					
+														<div className="page-title">{page[0].title}</div>
 														<div className="page-location">
 															<div className="page-country">
-																{contentTwo.country}, {contentTwo.region}
+																{page[0].country}, {page[0].region}
 															</div>
 															<div className="page-region"></div>
 														</div>
-														<div className="page-date">{contentTwo.date.slice(5)}</div>
-													</div>
-													{imagesTwo.map((image) => (
-														<div className="page-img-container" key={image.event_id}>
-															<img
-																key={image.photo_id}
-																className="event-image passport-image"
-																alt={image.description}
-																src={image.photo_url}
-															/>
+														<div className="page-date">
+															{page[0].date.slice(5)}, {page[0].time}
 														</div>
-													))}
-												</Slider>
+														<button
+															onClick={() => removeEvent(page[0].booking_id)}
+														>
+															DELETE
+														</button>
+														{/* <BsFillTrashFill onClick={} className='trash'/> */}
+													</div>
+												</div>
+											</div>
+											{/* Next Section */}
+											{page[1] && (<div className="content-section">
+												<button onClick={() => console.log(page)}></button>
+
+												<div className="page-carousel">
+													<div className="page-event-info">
+														<div className="page-title">{page[1].title}</div>
+														<div className="page-location">
+															<div className="page-country">
+																{page[1].country}, {page[1].region}
+															</div>
+															<div className="page-region"></div>
+														</div>
+														<div className="page-date">
+															{page[1].date.slice(5)}, {page[1].time}
+														</div>
+														<button
+															onClick={() => removeEvent(page[1].booking_id)}
+														>
+															DELETE
+														</button>
+														{/* <BsFillTrashFill onClick={} className='trash'/> */}
+													</div>
+												</div>
+											</div>
 											)}
-										</div>
-									)} */}
+										</>
+									)}
 								</div>
 							</div>
 						))}
-
+					{/* 
 					{props.upcomingBookEvents &&
 						props.upcomingBookEvents.map((page, i) => (
 							<Page
@@ -208,7 +209,7 @@ const Passport = (props) => {
 								header={"Upcoming"}
 								content={page}
 							/>
-						))}
+						))} */}
 				</HTMLFlipBook>
 			</div>
 			{/* <div className="container mt-3">
@@ -271,9 +272,9 @@ export default function (props) {
 	let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
 	let pastBookEvents = contentDivider(sortedPastEvents);
 	useEffect(() => {
-		if(!upcomingBookEvents) return
+		if (!upcomingBookEvents) return;
 		if (userEvents[0]) setIsLoading(false);
-		console.log(userEvents,upcomingBookEvents,pastBookEvents);
+		console.log(userEvents, upcomingBookEvents, pastBookEvents);
 	}, [isLoading, upcomingBookEvents, pastBookEvents, userEvents]);
 	return (
 		<>
