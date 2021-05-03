@@ -111,7 +111,7 @@ def seed_events():
     Tres leches cake is a dense, moist dessert consisting of a sponge cake covered with three types of milk: evaporated, condensed, and whole milk. Although its origins are quite murky, most sources claim it was invented in Nicaragua, but the cake is popular throughout Central America, the United States, and Europe, where it is a staple at numerous celebrations and festivities.
     It is believed that the original recipe was first printed on milk cans in Latin America, to promote the use of the product, and as a result, the milk companies boosted their milk sales.''',cost=25)
 
-    db.session.add_all([featured, Demo3,Demo4,Demo5,Demo6,Demo7,Demo8,Demo9,Demo10,Demo11,Demo12,Demo13,Demo14,Demo15,Demo16,Demo17,Demo18,Demo19,Demo20,Demo21,Demo22,Demo23,Demo24,Demo25,Demo26,Demo27,Demo28,Demo29,Demo30,Demo31,Demo32,Demo33, Demo34])
+    db.session.add_all([featured, Demo3,Demo4,Demo5,Demo6,Demo7,Demo8,Demo9,Demo10,Demo11,Demo12,Demo13,Demo14,Demo15,Demo16,Demo17,Demo18,Demo19,Demo20,Demo21,Demo22,Demo23,Demo24,Demo25,Demo26,Demo27])
     db.session.commit()
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this
