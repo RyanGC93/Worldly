@@ -24,7 +24,7 @@ const MainFeed = () => {
 					</div>
                         <DropSearch />
 				
-					<div className={`${styles.eventCardContainer} grid-container`}>
+					<div className={`${styles.eventCardContainer} ${styles.gridContainer}`}>
 						{eventList &&
 							eventList.map((event) => (
 								<EventCard key={event.event_id} event={event} />

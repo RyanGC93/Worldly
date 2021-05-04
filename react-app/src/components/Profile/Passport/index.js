@@ -31,8 +31,12 @@ const Passport = (props) => {
     const [isActive, setIsActive] = useDetectOutsideClick(passportRef, false);
 	const removeEvent = (id) => {
 		dispatch(deleteUserEvent(id));
-		window.location.reload()
+		// window.location.reload()
 	};
+
+	useEffect(() => {
+		console.log(props)
+	},[dispatch])
 
 	return (
 		<>
@@ -56,30 +60,30 @@ const Passport = (props) => {
 				>
 					<PageCover key={0} pos="top"></PageCover>
 
-					{props.upcomingBookEvents &&
-						props.upcomingBookEvents.map((page, i) => (
-							<div key={i} className="page" data-density="soft">
+					{props.sortedUpcomingEvents &&
+						props.sortedUpcomingEvents.map((page, i) => (
+							<div key={page.booking_id} className="page" data-density="soft">
 								<div className="page-header">{page.header} Events </div>
 								<div className="page-content">
 									{page && (
-										<div>
+										<div key={page.booking_id}>
 											<div className="content-section">
 												<button onClick={() => console.log(page)}></button>
 
 												<div className="page-carousel">
 													<div className="page-event-info">
-														<div className="page-title">{page[0].title}</div>
+														<div className="page-title">{page.title}</div>
 														<div className="page-location">
 															<div className="page-country">
-																{page[0].country}, {page[0].region}
+																{page.country}, {page.region}
 															</div>
 															<div className="page-region"></div>
 														</div>
 														<div className="page-date">
-															{page[0].date.slice(5)}, {page[0].time}
+															{page.date.slice(5)}, {page.time}
 														</div>
 														<button
-															onClick={() => removeEvent(page[0].booking_id)}
+															onClick={() => removeEvent(page.booking_id)}
 														>
 															DELETE
 														</button>
@@ -88,7 +92,7 @@ const Passport = (props) => {
 												</div>
 											</div>
 											{/* Next Section */}
-											{page[1] && (<div className="content-section">
+											{/* {page[1] && (<div className="content-section">
 												<button onClick={() => console.log(page)}></button>
 
 												<div className="page-carousel">
@@ -108,11 +112,10 @@ const Passport = (props) => {
 														>
 															DELETE
 														</button>
-														{/* <BsFillTrashFill onClick={} className='trash'/> */}
 													</div>
 												</div>
 											</div>
-											)}
+											)} */}
 										</div>
 									)}
 								</div>
@@ -195,10 +198,10 @@ export default function (props) {
 	}, [userEvents]);
 	return (
 		<>
-			{upcomingBookEvents && (
+			{sortedUpcomingEvents[0] && (
 				<Passport
-					upcomingBookEvents={upcomingBookEvents}
-					pastBookEvents={pastBookEvents}
+					sortedPastEvents={sortedPastEvents}
+					sortedUpcomingEvents={sortedUpcomingEvents}
 				/>
 			)}
 		</>

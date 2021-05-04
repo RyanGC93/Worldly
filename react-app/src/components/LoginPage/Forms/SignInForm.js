@@ -83,7 +83,7 @@ export const LoginForm = ({ setAuthenticated }) => {
 							className={styles.check}
 							defaultChecked
 						/>
-						<label htmlFor="check">
+						<label htmlFor="check" className={styles.remember}>
 							<span className={(styles.icon, styles.checkBox)}></span> Remember
 							me
 						</label>

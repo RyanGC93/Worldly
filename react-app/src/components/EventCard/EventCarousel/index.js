@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from 'infinite-react-carousel'
-import './styles.css'
+import styles from './styles.module.css'
 
 const EventCarousel = ({ images }) => {  
   const settings =  {
@@ -12,12 +12,12 @@ const EventCarousel = ({ images }) => {
   return (
     <>
       {images[0] &&
-        <Slider {...settings} className="slider-container">
+        <Slider {...settings} className={styles.slideContainer}>
           {images.map((image) => (
-            <div className='slide-container' key={image.event_id}>
+            <div className={styles.slideContainer} key={image.event_id}>
               <img
                 key={image.photo_id}
-                className="event-image"
+                className={styles.eventImage}
                 alt={image.description} src={image.photo_url} />
             </div>
           ))}

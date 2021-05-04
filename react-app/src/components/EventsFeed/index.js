@@ -10,7 +10,6 @@ export default () => {
 
     useEffect(() => {
         dispatch(eventActions.getEvents(region));
-
     }, [dispatch,region]);  
     return (
         <>

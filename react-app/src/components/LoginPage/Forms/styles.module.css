@@ -1,72 +1,132 @@
 .input {
-    text-align: center;
-    width: 100%;
+	text-align: center;
 }
 
-.groupbutton,.button{
-	text-transform:uppercase;
-}
-.input, .signInBtn{
-    border:none;
-	padding: 15px 0px 15px 0px;
-	border-radius:25px;
-	background:rgba(255,255,255,.1);
-    width: 100%;
-    display: block;
-    text-align: center;
-    outline-style: none;
-    color: #fff;
-    cursor: pointer;
-
-}
-/* .signInBtn{
-    width: 60%;
-    margin-left: 20%;
-} */
-
-.signInBtn:hover {
-    background-color:rgba(13, 51, 128, 0.7)
+.groupbutton,
+.button {
+	text-transform: uppercase;
 }
 
+.errorRow {
+	text-align: center;
+	font-weight: bold;
+	color: rgb(70, 1, 1);
+	border-bottom: 1px solid black;
+}
+
+.input,
+.signInBtn {
+	border: none;
+	padding: 1.5vh 0px 1.5vh 0px;
+	border-radius: 25px;
+	background: rgba(255, 255, 255, 0.1);
+	width: 100%;
+	display: block;
+	text-align: center;
+	outline-style: none;
+	color: #fff;
+}
+.signInBtn {
+	cursor: pointer;
+	width: 75%;
+	margin-left: 12.5%;
+}
+.signUpBtn {
+	cursor: pointer;
+	margin-left: 15%;
+}
+.signInBtn:hover,.signUpBtn:hover {
+	transform: scale(1.1);
+	border: 3px solid #244a4e;
+}
+form {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.inputWrap {
+	cursor: pointer;
+}
+
+.password {
+	cursor: pointer;
+}
+.options {
+	width: 100%;
+	bottom: 0;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-bottom: 5px;
+}
+
+.bottom {
+	width: 80%;
+	bottom: 0;
+	margin-bottom: 7px;
+}
+
+.opts {
+	width: 100%;
+	bottom: 0;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-bottom: 7px;
+}
 .label {
-    padding: 1px 0px 5px 3px;
-    text-align: center;
-    width: 100%;
-    color: #fff;
-    display: block;
+	padding: 2px 2px 2px 2px;
+	text-align: center;
+	width: 100%;
+	color: #fff;
+	display: block;
+	font-size: 3.5vh;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-color: white;
-opacity: 1; /* Firefox */
+.form {
+	height: 100%;
+	position: relative;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-color: white
+.input::placeholder {
+	/* Chrome, Firefox, Opera, Safari 10.1+ */
+	color: #ffffff;
+	font-size: 2.5vh;
+	opacity: 1; /* Firefox */
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
-color: white
+.input:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: white;
+	font-size: 2.5vh;
+}
+
+.input::-ms-input-placeholder {
+	/* Microsoft Edge */
+	color: white;
+	font-size: 2.5vh;
 }
 
 .group {
-    margin-top:10px
-    /* padding: 3px 3px 3px 3px */
+	margin-top: 10px;
 }
 
 .check-box:hover {
-    cursor:pointer
+	cursor: pointer;
 }
 
-.error{
-    color: red;
-    padding: 4px 4px 4px 4px;
+.error {
+	color: red;
+	padding: 4px 4px 4px 4px;
 }
 
-.errorContainer{
-    margin-top:8px
+.errorContainer {
+	margin-top: 8px;
 }
 
-.label:focus{
-    border-style:none;
+.label:focus {
+	border-style: none;
+}
+
+.remember {
+	font-size: 3.0vh;
+	font-weight: bold;
 }
