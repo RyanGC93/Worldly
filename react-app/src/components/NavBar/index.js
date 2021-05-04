@@ -15,8 +15,6 @@ const NavBar = ({ setAuthenticated }) => {
 		history.push('/')
 	}
 	const handleOnSelect = (item) => {
-		// the item selected
-		console.log(item)
 	}
 	
 	const searchStyles = {

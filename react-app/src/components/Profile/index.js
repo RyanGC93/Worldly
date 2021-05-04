@@ -17,9 +17,6 @@ import CreateEventModal from "../CreateEventModal";
 const Profile = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [isChecked, setChecked] = useState(true);
-	
-
-
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
@@ -27,6 +24,7 @@ const Profile = () => {
 	const [isAmbassador, setAmbassador] = useState(false);
 
 	useEffect(() => {
+		console.log('rerender');
 		(async () => {
 			const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();

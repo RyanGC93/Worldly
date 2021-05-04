@@ -1,4 +1,5 @@
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
+
 import {useDetectOutsideClick} from "../../../services/detectOutsideClick"
 
 import HTMLFlipBook from "react-pageflip";
@@ -28,8 +29,8 @@ const Passport = (props) => {
 	const dispatch = useDispatch();
 	const passportRef = useRef(null);
     const [isActive, setIsActive] = useDetectOutsideClick(passportRef, false);
-	const removeEvent = async(id) => {
-		await dispatch(deleteUserEvent(id));
+	const removeEvent = (id) => {
+		dispatch(deleteUserEvent(id));
 		window.location.reload()
 	};
 
@@ -57,11 +58,11 @@ const Passport = (props) => {
 
 					{props.upcomingBookEvents &&
 						props.upcomingBookEvents.map((page, i) => (
-							<div className="page" data-density="soft">
+							<div key={i} className="page" data-density="soft">
 								<div className="page-header">{page.header} Events </div>
 								<div className="page-content">
 									{page && (
-										<>
+										<div>
 											<div className="content-section">
 												<button onClick={() => console.log(page)}></button>
 
@@ -112,7 +113,7 @@ const Passport = (props) => {
 												</div>
 											</div>
 											)}
-										</>
+										</div>
 									)}
 								</div>
 							</div>
@@ -159,7 +160,8 @@ const Passport = (props) => {
 };
 
 export default function (props) {
-	const [isLoading, setIsLoading] = useState(true);
+	const dispatch = useDispatch();
+
 	let userEvents = useSelector((state) => {
 		if (props.isChecked) return Object.values(state.userEvents);
 		if (!props.isChecked) return Object.values(state.ambassadorEvents);
@@ -187,10 +189,10 @@ export default function (props) {
 	let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
 	let pastBookEvents = contentDivider(sortedPastEvents);
 	useEffect(() => {
-		if (!upcomingBookEvents) return;
-		if (userEvents[0]) setIsLoading(false);
+		if (upcomingBookEvents) return;
+		dispatch(userEventActions.getUserEvents())
 		console.log(userEvents, upcomingBookEvents, pastBookEvents);
-	}, [isLoading, upcomingBookEvents, pastBookEvents, userEvents]);
+	}, [userEvents]);
 	return (
 		<>
 			{upcomingBookEvents && (

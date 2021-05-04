@@ -27,10 +27,10 @@ const DropDownMenu = ({ setAuthenticated }) => {
   const profileRedirect = () => {
     let pathname = location.pathname;
 
-    if (pathname.startsWith("/profile/")) {
-      setIsActive(false)
-      return
-    }
+    // if (!pathname.startsWith("/profile/")) {
+    //   setIsActive(false)
+    //   return
+    // }
       setIsActive(false)
       history.push(`profile/${username}`)
   }

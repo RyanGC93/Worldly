@@ -64,10 +64,13 @@ const eventsReducer = (state = initialState, action) => {
         return acc;
       }, {});
       return { ...state, ...events };
-      case REMOVE_USER_EVENT:
-        const newState = { ...state };
+    case REMOVE_USER_EVENT:
+      // let newState = state.filter(event => event.id !== action.id)
+      const newState = { ...state };
+      console.log('new sate', newState)
       delete newState[action.id];
-      console.log(newState,'sdsadsad')
+      console.log('new sate', newState)
+
         return newState;
     default:
       return state;
