@@ -11,19 +11,19 @@ def seed_event_calendar():
     count = 0
     for _ in range(50):
         count+=1
-        demo2 = EventCalendar(id=count,event_id=fake.random_int(min=3, max=34, step=1),date=fake.future_date(),time=fake.time())
+        demo2 = EventCalendar(id=count,event_id=fake.random_int(min=3, max=27, step=1),date=fake.future_date(),time=fake.time())
         seed_list.append(demo2)
     for _ in range(50):
         count+=1
-        demo2 = EventCalendar(id=count,event_id=fake.random_int(min=3, max=34, step=1),date=fake.past_date(),time=fake.time())
+        demo2 = EventCalendar(id=count,event_id=fake.random_int(min=3, max=27, step=1),date=fake.past_date(),time=fake.time())
         seed_list.append(demo2)
     for _ in range(5):
         count+=1
-        demo2 = EventCalendar(id=count,event_id=fake.random_int(min=3, max=34, step=1),date=fake.future_date(),time=fake.time())
+        demo2 = EventCalendar(id=count,event_id=fake.random_int(min=3, max=27, step=1),date=fake.future_date(),time=fake.time())
         seed_list.append(demo2) 
     for _ in range(5):
         count+=1
-        demo2 = EventCalendar(id=count,event_id=fake.random_int(min=3, max=34, step=1),date=fake.future_date(),time=fake.time())
+        demo2 = EventCalendar(id=count,event_id=fake.random_int(min=3, max=27, step=1),date=fake.future_date(),time=fake.time())
         seed_list.append(demo2)                     
     db.session.add_all(seed_list)
 

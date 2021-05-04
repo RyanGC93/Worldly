@@ -28,8 +28,8 @@ def seed_location():
     demo24=Location(event_id=24, longitude=4.895168, latitude=52.370216, country="Netherlands", region="Europe")
     demo25=Location(event_id=25, longitude=19.040236, latitude=47.497913, country="Hungary", region="Europe")
     demo26=Location(event_id=26, longitude=13.55278, latitude=46.3375, country="Slovenia", region="Europe")
-    demo26=Location(event_id=26, longitude=2.154007, latitude=41.390205, country="Spain", region="Europe")
-    demo29=Location(event_id=29, longitude=-46.62529, latitude=-23.533773, country="Brazil", region="South America")
+    demo27=Location(event_id=27, longitude=2.154007, latitude=41.390205, country="Spain", region="Europe")
+    demo28=Location(event_id=28, longitude=-46.62529, latitude=-23.533773, country="Brazil", region="South America")
     demo29=Location(event_id=29, longitude=-70.673676, latitude=-33.447487, country="Chile", region="South America")
     demo30=Location(event_id=30, longitude=-99.133209, latitude=19.432608, country="Mexico", region="Latin America")
     demo31=Location(event_id=31, longitude=-77.042793, latitude=-12.046374, country="Peru", region="South America")
@@ -37,7 +37,7 @@ def seed_location():
     demo34=Location(event_id=34, longitude=-103.349609, latitude=20.659698, country="Mexico ", region="Latin America")
 
 
-    db.session.add_all([demo2,demo3,demo4,demo5,demo6,demo7,demo8,demo9,demo10,demo11,demo12,demo13,demo14,demo15,demo16,demo17,demo18,demo19,demo20,demo21,demo22,demo23,demo24,demo25,demo26,demo26,demo29,demo29,demo30,demo31,demo32,demo34])
+    db.session.add_all([demo2,demo3,demo4,demo5,demo6,demo7,demo8,demo9,demo10,demo11,demo12,demo13,demo14,demo15,demo16,demo17,demo18,demo19,demo20,demo21,demo22,demo23,demo24,demo25,demo26,demo26,demo27])
 
     db.session.commit()
 
