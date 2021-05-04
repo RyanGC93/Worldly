@@ -7,50 +7,6 @@
 }
 
 
-
-.note-1 {
-	bottom: 2%;
-	right:10%;
-	transform: rotate(10deg);
-	background-image: linear-gradient(rgba(116, 255, 52, 1),rgba(114, 195, 114));
-}
-
-.note-2 {
-	bottom: -3%;
-	left: 40%;
-	transform: rotate(-6deg);
-	background-image: linear-gradient(rgb(21, 199, 199),rgb(187, 246, 246));
-}
-
-.note-3 {
-	bottom: 5%;
-	left: 1%;
-	transform: rotate(4deg);
-	background-image: linear-gradient(rgb(228, 231, 49),rgb(240, 253, 121));
-}
-
-.sticky-note {
-	height:10vw;
-	width: 10vw;
-	position: absolute;
-	border-radius: 0.5rem;
-	box-sizing: border-box;
-	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
-	border-radius: 5%;
-
-
-}
-.sticky-tape{
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%,0);
-	height: 35%;
-	background-color: rgba(206, 195, 195, 0.776);
-	width: 50%;
-	
-	top: -20%;
-	margin-bottom: 9px;
-}
 .spacer{
 	height: 1.8vw
 }

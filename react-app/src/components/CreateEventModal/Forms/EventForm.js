@@ -106,7 +106,7 @@ const EventForm = ({ setFormStep }) => {
 				<div className={styles.locationGroup}>
 					<input
 						className={styles.input}
-						required
+						
 						placeholder="City"
 						name="city"
 						type="city"
@@ -115,7 +115,7 @@ const EventForm = ({ setFormStep }) => {
 					/>
 					<input
 						className={styles.input}
-						required
+						
 						placeholder="Country"
 						name="country"
 						type="country"

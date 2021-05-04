@@ -1,4 +1,5 @@
-import "./styles.css";
+import styles from "./styles.module.css";
+import './styles.css'
 import MapChart from "./map";
 import React, { useState } from "react";
 import ReactTooltip from "react-tooltip";
@@ -11,22 +12,22 @@ const Map = ({isChecked}) => {
 			<div className="map-border">
 				<MapChart isChecked={isChecked} setTooltipContent={setContent} />
 				<ReactTooltip>{content}</ReactTooltip>
-				<div className="sticky-note note-1">
-					<div className="sticky-tape"></div>
+				<div className={`${styles.stickyNote} ${styles.noteOne}`}>
+					<div className={styles.stickyTape}></div>
 					<div className="content">
 						<div className="spacer"></div>
 						<div>- Hover over country to get info and select to search </div>
 					</div>
 				</div>
-				<div className="sticky-note note-2">
-					<div className="sticky-tape"></div>
+				<div className={`${styles.stickyNote} ${styles.noteTwo}`}>
+					<div className={styles.stickyTape}></div>
 					<div className="content">
 						<div className="spacer"></div>
 						<div>- Click on the passport to manage your itenary</div>
 					</div>
 				</div>
-				<div className="note-3 sticky-note hidden-note">
-					<div className="sticky-tape"></div>
+				<div className={`${styles.stickyNote} ${styles.noteThree}`}>
+					<div className={styles.stickyTape}></div>
 					<div className="content">
 						<div className="spacer"></div>
 						<div>- Push Pin Are Booked Events by User</div>

@@ -1,5 +1,5 @@
 import EventCard from "../../EventCard";
-import "./styles.css";
+import styles from "./styles.module.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DropSearch from '../DropSearch'
@@ -18,13 +18,13 @@ const MainFeed = () => {
 		<>
 			{loaded && (
                 <>
-                    <div className='eventsfeed-title'>
+					<div className={styles.eventsFeedTitle}>
 					Events
-                        <DropSearch />
 					
 					</div>
+                        <DropSearch />
 				
-					<div className="eventCard-container grid-container">
+					<div className={`${styles.eventCardContainer} grid-container`}>
 						{eventList &&
 							eventList.map((event) => (
 								<EventCard key={event.event_id} event={event} />
