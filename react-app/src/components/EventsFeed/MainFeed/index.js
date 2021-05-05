@@ -8,9 +8,9 @@ import DropDownMenu from "../../NavBar/DropDownMenu";
 const MainFeed = () => {
 	const dispatch = useDispatch();
 	const eventList = useSelector((state) => Object.values(state.events));
-
 	const [loaded, setLoaded] = useState(false);
 	useEffect(() => {
+		console.log(eventList)
 		if (eventList[0]) setLoaded(true);
 	}, [dispatch, eventList]);
 

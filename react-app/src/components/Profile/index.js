@@ -23,10 +23,7 @@ const Profile = () => {
 	const [phoneNumber, setPhoneNumber] = useState("");
 	const [isAmbassador, setAmbassador] = useState(false);
 
-	useEffect(() => {console.log('sdasd')})
-
 	useEffect(() => {
-		console.log('rerender');
 		(async () => {
 			const response = await fetch(`/api/users/${user.username}`);
 			const res = await response.json();
@@ -118,7 +115,12 @@ const Profile = () => {
 						)}
 					</div>
 					<div className={styles.rightSide}>
-						{isChecked && <Map isChecked={isChecked} className="map-wrapper" />}
+						{isChecked &&
+							<EventManagement
+								className="event-management"
+								isChecked={isChecked}
+							/>
+						}
 						{!isChecked && (
 							<EventManagement
 								className="event-management"
