@@ -9,8 +9,6 @@ import CalendarModal from '../CalendarModal';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
 
-
-
 const EventCard = ({ event }) => {
 	const history = useHistory();
 
@@ -67,8 +65,7 @@ const EventCard = ({ event }) => {
 									</address>
 								</div>
 								<div className={`${styles.imageWrapper} ${styles.carousel}`}>
-
-                  <EventCarousel images={images} />
+									<EventCarousel images={images} />
 									<div className={styles.calendarContainer}>
 										<BsCalendarFill
 											className={styles.calendarIcon}
@@ -86,45 +83,43 @@ const EventCard = ({ event }) => {
 										)}
 									</div>
 								</div>
-                <div className={styles.itemTimeDate}>
-                <time className={styles.date} dateTime="2018-10-16">
-                  {closest_event_date}
-                </time>
-                <time className={styles.time} dateTime="19:00">
-                  {closest_event_time}
-                </time>
-              </div>
-              <div
-                className={`${styles.itemButtons} ${styles.buttonsRow} ${styles.frontButtons}`}
-              >
-                <button
-                  id={styles.btnDetails}
-                  className={`${styles.btnDetails} ${styles.blue}`}
-                  aria-label="Learn more about the band and venue"
-                  onClick={() => setToggle(false)}
-                >
-                  {" "}
-                  Details
-                </button>
-                <a
-                  className={`${styles.btnTickets} ${styles.blue}`}
-                  aria-label="Purchase tickets for this event"
-                  onClick={() => setShowModal(true)}
-                >
-                  Book
-                </a>
-              </div>
-            </section>
+								<div className={styles.itemTimeDate}>
+									<time className={styles.date} dateTime="2018-10-16">
+										{closest_event_date}
+									</time>
+									<time className={styles.time} dateTime="19:00">
+										{closest_event_time}
+									</time>
+								</div>
+								<div className={`${styles.itemButtons} ${styles.buttonsRow} ${styles.frontButtons}`}>
+									<button
+										id={styles.btnDetails}
+										className={`${styles.btnDetails} ${styles.blue}`}
+										aria-label="Learn more about the band and venue"
+										onClick={() => setToggle(false)}
+									>
+										{' '}
+										Details
+									</button>
+									<a
+										className={`${styles.btnTickets} ${styles.blue}`}
+										aria-label="Purchase tickets for this event"
+										onClick={() => setShowModal(true)}
+									>
+										Book
+									</a>
+								</div>
+							</section>
 						)}
 						{/* BACK OF CARD */}
 						{!toggle && (
 							<section className={styles.itemCardDetails}>
 								<div className={styles.bioBlock}>
-										<h2 className={styles.title}>{title}</h2>
-										<h3 className={styles.bioTitle}>Bio</h3>
-									</div>
+									<h2 className={styles.title}>{title}</h2>
+									
 									<div className={styles.scrollBlock}>
 										<p className={styles.bioText}>{description}</p>
+									</div>
 								</div>
 								<div className={styles.moreInfo}>
 									<div className={styles.reviewContainer}>

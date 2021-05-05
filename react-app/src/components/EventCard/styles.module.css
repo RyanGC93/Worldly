@@ -170,7 +170,7 @@
 	animation: scaleIn 1000ms cubic-bezier(0.71, 0.55, 0.62, 1.57) 0.3s both;
 }
 
-.backCard-flip .bioTitle {
+.backCard-flip {
 	transform-origin: 10% 100%;
 	animation: scaleIn 1000ms cubic-bezier(0.71, 0.55, 0.62, 1.57) 0.7s both;
 }
@@ -217,8 +217,9 @@
 }
 
 .bioBlock {
-	border-radius: 0.45em 0.45em 0 0;
-	padding: 1em 1.5em 0.2em;
+	/* border-radius: 0.45em 0.45em 0 0; */
+	/* padding: 1em 1.5em 0.2em; */
+	height: 30vh;
 }
 
 /*-------------------
@@ -260,7 +261,9 @@
 			   TEXT
   -------------------*/
 .title {
-	font-size: 1.5em;
+	width: 100%;
+	text-align: center;
+	font-size: 2vh;
 	transform-origin: 10% 100%;
 	font-weight: 900;
 	color: #313b40;
@@ -329,27 +332,22 @@
 	margin-bottom: 0;
 }
 
-.bioTitle {
-	font-size: 1.5em;
-	color: #313b40;
-	margin: 0.6em 0 0.4em;
-}
+
 .test {
 	background-color: red;
 }
 
-.bio-text {
+.bioText {
 	line-height: 180%;
 	height: 0%;
 	color: #313b40;
 	opacity: 0.85;
-	font-size: 1em;
+	font-size: 1.2vh;
 	padding: 0 1em 0 1.5em;
-	margin: 0 0 -0.35em;
 }
 
 .scrollBlock {
-	height: 10em;
+	/* height: 10em; */
 	overflow: scroll;
 	border-bottom: 2px solid #ccc;
 }
@@ -359,7 +357,7 @@
 	display: grid;
 	grid-template-columns: 50% 50%;
 }
-.ambassador-container {
+.ambassadorContainer {
 	grid-column: 2;
 }
 
