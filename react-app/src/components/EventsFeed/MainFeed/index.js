@@ -21,7 +21,7 @@ const MainFeed = () => {
 					<div className={styles.eventsFeedTitle}>Events</div>
 					{/* <DropSearch /> */}
 					<div
-						className={`${styles.eventCardContainer} ${styles.gridContainer}`}
+						className={`${styles.gridContainer}`}
 					>
 						{eventList &&
 							eventList.map((event) => (

@@ -79,13 +79,12 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
   if (response.ok) {
       let res = await response.json();
     
-    
     let events = res.events
-    let eventsInfo = events[0].events_info
+    let eventsInfo = events[0].ambassador_events_info
     let eventPhotos = events[1].photo_gallery
     let eventCalendar =events[2].event_calendar
     let eventReviews = events[3].reviews
-
+    console.log(eventsInfo)
 
     eventCalendar.forEach((event) => {
       event["dateObj"] = new Date(`${event.date} ${event.time}`)
@@ -94,8 +93,8 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
     dispatch(eventCalendarActions.getCalendars(eventCalendar))
     dispatch(reviewActions.getReviews(eventReviews))
     dispatch(photoActions.getPhotos(eventPhotos))
+    console.log(eventsInfo,'sdsadsadsa')
   }
-  console.log(response,'sdsadsadsa')
   return response;
 };
 
@@ -106,7 +105,7 @@ const ambassadorEventsReducer = (state = initialState, action) => {
     case SET_AMBASSADOR_EVENTS:
       const events = action.events.reduce((acc, ele) => {
 
-        acc[ele.event_id] = ele;
+        acc[ele.booking_id] = ele;
         return acc;
       }, {});
       return { ...state, ...events };

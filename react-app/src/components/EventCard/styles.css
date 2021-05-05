@@ -8,7 +8,6 @@
 }
 
 .carousel-row {
-
 	height:235px
 }
 h2.title {
@@ -17,7 +16,6 @@ h2.title {
 
 .address{
 	width:75%;
-
 	display:flex;
 	justify-content:space-around;
 	position: absolute;
@@ -166,6 +164,7 @@ button.carousel-next {
 .card-container {
 	transition: width 200ms linear 0s;
 	perspective: 1000px;
+
 }
 
 .card-container .flip-animation {
@@ -233,11 +232,10 @@ button.carousel-next {
   -------------------*/
 .card-container {
 	width: 350px;
-	height: 28em;
+	height:100%;
 	margin: 0em auto;
 	font-family: "Roboto", sans-serif;
 	font-size: 1em;
-	margin-bottom: 40px;
 }
 
 /*--flexbox--*/

@@ -14,7 +14,8 @@ const NavBar = ({ setAuthenticated }) => {
 	const homeRedirect = () => {
 		history.push('/')
 	}
-	const handleOnSelect = (item) => {
+	const handleOnSelect = (item,id) => {
+		console.log(item,id)
 	}
 	
 	const searchStyles = {
