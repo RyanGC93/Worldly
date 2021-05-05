@@ -20,14 +20,14 @@ const MainFeed = () => {
 				<>
 					<div className={styles.eventsFeedTitle}>Events</div>
 					{/* <DropSearch /> */}
-					{/* <div
+					<div
 						className={`${styles.gridContainer}`}
-					> */}
+					>
 						{eventList &&
 							eventList.map((event) => (
 								<EventCard key={event.event_id} event={event} />
 							))}
-					{/* </div> */}
+					</div>
 				</>
 			)}
 		</>

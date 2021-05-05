@@ -143,7 +143,7 @@ const EventCard = ({ event }) => {
 									</button>
 									<div
 										className={`${styles.btnTickets} ${styles.blue} ${styles.onBack}`}
-										onClick={styles.eventPageRedirect}
+										onClick={eventPageRedirect}
 									>
 										Event Page
 									</div>

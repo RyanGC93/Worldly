@@ -3,7 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useSelector } from 'react-redux';
 import Map from '../Map';
-import styles from './styles.css';
+import styles from './styles.module.css';
 import EventCard from '../EventCard';
 import EventViewer from './EventViewer';
 import AmbassadorCalendar from './AmbassadorCalendar';
