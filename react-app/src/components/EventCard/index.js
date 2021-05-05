@@ -84,33 +84,35 @@ const EventCard = ({ event }) => {
 										)}
 									</div>
 								</div>
-								<div className="item-time-date">
-									<time className="date" dateTime="2018-10-16">
-										{closest_event_date}
-									</time>
-									<time className="time" dateTime="19:00">
-										{closest_event_time}
-									</time>
-								</div>
-								<div className="item-buttons front-buttons">
-									<button
-										id="btn-details"
-										className="btn-details blue"
-										aria-label="Learn more about the band and venue"
-										onClick={() => setToggle(false)}
-									>
-										{' '}
-										Details
-									</button>
-									<a
-										className="btn-tickets blue"
-										aria-label="Purchase tickets for this event"
-										onClick={() => setShowModal(true)}
-									>
-										Book
-									</a>
-								</div>
-							</section>
+                <div className={styles.itemTimeDate}>
+                <time className={styles.date} dateTime="2018-10-16">
+                  {closest_event_date}
+                </time>
+                <time className={styles.time} dateTime="19:00">
+                  {closest_event_time}
+                </time>
+              </div>
+              <div
+                className={`${styles.itemButtons}, ${styles.buttonsRow}, ${styles.frontButtons}`}
+              >
+                <button
+                  id={styles.btnDetails}
+                  className={`${styles.btnDetails}, ${styles.blue}`}
+                  aria-label="Learn more about the band and venue"
+                  onClick={() => setToggle(false)}
+                >
+                  {" "}
+                  Details
+                </button>
+                <a
+                  className={`${styles.btnTickets}, ${styles.blue}`}
+                  aria-label="Purchase tickets for this event"
+                  onClick={() => setShowModal(true)}
+                >
+                  Book
+                </a>
+              </div>
+            </section>
 						)}
 						{/* BACK OF CARD */}
 						{!toggle && (
