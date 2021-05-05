@@ -30,7 +30,6 @@ const DateRow = ({ date,  timesArray,setTimesArrays }) => {
 };
 
   useEffect(() => {
-    console.log(timesArray, "timesArray");
     setRowDate(date.dateObj);
     let dayNum = date.dateObj.getDay();
     let dateNum = date.dateObj.getDate();
@@ -113,7 +112,6 @@ export default function DateForm({setFormStep}) {
     };
     setIncrement((increment += 1));
     setTimesArrays(timesArray.push(dateObject));
-    console.log(timesArray,'dfdsfdf')
     splitFunc();
   };
 
@@ -134,12 +132,10 @@ export default function DateForm({setFormStep}) {
       newArr.push(filtered);
     }
     setSortedArray(newArr);
-    console.log(newArr)
   };
 
   useEffect(() => {
     if(!timesArray) return
-    console.log(timesArray)
     splitFunc()
   },[timesArray])
 

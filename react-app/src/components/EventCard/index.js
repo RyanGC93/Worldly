@@ -13,7 +13,6 @@ const EventCard = ({ event }) => {
   const history = useHistory()
 
   const reviews = useSelector((state) => {
-    console.log('sdsd')
     return Object.values(state.reviews).filter((review) => review.event_id === event.event_id);
   });
   const images = useSelector((state) => {
@@ -44,7 +43,6 @@ const EventCard = ({ event }) => {
   
   const [isLoaded,setIsLoaded] = useState(false)
   useEffect(() => {
-    console.log(event)
     if (reviews) setIsLoaded(true);
   }, [reviews]);
   
@@ -76,8 +74,7 @@ const EventCard = ({ event }) => {
                       
                       <Modal onClose={() => setShowModal(false)}>
                       <CalendarModal event={event} bookingAvailability={bookingAvailability} setShowModal={setShowModal} />
-                    </Modal>
-            
+                      </Modal>
                     )}
                   </div>
 

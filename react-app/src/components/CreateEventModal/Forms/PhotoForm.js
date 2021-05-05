@@ -27,7 +27,6 @@ const Slide = ({ photo, setPhotos, photos }) => {
 	};
 
 	const deleteHandler = (e) => {
-		console.log(e.target.value);
 		if (photos.length === 1) return setPhotos([]);
 		let updatedArr = photos.filter((item) => item.id !== photo.id);
 
@@ -35,13 +34,11 @@ const Slide = ({ photo, setPhotos, photos }) => {
 	};
 
 	const updateHandler = () => {
-		console.log(photos);
 		setPhotos(
 			photos.map((item) =>
 				item.id === photo.id ? { ...item, description: description } : item
 			)
 		);
-		console.log(photos);
 	};
 
 	return (
@@ -115,7 +112,6 @@ const PhotoForm = ({ setFormStep }) => {
 	let [photoKey, setPhotoKey] = useState(0);
 
 	const confirmHandler = () => {
-		console.log(photos);
 	};
 
 	const onSubmit = () => {};

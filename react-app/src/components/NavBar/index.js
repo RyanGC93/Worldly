@@ -22,7 +22,6 @@ const NavBar = ({ setAuthenticated }) => {
 		// 	return;
 		// }
 		history.push(`/bookings/${item.event_id}`);
-		console.log(item,id)
 	}
 	
 	const searchStyles = {

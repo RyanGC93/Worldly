@@ -40,8 +40,6 @@ function CalendarModal(props) {
 	};
 
 	const tileContent = ({ date, view }) => {
-		console.log(props);
-
 		let dateOne = date.toDateString();
 		let isSame = false;
 		let activeBooking;

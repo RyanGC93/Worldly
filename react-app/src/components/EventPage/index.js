@@ -20,18 +20,14 @@ const EventPage = () => {
 		(async () => {
 			const url = `/api/events/bookings/${eventId}`;
 			const res = await fetch(url);
-			if (!res.ok) console.error(res);
 			const data = await res.json();
-			console.log(data.events[0].events_info);
 			setEvents(data.events[0].events_info);
 			setPhotoGallery(data.events[1].photo_gallery);
 			setEventCalendar(data.events[2].event_calendar);
 			setReviews(data.events[3].reviews);
-			console.log(events, photoGallery, eventCalendar, reviews);
 			setIsLoading(false);
 			// debugger
 		})();
-		console.log(events, photoGallery, eventCalendar, reviews);
 	}, [isLoading]);
 
 	const settings = {

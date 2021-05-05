@@ -84,7 +84,6 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
     let eventPhotos = events[1].photo_gallery
     let eventCalendar =events[2].event_calendar
     let eventReviews = events[3].reviews
-    console.log(eventsInfo)
 
     eventCalendar.forEach((event) => {
       event["dateObj"] = new Date(`${event.date} ${event.time}`)
@@ -93,7 +92,6 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
     dispatch(eventCalendarActions.getCalendars(eventCalendar))
     dispatch(reviewActions.getReviews(eventReviews))
     dispatch(photoActions.getPhotos(eventPhotos))
-    console.log(eventsInfo,'sdsadsadsa')
   }
   return response;
 };

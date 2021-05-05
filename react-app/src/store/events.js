@@ -28,7 +28,7 @@ const removeEvent = (id) => {
 
 export const createEvent = (event) => async dispatch => {
   const { title, description, cost } = event
-  console.log(event)
+  
     const options =
     {
       method: 'POST',

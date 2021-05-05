@@ -14,7 +14,7 @@ const EventCarousel = ({ images }) => {
       {images[0] &&
         <Slider {...settings} className={styles.slideContainer}>
           {images.map((image) => (
-            <div className={styles.slideContainer} key={image.event_id}>
+            <div className={styles.imageContainer} key={image.event_id}>
               <img
                 key={image.photo_id}
                 className={styles.eventImage}

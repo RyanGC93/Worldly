@@ -105,14 +105,14 @@ const Profile = () => {
 						</div>
 						
 						{/* PASSPORT */}
-						{isChecked && (
+						{/* {isChecked && (
 							<Passport
 								user={user}
 								email={email}
 								phoneNumber={phoneNumber}
 								isChecked={isChecked}
 							/>
-						)}
+						)} */}
 					</div>
 					<div className={styles.rightSide}>
 						{isChecked &&
