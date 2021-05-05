@@ -30,7 +30,6 @@
 	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
 	border-radius: 5%;
 
-
 }
 .stickyTape{
 	position: absolute;
@@ -41,4 +40,14 @@
 	width: 50%;
 	top: -20%;
 	margin-bottom: 9px;
+}
+.stickyNote:hover{
+	transform: scale(1.3)
+}
+
+.content{
+	padding: .7vh;;
+	font-size: 2vh;
+	margin-top: 9px;
+
 }

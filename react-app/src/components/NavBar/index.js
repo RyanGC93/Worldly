@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import styles from './styles.module.css'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import DropDownMenu from './DropDownMenu'
@@ -9,12 +9,19 @@ import DropDownMenu from './DropDownMenu'
 
 const NavBar = ({ setAuthenticated }) => {
 	const history = useHistory()
+	let location = useLocation();
 	const username = useSelector(state => state.session.user.username)
 	const [searchItems, setSearchItems]= useState([])
 	const homeRedirect = () => {
 		history.push('/')
 	}
-	const handleOnSelect = (item,id) => {
+	const handleOnSelect = (item, id) => {
+		// let pathname = location.pathname;
+		// if (pathname.startsWith(`/profile/${userId}`)) {
+		// 	setIsActive(false);
+		// 	return;
+		// }
+		history.push(`/bookings/${item.event_id}`);
 		console.log(item,id)
 	}
 	

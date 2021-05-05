@@ -44,10 +44,8 @@ const EventManagement = ({ isChecked }) => {
 	// console.log(upcomingBookEvents, pastBookEvents);
 
 	useEffect(() => {
-		console.log('uservents', userEvents);
-		console.log(sortedPastEvents);
 		if (!userEvents[0]) return;
-	}, [userEvents]);
+	}, [userEvents,sortedUpcomingEvents]);
 
 	const AddEventsScreen = () => {
 		return <h1>Loading</h1>;
@@ -65,15 +63,14 @@ const EventManagement = ({ isChecked }) => {
 
 				{/* UPCOMING EVENTS */}
 				<TabPanel>
-					{sortedUpcomingEvents.length ? (
+					{sortedUpcomingEvents.length && (
 						<div className={styles.gridContainer}>
 							{sortedUpcomingEvents.map((event) => (
 								<EventCard event={event} />
 							))}
 						</div>
-					) : (
-						<AddEventsScreen />
 					)}
+			
 				</TabPanel>
 				{/* ALL EVENTS */}
 				<TabPanel>
