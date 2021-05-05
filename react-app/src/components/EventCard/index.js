@@ -83,6 +83,7 @@ const EventCard = ({ event }) => {
 										)}
 									</div>
 								</div>
+								{/* TODO: add this into cost */}
 								<div className={styles.itemTimeDate}>
 									<time className={styles.date} dateTime="2018-10-16">
 										{closest_event_date}

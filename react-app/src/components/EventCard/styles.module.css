@@ -181,7 +181,6 @@
 .cardContainer {
 	width: 350px;
 	/* width: 100%; */
-
     /* height: 28em; */
 	margin: 0em auto;
 	font-family: 'Roboto', sans-serif;
@@ -219,7 +218,7 @@
 .bioBlock {
 	/* border-radius: 0.45em 0.45em 0 0; */
 	/* padding: 1em 1.5em 0.2em; */
-	height: 30vh;
+	/* height: 30vh; */
 }
 
 /*-------------------
@@ -263,7 +262,7 @@
 .title {
 	width: 100%;
 	text-align: center;
-	font-size: 2vh;
+	font-size: 3vh;
 	transform-origin: 10% 100%;
 	font-weight: 900;
 	color: #313b40;
@@ -294,12 +293,12 @@
 
 .itemTimeDate {
 	z-index: 100;
-	width: 90%;
-	height: 2.5em;
-	font-size: 0.9em;
+	width: 100%;
+	height: 30px;
+	font-size: 15px;
 	color: #313b40;
 	background-color: #fff;
-	margin: -1.5em 0 -1.5em 1em;
+	margin: -1.5em 0 -1.5em 0em;
 	font-weight: 900;
 	border-radius: 0.3em;
 	text-align: center;
@@ -310,7 +309,7 @@
 .time {
 	position: relative;
 	top: 0.7em;
-	padding: 0.6rem;
+	/* padding: 0.6rem; */
 }
 
 .time {
@@ -319,6 +318,8 @@
 
 .address {
 	font-style: normal;
+	display: flex;
+	justify-content: space-around;
 }
 
 .venue {
@@ -338,16 +339,15 @@
 }
 
 .bioText {
-	line-height: 180%;
-	height: 0%;
 	color: #313b40;
 	opacity: 0.85;
-	font-size: 1.2vh;
-	padding: 0 1em 0 1.5em;
+	font-size: 2.2vh;
+	/* padding: 0 1em 0 1.5em; */
+	overflow: scroll
 }
 
 .scrollBlock {
-	/* height: 10em; */
+	height: 180px;
 	overflow: scroll;
 	border-bottom: 2px solid #ccc;
 }

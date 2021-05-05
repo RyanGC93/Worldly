@@ -27,6 +27,7 @@ const EventPage = () => {
 			setReviews(data.events[3].reviews);
 			setIsLoading(false);
 			// debugger
+			console.log(reviews,'reviews')
 		})();
 	}, [isLoading]);
 
@@ -69,8 +70,8 @@ const EventPage = () => {
 					</Modal>
 				)}
 				<div>
-					<div className={styles.description}>Description</div>
-					<div className={styles}>{events.description}</div>
+					<div className={styles.descriptionTitle}>Description</div>
+					<div className={styles.description}>{events.description}</div>
 				</div>
 			</div>
 			{/* TODO: add Reviews */}
