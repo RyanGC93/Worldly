@@ -120,11 +120,11 @@ const EventCard = ({ event }) => {
 						{!toggle && (
 							<section className={styles.itemCardDetails}>
 								<div className={styles.bioBlock}>
-									<h2 className={styles.title}>{title}</h2>
-									<h3 className={styles.bioTitle}>Bio</h3>
-								</div>
-								<div className={styles.scrollBlock}>
-									<p className={styles.bioText}>{description}</p>
+										<h2 className={styles.title}>{title}</h2>
+										<h3 className={styles.bioTitle}>Bio</h3>
+									</div>
+									<div className={styles.scrollBlock}>
+										<p className={styles.bioText}>{description}</p>
 								</div>
 								<div className={styles.moreInfo}>
 									<div className={styles.reviewContainer}>
