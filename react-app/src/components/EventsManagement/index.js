@@ -19,7 +19,7 @@ const EventManagement = ({ isChecked }) => {
 			console.log(events);
 			return events;
 		}
-		});
+	});
 
 	let dateNow = new Date();
 	let pastEvents = userEvents.filter((ev) => ev.dateObj < dateNow);
@@ -45,45 +45,61 @@ const EventManagement = ({ isChecked }) => {
 
 	useEffect(() => {
 		console.log('uservents', userEvents);
+		console.log(sortedPastEvents);
 		if (!userEvents[0]) return;
 	}, [userEvents]);
+
+	const AddEventsScreen = () => {
+		return <h1>Loading</h1>;
+	};
 
 	return (
 		<>
 			<Tabs>
 				<TabList>
-					<Tab>Past Events</Tab>
-					<Tab>All Events</Tab>
 					<Tab>Upcoming Events</Tab>
+					<Tab>All Events</Tab>
+					<Tab>Past Events</Tab>
 					<Tab>Map</Tab>
 				</TabList>
 
 				{/* UPCOMING EVENTS */}
 				<TabPanel>
-					{sortedUpcomingEvents.length &&
-						sortedUpcomingEvents.map((event) => (
-							<div className={styles.gridContainer}>
+					{sortedUpcomingEvents.length ? (
+						<div className={styles.gridContainer}>
+							{sortedUpcomingEvents.map((event) => (
 								<EventCard event={event} />
-							</div>
-						))}
+							))}
+						</div>
+					) : (
+						<AddEventsScreen />
+					)}
 				</TabPanel>
 				{/* ALL EVENTS */}
 				<TabPanel>
-					{userEvents.length &&
-						userEvents.map((event) => (
-							<div className={styles.gridContainer}>
+				{userEvents.length ? (
+						<div className={styles.gridContainer}>
+							{userEvents.map((event) => (
 								<EventCard event={event} />
-							</div>
-						))}
+							))}
+						</div>
+					) : (
+						<AddEventsScreen />
+					)}
 				</TabPanel>
+				{/* PAST EVENTS*/}
 				<TabPanel>
-					{sortedPastEvents.length &&
-						sortedPastEvents.map((event) => (
-							<div className={styles.gridContainer}>
+				{sortedPastEvents.length ? (
+						<div className={styles.gridContainer}>
+							{sortedPastEvents.map((event) => (
 								<EventCard event={event} />
-							</div>
-						))}
+							))}
+						</div>
+					) : (
+						<AddEventsScreen />
+					)}
 				</TabPanel>
+				{/* MAP */}
 				<TabPanel>
 					<Map isChecked={isChecked} />
 				</TabPanel>
