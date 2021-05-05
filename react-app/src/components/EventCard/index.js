@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import './styles.css';
+// import './styles.css';
+import styles from './styles.module.css';
 import { BsCalendarFill } from 'react-icons/bs';
 import EventCarousel from './EventCarousel';
 import ReactStarsRating from 'react-awesome-stars-rating';
@@ -8,7 +9,7 @@ import CalendarModal from '../CalendarModal';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
 
-let styles;
+
 
 const EventCard = ({ event }) => {
 	const history = useHistory();
