@@ -1,24 +1,19 @@
 
 import React, { useRef } from 'react';
 import {useDetectOutsideClick} from "../../../services/detectOutsideClick"
-import './styles.css';
+import styles from './styles.module.css';
 import { useHistory } from "react-router-dom";
 
 const DropSearch = () => {
-    const history = useHistory()
-
     const dropdownRef = useRef(null);
     const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
     const onClick = () => setIsActive(!isActive);
 
-
-  
-    return (
+  return (
       <>
-        <div className="search-menu-container">
-          <button onClick={onClick} className="menu-trigger search-trigger">
+        <div className={styles.searchMenuContainer}>
+          <button onClick={onClick} className="">
             <span>filter</span>
-     
           </button>
           <nav
             ref={dropdownRef}

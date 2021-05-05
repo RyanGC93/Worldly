@@ -1,71 +1,57 @@
-
-import React, { useRef } from 'react';
-import {useLocation} from 'react-router-dom'
-
-import {useDetectOutsideClick} from "../../../services/detectOutsideClick"
-import './styles.css';
-import { useHistory } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { useLocation, useHistory } from "react-router-dom";
+import { AiOutlineMenu } from "react-icons/ai";
 import { useSelector } from 'react-redux'
+
+import { useDetectOutsideClick } from "../../../services/detectOutsideClick";
+import styles from "./styles.module.css";
 import { logout } from "../../../services/auth";
 
 const DropDownMenu = ({ setAuthenticated }) => {
-  let location = useLocation()
-  const onLogout = async (e) => {
-    await logout();
-    setAuthenticated(false);
-  };
+	const onLogout = async (e) => {
+		await logout();
+		setAuthenticated(false);
+	};
 
-
-  const history = useHistory()
-  const username = useSelector(state => state.session.user.username)
-
-
-    const dropdownRef = useRef(null);
-    const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
-    const onClick = () => setIsActive(!isActive);
+  let location = useLocation();
+	const history = useHistory();
+	const userId= useSelector((state) => state.session.user.username);
+	const dropdownRef = useRef(null);
+	const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
+	const onClick = () => setIsActive(!isActive);
 
   const profileRedirect = () => {
-    let pathname = location.pathname;
+		let pathname = location.pathname;
+		if (pathname.startsWith(`/profile/${userId}`)) {
+			setIsActive(false);
+			return;
+		}
+		setIsActive(false);
+		history.push(`/profile/${userId}`);
+	};
 
-    // if (!pathname.startsWith("/profile/")) {
-    //   setIsActive(false)
-    //   return
-    // }
-      setIsActive(false)
-      history.push(`profile/${username}`)
-  }
-  
-  
-    return (
-      <>
-        <div className="menu-container">
-          <button onClick={onClick} className="menu-trigger">
-            <span>{username}</span>
-            <img
-              src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/df/df7789f313571604c0e4fb82154f7ee93d9989c6.jpg"
-              alt="User avatar"
-            />
-          </button>
-          <nav
-            ref={dropdownRef}
-            className={`menu abs ${isActive ? "active" : "inactive"}`}
-          >
-            <ul>
-              <li>
-                <div onClick={profileRedirect} >Profile</div>
-              </li>
-              <li>
-                
-              </li>
-              <li>
-                <div onClick={onLogout}>Sign Out</div>
-              </li>
 
-            </ul>
-          </nav>
-        </div>
-      </>
-    );
-  }
-  
-export default DropDownMenu
+	return (
+		<div className={styles.menuContainer}>
+				<div onClick={onClick} className={styles.menuTrigger}>
+					<AiOutlineMenu className={styles.menuIcon} />
+				</div>
+			<nav
+					ref={dropdownRef}
+					className={`${styles.menu} ${isActive ? `${styles.active}` : ""}`}
+				>
+				<ul>
+					<li>
+						<div onClick={profileRedirect}>Profile</div>
+					</li>
+					<li>\ </li>
+					<li>
+						<div onClick={onLogout}>Sign Out</div>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	);
+};
+
+export default DropDownMenu;

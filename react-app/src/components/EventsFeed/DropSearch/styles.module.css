@@ -1,15 +1,15 @@
-.search-trigger{
+.searchTrigger{
     margin-left: 0;
 }
 
-.dropped-menu{
+.droppedMenu{
     background-color: red;
     width: 300px;
     height: 200px;
     
 }
 
-.search-menu-container{
+.searchMenuContainer{
     position: relative;
     display: flex;
     justify-content: center;

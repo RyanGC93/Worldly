@@ -19,7 +19,6 @@ const Slide = ({ photo, setPhotos, photos }) => {
 	}, [photo.description]);
 
 	const updateDescription = (e) => {
-		console.log(e.target.value);
 		setDescription(e.target.value);
 	};
 

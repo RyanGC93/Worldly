@@ -23,6 +23,8 @@ const Profile = () => {
 	const [phoneNumber, setPhoneNumber] = useState("");
 	const [isAmbassador, setAmbassador] = useState(false);
 
+	useEffect(() => {console.log('sdasd')})
+
 	useEffect(() => {
 		console.log('rerender');
 		(async () => {
@@ -35,7 +37,7 @@ const Profile = () => {
 		})();
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
 		if (isChecked) dispatch(userEventActions.getUserEvents());
-	},[isChecked,dispatch,user]);
+	},[isChecked,user]);
 
 	const manageBookings = () => {
 		let passport = document.getElementById("passport");

@@ -130,7 +130,7 @@ def user_events():
 @event_routes.route('/user/<int:id>', methods=['DELETE'])
 @login_required
 def delete_booking(id):
-    print('saddasdsa')
+    print(id, 'saddasdsa')
     booking = BookingCalendar.query.filter(id == BookingCalendar.id).first()
     
     db.session.delete(booking)

@@ -17,7 +17,7 @@ const ordinalSuffix = (strNum) => {
   return `${strNum}th`;
 };
 
-const DateRow = ({ date, setSortedArray, sortedArray, timesArray,setTimesArrays }) => {
+const DateRow = ({ date,  timesArray,setTimesArrays }) => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const [rowDate, setRowDate] = useState({});
   const [time, setTime] = useState("");
@@ -25,17 +25,8 @@ const DateRow = ({ date, setSortedArray, sortedArray, timesArray,setTimesArrays 
   const [dayOfWeek, setDayOfWeek] = useState("");
 
   const handleTrash = (e) => {
-    console.log(timesArray,'sds')
-    // languages.splice(1, 1, 'Python');
-    // console.log("dsdsdsdsd", sortedArray, date);
-    // let copyArr = sortedArray[date.key];
-    // console.log("copied", copyArr);
     let filtered = timesArray.filter((item) => item.key !== date.key);
-    console.log(filtered)
     setTimesArrays(filtered)
-    // console.log(sortedArray.splice(date.index, 1, filtered));
-    // console.log(sortedArray,'here')
-    // setSortedArray(sortedArray);
 };
 
   useEffect(() => {
@@ -83,15 +74,7 @@ const MonthDates = ({ month, upcomingArrays, setUpcomingArrays }) => {
     "November",
     "December"
   ];
-  // useEffect(() => {
-  //   console.log(month,'dfsdfdfdsfsdfd');
-  //   if (month[0]) {
-  //     name = month[0].dateObj.getMonth();
-  //     setName(monthCalendar[name]);
-  //   }
-  //   setDates(month);
 
-  // });
 
   return (
     <>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import {useDetectOutsideClick} from "../../../services/detectOutsideClick"
+import { useDetectOutsideClick } from "../../../services/detectOutsideClick";
 
 import HTMLFlipBook from "react-pageflip";
 import "./styles.css";
@@ -23,150 +23,54 @@ const PageCover = React.forwardRef((props, ref) => {
 	);
 });
 
-
-
-const Passport = (props) => {
+const Page = React.forwardRef(({ page }, ref) => {
 	const dispatch = useDispatch();
-	const passportRef = useRef(null);
-    const [isActive, setIsActive] = useDetectOutsideClick(passportRef, false);
+	// const [isActive, setIsActive] = useDetectOutsideClick(passportRef, false);
 	const removeEvent = (id) => {
 		dispatch(deleteUserEvent(id));
 		// window.location.reload()
 	};
 
 	useEffect(() => {
-		console.log(props)
-	},[dispatch])
+
+		// if(props.sortedUpcomingEvents)
+	}, []);
 
 	return (
-		<>
-			<div
-				id="passport"
-				className="container-md "
-				style={{ position: "relative" }}
-			>
-				<HTMLFlipBook
-					width={550}
-					height={733}
-					size="stretch"
-					minWidth={115}
-					maxWidth={2000}
-					minHeight={100}
-					maxHeight={2533}
-					maxShadowOpacity={0.5}
-					showCover={true}
-					mobileScrollSupport={true}
-					className="flip-book html-book demo-book"
-				>
-					<PageCover key={0} pos="top"></PageCover>
+		<div ref={ref} className="page" >
+			<div className="page-header">{page.header} Events </div>
+			<div className="page-content">
+				<div>
+					<div className="content-section">
+						<button onClick={() => console.log(page)}></button>
 
-					{props.sortedUpcomingEvents &&
-						props.sortedUpcomingEvents.map((page, i) => (
-							<div key={page.booking_id} className="page" data-density="soft">
-								<div className="page-header">{page.header} Events </div>
-								<div className="page-content">
-									{page && (
-										<div key={page.booking_id}>
-											<div className="content-section">
-												<button onClick={() => console.log(page)}></button>
-
-												<div className="page-carousel">
-													<div className="page-event-info">
-														<div className="page-title">{page.title}</div>
-														<div className="page-location">
-															<div className="page-country">
-																{page.country}, {page.region}
-															</div>
-															<div className="page-region"></div>
-														</div>
-														<div className="page-date">
-															{page.date.slice(5)}, {page.time}
-														</div>
-														<button
-															onClick={() => removeEvent(page.booking_id)}
-														>
-															DELETE
-														</button>
-														{/* <BsFillTrashFill onClick={} className='trash'/> */}
-													</div>
-												</div>
-											</div>
-											{/* Next Section */}
-											{/* {page[1] && (<div className="content-section">
-												<button onClick={() => console.log(page)}></button>
-
-												<div className="page-carousel">
-													<div className="page-event-info">
-														<div className="page-title">{page[1].title}</div>
-														<div className="page-location">
-															<div className="page-country">
-																{page[1].country}, {page[1].region}
-															</div>
-															<div className="page-region"></div>
-														</div>
-														<div className="page-date">
-															{page[1].date.slice(5)}, {page[1].time}
-														</div>
-														<button
-															onClick={() => removeEvent(page[1].booking_id)}
-														>
-															DELETE
-														</button>
-													</div>
-												</div>
-											</div>
-											)} */}
-										</div>
-									)}
+						<div className="page-carousel">
+							<div className="page-event-info">
+								<div className="page-title">{page.title}</div>
+								<div className="page-location">
+									<div className="page-country">
+										{page.country}, {page.region}
+									</div>
+									<div className="page-region"></div>
 								</div>
+								<div className="page-date">
+									{page.date.slice(5)}, {page.time}
+								</div>
+								<button onClick={() => removeEvent(page.booking_id)}>
+									DELETE
+								</button>
 							</div>
-						))}
-					{/* 
-					{props.upcomingBookEvents &&
-						props.upcomingBookEvents.map((page, i) => (
-							<Page
-								key={`pastBookPage-${i}`}
-								header={"Upcoming"}
-								content={page}
-							/>
-						))} */}
-				</HTMLFlipBook>
-			</div>
-			{/* <div className="container mt-3">
-					<div className="row">
-						<div className="col-md-6">
-							<button
-								type="button"
-								className="btn btn-info btn-sm btn-prev"
-								onClick={this.prevButtonClick}
-							>
-								Previous page
-							</button>
-							[<span>{this.state.page + 1}</span> of{" "}
-							<span>{this.state.totalPage}</span>]
-							<button
-								type="button"
-								className="btn btn-info btn-sm btn-next"
-								onClick={this.nextButtonClick}
-							>
-								Next page
-							</button>
-						</div>
-						<div className="col-md-6">
-							State: <i>{this.state.state}</i>, orientation:{" "}
-							<i>{this.state.orientation}</i>
 						</div>
 					</div>
-				</div> */}
-		</>
+				</div>
+			</div>
+		</div>
 	);
-};
+});
 
 export default function (props) {
-	const dispatch = useDispatch();
-
 	let userEvents = useSelector((state) => {
-		if (props.isChecked) return Object.values(state.userEvents);
+		return Object.values(state.userEvents);
 		if (!props.isChecked) return Object.values(state.ambassadorEvents);
 	});
 
@@ -192,18 +96,35 @@ export default function (props) {
 	let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
 	let pastBookEvents = contentDivider(sortedPastEvents);
 	useEffect(() => {
-		if (upcomingBookEvents) return;
-		dispatch(userEventActions.getUserEvents())
-		console.log(userEvents, upcomingBookEvents, pastBookEvents);
+		// if(userEvents[0])return
+		// dispatch(userEventActions.getUserEvents());
 	}, [userEvents]);
+	useEffect(() => console.log("this"));
+	if(!sortedUpcomingEvents) return
 	return (
-		<>
-			{sortedUpcomingEvents[0] && (
-				<Passport
-					sortedPastEvents={sortedPastEvents}
-					sortedUpcomingEvents={sortedUpcomingEvents}
-				/>
-			)}
-		</>
+		<div
+			id="passport"
+			className="container-md "
+			style={{ position: "relative" }}
+		>
+			<div
+				renderOnlyPageLengthChange={true}
+				width={550}
+				height={733}
+				size="stretch"
+				minWidth={115}
+				maxWidth={2000}
+				minHeight={100}
+				maxHeight={2533}
+				maxShadowOpacity={0.5}
+				// showCover={true}
+				mobileScrollSupport={true}
+				className="flip-book html-book demo-book"
+			>
+				{sortedUpcomingEvents.map((page, i) => (
+					<Page type={'page'} page={page} />
+				))}
+			</div>
+		</div>
 	);
 }

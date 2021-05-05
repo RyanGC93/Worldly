@@ -21,7 +21,7 @@ const removeUserEvent = (id) => {
 }
 
 
-export const getUserEvents = (user) => async (dispatch) => {
+export const getUserEvents = () => async (dispatch) => {
   const response = await fetch(`/api/events/user`);
   if (response.ok) {
     let res = await response.json();
@@ -52,6 +52,7 @@ export const deleteUserEvent = (id) => async dispatch => {
     console.log(id)
     dispatch(removeUserEvent(id))
   }
+
 }
 
 const initialState = {};
@@ -70,7 +71,7 @@ const eventsReducer = (state = initialState, action) => {
       console.log('new sate', newState)
       delete newState[action.id];
       console.log('new sate', newState)
-
+      debugger
         return newState;
     default:
       return state;

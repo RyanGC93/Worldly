@@ -61,7 +61,7 @@ export const deleteEvent = (id) => async dispatch => {
   const res = await fetch(`/api/events/${id}`, options)
   
   if ( res.ok) {
-    dispatch(removeEvent(id))
+    // dispatch(removeEvent(id))
   }
 }
 

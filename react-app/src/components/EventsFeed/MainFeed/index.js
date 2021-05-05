@@ -2,7 +2,7 @@ import EventCard from "../../EventCard";
 import styles from "./styles.module.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import DropSearch from '../DropSearch'
+import DropSearch from "../DropSearch";
 import DropDownMenu from "../../NavBar/DropDownMenu";
 
 const MainFeed = () => {
@@ -17,14 +17,12 @@ const MainFeed = () => {
 	return (
 		<>
 			{loaded && (
-                <>
-					<div className={styles.eventsFeedTitle}>
-					Events
-					
-					</div>
-                        <DropSearch />
-				
-					<div className={`${styles.eventCardContainer} ${styles.gridContainer}`}>
+				<>
+					<div className={styles.eventsFeedTitle}>Events</div>
+					{/* <DropSearch /> */}
+					<div
+						className={`${styles.eventCardContainer} ${styles.gridContainer}`}
+					>
 						{eventList &&
 							eventList.map((event) => (
 								<EventCard key={event.event_id} event={event} />
