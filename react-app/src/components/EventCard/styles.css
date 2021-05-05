@@ -1,18 +1,18 @@
-/* ! UNORGANIZED */
+``/* ! UNORGANIZED */
 
 .buttons-row{
 	position: absolute;
 	bottom: 0
 }
 
-.item-card {
+.itemCard {
 	display: relative;
 	position: relative;
 }
 
 /* ! */
 
-.card-container {
+.cardContainer {
 	border: 1px solid rgb(251, 251, 251);
 	border-radius: 0.5rem;
 	box-sizing: border-box;
@@ -176,47 +176,47 @@ button.carousel-next {
 				   Flip
   -------------------*/
 
-.card-container {
+.cardContainer {
 	transition: width 200ms linear 0s;
 	perspective: 1000px;
 
 }
 
-.card-container .flip-animation {
+.cardContainer .flipAnimation {
 	transform: rotateY(0deg);
 }
 
-.card-container.addFlip .flip-animation,
-.card-container.addFlip .flip-animation ~ .backCard {
+.cardContainer.addFlip .flipAnimation,
+.cardContainer.addFlip .flipAnimation ~ .backCard {
 	transform: rotateY(180deg);
 }
 
-.flip-animation {
+.flipAnimation {
 	position: relative;
 	transform-style: preserve-3d;
 	transition: transform 550ms linear 0s;
 }
 
-.wrapper .card-container {
+.wrapper .cardContainer {
 	height: 50em;
 }
 
-.wrapper.frontback-cards .card-container {
+.wrapper.frontback-cards .cardContainer {
 	height: 29em;
 }
 
-.wrapper.frontback-cards .item-card {
+.wrapper.frontback-cards .itemCard {
 	z-index: 2;
 	transform: rotateY(0deg);
 }
 
-.wrapper.frontback-cards .item-card-details {
+.wrapper.frontback-cards .itemCard-details {
 	z-index: 1;
 	transform: rotateY(180deg);
 }
 
-.wrapper.frontback-cards .item-card,
-.wrapper.frontback-cards .item-card-details {
+.wrapper.frontback-cards .itemCard,
+.wrapper.frontback-cards .itemCard-details {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -224,11 +224,11 @@ button.carousel-next {
 	backface-visibility: hidden;
 }
 
-.wrapper .item-card-details {
+.wrapper .itemCard-details {
 	margin-top: -2em;
 }
 
-.wrapper.frontback-cards .item-card-details {
+.wrapper.frontback-cards .itemCard-details {
 	margin-top: 0;
 }
 
@@ -246,7 +246,7 @@ button.carousel-next {
 			   LAYOUT
   -------------------*/
   /* TODO FIX CARD CONTAINTER */
-.card-container {
+.cardContainer {
 	width: 350px;
 	height:400px;
 	margin: 0em auto;
@@ -255,8 +255,8 @@ button.carousel-next {
 }
 
 /*--flexbox--*/
-.item-card,
-.item-card-details {
+.itemCard,
+.itemCard-details {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
@@ -587,8 +587,8 @@ button.carousel-next {
 					GRID
   -------------------*/
 @supports (display: grid) {
-	.item-card,
-	.item-card-details {
+	.itemCard,
+	.itemCard-details {
 		display: grid;
 		grid-gap: 0;
 		grid-template-columns: repeat(2, auto);

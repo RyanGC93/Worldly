@@ -54,7 +54,7 @@ const EventCard = ({ event }) => {
 	return (
 		<>
 			{isLoaded && (
-				<div className={styles.cardContainer}>
+				<div className={`${styles.cardContainer} ${styles.description}`}>
 					<div className={styles.flipAnimation}>
 						{toggle && (
 							<section className={styles.itemCard}>
@@ -66,11 +66,12 @@ const EventCard = ({ event }) => {
 										<div className={styles.addressContinent}>{continent}</div>
 									</address>
 								</div>
-								<div className={`${styles.imageWrapper}, ${styles.carousel}`}>
-									<EventCarousel images={images} />
-									<div className="calendar-container">
+								<div className={`${styles.imageWrapper} ${styles.carousel}`}>
+
+                  <EventCarousel images={images} />
+									<div className={styles.calendarContainer}>
 										<BsCalendarFill
-											className="calendar-icon"
+											className={styles.calendarIcon}
 											style={{ stroke: 'black' }}
 											onClick={() => setShowModal(true)}
 										/>
@@ -94,11 +95,11 @@ const EventCard = ({ event }) => {
                 </time>
               </div>
               <div
-                className={`${styles.itemButtons}, ${styles.buttonsRow}, ${styles.frontButtons}`}
+                className={`${styles.itemButtons} ${styles.buttonsRow} ${styles.frontButtons}`}
               >
                 <button
                   id={styles.btnDetails}
-                  className={`${styles.btnDetails}, ${styles.blue}`}
+                  className={`${styles.btnDetails} ${styles.blue}`}
                   aria-label="Learn more about the band and venue"
                   onClick={() => setToggle(false)}
                 >
@@ -106,7 +107,7 @@ const EventCard = ({ event }) => {
                   Details
                 </button>
                 <a
-                  className={`${styles.btnTickets}, ${styles.blue}`}
+                  className={`${styles.btnTickets} ${styles.blue}`}
                   aria-label="Purchase tickets for this event"
                   onClick={() => setShowModal(true)}
                 >
@@ -138,15 +139,15 @@ const EventCard = ({ event }) => {
 										<p>Profile </p>
 									</div>
 								</div>
-								<div className={`${styles.itemButtons}, ${styles.back}`}>
+								<div className={`${styles.itemButtons} ${styles.back}`}>
 									<button
-										className={`${styles.btnDetails}, ${styles.blue}, ${styles.onBack}`}
+										className={`${styles.btnDetails} ${styles.blue} ${styles.onBack}`}
 										onClick={() => setToggle(true)}
 									>
 										Basic Info
 									</button>
 									<div
-										className={`${styles.btnTickets}, ${styles.blue}, ${styles.onBack} `}
+										className={`${styles.btnTickets} ${styles.blue} ${styles.onBack}`}
 										onClick={styles.eventPageRedirect}
 									>
 										Event Page
