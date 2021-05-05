@@ -41,7 +41,8 @@ const MapChart = ({ setTooltipContent, isChecked }) => {
 	});
 
 	useEffect(() => {
-		if(!userEvents[0] ) return
+		if (!userEvents[0]) return
+		console.log("map", userEvents)
 	}, [userEvents]);
 	let markers = [];
 	userEvents.forEach((event) => {

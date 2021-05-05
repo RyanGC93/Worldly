@@ -29,10 +29,9 @@ def ambassadors():
         print(ambassador)
         if(ambassador):
 
-            event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname', 'location_latitude', 'booking_id']
+            event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname','date', 'time', 'location_longitude', 'location_latitude', 'booking_id']
             event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name, EventCalendar.date, EventCalendar.time, Location.longitude, Location.latitude, BookingCalendar.id).filter(
-                BookingCalendar.user_id == current_user.id, BookingCalendar.timeslot == EventCalendar.id, EventCalendar.event_id == Event.id, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == current_user.id).all()
-
+            BookingCalendar.user_id == current_user.id, BookingCalendar.timeslot == EventCalendar.id, EventCalendar.event_id == Event.id, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == current_user.id).all()
             event_ids = [event[0]for event in event_values]
 
             ambassador_events_info = {"ambassador_events_info": [
