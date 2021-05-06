@@ -27,10 +27,13 @@
 }
 
 .eventInfo{
-    width:60vh;
-    margin-left: 15vw;
-    display:flex;
-    font-size: 32px
+    margin-left: 15%;
+    width: 100%;
+    display:grid;
+    text-align: center;
+    font-size: 32px;
+    display:grid;
+    grid-template-columns: 19% 33% 33%;
     /* grid-template-columns: 40% 60% */
 }
 
