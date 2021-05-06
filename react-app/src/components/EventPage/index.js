@@ -17,6 +17,7 @@ const EventPage = () => {
 	const [eventCalendar, setEventCalendar] = useState([]);
 	const [reviews, setReviews] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [reviewToggle,setReviewToggle] = useState(true)
 
 	let baseReviews = reviews.slice(0, 3);
 	let additionalReviews = reviews.slice(3);
@@ -28,7 +29,14 @@ const EventPage = () => {
 			const data = await res.json();
 			setEvents(data.events[0].events_info);
 			setPhotoGallery(data.events[1].photo_gallery);
-			setEventCalendar(data.events[2].event_calendar);
+			let eventCalendarAdded = data.events[2].event_calendar
+			eventCalendar.forEach((event) => {
+				event["dateObj"] = new Date(`${event.date} ${event.time}`)
+			})
+		
+
+
+			setEventCalendar(eventCalendarAdded);
 			setReviews(data.events[3].reviews);
 			setIsLoading(false);
 			// debugger
@@ -49,53 +57,59 @@ const EventPage = () => {
 			<div className={styles.carouselContainer}>
 				<Carousel className={styles.carouselWrapper} styling={{ height: '50%' }} {...settings}>
 					{photoGallery.map((photo) => (
-						<>
-							<img className={styles.carouselImg} key={photo.photo_id} src={photo.photo_url} />
-						</>
+				
+							<img className={styles.carouselImg} key={photo.photo_id} alt='' src={photo.photo_url} />
 					))}
 				</Carousel>
 			</div>
 			<div className={styles.eventTitle}>{events.title}</div>
 			<div className={styles.eventInfo}>
-				<div>
-					<div className={styles}>Chef {events.firstname}</div>
-					<div className={styles}>
-						{events.country}, {events.region}
-					</div>
-					{eventCalendar.length && (
-						<>
-							<BsCalendarFill
-								className={styles.calendarIcon}
-								style={{ stroke: 'black' }}
-								onClick={() => setShowModal(true)}
-							/>
-							{showModal && (
-								<Modal onClose={() => setShowModal(false)}>
-									<CalendarModal bookingAvailability={eventCalendar} setShowModal={setShowModal} />
-								</Modal>
-							)}
-							<div onClick={() => console.log(eventCalendar)} >trial</div>
-						</>
-					)}
+				<div className={styles}>Chef {events.firstname}</div>
+				<div className={styles}>
+					{events.country}, {events.region}
 				</div>
+				{eventCalendar.length && (
+					<>
+						<BsCalendarFill
+							className={styles.calendarIcon}
+							style={{ stroke: 'black' }}
+							onClick={() => setShowModal(true)}
+						/>
+						{showModal && (
+							<Modal onClose={() => setShowModal(false)}>
+								<CalendarModal bookingAvailability={eventCalendar} setShowModal={setShowModal} />
+							</Modal>
+						)}
+					</>
+				)}
 
 				{showModal && (
 					<Modal onClose={() => setShowModal(false)}>
 						<CalendarModal setShowModal={setShowModal} />
 					</Modal>
 				)}
+			</div>
+				<div className={styles.eventTitle}onClick={() => console.log(eventCalendar)}>trial</div>
 				<div>
 					<div className={styles.descriptionTitle}>Description</div>
 					<div className={styles.description}>{events.description}</div>
 				</div>
-			</div>
 			{/* */}
-			<div className={styles.eventTitle}>Reviews</div>
-			{baseReviews && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
+			{reviewToggle && (
+				<>
+					<h1>SeemMoreReview</h1>
+				</>	
+			)}
 			<div> All Reviews</div>
+			{baseReviews && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
+			<div className={styles.eventTitle}>Reviews</div>
+			{reviewToggle && (
+				<div onClick={()=>setReviewToggle(false)}>Review Toggle </div>
+				)}
 
-			{additionalReviews &&
-				additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
+				{!reviewToggle &&
+					additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
+					
 		</div>
 	);
 };

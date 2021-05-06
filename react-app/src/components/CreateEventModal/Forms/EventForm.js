@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import {useDispatch} from 'react-redux'
 import styles from "./styles.module.css";
-import {createEvent} from '../../../store/events'
+import { createEvent } from '../../../store/events'
+import SelectDropDownMenu from "../SelectDropDownMenu"
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
 
 const EventForm = ({ setFormStep }) => {
@@ -142,6 +143,10 @@ const EventForm = ({ setFormStep }) => {
 						onChange={(e)=> setCountry(e.target.value)}
 					/>
 				</div>
+				<h1>HEREEE
+					<SelectDropDownMenu />
+
+				</h1>
 			</div>
 			<div className={styles.geoHandler} onClick={geoHandler}>Geo test</div>
 			<div className={styles.stepHandler}>

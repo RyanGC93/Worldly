@@ -55,6 +55,9 @@ function CalendarModal(props) {
 		return <>{isSame && <div className="active-tile"></div>}</>;
 	};
 
+
+
+
 	return (
 		<div className="booking-container">
 			{!toggle && !confirm && (

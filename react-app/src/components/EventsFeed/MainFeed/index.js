@@ -16,6 +16,10 @@ const MainFeed = () => {
 
 	return (
 		<>
+			{!loaded && (
+				<h1>Loading</h1>
+			)}
+			
 			{loaded && (
 				<>
 					<div className={styles.eventsFeedTitle}>Events</div>

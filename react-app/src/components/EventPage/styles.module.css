@@ -14,7 +14,7 @@
 
 }
 .carouselWrapper{
-    width: 70vw;
+    width:60vh;
     box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
     /* margin-left: 6vw; */
 }
@@ -27,8 +27,10 @@
 }
 
 .eventInfo{
-    width: 70vw;
+    width:60vh;
     margin-left: 15vw;
+    display:flex;
+    font-size: 32px
     /* grid-template-columns: 40% 60% */
 }
 
