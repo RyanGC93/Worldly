@@ -6,7 +6,7 @@ import { Carousel } from "react-responsive-carousel";
 import ReactStarsRating from "react-awesome-stars-rating";
 import CalendarModal from "../CalendarModal";
 import { Modal } from "../../context/Modal";
-
+import ReviewRow from './ReviewRow'
 const EventPage = () => {
 	let { eventId } = useParams();
 	const [events, setEvents] = useState({});
@@ -27,9 +27,9 @@ const EventPage = () => {
 			setReviews(data.events[3].reviews);
 			setIsLoading(false);
 			// debugger
-			console.log(reviews,'reviews')
+			console.log(data,'reviews')
 		})();
-	}, [isLoading]);
+	}, []);
 
 	const settings = {
 		infiniteLoop: true,
@@ -74,8 +74,12 @@ const EventPage = () => {
 					<div className={styles.description}>{events.description}</div>
 				</div>
 			</div>
-			{/* TODO: add Reviews */}
-			{/* Show the Total Amount Average of Review and 5 reviews with option to show more */}
+			{/* */}
+			{reviews && reviews.map((review) => (
+				<ReviewRow review={review} />
+
+			))}
+			
 		</div>
 	);
 };
