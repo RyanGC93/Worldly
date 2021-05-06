@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 import json
-from app.models import location
+from app.models import Location
 from flask_login import current_user, login_required
 location_routes = Blueprint('location', __name__)
 

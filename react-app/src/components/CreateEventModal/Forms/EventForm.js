@@ -15,7 +15,7 @@ const EventForm = ({ setFormStep }) => {
 	const [longitude, setLongitude] = useState("");
 	const [latitude, setLatitude] = useState("");
 	const [region, setRegion] = useState('')
-	connst 
+	const [CountryLocation,setCountryLocation] = useState('') 
 
 	function success(position) {
 		const latitude = position.coords.latitude;
@@ -41,8 +41,8 @@ const EventForm = ({ setFormStep }) => {
 		const response = await fetch(url);
 		if (!response.ok) alert('Something is went wrong with the Location Api')
 		let data = await response.json();
-		if(!data.results.length) alert("Location couldne be found by api, please try again")
-		console.log(data)
+		if(!data.results.length) return alert("Location couldne be found by api, please try again")
+		// set(data.results)
 		
 	};
 
@@ -59,7 +59,7 @@ const EventForm = ({ setFormStep }) => {
 		  headers: {
 			'Content-Type': 'Application/json'
 		  },
-		  body: JSON.stringify({ city name, country, url, userId })
+		//   body: JSON.stringify({ city name, country, url, userId })
 		}
 		const res = await fetch('/api/location/', options)
 		const json = await res.json()
