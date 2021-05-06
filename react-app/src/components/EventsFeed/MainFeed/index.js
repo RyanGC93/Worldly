@@ -16,7 +16,7 @@ const MainFeed = () => {
 
 	return (
 		<>
-			{!loaded && (
+			{!eventList && (
 				<h1>Loading</h1>
 			)}
 			

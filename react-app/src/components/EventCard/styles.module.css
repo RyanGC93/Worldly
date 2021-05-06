@@ -182,7 +182,7 @@
 	width: 350px;
 	/* width: 100%; */
     /* height: 28em; */
-	margin: 0em auto;
+	/* margin: 0em auto; */
 	font-family: 'Roboto', sans-serif;
 	font-size: 1em;
 }
@@ -200,6 +200,7 @@
 }
 
 .itemSummary {
+	height: 15vh;
 	width: 100%;
 	background-color: #eaedef;
 	padding: 1.5rem;
@@ -219,6 +220,12 @@
 	/* border-radius: 0.45em 0.45em 0 0; */
 	/* padding: 1em 1.5em 0.2em; */
 	/* height: 30vh; */
+}
+
+.reviewContainer{
+	display: flex;
+	font-size:15px;
+	justify-content:space-around
 }
 
 /*-------------------
@@ -320,6 +327,7 @@
 	font-style: normal;
 	display: flex;
 	justify-content: space-around;
+	font-size: 3vh
 }
 
 .venue {
@@ -354,11 +362,13 @@
 
 .moreInfo {
 	padding: 0.5em 1em;
-	display: grid;
-	grid-template-columns: 50% 50%;
+	/* display: grid;
+	grid-template-columns: 50% 50%; */
 }
 .ambassadorContainer {
-	grid-column: 2;
+	display: flex;
+	font-size:15px;
+	justify-content:space-around
 }
 
 .moreInfo p:nth-child(1) {
@@ -372,6 +382,7 @@
 .itemButtons {
 	display: flex;
 	width: 100%;
+	font-size: 30px;
 }
 
 @supports (display: grid) {
@@ -394,14 +405,14 @@
 .btnDetails:focus {
 	outline: 2px solid #000;
 }
-
+/* !SIZE */
 .btnDetails,
 .btnTickets {
 	display: block;
 	color: #fff;
 	float: left;
 	width: 50%;
-	font-size: 1rem;
+	font-size: 20px;
 	box-sizing: border-box;
 	border: none;
 	padding: 1rem;

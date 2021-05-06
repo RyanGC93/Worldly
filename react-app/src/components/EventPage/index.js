@@ -104,7 +104,6 @@ const EventPage = () => {
 					<div>Show More Reviews</div>
 				</div>
 			)}
-			{reviewToggle && <div onClick={() => setReviewToggle(false)}>Review Toggle </div>}
 			{!reviewToggle && additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
 
 			{/* Show less button */}

@@ -126,9 +126,8 @@ const EventCard = ({ event }) => {
 									<div className={styles.reviewContainer}>
 										<div className={styles.starRating}>
 											<ReactStarsRating value={value} isEdit={false} size={17} />
-											<p># of reviews</p>
-											<div>{reviews.length}</div>
 										</div>
+											<div>#{reviews.length} reviews</div>
 									</div>
 									<div className={styles.ambassadorContainer}>
 										<p>Chef {event.firstname}</p>
