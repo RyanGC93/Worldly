@@ -51,7 +51,6 @@ const EventManagement = ({ isChecked }) => {
 	const AddEventsScreen = () => {
 		return <h1>Loading</h1>;
 	};
-	console.log(userEvents)
 	return (
 		<>
 			<Tabs>
