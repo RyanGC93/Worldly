@@ -53,7 +53,13 @@
 }
 
 .toggle{
-    padding: 20px
+    padding: 20px;
+    cursor: pointer;
+    font-weight:bold;
+}
+
+.toggle:hover{
+    transform: scale(1.2);
 }
 
 .toggleBtnContainer{

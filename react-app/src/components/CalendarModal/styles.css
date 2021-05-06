@@ -2,6 +2,8 @@
   text-align: center;
   font-size: 30px;
   position: relative;
+  background-color: #5B80CB91;
+  opacity: 1;
 }
 
 .react-calendar__tile{
@@ -46,6 +48,7 @@ grid-template-columns: 20% 60% 20%;
 .booking-container {
   width: 350px;
   height: 270px;
+  background-color: white;
 }
 
 .time-container{

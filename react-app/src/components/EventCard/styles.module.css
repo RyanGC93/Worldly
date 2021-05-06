@@ -131,11 +131,11 @@
 /* CARD STYLING */
 
 .wrapper .cardContainer {
-	height: 50em;
+	/* height: 50em; */
 }
 
 .wrapper.frontBackContainer .cardContainer {
-	height: 29em;
+	/* height: 29em; */
 }
 
 .wrapper.frontBackContainer .itemCard {
@@ -299,7 +299,7 @@
 }
 
 .itemTimeDate {
-	z-index: 100;
+	z-index: 10;
 	width: 100%;
 	height: 30px;
 	font-size: 15px;
