@@ -2,11 +2,12 @@
     width: 100%;
     padding-top: 5vh;
     padding-left: 5vh;
+    font-size: 3vw
+
     
 }
 
 .reviewInfo{
-    background-color: rgba(13, 51, 128, 0.1) ;
     margin-left: 15%;
     margin-right: 15%;
     display:grid;
@@ -14,16 +15,15 @@
     width: 70%;
     grid-template-columns: 25% 50% 25%;
     
-
-}
-/* !IMPORTANT */
-.row{
-    font-size: 3vw
+    
 }
 
+.reviewWrapper{
+    background-color: rgba(13, 51, 128, 0.1) ;
+    padding: 10px;
+}
 
 .reviewComment{
     margin-left: 15%;
     margin-right: 15%;
-    background-color: rgba(13, 51, 128, 0.1) ;
 }

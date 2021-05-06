@@ -51,7 +51,7 @@ const EventManagement = ({ isChecked }) => {
 	const AddEventsScreen = () => {
 		return <h1>Loading</h1>;
 	};
-
+	console.log(userEvents)
 	return (
 		<>
 			<Tabs>
@@ -67,7 +67,7 @@ const EventManagement = ({ isChecked }) => {
 					{sortedUpcomingEvents.length && (
 						<div className={styles.gridContainer}>
 							{sortedUpcomingEvents.map((event) => (
-								<EventCard event={event} />
+								<EventCard key={event.booking_id} event={event} />
 							))}
 						</div>
 					)}
@@ -78,7 +78,7 @@ const EventManagement = ({ isChecked }) => {
 				{userEvents.length ? (
 						<div className={styles.gridContainer}>
 							{userEvents.map((event) => (
-								<EventCard event={event} />
+								<EventCard key={event.booking_id} event={event} />
 							))}
 						</div>
 					) : (

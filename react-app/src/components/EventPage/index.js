@@ -86,9 +86,11 @@ const EventPage = () => {
 					</Modal>
 				)}
 			</div>
-			<div className={styles.eventTitle} onClick={() => console.log(eventCalendar)}>
+			{/* to check the event calendar  */}
+
+			{/* <div className={styles.eventTitle} onClick={() => console.log(eventCalendar)}>
 				trial
-			</div>
+			</div> */}
 			<div>
 				<div className={styles.descriptionTitle}>Description</div>
 				<div className={styles.description}>{events.description}</div>
