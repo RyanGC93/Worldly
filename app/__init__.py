@@ -10,6 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.event_routes import event_routes
 from .api.review_routes import review_routes
+from .api.location_routes import location_routes
 from .api.ambassador_routes import ambassador_routes
 from .api.search_routes import search_routes
 
@@ -41,6 +42,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(event_routes, url_prefix='/api/events')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(search_routes, url_prefix='/api/search')
+app.register_blueprint(location_routes, url_prefix='/api/location')
 db.init_app(app)
 Migrate(app, db)
 

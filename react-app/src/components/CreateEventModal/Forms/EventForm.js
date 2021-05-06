@@ -12,6 +12,10 @@ const EventForm = ({ setFormStep }) => {
 	const [cost, setCost] = useState("");
 	const [city, setCity] = useState("");
 	const [country, setCountry] = useState("");
+	const [longitude, setLongitude] = useState("");
+	const [latitude, setLatitude] = useState("");
+	const [region, setRegion] = useState('')
+	connst 
 
 	function success(position) {
 		const latitude = position.coords.latitude;
@@ -35,16 +39,30 @@ const EventForm = ({ setFormStep }) => {
 
 		let url = `https://maps.googleapis.com/maps/api/geocode/json?&address=${replacedCity}%${replacedCountry}&key=${process.env.REACT_APP_GOOGLE_GEO_KEY}`;
 		const response = await fetch(url);
-		if (!response.ok) return;
+		if (!response.ok) alert('Something is went wrong with the Location Api')
 		let data = await response.json();
+		if(!data.results.length) alert("Location couldne be found by api, please try again")
+		console.log(data)
+		
 	};
+
+	
 
 	const formValidation = () => {};
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		await dispatch(createEvent({ title, description, cost }))
-		// TODO add the call to the backEnd
+		const options =
+		{
+		  method: 'POST',
+		  headers: {
+			'Content-Type': 'Application/json'
+		  },
+		  body: JSON.stringify({ city name, country, url, userId })
+		}
+		const res = await fetch('/api/location/', options)
+		const json = await res.json()
 		setFormStep(2);
 	};
 	const check = (e) => {};
@@ -125,7 +143,7 @@ const EventForm = ({ setFormStep }) => {
 					/>
 				</div>
 			</div>
-			<div onClick={geoHandler}>Geo test</div>
+			<div className={styles.geoHandler} onClick={geoHandler}>Geo test</div>
 			<div className={styles.stepHandler}>
 				<button type="submit">Next</button>
 			</div>

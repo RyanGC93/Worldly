@@ -204,3 +204,9 @@
   font-weight: bold;
   padding: 13px 13px 13px 13px;
 }
+
+/* ! TEST */
+
+.geoHandler {
+	font-size: 5vh
+}

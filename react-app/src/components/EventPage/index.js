@@ -74,7 +74,7 @@ const EventPage = () => {
 									<CalendarModal bookingAvailability={eventCalendar} setShowModal={setShowModal} />
 								</Modal>
 							)}
-							<div onClick={() => setShowModal(true)} />
+							<div onClick={() => console.log(eventCalendar)} >trial</div>
 						</>
 					)}
 				</div>
