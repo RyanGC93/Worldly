@@ -14,8 +14,8 @@ const ReviewRow = ({ review }) => {
         <div className={styles.row}>
 			<div className={styles.reviewComment}>{reviewComment}</div>
 			<div className={styles.reviewInfo}>
-				<div>{reviewUserName}</div>
 				<ReactStarsRating value={reviewRating} isEdit={false} />
+				<div>{reviewUserName}</div>
 				<div>{date.getDate()}-{date.getMonth()}-{date.getFullYear()}</div>
 			</div>
 		</div>

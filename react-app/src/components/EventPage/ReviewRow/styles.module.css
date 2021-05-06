@@ -9,8 +9,10 @@
     background-color: rgba(13, 51, 128, 0.1) ;
     margin-left: 15%;
     margin-right: 15%;
-    display:flex;
-    padding: 1vh;
+    display:grid;
+    /* padding: 1vh; */
+    width: 70%;
+    grid-template-columns: 25% 50% 25%;
     
 
 }

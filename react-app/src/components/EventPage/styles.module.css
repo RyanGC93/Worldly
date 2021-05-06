@@ -47,3 +47,18 @@
     /* text-align: center; */
     font-weight: bold;
 }
+
+.toggle{
+    padding: 20px
+}
+
+.toggleBtnContainer{
+    /* background-color: red; */
+    width: 100%;
+    padding: 1vh;
+    font-size:5vh;
+    display: flex;
+    justify-content:center;
+
+
+}

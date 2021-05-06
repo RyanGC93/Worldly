@@ -17,7 +17,7 @@ const EventPage = () => {
 	const [eventCalendar, setEventCalendar] = useState([]);
 	const [reviews, setReviews] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-	const [reviewToggle,setReviewToggle] = useState(true)
+	const [reviewToggle, setReviewToggle] = useState(true);
 
 	let baseReviews = reviews.slice(0, 3);
 	let additionalReviews = reviews.slice(3);
@@ -29,12 +29,10 @@ const EventPage = () => {
 			const data = await res.json();
 			setEvents(data.events[0].events_info);
 			setPhotoGallery(data.events[1].photo_gallery);
-			let eventCalendarAdded = data.events[2].event_calendar
+			let eventCalendarAdded = data.events[2].event_calendar;
 			eventCalendar.forEach((event) => {
-				event["dateObj"] = new Date(`${event.date} ${event.time}`)
-			})
-		
-
+				event['dateObj'] = new Date(`${event.date} ${event.time}`);
+			});
 
 			setEventCalendar(eventCalendarAdded);
 			setReviews(data.events[3].reviews);
@@ -57,8 +55,7 @@ const EventPage = () => {
 			<div className={styles.carouselContainer}>
 				<Carousel className={styles.carouselWrapper} styling={{ height: '50%' }} {...settings}>
 					{photoGallery.map((photo) => (
-				
-							<img className={styles.carouselImg} key={photo.photo_id} alt='' src={photo.photo_url} />
+						<img className={styles.carouselImg} key={photo.photo_id} alt="" src={photo.photo_url} />
 					))}
 				</Carousel>
 			</div>
@@ -89,27 +86,33 @@ const EventPage = () => {
 					</Modal>
 				)}
 			</div>
-				<div className={styles.eventTitle}onClick={() => console.log(eventCalendar)}>trial</div>
-				<div>
-					<div className={styles.descriptionTitle}>Description</div>
-					<div className={styles.description}>{events.description}</div>
-				</div>
+			<div className={styles.eventTitle} onClick={() => console.log(eventCalendar)}>
+				trial
+			</div>
+			<div>
+				<div className={styles.descriptionTitle}>Description</div>
+				<div className={styles.description}>{events.description}</div>
+			</div>
 			{/* */}
-			{reviewToggle && (
-				<>
-					<h1>SeemMoreReview</h1>
-				</>	
-			)}
-			<div> All Reviews</div>
-			{baseReviews && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
 			<div className={styles.eventTitle}>Reviews</div>
+			{/* First three reviews */}
+			{baseReviews && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
 			{reviewToggle && (
-				<div onClick={()=>setReviewToggle(false)}>Review Toggle </div>
-				)}
+				<div className={styles.toggleBtnContainer} onClick={() => setReviewToggle()}>
+					<div>Show More Reviews</div>
+				</div>
+			)}
+			{reviewToggle && <div onClick={() => setReviewToggle(false)}>Review Toggle </div>}
+			{!reviewToggle && additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
 
-				{!reviewToggle &&
-					additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
-					
+			{/* Show less button */}
+			{!reviewToggle && (
+				<div className={styles.toggleBtnContainer}>
+					<div className={styles.toggle} onClick={() => setReviewToggle(true)}>
+						Show Less
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
