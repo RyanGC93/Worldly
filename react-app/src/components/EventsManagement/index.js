@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import Map from '../Map';
 import styles from './styles.module.css';
 import EventCard from '../EventCard';
+import './tabs.css'
 import EventViewer from './EventViewer';
 import AmbassadorCalendar from './AmbassadorCalendar';
 
@@ -54,11 +55,11 @@ const EventManagement = ({ isChecked }) => {
 	return (
 		<>
 			<Tabs>
-				<TabList>
-					<Tab>Upcoming Events</Tab>
-					<Tab>All Events</Tab>
-					<Tab>Past Events</Tab>
-					<Tab>Map</Tab>
+				<TabList className={styles.tabList}>
+					<Tab className={styles.tab}>Upcoming Events</Tab>
+					<Tab className={styles.tab}>All Events</Tab>
+					<Tab className={styles.tab}>Past Events</Tab>
+					<Tab className={styles.tab}>Map</Tab>
 				</TabList>
 
 				{/* UPCOMING EVENTS */}

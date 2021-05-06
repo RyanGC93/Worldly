@@ -15,6 +15,7 @@
 }
 .carouselWrapper{
     width: 70vw;
+    box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
     /* margin-left: 6vw; */
 }
 
@@ -26,8 +27,9 @@
 }
 
 .eventInfo{
-    display:grid;
-    grid-template-columns: 40% 60%
+    width: 70vw;
+    margin-left: 15vw;
+    /* grid-template-columns: 40% 60% */
 }
 
 .descriptionTitle{

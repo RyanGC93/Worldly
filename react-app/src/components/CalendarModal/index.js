@@ -8,6 +8,7 @@ function CalendarModal(props) {
 	const [toggle, setToggle] = useState(false);
 	const [confirm, setConfirm] = useState(false);
 	const [timeslot, setTimeslot] = useState("");
+	console.log(props,'props')
 
 	let time = [""];
 

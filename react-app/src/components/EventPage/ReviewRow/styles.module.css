@@ -1,0 +1,27 @@
+.row{
+    width: 100%;
+    padding-top: 5vh;
+    padding-left: 5vh;
+    
+}
+
+.reviewInfo{
+    background-color: rgba(13, 51, 128, 0.1) ;
+    margin-left: 15%;
+    margin-right: 15%;
+    display:flex;
+    padding: 1vh;
+    
+
+}
+/* !IMPORTANT */
+.row{
+    font-size: 3vw
+}
+
+
+.reviewComment{
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: rgba(13, 51, 128, 0.1) ;
+}

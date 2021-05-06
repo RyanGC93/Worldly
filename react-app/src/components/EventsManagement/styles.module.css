@@ -2,14 +2,7 @@
     width: 100%;
 } */
 
-.react-tabs{
-    width: 100%
-}
-.react-tabs__tab-list{
-    display:flex;
-    justify-content: center;
-    font-size: 3vh
-}
+
 
 
 .gridContainer {
@@ -38,14 +31,3 @@
 		}
 	}
 }
-
-/* 915/16 = 57.18
-@media screen and (min-width: 57.18rem) {
-	@supports (display: grid) {
-		.gridContainer {
-			grid-template-columns: repeat(3, auto);
-			grid-gap: 4%;
-		}
-	}
-} */
-

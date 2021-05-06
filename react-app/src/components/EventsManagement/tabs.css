@@ -1,0 +1,8 @@
+.react-tabs{
+    width: 100%
+}
+.react-tabs__tab-list{
+    display:flex;
+    justify-content: center;
+    font-size: 3vh
+}

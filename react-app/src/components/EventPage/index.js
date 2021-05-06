@@ -1,20 +1,25 @@
-import React, { useState, useEffect } from "react";
-import styles from "./styles.module.css";
-import { useParams } from "react-router-dom";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import ReactStarsRating from "react-awesome-stars-rating";
-import CalendarModal from "../CalendarModal";
-import { Modal } from "../../context/Modal";
-import ReviewRow from './ReviewRow'
+import React, { useState, useEffect } from 'react';
+import styles from './styles.module.css';
+import { useParams } from 'react-router-dom';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import CalendarModal from '../CalendarModal';
+import { Modal } from '../../context/Modal';
+import { BsCalendarFill } from 'react-icons/bs';
+
+import ReviewRow from './ReviewRow';
+
 const EventPage = () => {
+	const [showModal, setShowModal] = useState(false);
 	let { eventId } = useParams();
 	const [events, setEvents] = useState({});
 	const [photoGallery, setPhotoGallery] = useState([]);
 	const [eventCalendar, setEventCalendar] = useState([]);
 	const [reviews, setReviews] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-	const [showModal, setShowModal] = useState(false);
+
+	let baseReviews = reviews.slice(0, 3);
+	let additionalReviews = reviews.slice(3);
 
 	useEffect(() => {
 		(async () => {
@@ -27,7 +32,7 @@ const EventPage = () => {
 			setReviews(data.events[3].reviews);
 			setIsLoading(false);
 			// debugger
-			console.log(data,'reviews')
+			console.log(data, 'reviews');
 		})();
 	}, []);
 
@@ -37,21 +42,16 @@ const EventPage = () => {
 		showThumbs: false,
 		interval: 5000,
 	};
+	console.log(eventCalendar);
 
 	return (
 		<div className={styles.eventPage}>
 			<div className={styles.carouselContainer}>
-				<Carousel
-					className={styles.carouselWrapper}
-					styling={{ height: "50%" }}
-					{...settings}
-				>
+				<Carousel className={styles.carouselWrapper} styling={{ height: '50%' }} {...settings}>
 					{photoGallery.map((photo) => (
-						<img
-							className={styles.carouselImg}
-							key={photo.photo_id}
-							src={photo.photo_url}
-						/>
+						<>
+							<img className={styles.carouselImg} key={photo.photo_id} src={photo.photo_url} />
+						</>
 					))}
 				</Carousel>
 			</div>
@@ -62,8 +62,23 @@ const EventPage = () => {
 					<div className={styles}>
 						{events.country}, {events.region}
 					</div>
-					<div onClick={() => setShowModal(true)} />{" "}
+					{eventCalendar.length && (
+						<>
+							<BsCalendarFill
+								className={styles.calendarIcon}
+								style={{ stroke: 'black' }}
+								onClick={() => setShowModal(true)}
+							/>
+							{showModal && (
+								<Modal onClose={() => setShowModal(false)}>
+									<CalendarModal bookingAvailability={eventCalendar} setShowModal={setShowModal} />
+								</Modal>
+							)}
+							<div onClick={() => setShowModal(true)} />
+						</>
+					)}
 				</div>
+
 				{showModal && (
 					<Modal onClose={() => setShowModal(false)}>
 						<CalendarModal setShowModal={setShowModal} />
@@ -75,11 +90,12 @@ const EventPage = () => {
 				</div>
 			</div>
 			{/* */}
-			{reviews && reviews.map((review) => (
-				<ReviewRow review={review} />
+			<div className={styles.eventTitle}>Reviews</div>
+			{baseReviews && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
+			<div> All Reviews</div>
 
-			))}
-			
+			{additionalReviews &&
+				additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
 		</div>
 	);
 };
