@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./styles.css";
@@ -31,6 +31,12 @@ function CalendarModal(props) {
 		}
 	};
 
+	useEffect(() => {
+		if (!props.bookingAvailability) return
+		console.log(props.bookingAvailability)
+
+	},[props.bookingAvailability])
+
 	const handleConfirmation = () => {
 		let year = value.getFullYear();
 		let mes = value.getMonth() + 1;
@@ -44,13 +50,13 @@ function CalendarModal(props) {
 		let dateOne = date.toDateString();
 		let isSame = false;
 		let activeBooking;
-		let datesArray = props.bookingAvailability.forEach((booking) => {
-			let conv = booking.dateObj.toDateString();
-			if (conv === dateOne) {
-				isSame = true;
-				activeBooking = booking;
-			}
-		});
+		// let datesArray = props.bookingAvailability.forEach((booking) => {
+		// 	let conv = booking.dateObj.toDateString();
+		// 	if (conv === dateOne) {
+		// 		isSame = true;
+		// 		activeBooking = booking;
+		// 	}
+		// });
 
 		return <>{isSame && <div className="active-tile"></div>}</>;
 	};

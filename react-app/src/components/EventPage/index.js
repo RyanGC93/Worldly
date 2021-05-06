@@ -61,8 +61,8 @@ const EventPage = () => {
 			</div>
 			<div className={styles.eventTitle}>{events.title}</div>
 			<div className={styles.eventInfo}>
-				<div className={styles}>Chef {events.firstname}</div>
-				<div className={styles}>
+				<div className={styles.infoText}>Chef {events.firstname}</div>
+				<div className={styles.infoText}>
 					{events.country}, {events.region}
 				</div>
 				{eventCalendar.length && (
