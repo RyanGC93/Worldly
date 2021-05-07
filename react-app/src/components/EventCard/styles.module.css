@@ -200,6 +200,7 @@
 }
 
 .itemSummary {
+	position: relative;
 	height: 15vh;
 	width: 100%;
 	background-color: #eaedef;
@@ -324,7 +325,10 @@
 }
 
 .address {
+	position: absolute;
+	bottom: 0;
 	font-style: normal;
+	width: 100%;
 	display: flex;
 	justify-content: space-around;
 	font-size: 3vh
@@ -350,13 +354,15 @@
 	color: #313b40;
 	opacity: 0.85;
 	font-size: 2.2vh;
+	margin-left: 1em;
+	margin-right:1em
 	/* padding: 0 1em 0 1.5em; */
-	overflow: scroll
+	/* overflow: scroll */
 }
 
 .scrollBlock {
 	height: 180px;
-	overflow: scroll;
+	overflow-y: scroll;
 	border-bottom: 2px solid #ccc;
 }
 
@@ -628,4 +634,44 @@
 .description {
     background-color: black
 
+}
+
+
+/* ! SCROLL FEATURE */
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  background: #3768c3;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #3768c3;
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 26px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #5b8dc2;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

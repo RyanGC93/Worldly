@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 // import './styles.css';
@@ -57,8 +58,8 @@ const EventCard = ({ event }) => {
 						{toggle && (
 							<section className={styles.itemCard}>
 								<div className={styles.itemSummary}>
-									<h2 className={styles.title}>{title}</h2>
-									<p className={styles.venue}>{badge}</p>
+									<div className={styles.title}>{title}</div>
+									<div className={styles.venue}>{badge}</div>
 									<address className={styles.address}>
 										<div className={styles.addressCountry}>{country} </div>
 										<div className={styles.addressContinent}>{continent}</div>
