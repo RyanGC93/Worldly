@@ -137,7 +137,7 @@ This is an example of how to list things you need to use the software and how to
 ## Project Challenges
 Creating responsive querying that only return relevant information that is maximized for runtime efficiency and future scalability
 
-
+<!-- 
 ### Summary of Problem And Solution
 
 <details>
@@ -149,31 +149,19 @@ Creating responsive querying that only return relevant information that is maxim
    - The solution that implemented was to make an initial query to the database that returned an array of the primary keys to the information required given that it met certain conditions. Then addtional custom queries were made using the keys selecting certain columns across many tables. This allowed for a well designed responses object that was responsive on initial query.   
 </details>
 
-### Code Snippet
-<details>
-  <summary>Click to expand!</summary>
- 
-- **The Challenge**
-  - A challenge in this project was to design the database and querying upon it  so that only necessary data was being pulled from the database as needed. This meant making sure the data only contained the relevent data fields and the amount. Although not necesarry I found this to make an important feature so that the app would maximize runtime efficiency, make sure that we are not exposing any extra data, and was very capabilitble with scalibility and proposed future features. 
-- **The Solution**
-   - The solution that implemented was to make an initial query to the database that returned an array of the primary keys to the information required given that it met certain conditions. Then addtional custom queries were made using the keys selecting certain columns across many tables. This allowed for a well designed responses object that was responsive on initial query.   
-</details>
-
 <br></br>
+
 ## Features Highlight
 
 ### Map Feature
 GIF Example
 <details>
   <summary>Click to expand!</summary>
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
+    ## ![ ](https://media1.giphy.com/media/MGyJwU3M9Y5hwBdB5f/giphy.gif)
 </details>
 
-Code Snippet
+Code Snippet 
+
 <details>
   <summary>Click to expand!</summary>
   ## Heading
@@ -183,17 +171,7 @@ Code Snippet
      * Sub bullets
 </details>
 
-<br></br>
-## Code Snippets
-<details>
-  <summary>Click to expand!</summary>
-  
-  ## Heading
-  1. A numbered
-  2. list
-     * With some
-     * Sub bullets
-</details>
+<br></br> -->
 
 
 <!-- USAGE EXAMPLES -->
