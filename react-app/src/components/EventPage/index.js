@@ -48,7 +48,7 @@ const EventPage = () => {
 		showThumbs: false,
 		interval: 5000,
 	};
-	console.log(eventCalendar);
+	console.log(baseReviews);
 
 	return (
 		<div className={styles.eventPage}>
@@ -101,7 +101,7 @@ const EventPage = () => {
 			{baseReviews && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
 			{reviewToggle && (
 				<div className={styles.toggleBtnContainer} onClick={() => setReviewToggle()}>
-					<div>Show More Reviews</div>
+					<div className={styles.toggle} >Show More Reviews</div>
 				</div>
 			)}
 			{!reviewToggle && additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}

@@ -19,19 +19,23 @@ const MainFeed = () => {
 			{!eventList && (
 				<h1>Loading</h1>
 			)}
+			{/* {!loaded && (<h1>sdsdsd</h1>)} */}
 			
 			{loaded && (
 				<>
 					<div className={styles.eventsFeedTitle}>Events</div>
 					{/* <DropSearch /> */}
+					<div className={styles.gridCenter} >
+
 					<div
 						className={`${styles.gridContainer}`}
-					>
+						>
 						{eventList &&
 							eventList.map((event) => (
 								<EventCard key={event.event_id} event={event} />
-							))}
+								))}
 					</div>
+								</div>
 				</>
 			)}
 		</>
