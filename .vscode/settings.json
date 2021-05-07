@@ -1,5 +1,5 @@
 {
-    "window.title": " ⚡💻 ${folderName} 💻   ⚡ ${separator} [Branch: cleanup]",
+    "window.title": " ⚡💻 ${folderName} 💻   ⚡ ${separator} [Branch: styling_rework]",
     "workbench.colorCustomizations": {
         "activityBar.background": "#511b22",
         "titleBar.activeBackground": "#2b0e12",
