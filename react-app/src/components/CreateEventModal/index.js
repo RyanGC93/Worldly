@@ -5,7 +5,7 @@ import PhotoForm from "./Forms/PhotoForm";
 import DatesForm from "./Forms/DatesForm"
 import { MultiStepForm, Step } from "react-multi-form";
 const CreateEventModal = () => {
-  const [formStep, setFormStep] = useState(2);
+  const [formStep, setFormStep] = useState(1);
   return (
     <div className={styles.createEventContainer} >
       <div className={styles.eventWrap}>

@@ -10,7 +10,7 @@ import EventViewer from './EventViewer';
 import AmbassadorCalendar from './AmbassadorCalendar';
 
 const EventManagement = ({ isChecked }) => {
-	const [upcoming, setUpcoming] = useState([]);
+ 	const [upcoming, setUpcoming] = useState([]);
 	const [past, setPast] = useState([]);
 
 	const userEvents = useSelector((state) => {
@@ -86,6 +86,7 @@ const EventManagement = ({ isChecked }) => {
 				</TabPanel>
 				{/* PAST EVENTS*/}
 				<TabPanel>
+
 				{sortedPastEvents.length ? (
 						<div className={styles.gridContainer}>
 							{sortedPastEvents.map((event) => (

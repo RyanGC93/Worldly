@@ -51,13 +51,17 @@ const Profile = () => {
 						/>
 					</div>
 					<div className={styles.profileNavInfo}>
+						{!isChecked && (
 						<div className={styles.nameHeader}>
-							{user.first_name} {user.last_name}
+							User Profile
 						</div>
-						<div className={styles.address}>
-							{/* TODO> Add Location for the user */}
-							NY,Newyork
+						)}
+							{isChecked && (
+						<div className={styles.nameHeader}>
+							Ambassador Profile
 						</div>
+						)}
+				
 					</div>
 					<div className={styles.profileOption}>
 						<div className={styles.notification}>
@@ -73,10 +77,17 @@ const Profile = () => {
 							{isAmbassador && <Slider isChecked={isChecked} setChecked={setChecked} />}
 
 							<div className={styles.userBio}>
+								<div className={styles.profileText}>User</div>
+								<div className={`${styles.profileText} ${styles.subText}`}>{user.first_name} , {user.last_name}</div>
+							</div>
+							<div className={styles.userBio}>
+								<div className={styles.profileText}>Location</div>
+								<div className={`${styles.profileText} ${styles.subText}`}>New York</div>
+							</div>
+							<div className={styles.userBio}>
 								<div className={styles.profileText}>Bio</div>
 								<div className={`${styles.profileText} ${styles.subText}`}>{user.bio}</div>
 							</div>
-
 							{/* Part of the old passport */}
 							{/* {isChecked && (
 								<div

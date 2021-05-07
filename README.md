@@ -20,12 +20,12 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 
 
@@ -41,10 +41,10 @@
   <p align="center">
     A culinary class booking site focused on bring cultures together one bite ate a time
     <br />
-    <a href="https://github.com/RyanGC93/Worldly"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/RyanGC93/Worldly/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/RyanGC93/Worldly">View Demo</a>
+    <a href="https://worldlyapp.herokuapp.com/login">View Demo</a>
     ·
     <a href="https://github.com/RyanGC93/Worldly/issues">Report Bug</a>
     ·
@@ -121,9 +121,9 @@ This is an example of how to list things you need to use the software and how to
   ```
 ### Installation
 
-1. Clone the InstantaneousGramme
+1. Clone the Worldly repo
    ```sh
-   git clone https://github.com/TolulopeVerissimo/InstantaneousGramme
+   git clone https://github.com/RyanGC93/Worldly
    ```
 
 2. Backend Installation
@@ -197,12 +197,11 @@ Code Snippet
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+<!-- ## Usage -->
 
 
 <!-- ROADMAP -->
-p## Roadmap
-
+## Roadmap
 See the [open issues](https://github.com/RyanGC93/Worldly/issues) for a list of proposed features (and known issues).
 
 
@@ -218,9 +217,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Ryan Conk- [@twitter_handle](https://twitter.com/twitter_handle) - ryangconk@gmail.com
-
-Project Link: [https://github.com/RyanGC93/Worldly](https://github.com/RyanGC93/Worldly)
+Ryan Conk- [Github](https://github.com/RyanGC93) - ryangconk@gmail.com - [Project Link](https://worldlyapp.herokuapp.com/)
 
 
 

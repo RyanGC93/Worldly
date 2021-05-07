@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import {useDispatch} from 'react-redux'
-import styles from "./styles.module.css";
-import { createEvent } from '../../../store/events'
-import SelectDropDownMenu from "../SelectDropDownMenu"
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import styles from './styles.module.css';
+import { createEvent } from '../../../store/events';
+import SelectDropDownMenu from '../SelectDropDownMenu';
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
 
 const EventForm = ({ setFormStep }) => {
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 	const [errors, setErrors] = useState([]);
-	const [title, setTitle] = useState("");
-	const [description, setDescription] = useState("");
-	const [cost, setCost] = useState("");
-	const [city, setCity] = useState("");
-	const [country, setCountry] = useState("");
-	const [longitude, setLongitude] = useState("");
-	const [latitude, setLatitude] = useState("");
-	const [region, setRegion] = useState('')
-	const [CountryLocation,setCountryLocation] = useState('') 
+	const [title, setTitle] = useState('');
+	const [description, setDescription] = useState('');
+	const [cost, setCost] = useState('');
+	const [city, setCity] = useState('');
+	const [country, setCountry] = useState('');
+	const [longitude, setLongitude] = useState('');
+	const [latitude, setLatitude] = useState('');
+	const [region, setRegion] = useState('');
+	const [CountryLocation, setCountryLocation] = useState('');
 
 	function success(position) {
 		const latitude = position.coords.latitude;
@@ -29,41 +29,37 @@ const EventForm = ({ setFormStep }) => {
 			let geo = navigator.geolocation.getCurrentPosition(success);
 			console.log(geo);
 		} else {
-			alert("Geolocation is not supported by this browser.");
+			alert('Geolocation is not supported by this browser.');
 		}
 	};
 
 	const geoHandler = async (e) => {
 		e.preventDefault();
-		let replacedCity = city.replaceAll(" ", "+");
-		let replacedCountry = country.replaceAll(" ", "+");
+		let replacedCity = city.replaceAll(' ', '+');
+		let replacedCountry = country.replaceAll(' ', '+');
 
 		let url = `https://maps.googleapis.com/maps/api/geocode/json?&address=${replacedCity}%${replacedCountry}&key=${process.env.REACT_APP_GOOGLE_GEO_KEY}`;
 		const response = await fetch(url);
-		if (!response.ok) alert('Something is went wrong with the Location Api')
+		if (!response.ok) alert('Something is went wrong with the Location Api');
 		let data = await response.json();
-		if(!data.results.length) return alert("Location couldne be found by api, please try again")
+		if (!data.results.length) return alert('Location couldne be found by api, please try again');
 		// set(data.results)
-		
 	};
-
-	
 
 	const formValidation = () => {};
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		await dispatch(createEvent({ title, description, cost }))
-		const options =
-		{
-		  method: 'POST',
-		  headers: {
-			'Content-Type': 'Application/json'
-		  },
-		//   body: JSON.stringify({ city name, country, url, userId })
-		}
-		const res = await fetch('/api/location/', options)
-		const json = await res.json()
+		await dispatch(createEvent({ title, description, cost }));
+		const options = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'Application/json',
+			},
+			//   body: JSON.stringify({ city name, country, url, userId })
+		};
+		const res = await fetch('/api/location/', options);
+		const json = await res.json();
 		setFormStep(2);
 	};
 	const check = (e) => {};
@@ -125,7 +121,6 @@ const EventForm = ({ setFormStep }) => {
 				<div className={styles.locationGroup}>
 					<input
 						className={styles.input}
-						
 						placeholder="City"
 						name="city"
 						type="city"
@@ -134,21 +129,22 @@ const EventForm = ({ setFormStep }) => {
 					/>
 					<input
 						className={styles.input}
-						
 						placeholder="Country"
 						name="country"
 						type="country"
 						value={country}
 						onChange={check}
-						onChange={(e)=> setCountry(e.target.value)}
+						onChange={(e) => setCountry(e.target.value)}
 					/>
 				</div>
-				<h1>HEREEE
+				<div className={styles.input}>
+					HEREEE
 					<SelectDropDownMenu />
-
-				</h1>
+				</div>
 			</div>
-			<div className={styles.geoHandler} onClick={geoHandler}>Geo test</div>
+			<div className={styles.geoHandler} onClick={geoHandler}>
+				Geo test
+			</div>
 			<div className={styles.stepHandler}>
 				<button type="submit">Next</button>
 			</div>

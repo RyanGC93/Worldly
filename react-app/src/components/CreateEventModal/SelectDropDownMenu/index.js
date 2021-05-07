@@ -1,13 +1,12 @@
 import React, { useRef, useState } from "react";
-import { useLocation, useHistory } from "react-router-dom";
+// import { useLocation, useHistory } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 
 import { useDetectOutsideClick } from "../../../services/detectOutsideClick";
 import styles from "./styles.module.css";
 
-const SelectDropDownMenu = ({ setAuthenticated }) => {
-	alert('')
+const SelectDropDownMenu = () => {
 
 	const dropdownRef = useRef(null);
 	const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
@@ -15,6 +14,7 @@ const SelectDropDownMenu = ({ setAuthenticated }) => {
 
 	return (
 		<div className={styles.menuContainer}>
+				<AiOutlineMenu />
 				<div onClick={onClick} className={styles.menuTrigger}>
 				</div>
 			<nav
