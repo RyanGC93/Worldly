@@ -5,7 +5,7 @@ import { createEvent } from '../../../store/events';
 import SelectDropDownMenu from '../SelectDropDownMenu';
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
 
-const EventForm = ({ setFormStep }) => {
+const EventForm = ({ setFormStep, isChecked }) => {
 	const dispatch = useDispatch();
 	const [errors, setErrors] = useState([]);
 	const [title, setTitle] = useState('');
