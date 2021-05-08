@@ -10,7 +10,7 @@ import CalendarModal from '../CalendarModal';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event,isChecked }) => {
 	const history = useHistory();
 
 	const reviews = useSelector((state) => {
@@ -66,13 +66,28 @@ const EventCard = ({ event }) => {
 									</address>
 								</div>
 								<div className={`${styles.imageWrapper} ${styles.carousel}`}>
-									<EventCarousel images={images} />
+									<EventCarousel  images={images} />
 									<div className={styles.calendarContainer}>
-										<BsCalendarFill
-											className={styles.calendarIcon}
-											style={{ stroke: 'black' }}
-											onClick={() => setShowModal(true)}
-										/>
+										{/* Loads User Events */}
+										{isChecked && (
+											<BsCalendarFill
+												className={styles.calendarIcon}
+												style={{ stroke: 'black' }}
+												onClick={() => setShowModal(true)}
+											/>
+										)}
+										{/* Loads Ambassador events */}
+										{!isChecked && (
+											// <BsCalendarFill
+											// 	className={styles.calendarIcon}
+											// 	style={{ stroke: 'black' }}
+											// 	onClick={() => setShowModal(true)}
+											// />
+											<h1>sddsds</h1>
+										
+										
+										)}
+
 										{showModal && (
 											<Modal onClose={() => setShowModal(false)}>
 												<CalendarModal
@@ -81,6 +96,7 @@ const EventCard = ({ event }) => {
 													setShowModal={setShowModal}
 												/>
 											</Modal>
+										)}
 										)}
 									</div>
 								</div>

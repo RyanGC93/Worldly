@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux';
 import Map from '../Map';
 import styles from './styles.module.css';
 import EventCard from '../EventCard';
-import './tabs.css'
+import './tabs.css';
 import EventViewer from './EventViewer';
 import AmbassadorCalendar from './AmbassadorCalendar';
 
 const EventManagement = ({ isChecked }) => {
- 	const [upcoming, setUpcoming] = useState([]);
+	const [upcoming, setUpcoming] = useState([]);
 	const [past, setPast] = useState([]);
 
 	const userEvents = useSelector((state) => {
@@ -46,7 +46,7 @@ const EventManagement = ({ isChecked }) => {
 
 	useEffect(() => {
 		if (!userEvents[0]) return;
-	}, [userEvents,sortedUpcomingEvents]);
+	}, [userEvents, sortedUpcomingEvents]);
 
 	const AddEventsScreen = () => {
 		return <h1>Loading</h1>;
@@ -66,15 +66,14 @@ const EventManagement = ({ isChecked }) => {
 					{sortedUpcomingEvents.length && (
 						<div className={styles.gridContainer}>
 							{sortedUpcomingEvents.map((event) => (
-								<EventCard key={event.booking_id} event={event} />
+								<EventCard isChecked={isChecked} key={event.booking_id} key={event.booking_id} event={event} />
 							))}
 						</div>
 					)}
-			
 				</TabPanel>
 				{/* ALL EVENTS */}
 				<TabPanel>
-				{userEvents.length ? (
+					{/* {userEvents.length ? (
 						<div className={styles.gridContainer}>
 							{userEvents.map((event) => (
 								<EventCard key={event.booking_id} event={event} />
@@ -82,15 +81,19 @@ const EventManagement = ({ isChecked }) => {
 						</div>
 					) : (
 						<AddEventsScreen />
-					)}
+					)} */}
+					<div className={styles.gridContainer}>
+						{userEvents.map((event) => (
+							<EventCard isChecked={isChecked} key={event.booking_id} event={event} />
+						))}
+					</div>
 				</TabPanel>
 				{/* PAST EVENTS*/}
 				<TabPanel>
-
-				{sortedPastEvents.length ? (
+					{sortedPastEvents.length ? (
 						<div className={styles.gridContainer}>
 							{sortedPastEvents.map((event) => (
-								<EventCard event={event} />
+								<EventCard isChecked={isChecked} key={event.booking_id} event={event} />
 							))}
 						</div>
 					) : (
