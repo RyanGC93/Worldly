@@ -10,11 +10,11 @@ def seed_booking_calendar():
     count = 0
     for _ in range(100):
         count+=1
-        demo2 = BookingCalendar(id=count, user_id=fake.random_int(min=1, max=34, step=1),timeslot=fake.random_int(min=1, max=50, step=1))
+        demo2 = BookingCalendar(user_id=fake.random_int(min=1, max=34, step=1),timeslot=fake.random_int(min=1, max=50, step=1))
         seed_list.append(demo2)
     for _ in range(10):
         count+=1
-        demo2 = BookingCalendar(id=count,user_id=1,timeslot=fake.random_int(min=1, max=50, step=1))
+        demo2 = BookingCalendar(user_id=1,timeslot=fake.random_int(min=1, max=50, step=1))
         seed_list.append(demo2)        
 
     db.session.add_all(seed_list)

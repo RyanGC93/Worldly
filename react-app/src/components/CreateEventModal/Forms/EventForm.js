@@ -4,6 +4,21 @@ import styles from './styles.module.css';
 import { createEvent } from '../../../store/events';
 import SelectDropDownMenu from '../SelectDropDownMenu';
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
+const geoHandler = async (city,country) => {
+	let replacedCity = city.replaceAll(' ', '+');
+	let replacedCountry = country.replaceAll(' ', '+');
+
+	let url = `https://maps.googleapis.com/maps/api/geocode/json?&address=${replacedCity}%${replacedCountry}&key=${process.env.REACT_APP_GOOGLE_GEO_KEY}`;
+	const response = await fetch(url);
+	console.log(response)
+	if (!response.ok) return alert("There is something with wrong with the reponse please try again later")
+			console.log(response)
+	let data = await response.json();
+	console.log(data)
+	if (!data.results.length) return 'error'
+	console.log(data.results)
+	return data.results
+};
 
 const EventForm = ({ setFormStep, isChecked }) => {
 	const dispatch = useDispatch();
@@ -16,6 +31,7 @@ const EventForm = ({ setFormStep, isChecked }) => {
 	const [longitude, setLongitude] = useState('');
 	const [latitude, setLatitude] = useState('');
 	const [region, setRegion] = useState('');
+	const [locationError,setLocationError]= useState(false)
 	const [CountryLocation, setCountryLocation] = useState('');
 
 	function success(position) {
@@ -35,24 +51,19 @@ const EventForm = ({ setFormStep, isChecked }) => {
 		}
 	};
 
-	const geoHandler = async (e) => {
-		e.preventDefault();
-		let replacedCity = city.replaceAll(' ', '+');
-		let replacedCountry = country.replaceAll(' ', '+');
 
-		let url = `https://maps.googleapis.com/maps/api/geocode/json?&address=${replacedCity}%${replacedCountry}&key=${process.env.REACT_APP_GOOGLE_GEO_KEY}`;
-		const response = await fetch(url);
-		if (!response.ok) alert('Something is went wrong with the Location Api');
-		let data = await response.json();
-		if (!data.results.length) return alert('Location couldne be found by api, please try again');
-		// set(data.results)
-	};
 
 	const formValidation = () => {};
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		await dispatch(createEvent({ title, description, cost }));
+		const geo = await geoHandler(city,country)
+		// alert('')
+		console.log(geo)
+		// if (geo.error) alert('')
+		let eventObj = { title, description, cost }
+
+		await dispatch(createEvent(eventObj));
 		const options = {
 			method: 'POST',
 			headers: {
@@ -119,6 +130,7 @@ const EventForm = ({ setFormStep, isChecked }) => {
 			</div>
 			<div>
 				<div className={styles.label}>Location </div>
+				{locationError && (<div>The location could not found Please try again </div>)}
 				<div onClick={findLocation}>Find My Location </div>
 				<div className={styles.locationGroup}>
 					<input
@@ -144,7 +156,7 @@ const EventForm = ({ setFormStep, isChecked }) => {
 					<SelectDropDownMenu region={region} setRegion={setRegion} />
 				</div>
 			</div>
-			<div className={styles.geoHandler} onClick={geoHandler}>
+			<div className={styles.geoHandler} onClick={()=>geoHandler(city,country)}>
 				Geo test
 			</div>
 			<div className={styles.stepHandler}>

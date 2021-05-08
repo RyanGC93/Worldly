@@ -8,12 +8,9 @@ query_commands = AppGroup('query')
 @query_commands.command('search')
 def query_event():
     query = 'a'
-
+    Event('seq_reg_id', start=10, increment=1)
     # q = session.query(User).filter(User.name.like('e%')).limit(5)
-    x = db.session.query(Location.region,Event.id, Event.title).filter(Location.event_id == Event.id).limit(30)
-    keys = ['event_id', 'title', 'region']
-    search = {"search": [dict(zip(keys,values)) for values in x]}
-    print(search)
+
 
 @query_commands.command('event')
 def query_event():
