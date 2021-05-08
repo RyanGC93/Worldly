@@ -9,9 +9,15 @@ const LandingPage = () => {
 	const dispatch = useDispatch();
 
 	const practiceRoute = () => {
-		let id = 2
-		dispatch(photoActions.createPhotom)
-		dispatch(photoActions.deletePhoto(id))
+		let id = 420
+		let eventId = 5
+		let description = 'sdsd'
+		let descriptionTwo = ''
+		let url = 'sdsdsadsas'
+
+		dispatch(photoActions.editPhoto(id, descriptionTwo))
+		// dispatch(photoActions.createPhoto(id,eventId, description, url))
+		// dispatch(photoActions.deletePhoto(id))
 
 	}
 	

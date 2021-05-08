@@ -28,7 +28,7 @@ export const createPhoto = (id,eventId, description, url) => async dispatch => {
     // const { id,eventId, description, url} = photos
     const options =
     {
-      method: 'GALLERY',
+      method: 'POST',
       headers: {
         'Content-Type': 'Application/json'
       },
@@ -38,13 +38,13 @@ export const createPhoto = (id,eventId, description, url) => async dispatch => {
   if (res.ok) return res
 
 }
-export const editPhoto = (id,eventId, description, url) => async dispatch => {
+export const editPhoto = (id, description) => async dispatch => {
   const options = {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ eventId, description, url })
+    body: JSON.stringify({ description: description})
   }
   const res = await fetch(`/api/photos/${id}`, options)
   if (res.ok) {

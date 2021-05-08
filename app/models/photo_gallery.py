@@ -9,3 +9,12 @@ class PhotoGallery(db.Model):
     url = db.Column(db.String(400), nullable = False)
 
     event = db.relationship('Event', back_populates='photo_gallery')
+    
+    def to_dict(self):
+        return {
+        "id" : self.id,
+        "event_id": self.event_id,
+        "description": self.description,
+        "url": self.url,
+        }
+    
