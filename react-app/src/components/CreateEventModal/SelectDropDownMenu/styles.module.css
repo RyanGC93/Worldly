@@ -50,22 +50,17 @@
 	height: 40px;
 }
 
-.menu *{
-	width:100%
-}
 
 .menu {
-	
+	right: 10%;
 	background: #e4edea;
 	border-radius: 8px;
-	position: fixed;
-	width: 100%;
-	/* position: absolute; */
-	top: 20%;
+	width: 80%;
+	position: absolute;
+	bottom: 15vh;
 	display:flex;
 	justify-content: center;
 	/* transform: translate(-50%, -50%); */
-	width: 300px;
 	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 	opacity: 0;
 	visibility: hidden;
@@ -84,6 +79,7 @@
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	width:100%
 }
 
 .menu li {
