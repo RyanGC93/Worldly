@@ -2,6 +2,10 @@ from app.models import db, PhotoGallery
 
 # Adds a demo user, you can add other users here if you want
 def seed_photo_gallery():
+    # Resets the SEQUENCE
+    db.session.execute("ALTER SEQUENCE events_id_seq RESTART WITH 1")
+    db.session.commit()
+    
     demo1=PhotoGallery(event_id=2,description="",url="https://thumbs.dreamstime.com/b/jollof-rice-west-african-cuisine-chicken-fried-plantain-86976048.jpg")
     demo2=PhotoGallery(event_id=2,description="",url="https://thumbs.dreamstime.com/b/jollof-rice-west-african-cuisine-chicken-fried-plantain-86790990.jpg")
     # demo3=PhotoGallery(event_id=2,description="",url="https://www.dreamstime.com/nigerian-food-party-jollof-rice-fried-chicken-wings-close-nigerian-food-party-jollof-rice-fried-chicken-wings-close-up-image112895117")

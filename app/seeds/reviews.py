@@ -8,6 +8,9 @@ reviewList = ["The classes use videos or step-by-step written instructions and p
 def seed_reviews():
     seed_list = []
     for _ in range(500):
+        db.session.execute("ALTER SEQUENCE events_id_seq RESTART WITH 1")
+        db.session.commit()
+        
         demo = Review(event_id=fake.random_int(min=3, max=27, step=1),user_id=fake.random_int(min=3, max=34, step=1), rating=fake.random_int(min=3, max=5, step=1), comment=reviewList[fake.random_int(min=0, max=13, step=1)])
         seed_list.append(demo)
     db.session.add_all(seed_list)

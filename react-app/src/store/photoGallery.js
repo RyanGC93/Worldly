@@ -24,27 +24,27 @@ const removePhoto = (id) => {
   }
 }
 
-export const createPhoto = (photos) => async dispatch => {
-    const { isPrivate, description, url, userId} = photos
+export const createPhoto = (id,eventId, description, url) => async dispatch => {
+    // const { id,eventId, description, url} = photos
     const options =
     {
       method: 'GALLERY',
       headers: {
         'Content-Type': 'Application/json'
       },
-      body: JSON.stringify({ isPrivate, description, url, userId })
+      body: JSON.stringify({ id,eventId, description, url})
     }
   const res = await fetch('/api/photos/', options)
   if (res.ok) return res
 
 }
-export const editPhoto = (id, description, isPrivate) => async dispatch => {
+export const editPhoto = (id,eventId, description, url) => async dispatch => {
   const options = {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({description, isPrivate})
+    body: JSON.stringify({ eventId, description, url })
   }
   const res = await fetch(`/api/photos/${id}`, options)
   if (res.ok) {
@@ -56,22 +56,12 @@ export const editPhoto = (id, description, isPrivate) => async dispatch => {
 export const deletePhoto = (id) => async dispatch => {
   const options = {
     method: 'DELETE'
-  }
-  const res =await fetch(`/api/photos/${id}`, options)
-  if ( res.ok) {
-    dispatch(removePhoto(id))
+  };
+  const res = await fetch(`/api/photos/${id}`, options);
+  if (res.ok) {
+    dispatch(removePhoto(id));
   }
 }
-
-export const updatePhotoLikes = (like) => async (dispatch) => {
-  const { photosId } = like;
-  const response = await fetch(`/api/photos/${photosId}`);
-  if (response.ok) {
-    const res = await response.json();
-    dispatch(updatePhotos(res));
-  }
-  return response;
-};
 
 export const getPhotos = (photos) => async (dispatch) => {
   dispatch(setPhotos(photos));
