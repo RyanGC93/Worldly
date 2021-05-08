@@ -1,16 +1,17 @@
-
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 // import './styles.css';
 import styles from './styles.module.css';
 import { BsCalendarFill } from 'react-icons/bs';
+import { FaCog } from 'react-icons/fa';
 import EventCarousel from './EventCarousel';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import CalendarModal from '../CalendarModal';
+import CreateModal from '../CreateEventModal';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
 
-const EventCard = ({ event,isChecked }) => {
+const EventCard = ({ event, isChecked }) => {
 	const history = useHistory();
 
 	const reviews = useSelector((state) => {
@@ -66,38 +67,48 @@ const EventCard = ({ event,isChecked }) => {
 									</address>
 								</div>
 								<div className={`${styles.imageWrapper} ${styles.carousel}`}>
-									<EventCarousel  images={images} />
+									<EventCarousel images={images} />
 									<div className={styles.calendarContainer}>
 										{/* Loads User Events */}
-										{isChecked && (
-											<BsCalendarFill
-												className={styles.calendarIcon}
-												style={{ stroke: 'black' }}
-												onClick={() => setShowModal(true)}
-											/>
+										{!isChecked && (
+											<>
+												<BsCalendarFill
+													className={styles.calendarIcon}
+													style={{ stroke: 'black' }}
+													onClick={() => setShowModal(true)}
+												/>
+												{showModal && (
+													<Modal onClose={() => setShowModal(false)}>
+														<CalendarModal
+															event={event}
+															bookingAvailability={bookingAvailability}
+															setShowModal={setShowModal}
+														/>
+													</Modal>
+												)}
+											</>
 										)}
 										{/* Loads Ambassador events */}
-										{!isChecked && (
-											// <BsCalendarFill
-											// 	className={styles.calendarIcon}
-											// 	style={{ stroke: 'black' }}
-											// 	onClick={() => setShowModal(true)}
-											// />
-											<h1>sddsds</h1>
-										
-										
+										{isChecked && (
+											<>
+												<FaCog
+													className={styles.calendarIcon}
+													style={{ stroke: 'black' }}
+													onClick={() => setShowModal(true)}
+												/>
+												{showModal && (
+													<Modal onClose={() => setShowModal(false)}>
+
+														<CreateModal
+															event={event}
+															bookingAvailability={bookingAvailability}
+															setShowModal={setShowModal}
+														/>
+													</Modal>
+												)}
+											</>
 										)}
 
-										{showModal && (
-											<Modal onClose={() => setShowModal(false)}>
-												<CalendarModal
-													event={event}
-													bookingAvailability={bookingAvailability}
-													setShowModal={setShowModal}
-												/>
-											</Modal>
-										)}
-										)}
 									</div>
 								</div>
 								{/* TODO: add this into cost */}
@@ -134,7 +145,7 @@ const EventCard = ({ event,isChecked }) => {
 							<section className={styles.itemCardDetails}>
 								<div className={styles.bioBlock}>
 									<h2 className={styles.title}>{title}</h2>
-									
+
 									<div className={styles.scrollBlock}>
 										<p className={styles.bioText}>{description}</p>
 									</div>
@@ -144,7 +155,7 @@ const EventCard = ({ event,isChecked }) => {
 										<div className={styles.starRating}>
 											<ReactStarsRating value={value} isEdit={false} size={17} />
 										</div>
-											<div>#{reviews.length} reviews</div>
+										<div>#{reviews.length} reviews</div>
 									</div>
 									<div className={styles.ambassadorContainer}>
 										<p>Chef {event.firstname}</p>

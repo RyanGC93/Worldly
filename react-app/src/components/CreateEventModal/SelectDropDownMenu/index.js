@@ -1,21 +1,31 @@
 import React, { useRef, useState } from "react";
 // import { useLocation, useHistory } from "react-router-dom";
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiFillSwitcher, AiOutlineMenu } from "react-icons/ai";
 // import { useSelector } from 'react-redux'
 
 import { useDetectOutsideClick } from "../../../services/detectOutsideClick";
 import styles from "./styles.module.css";
 
-const SelectDropDownMenu = () => {
+const SelectDropDownMenu = ({region,setRegion}) => {
 
 	const dropdownRef = useRef(null);
 	const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
-	const onClick = () => setIsActive(!isActive);
+	const onClick = () => {
+		setIsActive(!isActive);
+	};
+
+	const selectionHandler = (selection) => {
+		console.log(selection)
+		debugger
+		setRegion(selection)
+	}
+
 
 	return (
-		<div className={styles.menuContainer}>
-				<AiOutlineMenu />
-				<div onClick={onClick} className={styles.menuTrigger}>
+		<div className={styles.menuContainer} onClick={onClick} >
+			{region ? region : "Please Select A Region"}
+
+					<div onClick={onClick} className={styles.menuTrigger}>
 				</div>
 			<nav
 					ref={dropdownRef}
@@ -23,11 +33,13 @@ const SelectDropDownMenu = () => {
 				>
 				<ul>
 					<li>
-						<div >Profile</div>
+						<div  onClick={()=>selectionHandler('Africa')}>Africa</div>
 					</li>
-					<li>\ </li>
 					<li>
-						<div >Sign Out</div>
+						<div >Asia</div>
+					</li>
+					<li>
+						<div >Asia</div>
 					</li>
 				</ul>
 			</nav>

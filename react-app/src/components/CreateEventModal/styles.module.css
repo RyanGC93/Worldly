@@ -8,9 +8,8 @@
 }
 
 .eventWrap {
-  width: 100%;
   height: 100%;
-  position: absolute;
+  /* position: absolute; */
   padding: 10px 70px 50px 70px;
   background: rgba(40,57,101,.9);
 }
@@ -39,4 +38,8 @@
 
 .formStep {
   height: 90%
+}
+
+.dropMenu{
+  height: 13vh
 }

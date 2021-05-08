@@ -4,11 +4,20 @@
 }
 
 .menuContainer {
+	margin-top: 30px;
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
+	border: none;
+    padding: 15px 0px 15px 0px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    display: block;
+    text-align: center;
+    outline-style: none;
+    color: #fff;
 }
 
 .menuTrigger {
@@ -19,6 +28,7 @@
 	outline: none;
 	margin-right: 30px;
 	border: none;
+	background-color:white;
 	vertical-align: middle;
 	transition: box-shadow 0.4s ease;
 	margin-left: auto; /* Strictly for positioning */
@@ -40,17 +50,26 @@
 	height: 40px;
 }
 
+.menu *{
+	width:100%
+}
+
 .menu {
-	right: 0;
+	
 	background: #e4edea;
 	border-radius: 8px;
-	position: absolute;
-	top: 60px;
+	position: fixed;
+	width: 100%;
+	/* position: absolute; */
+	top: 20%;
+	display:flex;
+	justify-content: center;
+	/* transform: translate(-50%, -50%); */
 	width: 300px;
 	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 	opacity: 0;
 	visibility: hidden;
-	transform: translateY(-20px);
+	/* transform: translateY(-20px); */
 	transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 	z-index: 34;
 }

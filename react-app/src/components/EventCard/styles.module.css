@@ -37,6 +37,10 @@
 	height: 30px;
 	z-index: 3;
 }
+.calendarIcon:hover{
+	cursor: pointer;
+	transform: scale(1.2)
+}
 
 @supports (display: grid) {
 	.gridContainer {

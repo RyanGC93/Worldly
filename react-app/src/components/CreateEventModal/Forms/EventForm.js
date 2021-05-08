@@ -24,6 +24,8 @@ const EventForm = ({ setFormStep }) => {
 		console.log(latitude, longitude);
 	}
 
+	console.log(region)
+
 	const findLocation = () => {
 		if (navigator.geolocation) {
 			let geo = navigator.geolocation.getCurrentPosition(success);
@@ -137,9 +139,9 @@ const EventForm = ({ setFormStep }) => {
 						onChange={(e) => setCountry(e.target.value)}
 					/>
 				</div>
-				<div className={styles.input}>
-					HEREEE
-					<SelectDropDownMenu />
+				<div className={styles.dropMenu}>
+
+					<SelectDropDownMenu region={region} setRegion={setRegion} />
 				</div>
 			</div>
 			<div className={styles.geoHandler} onClick={geoHandler}>
