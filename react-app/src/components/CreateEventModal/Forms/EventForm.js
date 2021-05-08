@@ -62,16 +62,19 @@ const EventForm = ({ setFormStep, isChecked }) => {
 		console.log(geo)
 		// if (geo.error) alert('')
 		let eventObj = { title, description, cost }
+		let longitude = geo[0].geometry.location.lng
+		let latitude = geo[0].geometry.location.lat
+		let locationObj = {country,region,longitude, latitude}
 
-		await dispatch(createEvent(eventObj));
+		await dispatch(createEvent(eventObj,locationObj));
 		const options = {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'Application/json',
 			},
-			//   body: JSON.stringify({ city name, country, url, userId })
+			//   body: JSON.stringify({ city, name, country, url, userId })
 		};
-		const res = await fetch('/api/location/', options);
+		const res = await fetch('/api/locations/', options);
 		const json = await res.json();
 		setFormStep(2);
 	};

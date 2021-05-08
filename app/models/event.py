@@ -22,6 +22,7 @@ class Event(db.Model):
 
     def to_dict(self):
         return {
+        "id" : self.id,
         "ambassador_id": self.ambassador_id,
         "title": self.title,
         "description": self.description,
