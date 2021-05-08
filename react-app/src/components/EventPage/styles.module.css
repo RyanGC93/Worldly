@@ -21,7 +21,8 @@
 
 .eventTitle {
     font-size: 5vw;
-    width: 100%;
+    margin-left: 15%;
+    width:70%;
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;   
     text-align: center;
@@ -30,13 +31,14 @@
 
 .eventInfo{
     margin-left: 15%;
-    width: 100%;
+    width: 70%;
     display:grid;
     text-align: center;
     font-size: 32px;
     padding-top: 0.5vh;
     padding-bottom: 0.5vh;   
     display:grid;
+    /* background-color:blue; */
     grid-template-columns: 33% 33% 33%;
     /* grid-template-columns: 40% 60% */
 }
