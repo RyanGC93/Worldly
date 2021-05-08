@@ -3,6 +3,8 @@ from app.models import db, Ambassador
 
 # Adds a demo user, you can add other users here if you want
 def seed_ambassadors():
+    db.session.execute("ALTER SEQUENCE ambassadors_id_seq RESTART WITH 1")
+    db.session.commit()
 
     demo = Ambassador(user_id=1)
     demo2 = Ambassador(user_id=1)

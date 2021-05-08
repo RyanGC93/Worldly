@@ -5,6 +5,8 @@ fake = Faker()
 
 # Adds a demo user, you can add other users here if you want
 def seed_booking_calendar():
+    db.session.execute("ALTER SEQUENCE booking_calendar_id_seq RESTART WITH 1")
+    db.session.commit()
 
     seed_list = []
     count = 0

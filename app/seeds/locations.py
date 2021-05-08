@@ -3,6 +3,9 @@ from app.models import db, Location
 
 # Adds a demo user, you can add other users here if you want
 def seed_location():
+    db.session.execute("ALTER SEQUENCE locations_id_seq RESTART WITH 1")
+    db.session.commit()
+    
     demo2=Location(event_id=2, longitude=9.081999, latitude=8.675277, country="Nigeria", region="Africa")
     demo3=Location(event_id=3, longitude=28.18712, latitude=-25.74602, country="South Africa", region="Africa")
     demo4=Location(event_id=4, longitude=7.09262, latitude=31.791702, country="Morocco", region="Africa")

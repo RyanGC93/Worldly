@@ -5,7 +5,9 @@ fake = Faker()
 
 # Adds a demo user, you can add other users here if you want
 def seed_event_calendar():
-    # fake.random_int(min=0, max=9999, step=1)
+    # fake.random_int(min=0, max=9999, step=1)\
+    db.session.execute("ALTER SEQUENCE event_calendar_id_seq RESTART WITH 1")
+    db.session.commit()
 
     seed_list = []
     count = 0

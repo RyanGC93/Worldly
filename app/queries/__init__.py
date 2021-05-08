@@ -7,9 +7,7 @@ query_commands = AppGroup('query')
 
 @query_commands.command('search')
 def query_event():
-    query = 'a'
-    Event('seq_reg_id', start=10, increment=1)
-    # q = session.query(User).filter(User.name.like('e%')).limit(5)
+    pass
 
 
 @query_commands.command('event')
