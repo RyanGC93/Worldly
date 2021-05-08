@@ -28,7 +28,7 @@ export const createCalendar = (calendar) => async dispatch => {
     const { isPrivate, description, url, userId} = calendar
     const options =
     {
-      method: 'EVENTCALENDAR',
+      method: 'POST',
       headers: {
         'Content-Type': 'Application/json'
       },
@@ -61,7 +61,7 @@ export const deleteCalendar = (id) => async dispatch => {
   }
 }
 
-export const updateCalendarLikes = (like) => async (dispatch) => {
+export const updateCalendar = (like) => async (dispatch) => {
   const { calendarId } = like;
   const response = await fetch(`/api/calendar/${calendarId}`);
   if (response.ok) {
