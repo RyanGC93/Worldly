@@ -112,6 +112,7 @@ const PhotoForm = ({ setFormStep }) => {
 	let [photoKey, setPhotoKey] = useState(0);
 
 	const confirmHandler = () => {
+		
 	};
 
 	const onSubmit = () => {};
@@ -177,7 +178,7 @@ const PhotoForm = ({ setFormStep }) => {
 					</label>
 				</div>
 			</div>
-      {photos[1] && <div
+      {photos[0] && <div
         className={`${styles.input} ${styles.confirm}`}
         onClick={confirmHandler}
       >Confirm</div>}
