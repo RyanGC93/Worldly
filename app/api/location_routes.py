@@ -7,10 +7,10 @@ location_routes = Blueprint('location', __name__)
 @location_routes.route('/', methods=['POST'])
 def new_location():
     if current_user.is_authenticated:
- 
+        print('gfd')
 
         data = request.get_json()
-        event_id = data['eventId']
+        event_id = data['id']
         longitude = data['longitude']
         latitude = data['latitude']
         country = data['country']
