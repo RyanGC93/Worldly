@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './styles.module.css';
-import { createEvent } from '../../../store/events';
+import { createAmbassadorEvent } from '../../../store/ambassadorEvents';
 import SelectDropDownMenu from '../SelectDropDownMenu';
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
 const geoHandler = async (city,country) => {
@@ -66,7 +66,7 @@ const EventForm = ({ setFormStep, isChecked }) => {
 		let latitude = geo[0].geometry.location.lat
 		let locationObj = {country,region,longitude, latitude}
 
-		await dispatch(createEvent(eventObj,locationObj));
+		await dispatch(createAmbassadorEvent(eventObj,locationObj));
 		const options = {
 			method: 'POST',
 			headers: {
@@ -74,9 +74,10 @@ const EventForm = ({ setFormStep, isChecked }) => {
 			},
 			//   body: JSON.stringify({ city, name, country, url, userId })
 		};
-		const res = await fetch('/api/locations/', options);
-		const json = await res.json();
-		setFormStep(2);
+		// const res = await fetch('/api/location/', options);
+		// const json = await res.json();
+		
+		// setFormStep(2);
 	};
 	const check = (e) => {};
 

@@ -10,6 +10,7 @@ def new_location():
         print('gfd')
 
         data = request.get_json()
+        print(data)
         event_id = data['id']
         longitude = data['longitude']
         latitude = data['latitude']
@@ -20,4 +21,4 @@ def new_location():
                         country=country,region=region)
         db.session.add(new_location)
         db.session.commit()
-        return
+        return new_location.to_dict()

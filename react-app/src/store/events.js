@@ -26,32 +26,7 @@ const removeEvent = (id) => {
   }
 }
 
-export const createEvent = (event,eventLocation) => async dispatch => {
-  const optionsLocation =
-  {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'Application/json'
-    },
-    body: JSON.stringify(eventLocation)
-  }
-  
-    const optionsEvent =
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'Application/json'
-      },
-      body: JSON.stringify(event)
-    }
-  const res = await fetch('/api/events/', optionsEvent)
-    if(!res.ok) return
-  const json = await res.json()
-  eventLocation.id = json.id
-  console.log(eventLocation)
-  
-    console.log(json)
-}
+
 export const editEvent = (id, description, isPrivate) => async dispatch => {
   const options = {
     method: 'PUT',

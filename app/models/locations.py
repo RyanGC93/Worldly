@@ -12,5 +12,13 @@ class Location(db.Model):
 
     event = db.relationship('Event', back_populates='location')
     
-    def __repr__(self):
-        return f"<location: silly >"
+
+    def to_dict(self):
+        return {
+        "id" : self.id,
+        "event_id": self.event_id,
+        "longitude": self.longitude,
+        "latitude": self.latitude,
+        "country": self.country, 
+        }
+        

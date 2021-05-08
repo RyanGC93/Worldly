@@ -4,6 +4,7 @@ import * as eventCalendarActions from './eventCalendar'
 
 const SET_USER_EVENTS = "events/SET_USER_EVENTS";
 const REMOVE_USER_EVENT = "events/REMOVE_USER_EVENT";
+const CREATE_USER_EVENTS = "events/CREATE_USER_EVENTS";
 
 
 const setUserEvents = (events) => {
@@ -53,6 +54,7 @@ export const deleteUserEvent = (id) => async dispatch => {
   }
 
 }
+
 
 const initialState = {};
 

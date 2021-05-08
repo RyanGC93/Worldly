@@ -15,64 +15,42 @@ const setAmbassadorEvents = (events) => {
   };
 };
 
-// const updateEvents = (event) => {
-//   return {
-//     type: UPDATE_POST,
-//     event,
-//   };
-// };
-const removePost = (id) => {
-  return {
-    type: REMOVE_POST,
-    id
-  }
-}
-
-export const createPost = (event) => async dispatch => {
-    const { isPrivate, description, url, userId} = event
-    const options =
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'Application/json'
-      },
-      body: JSON.stringify({ isPrivate, description, url, userId })
-    }
-    const res = await fetch('/api/events/', options)
-    const json = await res.json()
-}
-export const editPost = (id, description, isPrivate) => async dispatch => {
-  const options = {
-    method: 'PUT',
+export const createAmbassadorEvent = (event,eventLocation) => async dispatch => {
+  
+  const optionsEvent =
+  {
+    method: 'POST',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'Application/json'
     },
-    body: JSON.stringify({description, isPrivate})
+    body: JSON.stringify(event)
   }
-  const res = await fetch(`/api/events/${id}`, options)
-  if (res.ok) {
-    const newPost = await res.json()
+  const res = await fetch('/api/events/', optionsEvent)
+  if(!res.ok) return
+  const json = await res.json()
+  eventLocation.id = json.id
+  console.log(eventLocation)
+  // ! Add the location api call
+  const optionsLocation =
+  {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'Application/json'
+    },
+    body: JSON.stringify(eventLocation)
   }
-}
+  const resLocation = await fetch('/api/location/', optionsLocation)
+  if(!resLocation.ok) return
+  const jsonLocation = await resLocation.json()
 
-export const deletePost = (id) => async dispatch => {
-  const options = {
-    method: 'DELETE'
-  }
-  const res =await fetch(`/api/events/${id}`, options)
-  if ( res.ok) {
-    dispatch(removePost(id))
-  }
-}
 
-export const updatePostLikes = (like) => async (dispatch) => {
-  const { eventId } = like;
-  const response = await fetch(`/api/events/${eventId}`);
-  if (response.ok) {
-      const res = await response.json();
-  }
-  return response;
-};
+  console.log("send me your location",jsonLocation)
+
+
+  console.log(eventLocation)
+  
+    console.log(json)
+}
 
 export const getAmbassadorEvents = (user) => async (dispatch) => {
   const response = await fetch(`/api/ambassadors/`);
