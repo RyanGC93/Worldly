@@ -96,9 +96,10 @@ def sign_s3():
 
     file_name = request.args.get('file_name')
     file_type = request.args.get('file_type')
-    s3 = boto3.client('s3', config=Config(
-        signature_version='s3v4', region_name="us-east-2"))
-
+    # s3 = boto3.client('s3', config=Config(
+    #     signature_version='s3v4', region_name="us-east-2"))
+    s3 = boto3.client('s3')
+    
     presigned_post = s3.generate_presigned_post(
         Bucket=S3_BUCKET,
         Key=file_name,

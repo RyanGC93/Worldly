@@ -20,7 +20,7 @@ const geoHandler = async (city,country) => {
 	return data.results
 };
 
-const EventForm = ({ setFormStep, isChecked }) => {
+const EventForm = ({ setFormStep, setEventId }) => {
 	const dispatch = useDispatch();
 	const [errors, setErrors] = useState([]);
 	const [title, setTitle] = useState('');
@@ -64,8 +64,8 @@ const EventForm = ({ setFormStep, isChecked }) => {
 		let latitude = geo[0].geometry.location.lat
 		let locationObj = {country,region,longitude, latitude}
 
-		await dispatch(createAmbassadorEvent(eventObj,locationObj));
-
+		let event = await dispatch(createAmbassadorEvent(eventObj,locationObj));
+		setEventId(event.id)
 		setFormStep(2);
 	};
 	const check = (e) => {};

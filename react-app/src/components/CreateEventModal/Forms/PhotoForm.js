@@ -92,16 +92,20 @@ const PhotoFormSlider = ({ photos, setPhotos }) => {
 	);
 };
 
-const PhotoForm = ({ setFormStep }) => {
+const PhotoForm = ({ setFormStep, eventId }) => {
 	const [photos, setPhotos] = useState([]);
 	const [url, setUrl] = useState('');
 	const [file, setFile] = useState(null);
 
 	let [photoKey, setPhotoKey] = useState(0);
-	const onSubmit = () => {
+	const onSubmit = async (e) => {
+		e.preventDefault();
 		console.log(photos);
 		photos.map((photo) => {
-			if(photo.file) getSignedRequest(photo.file)
+			if (photo.file) {
+				let url = getSignedRequest(photo.file)
+			}
+				
 			// if(getSignedRequest(photo.src);
 		});
 	};

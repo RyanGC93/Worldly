@@ -29,7 +29,6 @@ export const createAmbassadorEvent = (event,eventLocation) => async dispatch => 
   if(!res.ok) return
   const json = await res.json()
   eventLocation.id = json.id
-  console.log(eventLocation)
   // ! Add the location api call
   const optionsLocation =
   {
@@ -42,14 +41,7 @@ export const createAmbassadorEvent = (event,eventLocation) => async dispatch => 
   const resLocation = await fetch('/api/location/', optionsLocation)
   if(!resLocation.ok) return
   const jsonLocation = await resLocation.json()
-
-
-  console.log("send me your location",jsonLocation)
-
-
-  console.log(eventLocation)
-  
-    console.log(json)
+  return json
 }
 
 export const getAmbassadorEvents = (user) => async (dispatch) => {

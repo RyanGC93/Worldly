@@ -33,11 +33,11 @@ export const editEvent = (id, description, isPrivate) => async dispatch => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({description, isPrivate})
-  }
-  const res = await fetch(`/api/events/${id}`, options)
+    body: JSON.stringify({ description, isPrivate })
+  };
+  const res = await fetch(`/api/events/${id}`, options);
   if (res.ok) {
-    const newEvent = await res.json()
+    const newEvent = await res.json();
   }
 }
 
