@@ -14,7 +14,7 @@
 
 }
 .carouselWrapper{
-    width:60vh;
+    width:70%;
     box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
     /* margin-left: 6vw; */
 }
@@ -41,6 +41,11 @@
     /* background-color:blue; */
     grid-template-columns: 33% 33% 33%;
     /* grid-template-columns: 40% 60% */
+}
+
+.calendarContainer {
+    display: flex;
+    justify-content: center;
 }
 
 .descriptionTitle{

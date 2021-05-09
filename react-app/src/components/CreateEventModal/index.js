@@ -3,10 +3,11 @@ import styles from "./styles.module.css";
 import EventForm from "./Forms/EventForm";
 import PhotoForm from "./Forms/PhotoForm";
 import DatesForm from "./Forms/DatesForm"
+import ConfirmForm from "./Forms/ConfirmForm"
 import { MultiStepForm, Step } from "react-multi-form";
-const CreateEventModal = () => {
+const CreateEventModal = ({setShowModal}) => {
   const [eventId,setEventId] = useState('')
-  const [formStep, setFormStep] = useState(3);
+  const [formStep, setFormStep] = useState(1);
   return (
     <div className={styles.createEventContainer} >
       <div className={styles.eventWrap}>
@@ -18,10 +19,10 @@ const CreateEventModal = () => {
             <PhotoForm eventId={eventId} setFormStep={setFormStep} />
             </Step>
             <Step label="Dates">
-              <DatesForm setFormStep={setFormStep}/>
+              <DatesForm eventId={eventId} setFormStep={setFormStep} />
             </Step>
             <Step label="Confirmation">
-              <div></div>
+              <ConfirmForm setShowModal={setShowModal} eventId={eventId} setFormStep={setFormStep} />
             </Step>
           </MultiStepForm>
         </div>

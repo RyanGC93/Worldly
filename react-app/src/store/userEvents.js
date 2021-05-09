@@ -49,10 +49,9 @@ export const deleteUserEvent = (id) => async dispatch => {
 
   const res = await fetch(`/api/events/user/${id}`, options);
   if (res.ok) {
-    alert(id)
-    dispatch(removeUserEvent(id))
+    alert(id);
+    dispatch(removeUserEvent(id));
   }
-
 }
 
 

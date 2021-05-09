@@ -66,7 +66,7 @@ const EventPage = () => {
 					{events.country}, {events.region}
 				</div>
 				{eventCalendar.length && (
-					<>
+					<div className={styles.calendarContainer}>
 						<BsCalendarFill
 							className={styles.calendarIcon}
 							style={{ stroke: 'black' }}
@@ -77,7 +77,7 @@ const EventPage = () => {
 								<CalendarModal bookingAvailability={eventCalendar} setShowModal={setShowModal} />
 							</Modal>
 						)}
-					</>
+					</div>
 				)}
 
 				{showModal && (
