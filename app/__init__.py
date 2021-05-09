@@ -1,5 +1,5 @@
-import os
-from flask import Flask, render_template, request, session, redirect
+import os, json, boto3
+from flask import Flask, request, redirect, url_for, render_template, session, 
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
@@ -59,6 +59,7 @@ CORS(app)
 # request made over http is redirected to https.
 # Well.........
 
+
 @app.before_request
 def https_redirect():
     if os.environ.get('FLASK_ENV') == 'production':
@@ -87,3 +88,27 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+
+@app.route('/sign_s3/')
+def sign_s3():
+    S3_BUCKET = os.environ.get('S3_BUCKET')
+
+    file_name = request.args.get('file_name')
+    file_type = request.args.get('file_type')
+    s3 = boto3.client('s3', config=Config(
+        signature_version='s3v4', region_name="us-east-2"))
+
+    presigned_post = s3.generate_presigned_post(
+        Bucket=S3_BUCKET,
+        Key=file_name,
+        Fields={"acl": "public-read", "Content-Type": file_type},
+        Conditions=[
+            {"acl": "public-read"},
+            {"Content-Type": file_type}
+        ],
+    )
+    return json.dumps({
+        'data': presigned_post,
+        'url': 'https://%s.s3.amazonaws.com/' % (S3_BUCKET)
+    })
