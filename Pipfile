@@ -25,6 +25,7 @@ flask-login = "*"
 psycopg2 = "*"
 geoalchemy2 = "*"
 faker = "*"
+boto3 = "*"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"

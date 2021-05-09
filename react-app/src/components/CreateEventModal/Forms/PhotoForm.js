@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import styles from "./styles.module.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import { BsFillTrashFill } from "react-icons/bs";
-import { getSignedRequest } from '../../services/upload'
+import React, { useState, useEffect } from 'react';
+import styles from './styles.module.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+import { BsFillTrashFill } from 'react-icons/bs';
+import { getSignedRequest } from '../../../services/upload';
 
 const settings = {
 	autoplay: false,
@@ -13,10 +13,10 @@ const settings = {
 };
 /* Form requires ambassador id title descrition, cost, location(lon,lat) */
 const Slide = ({ photo, setPhotos, photos }) => {
-	const [description, setDescription] = useState("");
+	const [description, setDescription] = useState('');
 
 	useEffect(() => {
-		setDescription(photo.description);
+		// setDescription(photo.description);
 	}, [photo.description]);
 
 	const updateDescription = (e) => {
@@ -35,12 +35,9 @@ const Slide = ({ photo, setPhotos, photos }) => {
 	};
 
 	const updateHandler = () => {
-		setPhotos(
-			photos.map((item) =>
-				item.id === photo.id ? { ...item, description: description } : item
-			)
-		);
+		setPhotos(photos.map((item) => (item.id === photo.id ? { ...item, description: description } : item)));
 	};
+	console.log(photos, 'sdsd');
 
 	return (
 		<>
@@ -64,11 +61,11 @@ const Slide = ({ photo, setPhotos, photos }) => {
 							/>
 						</div>
 					</div>
-          <div className={`${styles.imageOptions} ${styles.options}`} onClick={updateHandler}>
+					<div className={`${styles.imageOptions} ${styles.options}`} onClick={updateHandler}>
 						Update
 					</div>
 					<div onClick={cancelHandler} className={`${styles.imageOptions} ${styles.options}`}>
-						Cancel{" "}
+						Cancel{' '}
 					</div>
 					<div
 						value={photo.id}
@@ -86,36 +83,33 @@ const Slide = ({ photo, setPhotos, photos }) => {
 const PhotoFormSlider = ({ photos, setPhotos }) => {
 	return (
 		<>
-			<Carousel styling={{ height: "50%" }} {...settings}>
+			<Carousel styling={{ height: '50%' }} {...settings}>
 				{photos.map((photo) => (
-					<Slide
-						key={photo.id}
-						photos={photos}
-						photo={photo}
-						setPhotos={setPhotos}
-					/>
+					<Slide key={photo.id} photos={photos} photo={photo} setPhotos={setPhotos} />
 				))}
 			</Carousel>
 		</>
 	);
 };
 
-
 const PhotoForm = ({ setFormStep }) => {
 	const [photos, setPhotos] = useState([]);
-	const [url, setUrl] = useState("");
-	const [file, setFile] = useState("");
+	const [url, setUrl] = useState('');
+	const [file, setFile] = useState(null);
 
 	let [photoKey, setPhotoKey] = useState(0);
 	const onSubmit = () => {
-			console.log(photos)
-
-
+		console.log(photos);
+		photos.map((photo) => {
+			if(photo.file) getSignedRequest(photo.file)
+			// if(getSignedRequest(photo.src);
+		});
 	};
 	const readUrl = (e) => {
 		if (e.target.files[0]) {
 			const src = URL.createObjectURL(e.target.files[0]);
-			setFile(src);
+			setUrl(src);
+			setFile(e.target.files[0])
 		}
 	};
 	const urlHandler = (e) => {
@@ -125,36 +119,40 @@ const PhotoForm = ({ setFormStep }) => {
 		setUrl(e.target.value);
 	};
 	const addPhotoHandler = () => {
-		let src;
-		url ? (src = url) : (src = file);
+		// let src;
+		// url ? (src = url) : (src = file);
 		// ! Split into the url and file
 		let newPhoto = {
 			id: photoKey,
-			src: src,
-			description: "",
+			src: url,
+			description: '',
+			file
 		};
 
 		setPhotos((prevState) => [...prevState, newPhoto]);
-		setUrl("");
-		setFile("");
+		setUrl('');
+		setFile('');
 		let increaser = (photoKey += 1);
 		setPhotoKey(increaser);
-		document.getElementById("file-input").value = null;
+		document.getElementById('file-input').value = null;
 	};
 
 	return (
-		<form className={styles.formContainer} onSubmit={onSubmit}>		{photos[0] && (
-			<PhotoFormSlider id="xxxxx" photos={photos} setPhotos={setPhotos} />
-		)}
-			{url || file && (
+		<form className={styles.formContainer} onSubmit={onSubmit}>
+			{' '}
+			{photos[0] && <PhotoFormSlider id="xxxxx" photos={photos} setPhotos={setPhotos} />}
+			{/* {url ||
+				(url && ( */}
+			{url && (
 				<div className={styles.addPhoto} onClick={addPhotoHandler}>
 					Add Photo
 				</div>
 			)}
+			{/* ))} */}
 			<div className={styles.photoOptions}>
 				<div className={styles.group}>
 					<label className={styles.label}>
-						{(photos[0] ? "Choose a Photo" : "Add More Photos")}
+						{photos[0] ? 'Choose a Photo' : 'Add More Photos'}
 						<input
 							id="file-input"
 							type="file"
@@ -176,10 +174,11 @@ const PhotoForm = ({ setFormStep }) => {
 					</label>
 				</div>
 			</div>
-      {photos[0] && <div
-        className={`${styles.input} ${styles.confirm}`}
-        onClick={onSubmit}
-      >Confirm</div>}
+			{photos[0] && (
+				<div className={`${styles.input} ${styles.confirm}`} onClick={onSubmit}>
+					Confirm
+				</div>
+			)}
 		</form>
 	);
 };

@@ -1,5 +1,5 @@
 import os, json, boto3
-from flask import Flask, request, redirect, url_for, render_template, session, 
+from flask import Flask, request, redirect, url_for,render_template, session
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
