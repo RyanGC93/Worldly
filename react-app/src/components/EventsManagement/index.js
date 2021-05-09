@@ -6,12 +6,10 @@ import Map from '../Map';
 import styles from './styles.module.css';
 import EventCard from '../EventCard';
 import './tabs.css';
-import EventViewer from './EventViewer';
-import AmbassadorCalendar from './AmbassadorCalendar';
+
 
 const EventManagement = ({ isChecked }) => {
-	const [upcoming, setUpcoming] = useState([]);
-	const [past, setPast] = useState([]);
+
 
 	const userEvents = useSelector((state) => {
 		if (isChecked) return Object.values(state.userEvents);

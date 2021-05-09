@@ -24,15 +24,15 @@ const removeCalendar = (id) => {
   }
 }
 
-export const createCalendar = (calendar) => async dispatch => {
-    const { isPrivate, description, url, userId} = calendar
+export const createCalendar = (eventId,time,date) => async dispatch => {
+    // const { isPrivate, description, url, userId} = calendar
     const options =
     {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/json'
       },
-      body: JSON.stringify({ isPrivate, description, url, userId })
+      body: JSON.stringify({ eventId,time,date })
     }
     const res = await fetch('/api/calendar/', options)
     const json = await res.json()

@@ -99,10 +99,6 @@ const PhotoFormSlider = ({ photos, setPhotos }) => {
 	);
 };
 
-//     setItems(prevItems => [...prevItems, {
-//   id: prevItems.length,
-//   value: getRandomNumber()
-// }]);
 
 const PhotoForm = ({ setFormStep }) => {
 	const [photos, setPhotos] = useState([]);
@@ -110,12 +106,11 @@ const PhotoForm = ({ setFormStep }) => {
 	const [file, setFile] = useState("");
 
 	let [photoKey, setPhotoKey] = useState(0);
+	const onSubmit = () => {
+			console.log(photos)
 
-	const confirmHandler = () => {
-		
+
 	};
-
-	const onSubmit = () => {};
 	const readUrl = (e) => {
 		if (e.target.files[0]) {
 			const src = URL.createObjectURL(e.target.files[0]);
@@ -131,11 +126,13 @@ const PhotoForm = ({ setFormStep }) => {
 	const addPhotoHandler = () => {
 		let src;
 		url ? (src = url) : (src = file);
+		// ! Split into the url and file
 		let newPhoto = {
 			id: photoKey,
 			src: src,
-			description: "sdsdsdsds",
+			description: "",
 		};
+
 		setPhotos((prevState) => [...prevState, newPhoto]);
 		setUrl("");
 		setFile("");
@@ -145,9 +142,9 @@ const PhotoForm = ({ setFormStep }) => {
 	};
 
 	return (
-		<form className={styles.formContainer} onSubmit={onSubmit}>
+		<form className={styles.formContainer} onSubmit={onSubmit}>		{photos[0] && (
 			<PhotoFormSlider id="xxxxx" photos={photos} setPhotos={setPhotos} />
-
+		)}
 			{url || file && (
 				<div className={styles.addPhoto} onClick={addPhotoHandler}>
 					Add Photo
@@ -156,7 +153,7 @@ const PhotoForm = ({ setFormStep }) => {
 			<div className={styles.photoOptions}>
 				<div className={styles.group}>
 					<label className={styles.label}>
-						Choose a Photo
+						{(photos[0] ? "Choose a Photo" : "Add More Photos")}
 						<input
 							id="file-input"
 							type="file"
@@ -180,7 +177,7 @@ const PhotoForm = ({ setFormStep }) => {
 			</div>
       {photos[0] && <div
         className={`${styles.input} ${styles.confirm}`}
-        onClick={confirmHandler}
+        onClick={onSubmit}
       >Confirm</div>}
 		</form>
 	);

@@ -27,14 +27,14 @@ const LandingPage = () => {
 		
 		// ! Calendar
 		let eventId = 5
-		let time= '	15:12:17'
-		let date = '	15:12:17'
+		let time='15:12:17'
+		let date='15:12:17'
 
 		
 
 		// dispatch(calendarActions.editCalendar(id, descriptionTwo))
-		dispatch(calendarActions.createCalendar(eventId,time,date))
-		// dispatch(calendarActions.deleteCalendar(id))
+		// dispatch(calendarActions.createCalendar(eventId,time,date))
+		dispatch(calendarActions.deleteCalendar(eventId))
 		
 
 	}

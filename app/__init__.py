@@ -46,7 +46,7 @@ app.register_blueprint(photo_routes, url_prefix='/api/photos')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(search_routes, url_prefix='/api/search')
 app.register_blueprint(location_routes, url_prefix='/api/location')
-app.register_blueprint(event_calendar_routes, url_prefix='/api/event/calendar')
+app.register_blueprint(event_calendar_routes, url_prefix='/api/calendar')
 db.init_app(app)
 Migrate(app, db)
 
