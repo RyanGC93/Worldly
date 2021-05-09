@@ -12,29 +12,18 @@ const LandingPage = () => {
 	const dispatch = useDispatch();
 
 	const practiceRoute = () => {
-		// photoActions
-		// let id = 420
-		// let eventId = 5
-		// let description = 'sdsd'
-		// let descriptionTwo = ''
-		// let url = 'sdsdsadsas'
-		
 
-				// dispatch(photoActions.editPhoto(id, descriptionTwo))
-		// dispatch(photoActions.createPhoto(id,eventId, description, url))
-		// dispatch(photoActions.deletePhoto(id))
 
 		
 		// ! Calendar
 		let eventId = 5
-		let time='15:12:17'
-		let date='15:12:17'
-
+		let dateToday = new Date();
+		let time='13:21:18'
+		let date='	2021-05-15'
 		
 
-		// dispatch(calendarActions.editCalendar(id, descriptionTwo))
-		// dispatch(calendarActions.createCalendar(eventId,time,date))
-		dispatch(calendarActions.deleteCalendar(eventId))
+		dispatch(calendarActions.createCalendar(eventId,time,date))
+		// dispatch(calendarActions.deleteCalendar(eventId))
 		
 
 	}

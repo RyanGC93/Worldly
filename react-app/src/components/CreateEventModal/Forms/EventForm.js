@@ -28,11 +28,9 @@ const EventForm = ({ setFormStep, setEventId }) => {
 	const [cost, setCost] = useState('');
 	const [city, setCity] = useState('');
 	const [country, setCountry] = useState('');
-	const [longitude, setLongitude] = useState('');
-	const [latitude, setLatitude] = useState('');
+
 	const [region, setRegion] = useState('');
 	const [locationError,setLocationError]= useState(false)
-	const [CountryLocation, setCountryLocation] = useState('');
 
 	function success(position) {
 		const latitude = position.coords.latitude;
@@ -65,7 +63,9 @@ const EventForm = ({ setFormStep, setEventId }) => {
 		let locationObj = {country,region,longitude, latitude}
 
 		let event = await dispatch(createAmbassadorEvent(eventObj,locationObj));
-		setEventId(event.id)
+		// setEventId(event.id)
+		setEventId(2)
+
 		setFormStep(2);
 	};
 	const check = (e) => {};

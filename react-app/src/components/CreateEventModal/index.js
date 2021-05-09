@@ -6,7 +6,7 @@ import DatesForm from "./Forms/DatesForm"
 import { MultiStepForm, Step } from "react-multi-form";
 const CreateEventModal = () => {
   const [eventId,setEventId] = useState('')
-  const [formStep, setFormStep] = useState(1);
+  const [formStep, setFormStep] = useState(3);
   return (
     <div className={styles.createEventContainer} >
       <div className={styles.eventWrap}>
@@ -15,7 +15,7 @@ const CreateEventModal = () => {
             <EventForm setEventId={setEventId} setFormStep={setFormStep} />
             </Step>
             <Step className={styles.formStep} label="Photos">
-              <PhotoForm setFormStep={setFormStep} />
+            <PhotoForm eventId={eventId} setFormStep={setFormStep} />
             </Step>
             <Step label="Dates">
               <DatesForm setFormStep={setFormStep}/>

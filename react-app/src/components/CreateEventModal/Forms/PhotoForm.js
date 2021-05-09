@@ -96,6 +96,7 @@ const PhotoForm = ({ setFormStep, eventId }) => {
 	const [photos, setPhotos] = useState([]);
 	const [url, setUrl] = useState('');
 	const [file, setFile] = useState(null);
+	console.log(eventId)
 
 	let [photoKey, setPhotoKey] = useState(0);
 	const onSubmit = async (e) => {
