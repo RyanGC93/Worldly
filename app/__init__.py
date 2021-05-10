@@ -2,8 +2,13 @@ import os, json, boto3
 from flask import Flask, request, redirect, url_for,render_template, session
 from flask_cors import CORS
 from flask_migrate import Migrate
+from botocore.config import Config
+
+from .config import Configuration
+
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
+
 
 from .models import db, User
 from .api.user_routes import user_routes
@@ -19,7 +24,7 @@ from .api.event_calendar_routes import event_calendar_routes
 from .seeds import seed_commands
 from .queries import query_commands
 
-from .config import Config
+
 
 app = Flask(__name__)
 
@@ -37,7 +42,7 @@ def load_user(id):
 app.cli.add_command(seed_commands)
 app.cli.add_command(query_commands)
 
-app.config.from_object(Config)
+app.config.from_object(Configuration)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(ambassador_routes, url_prefix='/api/ambassadors')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
@@ -96,9 +101,8 @@ def sign_s3():
 
     file_name = request.args.get('file_name')
     file_type = request.args.get('file_type')
-    # s3 = boto3.client('s3', config=Config(
-    #     signature_version='s3v4', region_name="us-east-2"))
-    s3 = boto3.client('s3')
+    s3 = boto3.client('s3', config=Config(
+        signature_version='s3v4', region_name="us-east-2"))
     
     presigned_post = s3.generate_presigned_post(
         Bucket=S3_BUCKET,

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import {useDispatch} from 'react-redux'
 import styles from './styles.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { BsFillTrashFill } from 'react-icons/bs';
 import { getSignedRequest } from '../../../services/upload';
+import {createPhoto} from '../../../store/photoGallery'
 
 const settings = {
 	autoplay: false,
@@ -12,10 +14,6 @@ const settings = {
 };
 const Slide = ({ photo, setPhotos, photos }) => {
 	const [description, setDescription] = useState('');
-
-	// useEffect(() => {
-	// 	// setDescription(photo.description);
-	// }, [photo.description]);
 
 	const updateDescription = (e) => {
 		setDescription(e.target.value);
@@ -90,6 +88,7 @@ const PhotoFormSlider = ({ photos, setPhotos }) => {
 };
 
 const PhotoForm = ({ setFormStep, eventId }) => {
+	const dispatch = useDispatch();
 	const [photos, setPhotos] = useState([]);
 	const [url, setUrl] = useState('');
 	const [file, setFile] = useState(null);
@@ -99,11 +98,15 @@ const PhotoForm = ({ setFormStep, eventId }) => {
 		e.preventDefault();
 		photos.map((photo) => {
 			if (photo.file) {
-				let url = getSignedRequest(photo.file)
-				console.log(url)
+				(async function (){
+					let url = await getSignedRequest(photo.file)
+					console.log(url)
+					let eventId = 6
+					await dispatch(createPhoto(eventId, photo.description, url))
+					setFormStep(3)
+				}())
 			}
-				
-			// if(getSignedRequest(photo.src);
+
 		});
 	};
 	const readUrl = (e) => {

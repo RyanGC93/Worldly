@@ -36,3 +36,14 @@ def undo():
     undo_photo_gallery()
     undo_reviews()
     # Add other undo functions here
+
+@seed_commands.command('undoEvents')
+def undo_events_seeds():
+    # undo_users()
+    # undo_ambassadors()
+    undo_events()
+    # undo_event_calendar()
+    # undo_booking_calendar()
+    # undo_location()
+    # undo_photo_gallery()
+    # undo_reviews()

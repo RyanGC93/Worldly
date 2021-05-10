@@ -9279,6 +9279,13 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-month-picker@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-month-picker/-/react-month-picker-2.2.1.tgz#9476c1b196de490ba934ba38683d3387a00d6aae"
+  integrity sha512-FJoDanK58ql5z9+FR3KGxw/psUCnDEGWI5UCq74EAj/Pk7Q4SE8obCP69N61gRQzbHrxn8qarjxUfFY1XbTXvQ==
+  dependencies:
+    react-tapper "^0.1.23"
+
 react-multi-form@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/react-multi-form/-/react-multi-form-1.0.5.tgz#2aa3d349edbeb3f04f94d7127a27643fdf2b6854"
@@ -9451,6 +9458,11 @@ react-tabs@^3.2.1:
   dependencies:
     clsx "^1.1.0"
     prop-types "^15.5.0"
+
+react-tapper@^0.1.23:
+  version "0.1.23"
+  resolved "https://registry.yarnpkg.com/react-tapper/-/react-tapper-0.1.23.tgz#c3fba199e9b97cc2221467a42ce60cb722140138"
+  integrity sha512-BLV2zRnpTeLQdSf7tUbk9JQ6Og5DKK66kjjbEkhj2Y4wURlIq8YtibWNceKRzBWYiRGcEzJbUZYAcKic4HZLUA==
 
 react-time-picker@^4.2.0:
   version "4.2.1"

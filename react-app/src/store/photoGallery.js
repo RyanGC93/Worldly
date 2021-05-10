@@ -24,15 +24,14 @@ const removePhoto = (id) => {
   }
 }
 
-export const createPhoto = (id,eventId, description, url) => async dispatch => {
-    // const { id,eventId, description, url} = photos
+export const createPhoto = (eventId, description, url) => async dispatch => {
     const options =
     {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/json'
       },
-      body: JSON.stringify({ id,eventId, description, url})
+      body: JSON.stringify({ eventId, description, url})
     }
   const res = await fetch('/api/photos/', options)
   if (res.ok) return res
