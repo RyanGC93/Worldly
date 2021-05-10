@@ -53,22 +53,22 @@ const Profile = () => {
 					<div className={styles.profileNavInfo}>
 						{!isChecked && (
 						<div className={styles.nameHeader}>
-							User Profile
+							Ambassador Profile
 						</div>
 						)}
 							{isChecked && (
 						<div className={styles.nameHeader}>
-							Ambassador Profile
+							User Profile
 						</div>
 						)}
 				
 					</div>
-					<div className={styles.profileOption}>
+					{/* <div className={styles.profileOption}>
 						<div className={styles.notification}>
 							<i className="fa fa-bell"></i>
 							<span className={styles.alertMessage}>3</span>
 						</div>
-					</div>
+					</div> */}
 				</div>
 
 				<div className={styles.mainBd}>
@@ -103,8 +103,7 @@ const Profile = () => {
 									<div
 										onClick={() => setShowModal(true)}
 										id="bookings-btn"
-										className={`btn
-										-ticket blue`}
+										className={styles.blue}
 									>
 										Create Event
 									</div>

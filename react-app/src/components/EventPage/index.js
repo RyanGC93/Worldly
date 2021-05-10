@@ -76,7 +76,7 @@ const EventPage = () => {
 							<Modal onClose={() => setShowModal(false)}>
 								<CalendarModal bookingAvailability={eventCalendar} setShowModal={setShowModal} />
 							</Modal>
-						)}
+					m	)}
 					</div>
 				)}
 
@@ -98,7 +98,7 @@ const EventPage = () => {
 			{/* */}
 			<div className={styles.eventTitle}>Reviews</div>
 			{/* First three reviews */}
-			{baseReviews && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
+			{baseReviews[0] && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
 			{reviewToggle && (
 				<div className={styles.toggleBtnContainer} onClick={() => setReviewToggle()}>
 					<div className={styles.toggle} >Show More Reviews</div>

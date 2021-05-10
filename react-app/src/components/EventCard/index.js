@@ -130,13 +130,20 @@ const EventCard = ({ event, isChecked }) => {
 										{' '}
 										Details
 									</button>
-									<a
+									{isChecked ? <a
 										className={`${styles.btnTickets} ${styles.blue}`}
 										aria-label="Purchase tickets for this event"
 										onClick={() => setShowModal(true)}
-									>
+									> 
 										Book
-									</a>
+										</a>
+										: <a
+										// ! To do add the delete action
+										className={`${styles.btnTickets} ${styles.blue}`}
+										>
+											
+											Delete
+										</a>}
 								</div>
 							</section>
 						)}

@@ -99,7 +99,8 @@
 }
 
 .profileNavInfo {
-
+	position: absolute;
+	width: 100%;
 	display: flex;
 	justify-content: center;
 }
@@ -424,3 +425,22 @@ button.createbtn i {
 
 }
 
+/* ======================== */
+/* ! ====== Button ======/ */
+/* ======================== */
+
+.blue {
+	background-color: #4972c1;
+	background: linear-gradient(90deg, #72a1ff, #4972c1, #34579e, #4972c1, #72a1ff);
+	background-size: 400% 400%;
+	background-position: 0% 50%;
+	border-radius: 0 0 0.45em 0;
+
+    padding: 1.7vh;
+    border-radius: 1.2em;
+    font-size: 1.7em;
+}
+
+.blue:hover {
+	animation: gradientMove 6s ease infinite;
+}

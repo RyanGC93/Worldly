@@ -189,6 +189,8 @@
 	/* margin: 0em auto; */
 	font-family: 'Roboto', sans-serif;
 	font-size: 1em;
+	box-sizing: border-box;
+    box-shadow: 0 1.5em 3em -1em rgb(70 69 69);
 }
 
 /*--flexbox--*/
@@ -317,22 +319,13 @@
 	animation: scaleIn 0.8s cubic-bezier(0.71, 0.55, 0.62, 1.57) 0.8s both;
 }
 
-.date,
-.time {
-	position: relative;
-	top: 0.7em;
-	/* padding: 0.6rem; */
-}
 
-.time {
-	border-left: 1px solid #444;
-}
 
 .address {
 	position: absolute;
 	bottom: 0;
 	font-style: normal;
-	width: 100%;
+	width: 95%;
 	display: flex;
 	justify-content: space-around;
 	font-size: 3vh
@@ -461,7 +454,6 @@
 	background: linear-gradient(90deg, #72a1ff, #4972c1, #34579e, #4972c1, #72a1ff);
 	background-size: 400% 400%;
 	background-position: 0% 50%;
-	border-radius: 0 0 0.45em 0;
 }
 
 .blue:hover {
@@ -635,10 +627,6 @@
 	}
 }
 
-.description {
-    background-color: black
-
-}
 
 
 /* ! SCROLL FEATURE */

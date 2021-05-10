@@ -9,10 +9,7 @@
 }
 
 
-.carouselWrapper *{
-    height: 60vh;
 
-}
 .carouselWrapper{
     width:70%;
     box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
