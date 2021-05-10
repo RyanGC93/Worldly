@@ -100,7 +100,6 @@ const PhotoForm = ({ setFormStep, eventId }) => {
 			if (photo.file) {
 				(async function (){
 					let url = await getSignedRequest(photo.file)
-					console.log(url)
 					let eventId = 6
 					await dispatch(createPhoto(eventId, photo.description, url))
 					setFormStep(3)

@@ -168,9 +168,9 @@ export default function DateForm({ setFormStep }) {
 			</div>
 			<div className={styles.dateGrid}>
 				{sortedArray.map((month, i) => (
-					<>
-						{month.map((date) => (
-							<>
+					<div key={i}>
+						{month.map((date,i) => (
+							<div key={i}>
 								<DateRow
 									setTimesArrays={setTimesArrays}
 									timesArray={timesArray}
@@ -178,9 +178,9 @@ export default function DateForm({ setFormStep }) {
 									sortedArray={sortedArray}
 									date={date}
 								/>
-							</>
+							</div>
 						))}
-					</>
+					</div>
 				))}
 			</div>
 			{sortedArray && (
