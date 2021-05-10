@@ -53,7 +53,7 @@ export const getAmbassadorEvents = () => async (dispatch) => {
 	const response = await fetch(`/api/ambassadors/`);
 	if (response.ok) {
 		let res = await response.json();
-
+		console.log(res)
 		let events = res.events;
 		let eventsInfo = events[0].ambassador_events_info;
 		let eventPhotos = events[1].photo_gallery;
@@ -89,7 +89,7 @@ const ambassadorEventsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_AMBASSADOR_EVENTS:
 			const events = action.events.reduce((acc, ele) => {
-				acc[ele.booking_id] = ele;
+				acc[ele.event_id] = ele;
 				return acc;
 			}, {});
 			return { ...state, ...events };

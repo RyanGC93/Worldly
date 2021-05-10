@@ -17,6 +17,7 @@ const Profile = () => {
 	const [showModal, setShowModal] = useState(false);
 	const [isChecked, setChecked] = useState(true);
 	const user = useSelector((state) => state.session.user);
+	const ambassadorEvents = useSelector((state) => state.session.ambassadorEvents);
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState('');
 	const [phoneNumber, setPhoneNumber] = useState('');
