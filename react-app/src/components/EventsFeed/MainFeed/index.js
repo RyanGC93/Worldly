@@ -9,14 +9,14 @@ const MainFeed = () => {
 	const dispatch = useDispatch();
 	const eventList = useSelector((state) => Object.values(state.events));
 	const [loaded, setLoaded] = useState(false);
+	
 	useEffect(() => {
-		console.log(eventList)
 		if (eventList[0]) setLoaded(true);
 	}, [dispatch, eventList]);
 
 	return (
 		<>
-			{/* {!loaded && (<h1>sdsdsd</h1>)} */}
+			
 			
 			{loaded && (
 				<>

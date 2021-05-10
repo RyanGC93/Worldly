@@ -42,13 +42,13 @@
 
 .profileText{
 	color:black;
-	line-height: 1.5vw;
+	font-weight: bold;	
 }
 
 .subText{
 	color:gray;
-	padding-left: 4vw;
-	padding-right: 4vw;
+	padding-left: 2vw;
+	padding-right: 1vw;
 }
 
 

@@ -94,7 +94,7 @@ const eventsReducer = (state = initialState, action) => {
         acc[ele.event_id] = ele;
         return acc;
       }, {});
-      return { ...state, ...events };
+      return {...events };
     case CREATE_EVENTS:
       return { ...state, [action.drink.id]: action.drink };
     case REMOVE_POST:
