@@ -45,10 +45,10 @@ const Profile = () => {
 			<div className={styles.container}>
 				<div className={styles.profileHeader}>
 					<div className={styles.profileImg}>
-						<img
+						{/* <img
 							alt=""
 							src="https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
-						/>
+						/> */}
 					</div>
 					<div className={styles.profileNavInfo}>
 						{!isChecked && (
@@ -99,7 +99,7 @@ const Profile = () => {
 								</div>
 							)} */}
 							{!isChecked && (
-								<>
+								<div className={styles.btnContainer}>
 									<div
 										onClick={() => setShowModal(true)}
 										id="bookings-btn"
@@ -112,7 +112,7 @@ const Profile = () => {
 											<CreateEventModal setShowModal={setShowModal} />
 										</Modal>
 									)}
-								</>
+								</div>
 							)}
 						</div>
 

@@ -4,6 +4,7 @@
 
 .leftSide{
 	width: 25vw;
+	position:fixed
 }
 
 
@@ -182,6 +183,7 @@
 }
 
 .profileSide {
+	position: relative;
 	font-size: 1.3vw;
 	width: 22vw;
 	height: 35vw;
@@ -418,9 +420,11 @@ button.createbtn i {
 
 
 .rightSide{
+	position: absolute;
+	right: 0;
 	display:flex;
 	justify-content: center;
-	width:100%;
+	width:75%;
 
 
 }
@@ -428,8 +432,15 @@ button.createbtn i {
 /* ======================== */
 /* ! ====== Button ======/ */
 /* ======================== */
+.btnContainer {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
 
 .blue {
+	position:absolute;
+	bottom: 2vh;
 	background-color: #4972c1;
 	background: linear-gradient(90deg, #72a1ff, #4972c1, #34579e, #4972c1, #72a1ff);
 	background-size: 400% 400%;
@@ -438,6 +449,7 @@ button.createbtn i {
     padding: 1.7vh;
     border-radius: 1.2em;
     font-size: 1.7em;
+	text-align: center;
 }
 
 
