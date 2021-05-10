@@ -274,6 +274,7 @@
 			   TEXT
   -------------------*/
 .title {
+	margin-top: 10px;
 	width: 100%;
 	text-align: center;
 	font-size: 3vh;
@@ -515,6 +516,7 @@
 		grid-gap: 0;
 		grid-template-columns: repeat(2, auto);
 		grid-template-rows: auto;
+		height:100%
 	}
 	.itemSummary {
 		grid-column: span 2;

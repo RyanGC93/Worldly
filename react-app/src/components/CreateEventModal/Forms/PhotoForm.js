@@ -8,16 +8,14 @@ import { getSignedRequest } from '../../../services/upload';
 const settings = {
 	autoplay: false,
 	showThumbs: false,
-	// autoplaySpeed: 3000,
-	// dots: true
+
 };
-/* Form requires ambassador id title descrition, cost, location(lon,lat) */
 const Slide = ({ photo, setPhotos, photos }) => {
 	const [description, setDescription] = useState('');
 
-	useEffect(() => {
-		// setDescription(photo.description);
-	}, [photo.description]);
+	// useEffect(() => {
+	// 	// setDescription(photo.description);
+	// }, [photo.description]);
 
 	const updateDescription = (e) => {
 		setDescription(e.target.value);
@@ -37,7 +35,6 @@ const Slide = ({ photo, setPhotos, photos }) => {
 	const updateHandler = () => {
 		setPhotos(photos.map((item) => (item.id === photo.id ? { ...item, description: description } : item)));
 	};
-	console.log(photos, 'sdsd');
 
 	return (
 		<>
@@ -96,15 +93,14 @@ const PhotoForm = ({ setFormStep, eventId }) => {
 	const [photos, setPhotos] = useState([]);
 	const [url, setUrl] = useState('');
 	const [file, setFile] = useState(null);
-	console.log(eventId)
 
 	let [photoKey, setPhotoKey] = useState(0);
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		console.log(photos);
 		photos.map((photo) => {
 			if (photo.file) {
 				let url = getSignedRequest(photo.file)
+				console.log(url)
 			}
 				
 			// if(getSignedRequest(photo.src);

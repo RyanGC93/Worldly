@@ -435,12 +435,13 @@ button.createbtn i {
 	background-size: 400% 400%;
 	background-position: 0% 50%;
 	border-radius: 0 0 0.45em 0;
-
     padding: 1.7vh;
     border-radius: 1.2em;
     font-size: 1.7em;
 }
 
+
 .blue:hover {
+	cursor:pointer;
 	animation: gradientMove 6s ease infinite;
 }

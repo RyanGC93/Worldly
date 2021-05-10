@@ -8,12 +8,10 @@ function CalendarModal(props) {
 	const [toggle, setToggle] = useState(false);
 	const [confirm, setConfirm] = useState(false);
 	const [timeslot, setTimeslot] = useState("");
-	console.log(props,'props')
 
 	let time = [""];
 
 	const calendarHandler = (value, event) => {
-		// alert(value);
 		setToggle(true);
 	};
 	const timeSlotHandler = (e) => {
@@ -33,7 +31,6 @@ function CalendarModal(props) {
 
 	useEffect(() => {
 		if (!props.bookingAvailability) return
-		console.log(props.bookingAvailability)
 
 	},[props.bookingAvailability])
 

@@ -5,10 +5,8 @@ import { SocialIcon } from "react-social-icons";
 import styles from "./styles.module.css"
 
 const responseFacebook = (response) => {
-  console.log(response);
 };
 const responseGoogle = (response) => {
-  console.log(response);
 };
 
 export default function SocialLogins(props) {

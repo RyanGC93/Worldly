@@ -37,8 +37,6 @@ const EventPage = () => {
 			setEventCalendar(eventCalendarAdded);
 			setReviews(data.events[3].reviews);
 			setIsLoading(false);
-			// debugger
-			console.log(data, 'reviews');
 		})();
 	}, []);
 
@@ -48,7 +46,6 @@ const EventPage = () => {
 		showThumbs: false,
 		interval: 5000,
 	};
-	console.log(baseReviews);
 
 	return (
 		<div className={styles.eventPage}>
@@ -76,7 +73,7 @@ const EventPage = () => {
 							<Modal onClose={() => setShowModal(false)}>
 								<CalendarModal bookingAvailability={eventCalendar} setShowModal={setShowModal} />
 							</Modal>
-					m	)}
+						)}
 					</div>
 				)}
 
@@ -86,11 +83,6 @@ const EventPage = () => {
 					</Modal>
 				)}
 			</div>
-			{/* to check the event calendar  */}
-
-			{/* <div className={styles.eventTitle} onClick={() => console.log(eventCalendar)}>
-				trial
-			</div> */}
 			<div>
 				<div className={styles.descriptionTitle}>Description</div>
 				<div className={styles.description}>{events.description}</div>

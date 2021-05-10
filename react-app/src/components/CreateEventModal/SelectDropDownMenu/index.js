@@ -14,7 +14,6 @@ const SelectDropDownMenu = ({ region, setRegion }) => {
 	};
 
 	const selectionHandler = (selection) => {
-		console.log(selection);
 		setRegion(selection);
 	};
 

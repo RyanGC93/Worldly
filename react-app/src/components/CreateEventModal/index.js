@@ -7,7 +7,7 @@ import ConfirmForm from "./Forms/ConfirmForm"
 import { MultiStepForm, Step } from "react-multi-form";
 const CreateEventModal = ({setShowModal}) => {
   const [eventId,setEventId] = useState('')
-  const [formStep, setFormStep] = useState(3);
+  const [formStep, setFormStep] = useState(2);
   return (
     <div className={styles.createEventContainer} >
       <div className={styles.eventWrap}>

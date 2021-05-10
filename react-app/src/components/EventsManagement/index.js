@@ -7,15 +7,11 @@ import styles from './styles.module.css';
 import EventCard from '../EventCard';
 import './tabs.css';
 
-
 const EventManagement = ({ isChecked }) => {
-
-
 	const userEvents = useSelector((state) => {
 		if (isChecked) return Object.values(state.userEvents);
 		if (!isChecked) {
 			let events = Object.values(state.ambassadorEvents);
-			console.log(events);
 			return events;
 		}
 	});
@@ -25,22 +21,6 @@ const EventManagement = ({ isChecked }) => {
 	let upcomingEvents = userEvents.filter((ev) => ev.dateObj > dateNow);
 	let sortedUpcomingEvents = upcomingEvents.sort((a, b) => a.dateObj - b.dateObj);
 	let sortedPastEvents = pastEvents.sort((a, b) => a.dateObj - b.dateObj);
-	const contentDivider = (arr) => {
-		let newarr = [];
-		let i,
-			j,
-			temparray,
-			chunk = 2;
-		for (i = 0, j = arr.length; i < j; i += chunk) {
-			temparray = arr.slice(i, i + chunk);
-			newarr.push(temparray);
-		}
-		return newarr;
-	};
-	// let upcomingBookEvents = contentDivider(sortedUpcomingEvents);
-	// let pastBookEvents = contentDivider(sortedPastEvents);
-
-	// console.log(upcomingBookEvents, pastBookEvents);
 
 	useEffect(() => {
 		if (!userEvents[0]) return;
@@ -49,6 +29,7 @@ const EventManagement = ({ isChecked }) => {
 	const AddEventsScreen = () => {
 		return <h1>Loading</h1>;
 	};
+
 	return (
 		<>
 			<Tabs>
@@ -61,14 +42,16 @@ const EventManagement = ({ isChecked }) => {
 
 				{/* UPCOMING EVENTS */}
 				<TabPanel>
-					{sortedUpcomingEvents.length && (
+				{sortedUpcomingEvents[0] && (
 						<div className={styles.gridContainer}>
 							{sortedUpcomingEvents.map((event) => (
-								<EventCard isChecked={isChecked} key={event.booking_id} key={event.booking_id} event={event} />
+								<div className={styles.cardContainer}>
+									<EventCard isChecked={isChecked} key={event.booking_id} event={event} />
+									</div>
 							))}
 						</div>
-					)}
-				</TabPanel>
+				)}
+					</TabPanel>
 				{/* ALL EVENTS */}
 				<TabPanel>
 					{/* {userEvents.length ? (
@@ -80,15 +63,19 @@ const EventManagement = ({ isChecked }) => {
 					) : (
 						<AddEventsScreen />
 					)} */}
-					<div className={styles.gridContainer}>
-						{userEvents.map((event) => (
-							<EventCard isChecked={isChecked} key={event.booking_id} event={event} />
-						))}
-					</div>
+					{userEvents[0] ? (
+						<div className={styles.gridContainer}>
+							{userEvents.map((event) => (
+								<EventCard isChecked={isChecked} key={event.booking_id} event={event} />
+							))}
+						</div>
+					) : (
+						<AddEventsScreen />
+					)}
 				</TabPanel>
 				{/* PAST EVENTS*/}
 				<TabPanel>
-					{sortedPastEvents.length ? (
+					{sortedPastEvents[0] ? (
 						<div className={styles.gridContainer}>
 							{sortedPastEvents.map((event) => (
 								<EventCard isChecked={isChecked} key={event.booking_id} event={event} />
@@ -98,7 +85,7 @@ const EventManagement = ({ isChecked }) => {
 						<AddEventsScreen />
 					)}
 				</TabPanel>
-				{/* MAP */}
+				
 				<TabPanel>
 					<Map isChecked={isChecked} />
 				</TabPanel>

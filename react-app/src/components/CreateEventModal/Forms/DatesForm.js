@@ -111,14 +111,12 @@ export default function DateForm({ setFormStep }) {
 			key: increment,
 		};
 		setIncrement((increment += 1));
-		console.log(timesArray, dateObject);
 		setTimesArrays(timesArray.push(dateObject));
 		splitFunc();
 	};
 
 	const handleClick = async(e) => {
 		e.preventDefault();
-		console.log(timesArray)
 		// ! Calendar
 		let eventId = 5
 		timesArray.forEach((timeString) => {

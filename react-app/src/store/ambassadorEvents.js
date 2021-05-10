@@ -2,11 +2,11 @@ import * as photoActions from './photoGallery';
 import * as reviewActions from './reviews';
 import * as eventCalendarActions from './eventCalendar';
 
-const SET_AMBASSADOR_EVENTS = 'events/SET_AMBASSADOR_EVENTS';
+const SET_AMBASSADOR_EVENTS = 'events/SET_AMBASSADOR';
 
-const CREATE_POSTS = 'events/CREATE_POSTS';
-const REMOVE_POST = 'events/REMOVE_POST';
-const UPDATE_POST = 'events/UPDATE_POST';
+const CREATE_AMBASSADOR = 'events/CREATE_AMBASSADORS';
+const REMOVE_AMBASSADOR = 'events/REMOVE_AMBASSADOR';
+const UPDATE_AMBASSADOR = 'events/UPDATE_AMBASSADOR';
 
 const setAmbassadorEvents = (events) => {
 	return {
@@ -14,6 +14,14 @@ const setAmbassadorEvents = (events) => {
 		events,
 	};
 };
+
+const removeEvent = (id) => {
+	return {
+	  type: REMOVE_AMBASSADOR,
+	  id
+	}
+  }
+  
 
 export const createAmbassadorEvent = (event, eventLocation) => async (dispatch) => {
 	const optionsEvent = {
@@ -63,6 +71,18 @@ export const getAmbassadorEvents = (user) => async (dispatch) => {
 	return response;
 };
 
+
+export const deleteAmbassadorEvent = (id) => async dispatch => {
+	const options = {
+	  method: 'DELETE'
+	}
+	const res = await fetch(`/api/events/user/${id}`, options)
+	
+	if ( res.ok) {
+	  dispatch(removeEvent(id))
+	}
+  }
+
 const initialState = {};
 
 const ambassadorEventsReducer = (state = initialState, action) => {
@@ -73,13 +93,13 @@ const ambassadorEventsReducer = (state = initialState, action) => {
 				return acc;
 			}, {});
 			return { ...state, ...events };
-		case CREATE_POSTS:
+		case CREATE_AMBASSADOR:
 			return { ...state, [action.drink.id]: action.drink };
-		case REMOVE_POST:
+		case REMOVE_AMBASSADOR:
 			const newState = { ...state };
 			delete newState[action.id];
 			return newState;
-		case UPDATE_POST:
+		case UPDATE_AMBASSADOR:
 			const newEvents = { ...state };
 			const index = action.event.id;
 			newEvents[index] = action.event;

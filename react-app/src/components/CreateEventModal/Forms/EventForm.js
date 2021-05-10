@@ -10,7 +10,6 @@ const geoHandler = async (city, country) => {
 
 	let url = `https://maps.googleapis.com/maps/api/geocode/json?&address=${replacedCity}%${replacedCountry}&key=${process.env.REACT_APP_GOOGLE_GEO_KEY}`;
 	const response = await fetch(url);
-	console.log(response);
 	if (!response.ok) return alert('There is something with wrong with the reponse please try again later');
 
 	let data = await response.json();
@@ -48,7 +47,6 @@ const EventForm = ({ setFormStep, setEventId }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		const geo = await geoHandler(city, country);
-		console.log(geo);
 		let eventObj = { title, description, cost };
 		let longitude = geo[0].geometry.location.lng;
 		let latitude = geo[0].geometry.location.lat;
