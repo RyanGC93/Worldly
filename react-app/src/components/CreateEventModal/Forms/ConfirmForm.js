@@ -2,11 +2,14 @@ import React from 'react';
 import { useDispatch }    from 'react-redux'
 import styles from './styles.module.css';
 import {deleteAmbassadorEvent} from '.../../../src/store/ambassadorEvents'
+import {getAmbassadorEvents} from '.../../../src/store/ambassadorEvents'
+
 
 const ConfirmForm = ({ setShowModal, setFormStep, eventId }) => {
     const dispatch = useDispatch();
     const confirm = () => {
-        setShowModal(false)        
+        setShowModal(false)
+        dispatch(getAmbassadorEvents())
 
         
     };

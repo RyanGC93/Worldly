@@ -37,8 +37,6 @@ const EventPage = () => {
 			setEventCalendar(eventCalendarAdded);
 			setReviews(data.events[3].reviews);
 			setIsLoading(false);
-			// debugger
-			console.log(data, 'reviews');
 		})();
 	}, []);
 
@@ -48,7 +46,6 @@ const EventPage = () => {
 		showThumbs: false,
 		interval: 5000,
 	};
-	console.log(baseReviews);
 
 	return (
 		<div className={styles.eventPage}>
@@ -65,7 +62,7 @@ const EventPage = () => {
 				<div className={styles.infoText}>
 					{events.country}, {events.region}
 				</div>
-				{eventCalendar.length && (
+				{eventCalendar[0] && (
 					<div className={`${styles.infoText} ${styles.booking}`}>
 						Explore Dates
 						{showModal && (
@@ -82,11 +79,6 @@ const EventPage = () => {
 					</Modal>
 				)}
 			</div>
-			{/* to check the event calendar  */}
-
-			{/* <div className={styles.eventTitle} onClick={() => console.log(eventCalendar)}>
-				trial
-			</div> */}
 			<div>
 				<div className={styles.descriptionTitle}>Description</div>
 				<div className={styles.description}>{events.description}</div>
@@ -97,7 +89,9 @@ const EventPage = () => {
 			{baseReviews[0] && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
 			{reviewToggle && (
 				<div className={styles.toggleBtnContainer} onClick={() => setReviewToggle()}>
-					<div className={styles.toggle} >Show More Reviews</div>
+					{additionalReviews[0] && (
+						<div className={styles.toggle} >Show More Reviews</div>
+						)}
 				</div>
 			)}
 			{!reviewToggle && additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}

@@ -49,7 +49,7 @@ export const createAmbassadorEvent = (event, eventLocation) => async (dispatch) 
 	return json;
 };
 
-export const getAmbassadorEvents = (user) => async (dispatch) => {
+export const getAmbassadorEvents = () => async (dispatch) => {
 	const response = await fetch(`/api/ambassadors/`);
 	if (response.ok) {
 		let res = await response.json();
