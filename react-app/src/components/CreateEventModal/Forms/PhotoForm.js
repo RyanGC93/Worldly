@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux'
 import styles from './styles.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import { BsFillTrashFill } from 'react-icons/bs';
+// import { BsFillTrashFill } from 'react-icons/bs';
 import { getSignedRequest } from '../../../services/upload';
 import {createPhoto} from '../../../store/photoGallery'
 
@@ -87,11 +87,12 @@ const PhotoFormSlider = ({ photos, setPhotos }) => {
 	);
 };
 
-const PhotoForm = ({ setFormStep, eventId }) => {
+const PhotoForm = ({ setFormStep, eventId, setEventId }) => {
 	const dispatch = useDispatch();
 	const [photos, setPhotos] = useState([]);
 	const [url, setUrl] = useState('');
 	const [file, setFile] = useState(null);
+
 
 	let [photoKey, setPhotoKey] = useState(0);
 	const onSubmit = async (e) => {
@@ -100,7 +101,7 @@ const PhotoForm = ({ setFormStep, eventId }) => {
 			if (photo.file) {
 				(async function (){
 					let url = await getSignedRequest(photo.file)
-					let eventId = 6
+					
 					await dispatch(createPhoto(eventId, photo.description, url))
 					setFormStep(3)
 				}())

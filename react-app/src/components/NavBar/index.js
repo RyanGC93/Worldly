@@ -5,11 +5,8 @@ import styles from './styles.module.css'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import DropDownMenu from './DropDownMenu'
 
-
-
 const NavBar = ({ setAuthenticated }) => {
 	const history = useHistory()
-	let location = useLocation();
 	const username = useSelector(state => state.session.user.username)
 	const [searchItems, setSearchItems]= useState([])
 	const homeRedirect = () => {

@@ -93,7 +93,7 @@ const MonthDates = ({ month, upcomingArrays, setUpcomingArrays }) => {
 	);
 };
 
-export default function DateForm({ setFormStep }) {
+export default function DateForm({ eventId, setFormStep }) {
 	const dispatch = useDispatch();
 	const [timesArray, setTimesArrays] = useState([]);
 	const [sortedArray, setSortedArray] = useState([]);
@@ -114,18 +114,17 @@ export default function DateForm({ setFormStep }) {
 		setTimesArrays(timesArray.push(dateObject));
 		splitFunc();
 	};
-
+	console.log(eventId)
 	const handleClick = async(e) => {
 		e.preventDefault();
 		// ! Calendar
-		let eventId = 5
 		timesArray.forEach((timeString) => {
 			let timeObject =  new Date(timeString)
 			let time = timeObject.toTimeString()
 			let date = timeObject.toDateString()
 			dispatch(calendarActions.createCalendar(eventId,time,date))
+			setFormStep(4);
 		})
-		// setFormStep(4);
 	};
 
 	const splitFunc = () => {

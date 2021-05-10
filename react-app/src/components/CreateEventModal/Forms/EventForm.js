@@ -46,6 +46,7 @@ const EventForm = ({ setFormStep, setEventId }) => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
+		
 		const geo = await geoHandler(city, country);
 		let eventObj = { title, description, cost };
 		let longitude = geo[0].geometry.location.lng;
@@ -53,8 +54,7 @@ const EventForm = ({ setFormStep, setEventId }) => {
 		let locationObj = { country, region, longitude, latitude };
 
 		let event = await dispatch(createAmbassadorEvent(eventObj, locationObj));
-		setEventId(2);
-
+		setEventId(event.id);
 		setFormStep(2);
 	};
 
