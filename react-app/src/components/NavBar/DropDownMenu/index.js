@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { useSelector } from 'react-redux';

@@ -1,8 +1,4 @@
-import React, { useRef, useState } from 'react';
-// import { useLocation, useHistory } from "react-router-dom";
-import { AiFillSwitcher, AiOutlineMenu } from 'react-icons/ai';
-// import { useSelector } from 'react-redux'
-
+import React, { useRef} from 'react';
 import { useDetectOutsideClick } from '../../../services/detectOutsideClick';
 import styles from './styles.module.css';
 
