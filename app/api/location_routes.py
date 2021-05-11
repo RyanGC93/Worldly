@@ -1,13 +1,11 @@
-from flask import Blueprint, jsonify, request
-import json
+from flask import Blueprint, request
 from app.models import db,Location
-from flask_login import current_user, login_required
+from flask_login import current_user, 
 location_routes = Blueprint('location', __name__)
 
 @location_routes.route('/', methods=['POST'])
 def new_location():
     if current_user.is_authenticated:
-        print('gfd')
 
         data = request.get_json()
         print(data)

@@ -60,7 +60,7 @@ def query_comments():
     events_info = {"events": [dict(zip(event_keys,event_values)) for event in event_values]}
     
     
-    photo_gallery_keys = ['photo_id','event_id','photo_description','photo_url']
+    photo_gallery_keys = ['photo_id','event_id','photo_description','url']
     photo_gallery_values = db.session.query(PhotoGallery.id,PhotoGallery.event_id,PhotoGallery.description,PhotoGallery.url).filter(PhotoGallery.event_id.in_(event_ids)).all()
     photos_gallery = {"photo_gallery": [dict(zip(photo_gallery_keys,photo_gallery_values)) for photo_gallery in photo_gallery_values]}    
     

@@ -7,7 +7,7 @@ import { FaCog } from 'react-icons/fa';
 import EventCarousel from './EventCarousel';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import CalendarModal from '../CalendarModal';
-import { deleteEvent } from '../../store/events';
+import { deleteAmbassadorEvent } from '../../store/ambassadorEvents';
 import CreateModal from '../CreateEventModal';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
@@ -20,6 +20,7 @@ const EventCard = ({ event, isChecked }) => {
 	const reviews = useSelector((state) => {
 		return Object.values(state.reviews).filter((review) => review.event_id === event.event_id);
 	});
+	
 	const images = useSelector((state) => {
 		return Object.values(state.photoGallery).filter((photo) => photo.event_id === event.event_id);
 	});
@@ -47,8 +48,8 @@ const EventCard = ({ event, isChecked }) => {
 
 	const [isLoaded, setIsLoaded] = useState(false);
 	useEffect(() => {
-		if (reviews) setIsLoaded(true);
-	}, [reviews]);
+		if (images) setIsLoaded(true);
+	}, [images]);
 
 	for (let element of reviews) value += element.rating;
 
@@ -57,9 +58,10 @@ const EventCard = ({ event, isChecked }) => {
 
 
 	const deleteHandler = () => {
-		dispatch(deleteEvent(event.event_id))
+		dispatch(deleteAmbassadorEvent(event.event_id))
 	}
 
+	console.log(images)
 	return (
 		<div className={`${styles.cardContainer} ${styles.description}`}>
 			{isLoaded && (
@@ -75,7 +77,8 @@ const EventCard = ({ event, isChecked }) => {
 								</address>
 							</div>
 							<div className={`${styles.imageWrapper} ${styles.carousel}`}>
-								<EventCarousel images={images} />
+								{images && (<EventCarousel images={images} />
+								)}
 								<div className={styles.calendarContainer}>
 									{/* Loads User Events */}
 									{!isChecked && (
@@ -99,7 +102,7 @@ const EventCard = ({ event, isChecked }) => {
 									{/* Loads Ambassador events */}
 									{isChecked && (
 										<>
-											<FaCog
+											<BsCalendarFill
 												className={styles.calendarIcon}
 												style={{ stroke: 'black' }}
 												onClick={() => setShowModal(true)}

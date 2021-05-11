@@ -14,6 +14,13 @@ const setAmbassadorEvents = (events) => {
 		events,
 	};
 };
+const createEvent = (event) => {
+	return {
+	  type: CREATE_AMBASSADOR,
+	  event,
+	};
+  };
+
 
 const removeEvent = (id) => {
 	return {
@@ -46,7 +53,9 @@ export const createAmbassadorEvent = (event, eventLocation) => async (dispatch) 
 	const resLocation = await fetch('/api/location/', optionsLocation);
 	if (!resLocation.ok) return;
 	const jsonLocation = await resLocation.json();
+	dispatch(getAmbassadorEvents())
 	return json;
+	
 };
 
 export const getAmbassadorEvents = () => async (dispatch) => {
@@ -76,7 +85,7 @@ export const deleteAmbassadorEvent = (id) => async dispatch => {
 	const options = {
 	  method: 'DELETE'
 	}
-	const res = await fetch(`/api/events/user/${id}`, options)
+	const res = await fetch(`/api/events/delete/${id}`, options)
 	
 	if ( res.ok) {
 	  dispatch(removeEvent(id))

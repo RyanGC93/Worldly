@@ -52,7 +52,7 @@ const EventPage = () => {
 			<div className={styles.carouselContainer}>
 				<Carousel className={styles.carouselWrapper} styling={{ height: '50%' }} {...settings}>
 					{photoGallery.map((photo) => (
-						<img className={styles.carouselImg} key={photo.photo_id} alt="" src={photo.photo_url} />
+						<img className={styles.carouselImg} key={photo.photo_id} alt="" src={photo.url} />
 					))}
 				</Carousel>
 			</div>

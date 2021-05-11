@@ -1,5 +1,5 @@
 
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 import json
 from app.models import db, Event, Location, Ambassador, User, Review, PhotoGallery, EventCalendar, BookingCalendar
 from flask_login import current_user, login_required
@@ -16,12 +16,11 @@ def single_event(eventId):
     event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name).filter(
         Event.id == eventId, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).first()
     zipped = dict(zip(event_keys, event_values))
-    print(event_values)
-    print(zipped)
+
     events_info = {"events_info": zipped}
 
     photo_gallery_keys = ['photo_id', 'event_id',
-                          'photo_description', 'photo_url']
+                          'photo_description', 'url']
     photo_gallery_values = db.session.query(PhotoGallery.id, PhotoGallery.event_id,
                                             PhotoGallery.description, PhotoGallery.url).filter(PhotoGallery.event_id == eventId).all()
     photo_gallery = {"photo_gallery": [
@@ -53,14 +52,6 @@ def events(param):
         events = db.session.query(Event.id, Event.title).all()
         event_ids = [event[0]for event in events]
 
-    else:
-        print('''
-              
-              
-              sdasd
-              ''')
-        print(param)
-
         query_dict = {
             "africa": "Africa",
             "europe": "Europe",
@@ -86,7 +77,7 @@ def events(param):
         dict(zip(event_keys, event)) for event in event_values]}
 
     photo_gallery_keys = ['photo_id', 'event_id',
-                          'photo_description', 'photo_url']
+                          'photo_description', 'url']
     photo_gallery_values = db.session.query(PhotoGallery.id, PhotoGallery.event_id, PhotoGallery.description, PhotoGallery.url).filter(
         PhotoGallery.event_id.in_(event_ids)).all()
     photo_gallery = {"photo_gallery": [
@@ -108,9 +99,10 @@ def events(param):
     events = {'events': [events_info, photo_gallery, events_calendar, reviews]}
     return json.dumps(events,  sort_keys=True, default=str)
 
-
+# ! Post Request
 @event_routes.route('/', methods=['POST'])
 def new_event():
+    id = 30
     if current_user.is_authenticated:
         ambassador = Ambassador.query.filter(
             Ambassador.user_id == current_user.id).first()
@@ -118,15 +110,15 @@ def new_event():
     if(ambassador):
         ambassador_dict = ambassador.to_dict()
         user_ambassador_id = ambassador_dict.get('ambassador_id')
-
     data = request.get_json()
     description = data['description']
     title = data['title']
     cost = data['cost']
-    new_event = Event(ambassador_id=user_ambassador_id, description=description, title=title,
+    new_event = Event(id=id,ambassador_id=user_ambassador_id, description=description, title=title,
                       cost=cost)
     db.session.add(new_event)
     db.session.commit()
+    id+=1
     return(new_event.to_dict())
 
 
@@ -146,7 +138,7 @@ def user_events():
         dict(zip(event_keys, event)) for event in event_values]}
 
     photo_gallery_keys = ['photo_id', 'event_id',
-                          'photo_description', 'photo_url']
+                          'photo_description', 'url']
     photo_gallery_values = db.session.query(PhotoGallery.id, PhotoGallery.event_id, PhotoGallery.description, PhotoGallery.url).filter(
         PhotoGallery.event_id.in_(event_ids)).all()
     photo_gallery = {"photo_gallery": [
@@ -171,12 +163,23 @@ def user_events():
 
 
 # DELETES USER EVENT BOOKINg
-@event_routes.route('/user/<int:id>', methods=['DELETE'])
-@login_required
-def delete_booking(id):
-    print(id, 'saddasdsa')
-    booking = BookingCalendar.query.filter(id == BookingCalendar.id).first()
+# @event_routes.route('/user/<int:id>', methods=['DELETE'])
+# @login_required
+# def delete_booking(id):
+#     print(id, 'saddasdsa')
+#     booking = BookingCalendar.query.filter(id == BookingCalendar.id).first()
 
-    db.session.delete(booking)
+#     db.session.delete(booking)
+#     db.session.commit()
+#     return 'Booking Deleted'
+
+# DELETES EVENT
+@event_routes.route('/delete/<int:id>', methods=['DELETE'])
+@login_required
+def delete_event(id):
+    print(id, 'saddasdsa')
+    event = Event.query.filter(id == Event.id).first()
+
+    db.session.delete(event)
     db.session.commit()
     return 'Booking Deleted'

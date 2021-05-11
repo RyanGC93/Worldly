@@ -1,10 +1,10 @@
 
-from flask import Blueprint, jsonify
+from flask import Blueprint
 from flask_login import current_user, login_required
 import json
 
 
-from app.models import db, Event, Location, Ambassador, User, Review, PhotoGallery, EventCalendar, BookingCalendar
+from app.models import db, Event, Location, Ambassador, User, Review, PhotoGallery, EventCalendar
 
 ambassador_routes = Blueprint('ambassadors', __name__)
 
@@ -12,28 +12,13 @@ ambassador_routes = Blueprint('ambassadors', __name__)
 @ambassador_routes.route('/')
 # @login_required
 def ambassadors():
-
-    # ambassadors = User.query.all()
-    # return {"ambassadors": [ambassador.to_dict() for ambassador in ambassadors]}
     if current_user.is_authenticated:
         ambassador = db.session.query(Ambassador).filter(
             Ambassador.user_id == current_user.id).first()
 
-        print('''
-
-
-
-
-
-              ''')
-        print(ambassador)
         if(ambassador):
             event_ids = db.session.query(Event.id, Ambassador.id).filter(Event.id == current_user.id).all()
 
-            # event_keys = ['event_id', 'title', 'description', 'region', 'country', 'firstname','date', 'time', 'location_longitude', 'location_latitude', 'booking_id']
-            # event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name, EventCalendar.date, EventCalendar.time, Location.longitude, Location.latitude, BookingCalendar.id).filter(
-            # BookingCalendar.user_id == current_user.id, BookingCalendar.timeslot == EventCalendar.id, EventCalendar.event_id == Event.id, Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == current_user.id).all()
-            # event_ids = [event[0]for event in event_values]
             event_keys = ['event_id', 'title', 'description',
                   'region', 'country', 'firstname']
             event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name).filter( Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
@@ -43,7 +28,7 @@ def ambassadors():
                 dict(zip(event_keys, event)) for event in event_values]}
 
             photo_gallery_keys = ['photo_id', 'event_id',
-                                'photo_description', 'photo_url']
+                                'photo_description', 'url']
             photo_gallery_values = db.session.query(PhotoGallery.id, PhotoGallery.event_id, PhotoGallery.description, PhotoGallery.url).filter(
                 PhotoGallery.event_id.in_(event_ids)).all()
             photo_gallery = {"photo_gallery": [
@@ -75,3 +60,5 @@ def ambassador(ambassador_name):
     keys = ['phone_number', 'email']
     ambassador_dict = dict(zip(keys, sensitive_info))
     return(ambassador_dict)
+
+

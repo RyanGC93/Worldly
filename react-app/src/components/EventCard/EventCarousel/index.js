@@ -10,7 +10,7 @@ const EventCarousel = ({ images, isChecked }) => {
 
   };
   
-
+  console.log(images)
 
   return (
     <>
@@ -22,7 +22,7 @@ const EventCarousel = ({ images, isChecked }) => {
               <img
                 key={image.photo_id}
                 className={styles.eventImage}
-                alt={image.description} src={image.photo_url} />
+                alt={image.description} src={image.url} />
             </div>
           ))}
         </Slider>

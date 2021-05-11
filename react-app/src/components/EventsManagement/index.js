@@ -34,35 +34,26 @@ const EventManagement = ({ isChecked }) => {
 		<>
 			<Tabs>
 				<TabList className={styles.tabList}>
-					<Tab className={styles.tab}>Upcoming Events</Tab>
+					{/* <Tab className={styles.tab}>Upcoming Events</Tab> */}
 					<Tab className={styles.tab}>All Events</Tab>
-					<Tab className={styles.tab}>Past Events</Tab>
+					{/* <Tab className={styles.tab}>Past Events</Tab> */}
 					<Tab className={styles.tab}>Map</Tab>
 				</TabList>
 
 				{/* UPCOMING EVENTS */}
-				<TabPanel>
-				{sortedUpcomingEvents[0] && (
+				{/* <TabPanel>
+					{sortedUpcomingEvents[0] && (
 						<div className={styles.gridContainer}>
 							{sortedUpcomingEvents.map((event) => (
 								<div className={styles.cardContainer}>
 									<EventCard isChecked={isChecked} key={event.booking_id} event={event} />
-									</div>
+								</div>
 							))}
 						</div>
-				)}
-					</TabPanel>
+					)}
+				</TabPanel> */}
 				{/* ALL EVENTS */}
 				<TabPanel>
-					{/* {userEvents.length ? (
-						<div className={styles.gridContainer}>
-							{userEvents.map((event) => (
-								<EventCard key={event.booking_id} event={event} />
-							))}
-						</div>
-					) : (
-						<AddEventsScreen />
-					)} */}
 					{userEvents[0] ? (
 						<div className={styles.gridContainer}>
 							{userEvents.map((event) => (
@@ -74,7 +65,7 @@ const EventManagement = ({ isChecked }) => {
 					)}
 				</TabPanel>
 				{/* PAST EVENTS*/}
-				<TabPanel>
+				{/* <TabPanel>
 					{sortedPastEvents[0] ? (
 						<div className={styles.gridContainer}>
 							{sortedPastEvents.map((event) => (
@@ -84,8 +75,8 @@ const EventManagement = ({ isChecked }) => {
 					) : (
 						<AddEventsScreen />
 					)}
-				</TabPanel>
-				
+				</TabPanel> */}
+
 				<TabPanel>
 					<Map isChecked={isChecked} />
 				</TabPanel>

@@ -1,5 +1,4 @@
 from flask import Blueprint, request
-# import json
 from app.models import db,EventCalendar
 from flask_login import login_required
 from sqlalchemy import exc

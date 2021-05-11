@@ -1,5 +1,4 @@
 from flask import Blueprint, request
-# import json
 from app.models import db,PhotoGallery
 from flask_login import login_required
 from sqlalchemy import exc
@@ -23,6 +22,8 @@ def new_photo():
         print('Deleting Photo Error')
         print(type(e))
         return {'errors': ['Cannot Edit Photo Please Try again']}, 500
+    
+    
 # DELETES USER PHOTO
 @photo_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
