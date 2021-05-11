@@ -3,7 +3,6 @@ import styles from "./styles.module.css";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DropSearch from "../DropSearch";
-import DropDownMenu from "../../NavBar/DropDownMenu";
 
 const MainFeed = () => {
 	const dispatch = useDispatch();

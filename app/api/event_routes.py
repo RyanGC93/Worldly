@@ -75,7 +75,7 @@ def events(param):
         dict(zip(event_keys, event)) for event in event_values]}
 
     photo_gallery_keys = ['photo_id', 'event_id',
-                          'photo_description', 'photo_url']
+                          'photo_description', 'url']
     photo_gallery_values = db.session.query(PhotoGallery.id, PhotoGallery.event_id, PhotoGallery.description, PhotoGallery.url).filter(
         PhotoGallery.event_id.in_(event_ids)).all()
     photo_gallery = {"photo_gallery": [
