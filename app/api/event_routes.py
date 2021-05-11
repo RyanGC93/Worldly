@@ -52,6 +52,7 @@ def events(param):
         events = db.session.query(Event.id, Event.title).all()
         event_ids = [event[0]for event in events]
 
+    else:
         query_dict = {
             "africa": "Africa",
             "europe": "Europe",
@@ -60,11 +61,8 @@ def events(param):
             "northamerica": "North America",
             "latinamerica": "Latin America"
         }
-        
         query_term = query_dict.get(param)
-        print(query_term)
         
-        # Gets the events by country
         events = db.session.query(Location.event_id, Location.region).filter(
             Location.region == query_term, Location.event_id == EventCalendar.event_id).all()
         event_ids = [event[0]for event in events]
@@ -77,7 +75,7 @@ def events(param):
         dict(zip(event_keys, event)) for event in event_values]}
 
     photo_gallery_keys = ['photo_id', 'event_id',
-                          'photo_description', 'url']
+                          'photo_description', 'photo_url']
     photo_gallery_values = db.session.query(PhotoGallery.id, PhotoGallery.event_id, PhotoGallery.description, PhotoGallery.url).filter(
         PhotoGallery.event_id.in_(event_ids)).all()
     photo_gallery = {"photo_gallery": [

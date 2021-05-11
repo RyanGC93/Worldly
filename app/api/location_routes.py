@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from app.models import db,Location
-from flask_login import current_user, 
+from flask_login import current_user
 location_routes = Blueprint('location', __name__)
 
 @location_routes.route('/', methods=['POST'])
