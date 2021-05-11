@@ -1,5 +1,4 @@
 from .db import db
-
 class Ambassador(db.Model):
     __tablename__ = 'ambassadors'
 

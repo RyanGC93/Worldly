@@ -12,3 +12,11 @@ class BookingCalendar(db.Model):
 
     user = db.relationship('User', back_populates='booking_calendar')
     event_calendar = db.relationship('EventCalendar', back_populates="booking_calendar")
+    
+    def to_dict(self):
+        return {
+        "id" : self.id,
+        "user_id": self.user_id,
+        "timeslot": self.timeslot,
+        }
+        
