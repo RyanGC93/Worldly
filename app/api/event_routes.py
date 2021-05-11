@@ -100,7 +100,10 @@ def events(param):
 # ! Post Request
 @event_routes.route('/', methods=['POST'])
 def new_event():
-    id = 30
+    last_id = db.session.query(Event.id,).order_by(Event.id.desc()).first()
+    id = last_id[0] +1
+
+
     if current_user.is_authenticated:
         ambassador = Ambassador.query.filter(
             Ambassador.user_id == current_user.id).first()

@@ -5,9 +5,11 @@ from app.models import db, Event, Location, Ambassador, User, Review, PhotoGalle
 # So we can type `flask query --help`
 query_commands = AppGroup('query')
 
-@query_commands.command('search')
-def query_event():
-    pass
+# Get last id from table
+@query_commands.command('last')
+def query_last():
+    last_id = db.session.query(Event.id,).order_by(Event.id.desc()).first()
+    print(last_id)
 
 
 @query_commands.command('event')

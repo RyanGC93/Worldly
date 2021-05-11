@@ -32,17 +32,14 @@ const Profile = () => {
 			const ifAmbassador = await checkAmbassador();
 			setAmbassador(ifAmbassador);
 		})();
+
+	}, [user]);
+	
+	useEffect(() => {
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
 		if (isChecked) dispatch(userEventActions.getUserEvents());
-	}, [isChecked, user]);
-	useEffect(() => {
-		console.log('rerender')
-		
-	},[ambassadorEvents])
-	// const manageBookings = () => {
-	// 	let passport = document.getElementById('passport');
-	// 	if (passport) passport.classList.add('passport-active');
-	// };
+	},[isChecked])
+
 
 	return (
 		<>

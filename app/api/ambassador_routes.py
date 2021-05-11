@@ -17,7 +17,9 @@ def ambassadors():
             Ambassador.user_id == current_user.id).first()
 
         if(ambassador):
-            event_ids = db.session.query(Event.id, Ambassador.id).filter(Event.id == current_user.id).all()
+            events = db.session.query(Event.id, Ambassador.id).filter(Event.id == current_user.id).all()
+            event_ids = [event[0]for event in events]
+
 
             event_keys = ['event_id', 'title', 'description',
                   'region', 'country', 'firstname']

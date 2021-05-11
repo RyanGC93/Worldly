@@ -68,7 +68,7 @@
 }
 
 .menu li {
-	border-bottom: 1px solid #dddddd;
+	border-radius: 8px;
 }
 
 .menu li:hover {
