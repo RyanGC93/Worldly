@@ -12,7 +12,7 @@ class EventCalendar(db.Model):
     ), onupdate=db.func.current_timestamp())
 
     event = db.relationship('Event', back_populates='event_calendar')
-    booking_calendar = db.relationship('BookingCalendar', back_populates='event_calendar')
+    booking_calendar = db.relationship('BookingCalendar', back_populates='event_calendar', cascade="all,delete-orphan")
 
     def to_dict(self):
         return {

@@ -11,16 +11,16 @@ import { deleteAmbassadorEvent } from '../../store/ambassadorEvents';
 import CreateModal from '../CreateEventModal';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux';
 
-const EventCard = ({ event, isChecked }) => {
+const EventCard = ({ event, isChecked, booking }) => {
 	const history = useHistory();
 	const dispatch = useDispatch();
 
 	const reviews = useSelector((state) => {
 		return Object.values(state.reviews).filter((review) => review.event_id === event.event_id);
 	});
-	
+
 	const images = useSelector((state) => {
 		return Object.values(state.photoGallery).filter((photo) => photo.event_id === event.event_id);
 	});
@@ -36,7 +36,7 @@ const EventCard = ({ event, isChecked }) => {
 	const badge = '';
 	let closest_event_time;
 	let closest_event_date;
-	console.log('event',event)
+	console.log('event', event);
 	const country = event.country;
 	const continent = event.region;
 	if (bookingAvailability[0]) {
@@ -56,12 +56,10 @@ const EventCard = ({ event, isChecked }) => {
 	const [toggle, setToggle] = useState(true);
 	const [showModal, setShowModal] = useState(false);
 
-
 	const deleteHandler = () => {
-		dispatch(deleteAmbassadorEvent(event.event_id))
-	}
+		dispatch(deleteAmbassadorEvent(event.event_id));
+	};
 
-	console.log(images)
 	return (
 		<div className={`${styles.cardContainer} ${styles.description}`}>
 			{isLoaded && (
@@ -77,11 +75,10 @@ const EventCard = ({ event, isChecked }) => {
 								</address>
 							</div>
 							<div className={`${styles.imageWrapper} ${styles.carousel}`}>
-								{images && (<EventCarousel images={images} />
-								)}
+								{images && <EventCarousel images={images} />}
 								<div className={styles.calendarContainer}>
 									{/* Loads User Events */}
-									{!isChecked && (
+									{/* {!isChecked && (
 										<>
 											<FaCog
 												className={styles.calendarIcon}
@@ -98,9 +95,9 @@ const EventCard = ({ event, isChecked }) => {
 												</Modal>
 											)}
 										</>
-									)}
+									)} */}
 									{/* Loads Ambassador events */}
-									{isChecked && (
+									{/* {isChecked && (
 										<>
 											<BsCalendarFill
 												className={styles.calendarIcon}
@@ -117,7 +114,7 @@ const EventCard = ({ event, isChecked }) => {
 												</Modal>
 											)}
 										</>
-									)}
+									)} */}
 								</div>
 							</div>
 							{/* TODO: add this into cost */}
@@ -143,15 +140,30 @@ const EventCard = ({ event, isChecked }) => {
 									<a
 										className={`${styles.btnTickets} ${styles.blue}`}
 										aria-label="Purchase tickets for this event"
-									
 									>
 										EDIT
 									</a>
+								) : booking ? (
+									<>
+										<a
+											// !
+											onClick={()=>setShowModal(true)}
+											className={`${styles.btnTickets} ${styles.blue}`}
+										>
+											Book
+										</a>
+										{showModal && (
+											<Modal onClose={() => setShowModal(false)}>
+												<CalendarModal
+													event={event}
+													bookingAvailability={bookingAvailability}
+													setShowModal={setShowModal}
+												/>
+											</Modal>
+										)}
+									</>
 								) : (
-									<a
-										onClick={deleteHandler}
-										className={`${styles.btnTickets} ${styles.blue}`}
-									>
+									<a onClick={deleteHandler} className={`${styles.btnTickets} ${styles.blue}`}>
 										Delete
 									</a>
 								)}

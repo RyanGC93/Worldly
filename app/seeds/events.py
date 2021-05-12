@@ -3,8 +3,6 @@ from app.models import db, Event
 
 # Adds a demo user, you can add other users here if you want
 def seed_events():
-
-    
     Demo1 = Event( ambassador_id=1,title= 'West African Cooking With Chef Phoebe', description="Jollof Rice is a popular West African dish that is full flavor! Although historians believe this dish originated from Senegal, many West African countries claim to have the original and best Jollof rice. In the class you will be learning how to cook the Nigeruan version of the dish. Flavors of the spiced tmoato stew base and the smoky undertones in this rice dish willl have you asking for more. In this class you will be learning how to be making this iconic african dish wirh Chef Phoebe. Chef Phoebe has taken years to perfect her family recipe and will teach you her award winning recipe." ,cost=23 )
 
     featured = Event( ambassador_id=2,title= 'West African Cooking With Chef Phoebe', description="Jollof Rice is a popular West African dish that is full flavor! Although historians believe this dish originated from Senegal, many West African countries claim to have the original and best Jollof rice. In the class you will be learning how to cook the Nigeruan version of the dish. Flavors of the spiced tmoato stew base and the smoky undertones in this rice dish willl have you asking for more. In this class you will be learning how to be making this iconic african dish wirh Chef Phoebe. Chef Phoebe has taken years to perfect her family recipe and will teach you her award winning recipe." ,cost=23 )
@@ -94,18 +92,18 @@ def seed_events():
     # Alfajor is a type of treat with dulce de leche or milk jam stuffing sandwiched between two sweet cookies. The combination is then coated with a layer of chocolate or sprinkled with confectioners' sugar. The name alfajor stems from the Arabic word al-hasú, which means stuffed or filled.
     # Although the cookies can be found throughout Latin America, they are originally from Andalusia, Spain, invented during the time when the country was occupied by the Moors. When the Spaniards came to America, they brought their foods and traditions along the way, and with time, almost every country in Latin America has adapted the Spanish alfajor to make it their own, so there are a lot of varieties of the basic, original cookie - including fillings such as chocolate mousse, fruit, and cream.
     # In Spain, the cookies are most commonly sold and consumed during the Christmas season, but it should be noted that the traditional Spanish alfajor is quite different from the South American version, consisting of flour, honey, cinnamon, and almonds.''',cost=25)
-    # Demo31=Event(id=31, ambassador_id=31,title="Ceviche Delight", description='''Ceviche
+    # Demo31=Event( ambassador_id=31,title="Ceviche Delight", description='''Ceviche
     # (Cebiche, Seviche, Sebiche)
     # Ceviche is the national dish of Peru consisting of slices of raw fish or shellfish that is spiced with salt, onions, and chili peppers, then marinated in lime juice. Due to the acidity of lime juice, the texture of the fish changes, as does its color – from pink to white.
     # The acidic marinade, also known as leche de tigre (lit. tiger's milk) "cooks" the meat without any heat involved in the process. For ceviche, fresh fish is an imperative, as fish and shellfish that are not fresh can cause food poisoning. Peruvians are used to fresh ingredients, so the fish will sometimes be prepared for ceviche less than an hour after being caught.
     # Fish for ceviche can be divided into three categories: firm, medium, and soft. The dish was originally made by the natives who marinated fish and amarillo chiles in the juices of a native fruit called tumbo, which was replaced by lime juice when the Spanish brought limes and onions to the country.
     # The flavors of ceviche are slightly acidic and spicy, with an intense aroma of the sea. Traditionally, it is served on a bed of lettuce with tiny pieces of corn, chunks of sweet potato, and boiled yuca. Cancha, a variety of popcorn made from large corn kernels toasted in salt and oil provides an ideal side dish.
     # The dish is traditionally served at cevicherias, specialized ceviche restaurants that can be found all over the country, and it is so popular that it even has its day, known as National Ceviche Day.''',cost=30)
-    # Demo32=Event(id=32, ambassador_id=32,title="Casados Delight", description='''Casados
+    # Demo32=Event( ambassador_id=32,title="Casados Delight", description='''Casados
     # (Comida Tipica)Casados, also known as comida tipica (lit. typical dish), is the most popular dish in Costa Rica. Whichever traditional restaurant (called sodas) you visit, it will most likely be on their menu. Casado consists of white rice, beans, meat such as chicken, beef, or fish, and a salad such as iceberg or coleslaw.
     # Additional side dishes may include avocado slices, French fries, cheese tortillas, fried plantains, and potato-based stews. The name casados translates to married, and it is clearly visible on the plate as all of the ingredients provide a nice balance of protein and carbohydrates, making it a nutritionally valuable dish as well as a tasty one.
     # According to a popular legend, the dish was usually eaten by newlyweds, and as the two would not know the other one's preferences in food, a variety of ingredients would be served on one plate in order to find out the favorites of each newlywed. With a variety of flavors, a clash of aromas, and vibrant, bold colors on the plate, there is surely something for everyone in this tasty dish.''',cost=30)
-    # Demo33=Event(id=33, ambassador_id=33,title="Baleada", description='''Baleada
+    # Demo33=Event( ambassador_id=33,title="Baleada", description='''Baleada
     # Baleada is one of the most famous Honduran dishes consisting of a thick wheat flour tortilla filled with mashed fried beans and optionally, various other ingredients such as cheese, eggs, avocados, hot sauce, and Honduran-style sour cream known as mantequilla.
     # It is believed that baleada originated in La Ceiba, on the northern coast. There are two theories about the origin of the name baleada: one says that it is named after the visual similarities between beans and bullets (bala in Spanish), while the other says that a tortilla-making woman was shot with several bullets, but recovered, and started to make tortillas again, so the workers used to say they are going to the baleada (the shot woman).
     # Regardless of the correct theory, experience one of the most loved and inexpensive street food items in Honduras from the comfort of your own home !''',cost=27)
@@ -115,11 +113,10 @@ def seed_events():
     # It is believed that the original recipe was first printed on milk cans in Latin America, to promote the use of the product, and as a result, the milk companies boosted their milk sales.''',cost=25)
 
 
-    db.session.add_all([Demo1,featured, Demo3,Demo4,Demo5,Demo6,Demo7,Demo8,Demo9,Demo10,Demo11,Demo12,Demo13,Demo14,Demo15,Demo16,Demo17,Demo18,Demo19,Demo20,Demo21,Demo22,Demo23,Demo24,Demo25,Demo26,Demo27])
-    db.session.commit()
+    list = [Demo1,featured, Demo3,Demo4,Demo5,Demo6,Demo7,Demo8,Demo9,Demo10,Demo11,Demo12,Demo13,Demo14,Demo15,Demo16,Demo17,Demo18,Demo19,Demo20,Demo21,Demo22,Demo23,Demo24,Demo25,Demo26,Demo27]
+    db.session.add_all(list)
     
-    # db.session.execute("ALTER SEQUENCE events_id_seq START WITH 30")
-    # db.session.execute("ALTER SEQUENCE events_id_seq RESTART WITH 30")
+    
     db.session.commit()
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this

@@ -3,10 +3,9 @@ from app.models import db, Ambassador
 
 # Adds a demo user, you can add other users here if you want
 def seed_ambassadors():
-    db.session.execute("ALTER SEQUENCE ambassadors_id_seq RESTART WITH 1")
     db.session.commit()
 
-    demo = Ambassador(user_id=1)
+    demo1 = Ambassador(user_id=1)
     demo2 = Ambassador(user_id=1)
     Demo3=Ambassador(user_id=1)
     Demo4=Ambassador(user_id=4)
@@ -42,7 +41,7 @@ def seed_ambassadors():
     Demo34=Ambassador(user_id=34)
 
 
-    db.session.add_all([demo, demo2, Demo3,Demo4,Demo5,Demo6,Demo7,Demo8,Demo9,Demo10,Demo11,Demo12,Demo13,Demo14,Demo15,Demo16,Demo17,Demo18,Demo19,Demo20,Demo21,Demo22,Demo23,Demo24,Demo25,Demo26,Demo27,Demo28,Demo29,Demo30,Demo31,Demo32,Demo33, Demo34])
+    db.session.add_all([demo1, demo2, Demo3,Demo4,Demo5,Demo6,Demo7,Demo8,Demo9,Demo10,Demo11,Demo12,Demo13,Demo14,Demo15,Demo16,Demo17,Demo18,Demo19,Demo20,Demo21,Demo22,Demo23,Demo24,Demo25,Demo26,Demo27,Demo28,Demo29,Demo30,Demo31,Demo32,Demo33, Demo34])
     db.session.commit()
 
 # Uses a raw SQL query to TRUNCATE the users table.

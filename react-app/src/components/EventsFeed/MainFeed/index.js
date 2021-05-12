@@ -28,7 +28,7 @@ const MainFeed = () => {
 						>
 						{eventList &&
 							eventList.map((event) => (
-								<EventCard key={event.event_id} event={event} />
+								<EventCard booking={true} key={event.event_id} event={event} />
 								))}
 					</div>
 								</div>

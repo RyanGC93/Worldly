@@ -1,4 +1,5 @@
 from flask.cli import AppGroup
+from app.models import db
 from .users import seed_users, undo_users
 from .events import seed_events, undo_events
 from .event_calendar import seed_event_calendar, undo_event_calendar
@@ -47,3 +48,19 @@ def undo_events_seeds():
     # undo_location()
     # undo_photo_gallery()
     # undo_reviews()
+
+
+@seed_commands.command('reset')
+def reset_seeds():
+    db.session.execute("ALTER SEQUENCE ambassadors_id_seq RESTART WITH 1")
+    db.session.execute("ALTER SEQUENCE users_id_seq RESTART WITH 1")
+    db.session.execute("ALTER SEQUENCE locations_id_seq RESTART WITH 1")
+    db.session.execute("ALTER SEQUENCE events_id_seq RESTART WITH 1")
+    db.session.execute("ALTER SEQUENCE users_id_seq RESTART WITH 1")
+    db.session.execute("ALTER SEQUENCE booking_calendar_id_seq RESTART WITH 1")
+    db.session.execute("ALTER SEQUENCE event_calendar_id_seq RESTART WITH 1")
+    db.session.commit()
+    
+@seed_commands.command('value')
+def reset_seeds():    
+    db.session.execute("SELECT setval('events_id_seq', 35, true)")

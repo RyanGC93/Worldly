@@ -100,8 +100,8 @@ def events(param):
 # ! Post Request
 @event_routes.route('/', methods=['POST'])
 def new_event():
-    last_id = db.session.query(Event.id,).order_by(Event.id.desc()).first()
-    id = last_id[0] +1
+    # last_id = db.session.query(Event.id,).order_by(Event.id.desc()).first()
+    # id = last_id[0] +1
 
 
     if current_user.is_authenticated:
@@ -115,7 +115,7 @@ def new_event():
     description = data['description']
     title = data['title']
     cost = data['cost']
-    new_event = Event(id=id,ambassador_id=user_ambassador_id, description=description, title=title,
+    new_event = Event(ambassador_id=user_ambassador_id, description=description, title=title,
                       cost=cost)
     db.session.add(new_event)
     db.session.commit()
@@ -178,9 +178,10 @@ def user_events():
 @event_routes.route('/delete/<int:id>', methods=['DELETE'])
 @login_required
 def delete_event(id):
-    print(id, 'saddasdsa')
     event = Event.query.filter(id == Event.id).first()
-
+    dict = event.to_dict()
+    if(current_user.id != dict.id):
+        return {'error': ['Unauthorized']}, 401
     db.session.delete(event)
     db.session.commit()
     return 'Booking Deleted'

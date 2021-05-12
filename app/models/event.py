@@ -2,7 +2,7 @@ from .db import db
 class Event(db.Model):
     __tablename__ = 'events'
 
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, unique=True, autoincrement=True)
     ambassador_id = db.Column(db.Integer, db.ForeignKey(
         "ambassadors.id"), nullable=False)
     title = db.Column(db.String(250), nullable=False)

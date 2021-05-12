@@ -1,22 +1,28 @@
-import React, { useState, useEffect } from "react";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import "./styles.css";
-import { IoChevronBackCircle } from "react-icons/io5";
-function CalendarModal(props) {
-	const [value, onChange] = useState(new Date());
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import './styles.css';
+import { IoChevronBackCircle } from 'react-icons/io5';
+function CalendarModal({ event }) {
+	const dates = useSelector((state) => {
+		return Object.values(state.eventCalendar).filter((date) => date.event_id === event.event_id);
+	});
+
+	const [value, setValue] = useState(new Date());
 	const [toggle, setToggle] = useState(false);
 	const [confirm, setConfirm] = useState(false);
-	const [timeslot, setTimeslot] = useState("");
+	const [timeslot, setTimeSlot] = useState('');
+	const [dateArr, setDateArr] = useState([]);
 
-	let time = [""];
-
-	const calendarHandler = (value, event) => {
+	const calendarHandler = (values, event) => {
+		let dateView = dates.filter((date) => date.dateObj.toDateString() == values.toDateString());
+		setDateArr(dateView);
 		setToggle(true);
 	};
-	const timeSlotHandler = (e) => {
-		alert(e.target.innerHTML);
-		setTimeslot(e.target.innerHTML);
+	const timeSlotHandler = (e, slot) => {
+		setTimeSlot(e.target.id);
+		// ! Add dispatch
 		setConfirm(true);
 		setToggle(false);
 	};
@@ -29,37 +35,24 @@ function CalendarModal(props) {
 		}
 	};
 
-	useEffect(() => {
-		if (!props.bookingAvailability) return
+	function onChange(nextValue) {
+		setValue(nextValue);
+	}
 
-	},[props.bookingAvailability])
+	const handleConfirmation = () => {};
 
-	const handleConfirmation = () => {
-		let year = value.getFullYear();
-		let mes = value.getMonth() + 1;
-		let dia = value.getDate();
-		// alert('year', year,'mt,' , mes, dia);
-		// alert(value)
-		// alert(timeslot);
-	};
-
-	const tileContent = ({ date, view }) => {
-		let dateOne = date.toDateString();
-		let isSame = false;
-		let activeBooking;
-		// let datesArray = props.bookingAvailability.forEach((booking) => {
-		// 	let conv = booking.dateObj.toDateString();
-		// 	if (conv === dateOne) {
-		// 		isSame = true;
-		// 		activeBooking = booking;
-		// 	}
-		// });
-
-		return <>{isSame && <div className="active-tile"></div>}</>;
-	};
-
-
-
+	function isSameDay(a, b) {
+		return a.dateObj.toDateString() == b.toDateString();
+	}
+	function tileClassName({ date, view }) {
+		// Add class to tiles in month view only
+		if (view === 'month') {
+			// Check if a date React-Calendar wants to check is on the list of dates to add class to
+			if (dates.find((dDate) => isSameDay(dDate, date))) {
+				return 'tileStyle';
+			}
+		}
+	}
 
 	return (
 		<div className="booking-container">
@@ -68,7 +61,7 @@ function CalendarModal(props) {
 					<header className="header">Dates</header>
 					<Calendar
 						// tileContent={tileContentTwo}
-						tileContent={tileContent}
+						tileClassName={tileClassName}
 						className="calendar"
 						onChange={onChange}
 						value={value}
@@ -83,13 +76,18 @@ function CalendarModal(props) {
 						<header className="header">Time Slots </header>
 					</div>
 					<div className="time-container">
-						{time.map((slot) => (
-							<div className="slot-container btn1">
-								<div className="btn" onClick={timeSlotHandler}>
-									{slot}{" "}
+						{dateArr &&
+							dateArr.map((slot) => (
+								<div key={slot.event_calendar_id} className="slot-container btn1">
+									<div
+										className="blue"
+										id={slot.event_calendar_id}
+										onClick={(slot) => timeSlotHandler(slot)}
+									>
+										{slot.time}
+									</div>
 								</div>
-							</div>
-						))}
+							))}
 					</div>
 				</>
 			)}
@@ -101,11 +99,9 @@ function CalendarModal(props) {
 					</div>
 					<div className="Sample__container">
 						<div>Would You Like to Confirm</div>
-						<div>EVENTNAME</div>
-						<div>At</div>
-						<div>TIME</div>
-						<div className="btn" onClick={handleConfirmation}>
-							confirm
+
+						<div className="btn" onClick={() => handleConfirmation}>
+							Confirm
 						</div>
 					</div>
 				</>

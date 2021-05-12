@@ -14,10 +14,10 @@ ambassador_routes = Blueprint('ambassadors', __name__)
 def ambassadors():
     if current_user.is_authenticated:
         ambassador = db.session.query(Ambassador).filter(
-            Ambassador.user_id == current_user.id).first()
+            Ambassador.user_id ==  current_user.id).first()
 
         if(ambassador):
-            events = db.session.query(Event.id, Ambassador.id).filter(Event.id == current_user.id).all()
+            events = db.session.query(Event.id, Ambassador.id).filter(Event.ambassador_id == current_user.id).all()
             event_ids = [event[0]for event in events]
 
 
