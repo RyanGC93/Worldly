@@ -36,7 +36,6 @@ const EventCard = ({ event, isChecked, booking }) => {
 	const badge = '';
 	let closest_event_time;
 	let closest_event_date;
-	console.log('event', event);
 	const country = event.country;
 	const continent = event.region;
 	if (bookingAvailability[0]) {

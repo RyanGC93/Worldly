@@ -4,7 +4,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './styles.css';
 import { IoChevronBackCircle } from 'react-icons/io5';
-function CalendarModal({ event }) {
+function CalendarModal({ event, setShowModal }) {
 	const dates = useSelector((state) => {
 		return Object.values(state.eventCalendar).filter((date) => date.event_id === event.event_id);
 	});
@@ -21,7 +21,7 @@ function CalendarModal({ event }) {
 		setToggle(true);
 	};
 	const timeSlotHandler = (e, slot) => {
-		setTimeSlot(e.target.id);
+		setTimeSlot(`${e.target.id}`);
 		// ! Add dispatch
 		setConfirm(true);
 		setToggle(false);
@@ -39,7 +39,16 @@ function CalendarModal({ event }) {
 		setValue(nextValue);
 	}
 
-	const handleConfirmation = () => {};
+	const handleConfirmation = async () => {
+		const optionsCalendar = {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'Application/json',
+			},
+			body: JSON.stringify(timeslot),
+		};
+		const res = await fetch(`/api/booking/${timeslot}`, optionsCalendar);
+	};
 
 	function isSameDay(a, b) {
 		return a.dateObj.toDateString() == b.toDateString();
@@ -100,7 +109,7 @@ function CalendarModal({ event }) {
 					<div className="Sample__container">
 						<div>Would You Like to Confirm</div>
 
-						<div className="btn" onClick={() => handleConfirmation}>
+						<div className="btn" onClick={handleConfirmation}>
 							Confirm
 						</div>
 					</div>

@@ -12,7 +12,6 @@ const EventManagement = ({ isChecked }) => {
 		if (isChecked) return Object.values(state.userEvents);
 		if (!isChecked) {
 			let events = Object.values(state.ambassadorEvents);
-			console.log(state.ambassadorEvents)
 			return events;
 		}
 	});

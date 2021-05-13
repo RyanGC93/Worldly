@@ -114,7 +114,6 @@ export default function DateForm({ eventId, setFormStep }) {
 		setTimesArrays(timesArray.push(dateObject));
 		splitFunc();
 	};
-	console.log(eventId)
 	const handleClick = async(e) => {
 		e.preventDefault();
 		// ! Calendar

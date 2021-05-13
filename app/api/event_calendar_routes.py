@@ -5,7 +5,6 @@ from sqlalchemy import exc
 event_calendar_routes = Blueprint('event_calendar', __name__)
 
 
-#! event_id	date	time
 @event_calendar_routes.route('/', methods=['POST'])
 @login_required
 def new_event_calendar():

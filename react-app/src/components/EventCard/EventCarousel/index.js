@@ -10,7 +10,6 @@ const EventCarousel = ({ images, isChecked }) => {
 
   };
   
-  console.log(images)
 
   return (
     <>

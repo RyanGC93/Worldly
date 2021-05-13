@@ -16,7 +16,6 @@ export async function getSignedRequest(photo){
       data.append(key, s3Data.fields[key]);
     }
     data.append('file', file)
-    console.log(data)
     const res = await fetch(url, {
       method:'POST',
       body: data

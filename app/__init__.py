@@ -13,6 +13,7 @@ from flask_login import LoginManager
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.photo_routes import photo_routes
+from .api.booking_routes import booking_routes
 from .api.auth_routes import auth_routes
 from .api.event_routes import event_routes
 from .api.review_routes import review_routes
@@ -47,6 +48,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(ambassador_routes, url_prefix='/api/ambassadors')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(event_routes, url_prefix='/api/events')
+app.register_blueprint(booking_routes, url_prefix='/api/booking')
 app.register_blueprint(photo_routes, url_prefix='/api/photos')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(search_routes, url_prefix='/api/search')
