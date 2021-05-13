@@ -1,81 +1,71 @@
-.map-border{
-    margin-top:5vw;
-    width: 100%;
-    padding: 25px;
-    border-image: url('https://images.unsplash.com/photo-1596865249308-2472dc5807d7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1081&q=80') 25 25 round;
-    min-height: 340px;
-    background: #ccc;
-    border-width: 20px;
-    border-style: solid;
-    /* border-color:#555 #888 #555 #888; */
-    background: url(https://images.pexels.com/photos/7132/wood-texture-trees.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center;
-    background-size: cover;
-    border-radius: 7px 7px 7px 7px;
-    position: relative;
-    border: 10px  ;
-    /* border: 1px solid rgb(251, 251, 251);
-	border-radius: 0.5rem; */
+.map-border {
+	width: 100%;
+	padding: 25px;
+	border-image: url('https://images.unsplash.com/photo-1596865249308-2472dc5807d7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1081&q=80')
+		25 25 round;
+	min-height: 340px;
+	background: #ccc;
+	border-width: 20px;
+	border-style: solid;
+	background: url(https://images.pexels.com/photos/7132/wood-texture-trees.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)
+		no-repeat center;
+	background-size: cover;
+	border-radius: 7px 7px 7px 7px;
+	position: relative;
+	border: 10px;
 	box-sizing: border-box;
 	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
 	border-radius: 1%;
-    border: rgb(63, 63, 63) 3px solid;
-
-
-
-}
-.no-block{
-}
-.marker-text{
-    visibility:hidden;
-    font-size: 20px;
-}
-.marker:hover .marker-text{
-    visibility:visible;
-
+	border: rgb(63, 63, 63) 3px solid;
 }
 
-path.rsm-geography{
- fill:rgba(175, 198, 240, 0.4) !important;
- stroke:black;
+.marker-text {
+	visibility: hidden;
+	font-size: 20px;
 }
 
-svg.rsm-svg{
-    background-image: url('https://image.freepik.com/free-photo/cork-board-texture-vintage-background_49507-2437.jpg');
-    border: rgb(107, 107, 107) 3px solid;
-    border-radius: 2%;
+.marker:hover .marker-text {
+	visibility: visible;
+}
+
+path.rsm-geography {
+	fill: rgba(175, 198, 240, 0.4) !important;
+	stroke: black;
+}
+
+svg.rsm-svg {
+	background-image: url('https://image.freepik.com/free-photo/cork-board-texture-vintage-background_49507-2437.jpg');
+	border: rgb(107, 107, 107) 3px solid;
+	border-radius: 2%;
 }
 .secondborder {
-    margin-left:300px;
-    background-color: #7d7d7d;
-    background-image: url('https://images.unsplash.com/photo-1596865249308-2472dc5807d7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1081&q=80');
-    display: block;
-    padding: 4%;
-    margin: 1% 0 1% 0;
-    border-radius: 7px 7px 7px 7px;
-    -moz-border-radius: 7px 7px 7px 7px;
-    -webkit-border-radius: 7px 7px 7px 7px;
-    border: 1px solid #000;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-    img.borderedpicture {
-    background-color: #7d7d7d;
-    background-image: url('https://images.unsplash.com/photo-1596865249308-2472dc5807d7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1081&q=80');
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    size: cover;
-    padding: 2%;
-    margin: 0;
-    border-radius: 7px 7px 7px 7px;
-    -moz-border-radius: 7px 7px 7px 7px;
-    -webkit-border-radius: 7px 7px 7px 7px;
-    border: 1px solid #61201e;
-    /* box-shadow: -webkit-box-shadow: 0px 0px 60px -9px rgba(0,0,0,1); */
-    -moz-box-shadow: 0px 0px 60px -9px rgba(0,0,0,1);
-    box-shadow: 0px 0px 60px -9px rgba(0,0,0,1);
-    }
-    .mapframe{
+	margin-left: 300px;
+	background-color: #7d7d7d;
+	background-image: url('https://images.unsplash.com/photo-1596865249308-2472dc5807d7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1081&q=80');
+	display: block;
+	padding: 4%;
+	margin: 1% 0 1% 0;
+	border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	-webkit-border-radius: 7px 7px 7px 7px;
+	border: 1px solid #000;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
-    }
-
+img.borderedpicture {
+	background-color: #7d7d7d;
+	background-image: url('https://images.unsplash.com/photo-1596865249308-2472dc5807d7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1081&q=80');
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	size: cover;
+	padding: 2%;
+	margin: 0;
+	border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	-webkit-border-radius: 7px 7px 7px 7px;
+	border: 1px solid #61201e;
+	-moz-box-shadow: 0px 0px 60px -9px rgba(0, 0, 0, 1);
+	box-shadow: 0px 0px 60px -9px rgba(0, 0, 0, 1);
+}

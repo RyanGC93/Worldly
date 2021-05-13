@@ -21,7 +21,7 @@
 }
 
 /*  620/16 = 37.5 */
-@media screen and (min-width: 38.75rem) {
+@media screen and (min-width: 1000px) {
 	@supports (display: grid) {
 		.gridContainer {
 			grid-template-columns: repeat(2, auto);

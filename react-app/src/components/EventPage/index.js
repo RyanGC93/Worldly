@@ -16,7 +16,7 @@ const EventPage = () => {
 	const [photoGallery, setPhotoGallery] = useState([]);
 	const [eventCalendar, setEventCalendar] = useState([]);
 	const [reviews, setReviews] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoaded, setIsLoaded] = useState(false);
 	const [reviewToggle, setReviewToggle] = useState(true);
 
 	let baseReviews = reviews.slice(0, 3);
@@ -36,7 +36,7 @@ const EventPage = () => {
 
 			setEventCalendar(eventCalendarAdded);
 			setReviews(data.events[3].reviews);
-			setIsLoading(false);
+			setIsLoaded(true);
 		})();
 	}, []);
 
@@ -48,59 +48,61 @@ const EventPage = () => {
 	};
 
 	return (
-		<div className={styles.eventPage}>
-			<div className={styles.carouselContainer}>
-				<Carousel className={styles.carouselWrapper} styling={{ height: '50%' }} {...settings}>
-					{photoGallery.map((photo) => (
-						<img className={styles.carouselImg} key={photo.photo_id} alt="" src={photo.url} />
-					))}
-				</Carousel>
-			</div>
-			<div className={styles.eventTitle}>{event.title}</div>
-			<div className={styles.eventInfo}>
-				<div className={styles.infoText}>Chef {event.firstname}</div>
-				<div className={styles.infoText}>
-					{event.country}, {event.region}
-				</div>
-				{eventCalendar[0] && (
-					<div className={`${styles.infoText} ${styles.booking}`}
-					onClick={()=> setShowModal(true)}>
-						Explore Dates
+		<>
+			{isLoaded &&(
+				<div className={styles.eventPage}>
+					<div className={styles.carouselContainer}>
+						<Carousel className={styles.carouselWrapper} styling={{ height: '50%' }} {...settings}>
+							{photoGallery.map((photo) => (
+								<img className={styles.carouselImg} key={photo.photo_id} alt="" src={photo.url} />
+							))}
+						</Carousel>
 					</div>
-				)}
-
-				{showModal && (
-					<Modal onClose={() => setShowModal(false)}>
-						<CalendarModal event={event} setShowModal={setShowModal} />
-					</Modal>
-				)}
-			</div>
-			<div>
-				<div className={styles.descriptionTitle}>Description</div>
-				<div className={styles.description}>{event.description}</div>
-			</div>
-			{/* */}
-			<div className={styles.eventTitle}>Reviews</div>
-			{/* First three reviews */}
-			{baseReviews[0] && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
-			{reviewToggle && (
-				<div className={styles.toggleBtnContainer} onClick={() => setReviewToggle()}>
-					{additionalReviews[0] && (
-						<div className={styles.toggle} >Show More Reviews</div>
+					<div className={styles.eventTitle}>{event.title}</div>
+					<div className={styles.eventInfo}>
+						<div className={styles.infoText}>Chef {event.firstname}</div>
+						<div className={styles.infoText}>
+							{event.country}, {event.region}
+						</div>
+						{eventCalendar[0] && (
+							<div className={`${styles.infoText} ${styles.booking}`} onClick={() => setShowModal(true)}>
+								Explore Dates
+							</div>
 						)}
-				</div>
-			)}
-			{!reviewToggle && additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
 
-			{/* Show less button */}
-			{!reviewToggle && (
-				<div className={styles.toggleBtnContainer}>
-					<div className={styles.toggle} onClick={() => setReviewToggle(true)}>
-						Show Less
+						{showModal && (
+							<Modal onClose={() => setShowModal(false)}>
+								<CalendarModal event={event} setShowModal={setShowModal} />
+							</Modal>
+						)}
 					</div>
+					<div>
+						<div className={styles.descriptionTitle}>Description</div>
+						<div className={styles.description}>{event.description}</div>
+					</div>
+					{/* */}
+					<div className={styles.eventTitle}>Reviews</div>
+					{/* First three reviews */}
+					{baseReviews[0] && baseReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
+					{reviewToggle && (
+						<div className={styles.toggleBtnContainer} onClick={() => setReviewToggle()}>
+							{additionalReviews[0] && <div className={styles.toggle}>Show More Reviews</div>}
+						</div>
+					)}
+					{!reviewToggle &&
+						additionalReviews.map((review) => <ReviewRow key={review.reviewId} review={review} />)}
+
+					{/* Show less button */}
+					{!reviewToggle && (
+						<div className={styles.toggleBtnContainer}>
+							<div className={styles.toggle} onClick={() => setReviewToggle(true)}>
+								Show Less
+							</div>
+						</div>
+					)}
 				</div>
 			)}
-		</div>
+		</>
 	);
 };
 

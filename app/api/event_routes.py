@@ -162,7 +162,7 @@ def user_events():
 
 # DELETES USER EVENT BOOKIN
 @event_routes.route('/booking/<int:id>', methods=['DELETE'])
-@login_required
+@login_required 
 def delete_booking(id):
     booking = BookingCalendar.query.filter(id == BookingCalendar.id).first()
 
