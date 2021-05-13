@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { useSelector } from 'react-redux';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './styles.css';
 import { IoChevronBackCircle } from 'react-icons/io5';
+
 function CalendarModal({ event, setShowModal }) {
 	const dates = useSelector((state) => {
 		return Object.values(state.eventCalendar).filter((date) => date.event_id === event.event_id);
@@ -15,14 +16,13 @@ function CalendarModal({ event, setShowModal }) {
 	const [timeslot, setTimeSlot] = useState('');
 	const [dateArr, setDateArr] = useState([]);
 
-	const calendarHandler = (values, event) => {
+	const calendarHandler = (values) => {
 		let dateView = dates.filter((date) => date.dateObj.toDateString() == values.toDateString());
 		setDateArr(dateView);
 		setToggle(true);
 	};
 	const timeSlotHandler = (e, slot) => {
 		setTimeSlot(`${e.target.id}`);
-		// ! Add dispatch
 		setConfirm(true);
 		setToggle(false);
 	};
@@ -39,6 +39,10 @@ function CalendarModal({ event, setShowModal }) {
 		setValue(nextValue);
 	}
 
+	const handleCancel = () => {
+		setShowModal(false)
+	}
+
 	const handleConfirmation = async () => {
 		const optionsCalendar = {
 			method: 'POST',
@@ -48,6 +52,7 @@ function CalendarModal({ event, setShowModal }) {
 			body: JSON.stringify(timeslot),
 		};
 		const res = await fetch(`/api/booking/${timeslot}`, optionsCalendar);
+		if(res.ok) setShowModal(false)
 	};
 
 	function isSameDay(a, b) {
@@ -81,7 +86,7 @@ function CalendarModal({ event, setShowModal }) {
 			{toggle && (
 				<>
 					<div className="header-row">
-						<IoChevronBackCircle onClick={goBack} />
+						<IoChevronBackCircle className="backIcon" onClick={goBack} />
 						<header className="header">Time Slots </header>
 					</div>
 					<div className="time-container">
@@ -106,11 +111,14 @@ function CalendarModal({ event, setShowModal }) {
 						<IoChevronBackCircle onClick={goBack} />
 						<header className="header">Confirm </header>
 					</div>
-					<div className="Sample__container">
-						<div>Would You Like to Confirm</div>
+					<div className="confirmContainer">
+						<div className="confirmTitle">Would You Like to Confirm</div>
 
-						<div className="btn" onClick={handleConfirmation}>
+						<div className="blue" onClick={handleConfirmation}>
 							Confirm
+						</div>
+						<div className="blue" onClick={handleCancel}>
+							Cancel
 						</div>
 					</div>
 				</>

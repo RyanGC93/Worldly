@@ -11,7 +11,6 @@ def new_booking(id):
     timeslot = id
     try: 
         data = request.get_json()
-
         user_id = current_user.id
 
         new_booking = BookingCalendar(user_id=user_id,timeslot=timeslot)

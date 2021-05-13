@@ -85,3 +85,18 @@ grid-row: auto
   box-shadow: 0px 0px rgba(77, 77, 77, 1);
   transform: translateY(6px);
 }
+
+.backIcon {
+  cursor: pointer
+}
+
+.confirmContainer {
+  text-align: center;
+}
+
+.confirmTitle{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  font-size: 3vh;
+  
+}
