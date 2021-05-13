@@ -12,7 +12,7 @@ import ReviewRow from './ReviewRow';
 const EventPage = () => {
 	const [showModal, setShowModal] = useState(false);
 	let { eventId } = useParams();
-	const [events, setEvents] = useState({});
+	const [event, setEvent] = useState({});
 	const [photoGallery, setPhotoGallery] = useState([]);
 	const [eventCalendar, setEventCalendar] = useState([]);
 	const [reviews, setReviews] = useState([]);
@@ -27,7 +27,7 @@ const EventPage = () => {
 			const url = `/api/events/bookings/${eventId}`;
 			const res = await fetch(url);
 			const data = await res.json();
-			setEvents(data.events[0].events_info);
+			setEvent(data.events[0].events_info);
 			setPhotoGallery(data.events[1].photo_gallery);
 			let eventCalendarAdded = data.events[2].event_calendar;
 			eventCalendar.forEach((event) => {
@@ -56,32 +56,28 @@ const EventPage = () => {
 					))}
 				</Carousel>
 			</div>
-			<div className={styles.eventTitle}>{events.title}</div>
+			<div className={styles.eventTitle}>{event.title}</div>
 			<div className={styles.eventInfo}>
-				<div className={styles.infoText}>Chef {events.firstname}</div>
+				<div className={styles.infoText}>Chef {event.firstname}</div>
 				<div className={styles.infoText}>
-					{events.country}, {events.region}
+					{event.country}, {event.region}
 				</div>
 				{eventCalendar[0] && (
-					<div className={`${styles.infoText} ${styles.booking}`}>
+					<div className={`${styles.infoText} ${styles.booking}`}
+					onClick={()=> setShowModal(true)}>
 						Explore Dates
-						{showModal && (
-							<Modal onClose={() => setShowModal(false)}>
-								<CalendarModal bookingAvailability={eventCalendar} setShowModal={setShowModal} />
-							</Modal>
-						)}
 					</div>
 				)}
 
 				{showModal && (
 					<Modal onClose={() => setShowModal(false)}>
-						<CalendarModal setShowModal={setShowModal} />
+						<CalendarModal event={event} setShowModal={setShowModal} />
 					</Modal>
 				)}
 			</div>
 			<div>
 				<div className={styles.descriptionTitle}>Description</div>
-				<div className={styles.description}>{events.description}</div>
+				<div className={styles.description}>{event.description}</div>
 			</div>
 			{/* */}
 			<div className={styles.eventTitle}>Reviews</div>

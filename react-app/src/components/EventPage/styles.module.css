@@ -13,7 +13,9 @@
     cursor: pointer;
 }
 
-
+*{
+    cursor: default;
+}
 
 .carouselWrapper{
     width:70%;
