@@ -60,7 +60,7 @@ export const createAmbassadorEvent = (event, eventLocation) => async (dispatch) 
 
 export const getAmbassadorEvents = () => async (dispatch) => {
 	const response = await fetch(`/api/ambassadors/`);
-		let res = await response.json();
+	let res = await response.json();
 		let events = res.events;
 		let eventsInfo = events[0].ambassador_events_info;
 		let eventPhotos = events[1].photo_gallery;

@@ -122,7 +122,6 @@
 
 /* Size the carousel */
 .carousel {
-	/* height: 200px; */
 	display: flex;
 }
 
@@ -211,8 +210,6 @@
   font-weight: bold;
   padding: 13px 13px 13px 13px;
 }
-
-/* ! ====== TEST ======/ */
 
 .geoHandler {
 	font-size: 5vh

@@ -12,6 +12,16 @@ def query_last():
     print(last_id)
 
 
+@query_commands.command('ambassador_events')
+def query_ambassador_events():
+    events = db.session.query(Event.id).filter(Event.ambassador_id == 1).all()
+    event_ids = [event[0]for event in events]
+    print(event_ids)
+    
+    event_values = db.session.query(Event.id, Event.title, Event.description).filter(Event.id.in_(event_ids), Location.event_id == Event.id).all()   
+    print(event_values)
+
+
 @query_commands.command('event')
 def query_event():
 

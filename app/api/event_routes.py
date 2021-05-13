@@ -103,7 +103,6 @@ def new_event():
     # last_id = db.session.query(Event.id,).order_by(Event.id.desc()).first()
     # id = last_id[0] +1
 
-
     if current_user.is_authenticated:
         ambassador = Ambassador.query.filter(
             Ambassador.user_id == current_user.id).first()
@@ -119,11 +118,9 @@ def new_event():
                       cost=cost)
     db.session.add(new_event)
     db.session.commit()
-    id+=1
     return(new_event.to_dict())
 
 
-# TODO Redo the routing of the
 @event_routes.route('/user')
 @login_required
 def user_events():
@@ -163,16 +160,15 @@ def user_events():
     return json.dumps(events,  sort_keys=True, default=str)
 
 
-# DELETES USER EVENT BOOKINg
-# @event_routes.route('/user/<int:id>', methods=['DELETE'])
-# @login_required
-# def delete_booking(id):
-#     print(id, 'saddasdsa')
-#     booking = BookingCalendar.query.filter(id == BookingCalendar.id).first()
+# DELETES USER EVENT BOOKIN
+@event_routes.route('/booking/<int:id>', methods=['DELETE'])
+@login_required
+def delete_booking(id):
+    booking = BookingCalendar.query.filter(id == BookingCalendar.id).first()
 
-#     db.session.delete(booking)
-#     db.session.commit()
-#     return 'Booking Deleted'
+    db.session.delete(booking)
+    db.session.commit()
+    return 'Booking Deleted'
 
 # DELETES EVENT
 @event_routes.route('/delete/<int:id>', methods=['DELETE'])
@@ -180,8 +176,8 @@ def user_events():
 def delete_event(id):
     event = Event.query.filter(id == Event.id).first()
     dict = event.to_dict()
-    if(current_user.id != dict.id):
-        return {'error': ['Unauthorized']}, 401
+    # if(current_user.id != dict.ambassador_id):
+    #     return {'error': ['Unauthorized']}, 401
     db.session.delete(event)
     db.session.commit()
     return 'Booking Deleted'

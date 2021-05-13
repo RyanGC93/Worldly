@@ -25,12 +25,13 @@ const EventCard = ({ event, isChecked, booking }) => {
 		return Object.values(state.photoGallery).filter((photo) => photo.event_id === event.event_id);
 	});
 	const bookingAvailability = useSelector((state) => {
-		return Object.values(state.eventCalendar).filter((booking) => booking.event_id === event.event_id);
+		return Object.values(state.eventCalendar).filter((booking) => booking.event_id === event.booking_id);
 	});
 
 	const eventPageRedirect = () => {
 		history.push(`/bookings/${event.event_id}`);
 	};
+
 
 	const title = event.title;
 	const badge = '';
@@ -180,15 +181,15 @@ const EventCard = ({ event, isChecked, booking }) => {
 								</div>
 							</div>
 							<div className={styles.moreInfo}>
+								<div className={styles.ambassadorContainer}>
+									<div>Chef {event.firstname}</div>
+									{/* <p>Profile </p> */}
+								</div>
 								<div className={styles.reviewContainer}>
 									<div className={styles.starRating}>
 										<ReactStarsRating value={value} isEdit={false} size={17} />
 									</div>
 									<div>#{reviews.length} reviews</div>
-								</div>
-								<div className={styles.ambassadorContainer}>
-									<p>Chef {event.firstname}</p>
-									<p>Profile </p>
 								</div>
 							</div>
 							<div className={`${styles.itemButtons} ${styles.back}`}>

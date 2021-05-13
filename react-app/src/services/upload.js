@@ -2,7 +2,6 @@ export async function getSignedRequest(photo){
     let res = await fetch('/sign_s3/?file_name='+photo.name+"&file_type="+photo.type);
     if (res.ok) {
       res = await res.json()
-      console.log(res,res.data,res.url)
       uploadFile(photo, res.data, res.url);
     } else {
       console.error('could not get url')

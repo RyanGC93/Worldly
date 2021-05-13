@@ -14,8 +14,6 @@ const ConfirmForm = ({ setShowModal, setFormStep, eventId }) => {
         
     };
     const startOver = async() => {
-        // delete event
-        let eventId=4
         await dispatch(deleteAmbassadorEvent(eventId))
         setFormStep(1)
     };

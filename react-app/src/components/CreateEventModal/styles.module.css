@@ -2,14 +2,12 @@
   width: 80vw;
   margin: auto;
   max-width: 525px;
-  top: 80px;
-  min-height: 600px;
+  height:80vh;
   position: relative;
 }
 
 .eventWrap {
   height: 100%;
-  /* position: absolute; */
   padding: 10px 70px 50px 70px;
   background: rgba(40,57,101,.9);
 }

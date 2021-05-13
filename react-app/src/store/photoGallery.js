@@ -30,7 +30,6 @@ const removePhoto = (id) => {
 };
 
 export const createPhoto = (eventId, description, url) => async (dispatch) => {
-
 	const options = {
 		method: 'POST',
 		headers: {
@@ -40,8 +39,7 @@ export const createPhoto = (eventId, description, url) => async (dispatch) => {
 	};
 	const res = await fetch('/api/photos/', options);
 	const data = await res.json();
-  console.log(data);
-  dispatch(addPhoto(data))
+	dispatch(addPhoto(data));
 	if (res.ok) return res;
 };
 export const editPhoto = (id, description) => async (dispatch) => {

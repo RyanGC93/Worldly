@@ -66,7 +66,6 @@ export const getEvents = (param) => async (dispatch) => {
   const response = await fetch(`/api/events/${param}`);
   if (response.ok) {
     let res = await response.json();
-    console.log('res',res)
     let events = res.events
     let eventsInfo = events[0].events_info
     let eventPhotos = events[1].photo_gallery

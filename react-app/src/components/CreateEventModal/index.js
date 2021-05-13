@@ -5,6 +5,7 @@ import PhotoForm from "./Forms/PhotoForm";
 import DatesForm from "./Forms/DatesForm"
 import ConfirmForm from "./Forms/ConfirmForm"
 import { MultiStepForm, Step } from "react-multi-form";
+
 const CreateEventModal = ({setShowModal}) => {
   const [eventId,setEventId] = useState(null)
   const [formStep, setFormStep] = useState(1);

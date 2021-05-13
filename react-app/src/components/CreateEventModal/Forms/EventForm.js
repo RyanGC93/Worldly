@@ -137,7 +137,7 @@ const EventForm = ({ setFormStep, setEventId }) => {
 				</div>
 			</div>
 			<div className={styles.stepHandler}>
-				<button type="submit">Next</button>
+				<div className={styles.input} type="submit">Next</div>
 			</div>
 		</form>
 	);

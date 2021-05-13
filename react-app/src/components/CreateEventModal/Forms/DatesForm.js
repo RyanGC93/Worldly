@@ -41,12 +41,11 @@ const DateRow = ({ date, timesArray, setTimesArrays }) => {
 		setDayOfWeek(day);
 		setTime(time);
 		setOrdinalNum(ordirnal);
-	});
+	},[date.dateObj, days]);
 
 	return (
 		<>
 			<div className={styles.timeRow}>
-				{/* <div>{`${days[rowDate.getDay()]} ${rowDate.toUTCString().split(' ')[4]}`} </div> */}
 				<div className={styles.dateTime}>{`${dayOfWeek} the ${ordinalNum} @ ${time}`} </div>
 				<BsFillTrashFill onClick={handleTrash} className={styles.timeTrash} />
 			</div>
@@ -54,44 +53,44 @@ const DateRow = ({ date, timesArray, setTimesArrays }) => {
 	);
 };
 
-const MonthDates = ({ month, upcomingArrays, setUpcomingArrays }) => {
-	let [name, setName] = useState('');
-	let [dates, setDates] = useState([]);
-	const [moreArrays, setMoreArrays] = useState();
+// const MonthDates = ({ month, upcomingArrays, setUpcomingArrays }) => {
+// 	let [name, setName] = useState('');
+// 	let [dates, setDates] = useState([]);
+// 	const [moreArrays, setMoreArrays] = useState();
 
-	let monthCalendar = [
-		'January',
-		'February',
-		'March',
-		'April',
-		'May',
-		'June',
-		'July',
-		'August',
-		'September',
-		'October',
-		'November',
-		'December',
-	];
+// 	let monthCalendar = [
+// 		'January',
+// 		'February',
+// 		'March',
+// 		'April',
+// 		'May',
+// 		'June',
+// 		'July',
+// 		'August',
+// 		'September',
+// 		'October',
+// 		'November',
+// 		'December',
+// 	];
 
-	return (
-		<>
-			<div>
-				<div className={styles.monthTitle}>{name}</div>
-				<div className={styles.timesContainer}>
-					{month.map((date, i) => (
-						<DateRow
-							upcomingArrays={upcomingArrays}
-							setUpcomingArrays={setUpcomingArrays}
-							date={date}
-							key={i}
-						/>
-					))}
-				</div>
-			</div>
-		</>
-	);
-};
+// 	return (
+// 		<>
+// 			<div>
+// 				<div className={styles.monthTitle}>{name}</div>
+// 				<div className={styles.timesContainer}>
+// 					{month.map((date, i) => (
+// 						<DateRow
+// 							upcomingArrays={upcomingArrays}
+// 							setUpcomingArrays={setUpcomingArrays}
+// 							date={date}
+// 							key={i}
+// 						/>
+// 					))}
+// 				</div>
+// 			</div>
+// 		</>
+// 	);
+// };
 
 export default function DateForm({ eventId, setFormStep }) {
 	const dispatch = useDispatch();
@@ -116,7 +115,6 @@ export default function DateForm({ eventId, setFormStep }) {
 	};
 	const handleClick = async(e) => {
 		e.preventDefault();
-		// ! Calendar
 		timesArray.forEach((timeString) => {
 			let timeObject =  new Date(timeString)
 			let time = timeObject.toTimeString()
@@ -183,7 +181,7 @@ export default function DateForm({ eventId, setFormStep }) {
 			</div>
 			{sortedArray && (
 				<>
-					<div className={styles.nextButton} onClick={handleClick}>next</div>
+					<div className={styles.input} onClick={handleClick}>next</div>
 				</>
 			)}
 		</div>

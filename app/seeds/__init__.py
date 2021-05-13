@@ -59,8 +59,10 @@ def reset_seeds():
     db.session.execute("ALTER SEQUENCE users_id_seq RESTART WITH 1")
     db.session.execute("ALTER SEQUENCE booking_calendar_id_seq RESTART WITH 1")
     db.session.execute("ALTER SEQUENCE event_calendar_id_seq RESTART WITH 1")
+    db.session.execute("ALTER SEQUENCE photo_gallery_id_seq RESTART WITH 1")
+    db.session.execute("ALTER SEQUENCE reviews_id_seq RESTART WITH 1")    
     db.session.commit()
     
-@seed_commands.command('value')
+@seed_commands.command('set')
 def reset_seeds():    
     db.session.execute("SELECT setval('events_id_seq', 35, true)")

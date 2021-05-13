@@ -6,24 +6,19 @@
     align-items: center;
     color: black;
     font-weight: bold;
-
 }
+
 .regionsFeed{
     display: grid;
     grid-gap: 3vw;
     grid-template-columns: 30vw 30vw 30vw ;
-    grid-template-rows: 30vw 30vw ;
-
+    grid-template-rows: 30vw ;
 }
 
 .regionsFeedContainer {
     width: 100%;
     display: flex;
     justify-content: center;
-}
-
-.featureSpacer {
-
 }
 
 @media (max-width: 989px) and (min-width: 768px) {

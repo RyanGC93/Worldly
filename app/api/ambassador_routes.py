@@ -17,14 +17,13 @@ def ambassadors():
             Ambassador.user_id ==  current_user.id).first()
 
         if(ambassador):
-            events = db.session.query(Event.id, Ambassador.id).filter(Event.ambassador_id == current_user.id).all()
+            events = db.session.query(Event.id).filter(Event.ambassador_id == current_user.id).all()
             event_ids = [event[0]for event in events]
 
 
             event_keys = ['event_id', 'title', 'description',
                   'region', 'country', 'firstname']
-            event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name).filter( Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
-            events_info = {"events_info": [dict(zip(event_keys, event)) for event in event_values]}
+            event_values = db.session.query(Event.id, Event.title, Event.description, Location.region, Location.country, User.first_name).filter(Event.id.in_(event_ids), Location.event_id == Event.id, Ambassador.id == Event.ambassador_id, Ambassador.user_id == User.id).all()
 
             ambassador_events_info = {"ambassador_events_info": [
                 dict(zip(event_keys, event)) for event in event_values]}
