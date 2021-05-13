@@ -1,8 +1,8 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import './styles.css';
+import styles from './styles.module.css';
 import { IoChevronBackCircle } from 'react-icons/io5';
 
 function CalendarModal({ event, setShowModal }) {
@@ -40,8 +40,8 @@ function CalendarModal({ event, setShowModal }) {
 	}
 
 	const handleCancel = () => {
-		setShowModal(false)
-	}
+		setShowModal(false);
+	};
 
 	const handleConfirmation = async () => {
 		const optionsCalendar = {
@@ -52,7 +52,7 @@ function CalendarModal({ event, setShowModal }) {
 			body: JSON.stringify(timeslot),
 		};
 		const res = await fetch(`/api/booking/${timeslot}`, optionsCalendar);
-		if(res.ok) setShowModal(false)
+		if (res.ok) setShowModal(false);
 	};
 
 	function isSameDay(a, b) {
@@ -63,20 +63,19 @@ function CalendarModal({ event, setShowModal }) {
 		if (view === 'month') {
 			// Check if a date React-Calendar wants to check is on the list of dates to add class to
 			if (dates.find((dDate) => isSameDay(dDate, date))) {
-				return 'tileStyle';
+				return `${styles.tileStyle}`;
 			}
 		}
 	}
 
 	return (
-		<div className="booking-container">
+		<div className={styles.bookingContainer}>
 			{!toggle && !confirm && (
 				<>
-					<header className="header">Dates</header>
+					<header className={styles.header}>Dates</header>
 					<Calendar
-						// tileContent={tileContentTwo}
 						tileClassName={tileClassName}
-						className="calendar"
+						className={styles.calendar}
 						onChange={onChange}
 						value={value}
 						onClickDay={calendarHandler}
@@ -85,16 +84,16 @@ function CalendarModal({ event, setShowModal }) {
 			)}
 			{toggle && (
 				<>
-					<div className="header-row">
-						<IoChevronBackCircle className="backIcon" onClick={goBack} />
-						<header className="header">Time Slots </header>
+					<div className={styles.headerRow}>
+						<IoChevronBackCircle className={styles.backIcon} onClick={goBack} />
+						<header className={styles.header}>Time Slots </header>
 					</div>
-					<div className="time-container">
+					<div className={styles.timeContainer}>
 						{dateArr &&
 							dateArr.map((slot) => (
-								<div key={slot.event_calendar_id} className="slot-container btn1">
+								<div key={slot.event_calendar_id} className={styles.slotContainer}>
 									<div
-										className="blue"
+										className={styles.blue}
 										id={slot.event_calendar_id}
 										onClick={(slot) => timeSlotHandler(slot)}
 									>
@@ -107,17 +106,17 @@ function CalendarModal({ event, setShowModal }) {
 			)}
 			{confirm && (
 				<>
-					<div className="header-row">
+					<div className={styles.headerRow}>
 						<IoChevronBackCircle onClick={goBack} />
-						<header className="header">Confirm </header>
+						<header className={styles.header}>Confirm </header>
 					</div>
-					<div className="confirmContainer">
-						<div className="confirmTitle">Would You Like to Confirm</div>
+					<div className={styles.confirmContainer}>
+						<div className={styles.confirmTitle}>Would You Like to Confirm</div>
 
-						<div className="blue" onClick={handleConfirmation}>
+						<div className={styles.blue} onClick={handleConfirmation}>
 							Confirm
 						</div>
-						<div className="blue" onClick={handleCancel}>
+						<div className={styles.blue} onClick={handleCancel}>
 							Cancel
 						</div>
 					</div>

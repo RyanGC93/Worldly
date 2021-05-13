@@ -1,0 +1,92 @@
+.header {
+	text-align: center;
+	font-size: 30px;
+	position: relative;
+	background-color: #5b80cb91;
+	opacity: 1;
+	cursor: default;
+}
+
+.react-calendar__tile {
+	position: relative;
+}
+
+.tileStyle {
+	background-color: #5b80cb91;
+}
+
+.hover-tile:hover {
+	font-size: 20px;
+	visibility: visible;
+	display: absolute;
+	padding: 10px 10px 10px 10px;
+	z-index: 100;
+}
+
+.active-tile {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	border: 3px solid blue;
+}
+
+.headerRow svg {
+	position: relative;
+	height: 35px;
+	width: 35px;
+	left: 30px;
+}
+
+.headerRow {
+	display: grid;
+	grid-template-columns: 20% 60% 20%;
+}
+
+.bookingContainer {
+	width: 350px;
+	height: 270px;
+	background-color: white;
+}
+
+.timeContainer {
+	display: grid;
+	height: 80%;
+	grid-template-columns: auto auto auto;
+	grid-row: auto;
+}
+
+.slotContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.blue {
+	background-color: #4972c1;
+	background: linear-gradient(90deg, #72a1ff, #4972c1, #34579e, #4972c1, #72a1ff);
+	background-size: 400% 400%;
+	background-position: 0% 50%;
+	font-size: 3vh;
+	padding: 1vh;
+	cursor: pointer;
+}
+
+.blue:hover {
+	animation: gradientMove 6s ease infinite;
+}
+
+
+.backIcon {
+	cursor: pointer;
+}
+
+.confirmContainer {
+	text-align: center;
+}
+
+.confirmTitle {
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	font-size: 3vh;
+}
