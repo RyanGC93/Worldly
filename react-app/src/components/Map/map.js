@@ -41,8 +41,7 @@ const MapChart = ({ setTooltipContent, isChecked }) => {
 	});
 
 	useEffect(() => {
-		if (!userEvents[0]) return
-	}, [userEvents]);
+	}, [isChecked]);
 	let markers = [];
 	userEvents.forEach((event) => {
 		markers.push({
@@ -53,9 +52,6 @@ const MapChart = ({ setTooltipContent, isChecked }) => {
 		});
 	});
 
-
-
-	if (!userEvents) return null;
 	return (
 		<>
 			<div>
@@ -97,6 +93,7 @@ const MapChart = ({ setTooltipContent, isChecked }) => {
 									}
 								</Geographies>
 								{markers.map(({ name, coordinates, markerOffset, id }) => (
+									
 									<MarkerComponent key={id} name={name} coordinates={coordinates} markerOffset={markerOffset}/>
 								))}
 							</>

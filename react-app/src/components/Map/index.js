@@ -7,6 +7,7 @@ import ReactTooltip from "react-tooltip";
 const Map = ({isChecked}) => {
 	const [content, setContent] = useState("");
 
+
 	return (
 		<>
 			<div className="map-border">

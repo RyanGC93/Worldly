@@ -120,7 +120,7 @@ def new_event():
     db.session.commit()
     return(new_event.to_dict())
 
-
+# ! Gets Events booked by the user
 @event_routes.route('/user')
 @login_required
 def user_events():
@@ -160,7 +160,7 @@ def user_events():
     return json.dumps(events,  sort_keys=True, default=str)
 
 
-# DELETES USER EVENT BOOKIN
+# !DELETES USER EVENT BOOKIN
 @event_routes.route('/booking/<int:id>', methods=['DELETE'])
 @login_required 
 def delete_booking(id):

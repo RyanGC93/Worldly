@@ -8,12 +8,15 @@ import EventCarousel from './EventCarousel';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import CalendarModal from '../CalendarModal';
 import { deleteAmbassadorEvent } from '../../store/ambassadorEvents';
-import CreateModal from '../CreateEventModal';
+// import CreateModal from '../CreateEventModal';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 const EventCard = ({ event, isChecked, booking }) => {
+	const [toggle, setToggle] = useState(true);
+	const [showModal, setShowModal] = useState(false);
+
 	const history = useHistory();
 	const dispatch = useDispatch();
 
@@ -31,7 +34,6 @@ const EventCard = ({ event, isChecked, booking }) => {
 	const eventPageRedirect = () => {
 		history.push(`/bookings/${event.event_id}`);
 	};
-
 
 	const title = event.title;
 	const badge = '';
@@ -51,14 +53,23 @@ const EventCard = ({ event, isChecked, booking }) => {
 		if (images) setIsLoaded(true);
 	}, [images]);
 
+
+
 	for (let element of reviews) value += element.rating;
 
-	const [toggle, setToggle] = useState(true);
-	const [showModal, setShowModal] = useState(false);
+	let date
+	let time
+	if (isChecked) {
+		time = event.dateObj.toTimeString().split(' ')[0]
+		date = event.dateObj.toDateString().split(' ')
+	}
 
 	const deleteHandler = () => {
 		dispatch(deleteAmbassadorEvent(event.event_id));
 	};
+	const deleteBooking = () => {
+		
+	}
 
 	return (
 		<div className={`${styles.cardContainer} ${styles.description}`}>
@@ -119,12 +130,16 @@ const EventCard = ({ event, isChecked, booking }) => {
 							</div>
 							{/* TODO: add this into cost */}
 							<div className={styles.itemTimeDate}>
-								<time className={styles.date} dateTime="2018-10-16">
-									{closest_event_date}
-								</time>
-								<time className={styles.time} dateTime="19:00">
-									{closest_event_time}
-								</time>
+								{isChecked && (
+									<>
+										<time className={styles.date} dateTime="2018-10-16">
+											{time}
+										</time>
+										<time className={styles.time} dateTime="19:00">
+											{date[0]}, {date[1]} {date[2]}
+										</time>
+									</>
+								)}
 							</div>
 							<div className={`${styles.itemButtons} ${styles.buttonsRow} ${styles.frontButtons}`}>
 								<button
@@ -141,13 +156,13 @@ const EventCard = ({ event, isChecked, booking }) => {
 										className={`${styles.btnTickets} ${styles.blue}`}
 										aria-label="Purchase tickets for this event"
 									>
-										EDIT
+										Delete Booking
 									</a>
 								) : booking ? (
 									<>
 										<a
 											// !
-											onClick={()=>setShowModal(true)}
+											onClick={() => setShowModal(true)}
 											className={`${styles.btnTickets} ${styles.blue}`}
 										>
 											Book
