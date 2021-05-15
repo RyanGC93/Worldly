@@ -47,9 +47,8 @@ export const deleteUserEvent = (id) => async dispatch => {
     method: 'DELETE'
   }
 
-  const res = await fetch(`/api/events/user/${id}`, options);
+  const res = await fetch(`/api/events/booking/${id}`, options);
   if (res.ok) {
-    alert(id);
     dispatch(removeUserEvent(id));
   }
 }

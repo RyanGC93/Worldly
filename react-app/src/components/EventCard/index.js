@@ -8,6 +8,7 @@ import EventCarousel from './EventCarousel';
 import ReactStarsRating from 'react-awesome-stars-rating';
 import CalendarModal from '../CalendarModal';
 import { deleteAmbassadorEvent } from '../../store/ambassadorEvents';
+import { deleteUserEvent } from '../../store/userEvents';
 // import CreateModal from '../CreateEventModal';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
@@ -68,7 +69,8 @@ const EventCard = ({ event, isChecked, booking }) => {
 		dispatch(deleteAmbassadorEvent(event.event_id));
 	};
 	const deleteBooking = () => {
-		
+		console.log(event)
+		dispatch(deleteUserEvent(event.booking_id,event.event_id));
 	}
 
 	return (
@@ -155,6 +157,7 @@ const EventCard = ({ event, isChecked, booking }) => {
 									<a
 										className={`${styles.btnTickets} ${styles.blue}`}
 										aria-label="Purchase tickets for this event"
+										onClick={deleteBooking}
 									>
 										Delete Booking
 									</a>
