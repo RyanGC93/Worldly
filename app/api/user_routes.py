@@ -1,9 +1,10 @@
 from flask import Blueprint
 from flask_login import login_required, current_user
 from app.models import db, User ,Ambassador
+from sqlalchemy import exc
+
 
 user_routes = Blueprint('users', __name__)
-
 
 @user_routes.route('/')
 @login_required
@@ -16,7 +17,6 @@ def users():
             user = db.session.query(User.id, User.first_name, User.last_name, User.user_name, User.email, User.bio, User.mileage, Ambassador.id).filter(Ambassador.user_id == User.id).first()
             user_dict = {"user": [dict(zip(keys,value)) for value in user]}
             return user_dict
-            
     users = User.query.all()
     return {"users": [user.to_dict() for user in users]}
 
@@ -24,8 +24,12 @@ def users():
 @user_routes.route('/<string:user_name>')
 @login_required
 def user(user_name):
-    sensitive_info = db.session.query(User.phone_number, User.email).filter(
-        User.user_name == user_name).first()
-    keys = ['phone_number', 'email']
-    user_dict = dict(zip(keys,sensitive_info)) 
-    return(user_dict)
+    try:
+        sensitive_info = db.session.query(User.phone_number, User.email).filter(
+            User.user_name == user_name).first()
+        keys = ['phone_number', 'email']
+        user_dict = dict(zip(keys,sensitive_info)) 
+        return(user_dict)
+    except exc.SQLAlchemyError as e:
+        print(type(e))
+        return {'errors': ['Cannot Get User Info Please Try again']}, 500    
