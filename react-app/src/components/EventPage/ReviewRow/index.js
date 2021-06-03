@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
 import ReactStarsRating from 'react-awesome-stars-rating';
-// className={styles.}
 const ReviewRow = ({ review }) => {
 	let reviewRating = review.rating;
 	let reviewComment = review.comment;

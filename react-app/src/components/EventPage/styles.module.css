@@ -1,94 +1,86 @@
-.carouselImg{
-    height: 60vh;
-    width: 100%;
+.carouselImg {
+	height: 60vh;
+	width: 100%;
 }
-.carouselContainer{
-    margin-top:60px;
-    display: flex;
-    justify-content: center;
+.carouselContainer {
+	margin-top: 60px;
+	display: flex;
+	justify-content: center;
 }
 
 .booking:hover {
-    transform: scale(1.2);
-    cursor: pointer;
+	transform: scale(1.2);
+	cursor: pointer;
 }
 
-*{
-    cursor: default;
+* {
+	cursor: default;
 }
 
-.carouselWrapper{
-    width:70%;
-    box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
-    /* margin-left: 6vw; */
+.carouselWrapper {
+	width: 70%;
+	box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69);
 }
 
 .eventTitle {
-    font-size: 5vw;
-    margin-left: 15%;
-    width:70%;
-    padding-top: 2.5vh;
-    padding-bottom: 1.5vh;   
-    text-align: center;
-    font-weight: bold;
+	font-size: 5vw;
+	margin-left: 15%;
+	width: 70%;
+	padding-top: 2.5vh;
+	padding-bottom: 1.5vh;
+	text-align: center;
+	font-weight: bold;
 }
 
-.eventInfo{
-    margin-left: 15%;
-    width: 70%;
-    display:grid;
-    text-align: center;
+.eventInfo {
+	margin-left: 15%;
+	width: 70%;
+	display: grid;
+	text-align: center;
 
-    padding-top: 0.5vh;
-    padding-bottom: 0.5vh;   
-    display:grid;
-    /* background-color:blue; */
-    grid-template-columns: 33% 33% 33%;
-    /* grid-template-columns: 40% 60% */
+	padding-top: 0.5vh;
+	padding-bottom: 0.5vh;
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
 }
 
 .eventInfo > * {
-    font-size: 3vh
+	font-size: 3vh;
 }
 .calendarContainer {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
-.descriptionTitle{
-    font-size: 50px;
-    padding-top: 1.5vh;
-    padding-bottom: 1.5vh;    
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
+.descriptionTitle {
+	font-size: 50px;
+	padding-top: 1.5vh;
+	padding-bottom: 1.5vh;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
 }
 
-.description{
-    font-size: 20px;
-    margin-left: 15%;
-    width: 70%;
-    /* text-align: center; */
-    /* font-weight: bold; */
+.description {
+	font-size: 20px;
+	margin-left: 15%;
+	width: 70%;
 }
 
-.toggle{
-    padding: 20px;
-    cursor: pointer;
-    font-weight:bold;
+.toggle {
+	padding: 20px;
+	cursor: pointer;
+	font-weight: bold;
 }
 
-.toggle:hover{
-    transform: scale(1.2);
+.toggle:hover {
+	transform: scale(1.2);
 }
 
-.toggleBtnContainer{
-    /* background-color: red; */
-    width: 100%;
-    padding: 1vh;
-    font-size:5vh;
-    display: flex;
-    justify-content:center;
-
-
+.toggleBtnContainer {
+	width: 100%;
+	padding: 1vh;
+	font-size: 5vh;
+	display: flex;
+	justify-content: center;
 }

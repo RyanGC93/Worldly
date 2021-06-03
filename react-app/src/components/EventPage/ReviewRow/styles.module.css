@@ -1,29 +1,23 @@
-.row{
-    width: 100%;
-    padding-top: 5vh;
-    /* padding-left: 5vh; */
-    font-size: 3vw
-
-    
+.row {
+	width: 100%;
+	padding-top: 5vh;
+	font-size: 3vw;
 }
 
-.reviewInfo{
-    margin-left: 15%;
-    margin-right: 15%;
-    display:grid;
-    /* padding: 1vh; */
-    width: 70%;
-    grid-template-columns: 25% 50% 25%;
-    
-    
+.reviewInfo {
+	margin-left: 15%;
+	margin-right: 15%;
+	display: grid;
+	width: 70%;
+	grid-template-columns: 25% 50% 25%;
 }
 
-.reviewWrapper{
-    background-color: rgba(13, 51, 128, 0.1) ;
-    padding: 10px;
+.reviewWrapper {
+	background-color: rgba(13, 51, 128, 0.1);
+	padding: 10px;
 }
 
-.reviewComment{
-    margin-left: 15%;
-    margin-right: 15%;
+.reviewComment {
+	margin-left: 15%;
+	margin-right: 15%;
 }
