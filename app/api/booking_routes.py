@@ -12,7 +12,6 @@ def new_booking(id):
     try: 
         data = request.get_json()
         user_id = current_user.id
-
         new_booking = BookingCalendar(user_id=user_id,timeslot=timeslot)
         db.session.add(new_booking)
         db.session.commit()
