@@ -4,6 +4,7 @@ from flask_login import login_required
 from sqlalchemy import exc
 photo_routes = Blueprint('photos', __name__)
 
+# Creates Photo 
 @photo_routes.route('/', methods=['POST'])
 @login_required
 def new_photo():
@@ -19,9 +20,8 @@ def new_photo():
         db.session.commit()
         return new_photo.to_dict()
     except exc.SQLAlchemyError as e:
-        print('Deleting Photo Error')
         print(type(e))
-        return {'errors': ['Cannot Edit Photo Please Try again']}, 500
+        return {'errors': ['Cannot Create Photo Please Try again']}, 500
     
     
 # DELETES USER PHOTO
@@ -34,9 +34,8 @@ def delete_booking(id):
         db.session.commit()
         return 'Booking Deleted'
     except exc.SQLAlchemyError as e:
-        print('Deleting Photo Error')
         print(type(e))
-        return {'errors': ['Cannot Edit Photo Please Try again']}, 500
+        return {'errors': ['Cannot Delete Photo Please Try again']}, 500
 
 # Edit question
 @photo_routes.route('/<int:id>', methods=['PUT'])
