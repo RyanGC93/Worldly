@@ -1,17 +1,16 @@
-.searchTrigger{
-    margin-left: 0;
+.searchTrigger {
+	margin-left: 0;
 }
 
-.droppedMenu{
-    background-color: red;
-    width: 300px;
-    height: 200px;
-    
+.droppedMenu {
+	background-color: red;
+	width: 300px;
+	height: 200px;
 }
 
-.searchMenuContainer{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    padding: 20px 20px 20px 20px;
+.searchMenuContainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: 20px 20px 20px 20px;
 }
