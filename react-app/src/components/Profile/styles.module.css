@@ -1,18 +1,17 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
-.leftSide{
+.leftSide {
 	width: 25vw;
-	position:fixed
+	position: fixed;
 }
 
-
-.spacer{
-	height: 1.8vw
+.spacer {
+	height: 1.8vw;
 }
 
-.bookingsBtn{
+.bookingsBtn {
 	cursor: pointer;
 	margin: 10% 10% 10% 10%;
 	width: 60%;
@@ -22,49 +21,46 @@
 	text-align: center;
 }
 
-.content *{
+.content * {
 	margin-left: 10%;
 	font-family: 'Indie Flower', cursive;
 	font-size: 1.3vw;
-	color:rgb(42, 41, 41);
+	color: rgb(42, 41, 41);
 	line-height: 1.2;
 }
 
-.nameHeader{
+.nameHeader {
 	font-size: 5vh;
 	padding: 5px 5px 5px 5px;
 	margin-bottom: 1.8vh;
-	color:black;
+	color: black;
 }
-.address{
+.address {
 	padding: 5px 5px 5px 5px;
-	font-size:3vh;
+	font-size: 3vh;
 }
 
-.profileText{
-	color:black;
-	font-weight: bold;	
+.profileText {
+	color: black;
+	font-weight: bold;
 }
 
-.subText{
-	color:gray;
+.subText {
+	color: gray;
 	padding-left: 2vw;
 	padding-right: 1vw;
 }
 
-
-
-.demo-page img{
-	width:100%;
+.demo-page img {
+	width: 100%;
 	background-color: blue;
 }
 
-
 @media (max-width: 900px) {
-	.passport-container{
-		top:46%;
-		width:15vw;
-		left: -28%
+	.passport-container {
+		top: 46%;
+		width: 15vw;
+		left: -28%;
 	}
 }
 
@@ -80,10 +76,8 @@
 	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
 }
 
-.profileImg{
+.profileImg {
 	width: 20vw;
-
-
 }
 
 .profileImg img {
@@ -123,7 +117,7 @@
 	margin-right: 5px;
 }
 
-.profileOption{
+.profileOption {
 	width: 40px;
 	height: 40px;
 	position: absolute;
@@ -158,7 +152,7 @@
 	transition: all 0.5s ease-in-out;
 }
 
-.profileOption .notification .alertMessage{
+.profileOption .notification .alertMessage {
 	position: absolute;
 	top: -5px;
 	right: -5px;
@@ -193,7 +187,7 @@
 	box-sizing: border-box;
 	box-shadow: 0 1.5em 3em -1em rgb(70, 69, 69);
 	padding: 8vw 30px 20px;
-	font-family: "Bree Serif", serif;
+	font-family: 'Bree Serif', serif;
 	z-index: 99;
 }
 
@@ -225,7 +219,7 @@ button.createbtn {
 	border-radius: 3px;
 	background: #e40046;
 	color: #fff;
-	font-family: "Bree Serif";
+	font-family: 'Bree Serif';
 	font-size: 1rem;
 	margin: 5px 2px;
 	cursor: pointer;
@@ -312,11 +306,7 @@ button.createbtn i {
 	text-align: center;
 }
 
-
 @media (max-width: 900px) {
-
-	
-
 	.profile-header {
 		display: flex;
 		height: 100%;
@@ -337,7 +327,7 @@ button.createbtn i {
 		height: 120px;
 		width: 120px;
 		left: 0px; */
-		display:none
+		display: none;
 	}
 
 	.profile-nav-info {
@@ -387,7 +377,7 @@ button.createbtn i {
 		top: 83%;
 	}
 
-	.profileOption .notification .alertMessage{
+	.profileOption .notification .alertMessage {
 		top: -3px;
 		right: -4px;
 		padding: 4px;
@@ -412,21 +402,18 @@ button.createbtn i {
 	text-transform: lowercase;
 }
 .tab h1 {
-	font-family: "Bree Serif", sans-serif;
+	font-family: 'Bree Serif', sans-serif;
 	display: flex;
 	justify-content: center;
 	margin: 20px auto;
 }
 
-
-.rightSide{
+.rightSide {
 	position: absolute;
 	right: 0;
-	display:flex;
+	display: flex;
 	justify-content: center;
-	width:75%;
-
-
+	width: 75%;
 }
 
 /* ======================== */
@@ -439,21 +426,20 @@ button.createbtn i {
 }
 
 .blue {
-	position:absolute;
+	position: absolute;
 	bottom: 2vh;
 	background-color: #4972c1;
 	background: linear-gradient(90deg, #72a1ff, #4972c1, #34579e, #4972c1, #72a1ff);
 	background-size: 400% 400%;
 	background-position: 0% 50%;
 	border-radius: 0 0 0.45em 0;
-    padding: 1.7vh;
-    border-radius: 1.2em;
-    font-size: 1.7em;
+	padding: 1.7vh;
+	border-radius: 1.2em;
+	font-size: 1.7em;
 	text-align: center;
 }
 
-
 .blue:hover {
-	cursor:pointer;
+	cursor: pointer;
 	animation: gradientMove 6s ease infinite;
 }

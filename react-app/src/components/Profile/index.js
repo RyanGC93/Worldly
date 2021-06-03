@@ -32,14 +32,12 @@ const Profile = () => {
 			const ifAmbassador = await checkAmbassador();
 			setAmbassador(ifAmbassador);
 		})();
-
 	}, [user]);
-	
+
 	useEffect(() => {
 		if (!isChecked) dispatch(ambassadorEventActions.getAmbassadorEvents());
 		if (isChecked) dispatch(userEventActions.getUserEvents());
-	},[isChecked])
-
+	}, [isChecked]);
 
 	return (
 		<>
@@ -52,17 +50,8 @@ const Profile = () => {
 						/> */}
 					</div>
 					<div className={styles.profileNavInfo}>
-						{!isChecked && (
-						<div className={styles.nameHeader}>
-							Ambassador Profile
-						</div>
-						)}
-							{isChecked && (
-						<div className={styles.nameHeader}>
-							User Profile
-						</div>
-						)}
-				
+						{!isChecked && <div className={styles.nameHeader}>Ambassador Profile</div>}
+						{isChecked && <div className={styles.nameHeader}>User Profile</div>}
 					</div>
 					{/* <div className={styles.profileOption}>
 						<div className={styles.notification}>
@@ -79,7 +68,9 @@ const Profile = () => {
 
 							<div className={styles.userBio}>
 								<div className={styles.profileText}>User</div>
-								<div className={`${styles.profileText} ${styles.subText}`}>{user.first_name} , {user.last_name}</div>
+								<div className={`${styles.profileText} ${styles.subText}`}>
+									{user.first_name} , {user.last_name}
+								</div>
 							</div>
 							<div className={styles.userBio}>
 								<div className={styles.profileText}>Location</div>
@@ -101,11 +92,7 @@ const Profile = () => {
 							)} */}
 							{!isChecked && (
 								<div className={styles.btnContainer}>
-									<div
-										onClick={() => setShowModal(true)}
-										id="bookings-btn"
-										className={styles.blue}
-									>
+									<div onClick={() => setShowModal(true)} id="bookings-btn" className={styles.blue}>
 										Create Event
 									</div>
 									{showModal && (

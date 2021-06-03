@@ -1,41 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Rochester&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rochester&display=swap');
 .navbar {
 	width: 100%;
 	height: 70px;
-    background-image: linear-gradient(
-      to top,
-      rgba(13, 51, 128, 0.7) 50%,
-      rgba(0, 0, 0, .2) 100%
-    );
+	background-image: linear-gradient(to top, rgba(13, 51, 128, 0.7) 50%, rgba(0, 0, 0, 0.2) 100%);
 	display: grid;
 	grid-template-columns: 33% 33% 33%;
 	box-sizing: border-box;
-	box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69)
+	box-shadow: 0 1.5em 1em -1em rgb(70, 69, 69);
 }
 
-
-.searchBarWrapper{
+.searchBarWrapper {
 	margin-top: 10px;
-	z-index:40;
+	z-index: 40;
 }
 
-.logoHolder{
-	display:flex;
-	justify-content:center;
-	align-items:center;
+.logoHolder {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.navLogo{
-	font-family: "Rochester", cursive;
+.navLogo {
+	font-family: 'Rochester', cursive;
 	color: white;
 	font-size: 50px;
 	transition: 0.6s;
 	font-weight: bold;
-	cursor:pointer;
+	cursor: pointer;
 	text-align: center;
 }
 
 .navLogo:hover {
-	color:rgba(86, 86, 87, 0.8)
+	color: rgba(86, 86, 87, 0.8);
 }
-
-
