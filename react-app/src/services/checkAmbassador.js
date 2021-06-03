@@ -1,4 +1,3 @@
-
 export const checkAmbassador = async (userId) => {
     const response = await fetch(`/api/auth/ambassador/`, {
       headers: {

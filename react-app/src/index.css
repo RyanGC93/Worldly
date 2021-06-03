@@ -3,22 +3,10 @@
 /* TODO Add site wide styles */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&family=Rochester&family=Sansita&display=swap');
 
-/* 
-Rochester >> headers
-Libre subheaders
-Sansita Normal
-
-font-family: 'Libre Franklin', sans-serif;
-font-family: 'Rochester', cursive;
-font-family: 'Sansita', sans-serif;
-
-*/
-
 * {
-    font-family: 'Libre Franklin', sans-serif;
-
+	font-family: 'Libre Franklin', sans-serif;
 }
 
-body{
-    margin:0;
+body {
+	margin: 0;
 }
