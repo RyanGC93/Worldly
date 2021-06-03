@@ -1,44 +1,44 @@
-.socialContainer{
-  top: 10%;
-  height: 80%;
-  width: 50px;
+.socialContainer {
+	top: 10%;
+	height: 80%;
+	width: 50px;
 }
 
-.googleLoginButton, .myFacebookButtonClass{
-  background-color: rgb(144, 144, 144, .2); 
-  display: inline-flex; 
-  align-items: center; 
-  color: white;
-  font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px; 
-  padding: 0px; 
-  border-radius: 2px; 
-  border: 1px solid transparent; 
-  font-size: 14px; 
-  text-align: center;
-  font-weight: 500; 
-  font-family: Roboto, sans-serif; 
-  cursor: pointer; 
-  opacity: 0.9;
-  width: 170px;
-  border-radius: 10%;
-  background-color: rgba(255,255,255,.1); 
+.googleLoginButton,
+.myFacebookButtonClass {
+	background-color: rgb(144, 144, 144, 0.2);
+	display: inline-flex;
+	align-items: center;
+	color: white;
+	font-weight: bold;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px;
+	padding: 0px;
+	border-radius: 2px;
+	border: 1px solid transparent;
+	font-size: 14px;
+	text-align: center;
+	font-weight: 500;
+	font-family: Roboto, sans-serif;
+	cursor: pointer;
+	opacity: 0.9;
+	width: 170px;
+	border-radius: 10%;
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
-.loginButton{
-  max-width: 79.9px;
-  margin-left: 20px
-} 
+.loginButton {
+	max-width: 79.9px;
+	margin-left: 20px;
+}
 .socialLoginRow {
-  display: flex;
-  justify-content: space-evenly
+	display: flex;
+	justify-content: space-evenly;
 }
-.socialIcon{
-  background-color: black;
-  border-radius: 10%
+.socialIcon {
+	background-color: black;
+	border-radius: 10%;
 }
-.socialSvgMask{
-  width: 50px;
-  z-index:2;
-
+.socialSvgMask {
+	width: 50px;
+	z-index: 2;
 }

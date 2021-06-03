@@ -1,40 +1,34 @@
+.region-feature-img {
+	z-index: 2;
+	position: absolute;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+}
 
+@keyframes transition-fade-out {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.fade-in {
+	animation: transition-fade-in 5s;
+	opacity: 1;
+}
+.fade-out {
+	animation: transition-fade-out 5s;
+	opacity: 0;
+}
 
-  .region-feature-img {
-    z-index: 2;
-    position: absolute;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    opacity:0;
-  }
-
-  
-  @keyframes transition-fade-out {
-    0% {
-      opacity: 1;
-  
-    }
-    100% {
-      opacity: 0
-    }
-  }
-  .fade-in {
-    animation:transition-fade-in 5s; 
-    opacity: 1
-  }
-  .fade-out {
-    animation:transition-fade-out 5s;
-    opacity: 0;
-  }
-  
-  @keyframes transition-fade-in {
-    0% {
-      opacity: 0;
-  
-    }
-    100% {
-      opacity: 1
-    }
-  }
-  
+@keyframes transition-fade-in {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

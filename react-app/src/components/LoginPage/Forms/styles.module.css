@@ -35,7 +35,8 @@
 	cursor: pointer;
 	margin-left: 15%;
 }
-.signInBtn:hover,.signUpBtn:hover {
+.signInBtn:hover,
+.signUpBtn:hover {
 	transform: scale(1.1);
 	border: 3px solid #244a4e;
 }
@@ -127,6 +128,6 @@ form {
 }
 
 .remember {
-	font-size: 3.0vh;
+	font-size: 3vh;
 	font-weight: bold;
 }

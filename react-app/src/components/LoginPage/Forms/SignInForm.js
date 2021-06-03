@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import styles from "./styles.module.css";
-import { useDispatch } from "react-redux";
-import { login } from "../../../store/session";
-import { rememberMe, isRemembered } from "../../../services/rememberMe.js";
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import styles from './styles.module.css';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../store/session';
+import { rememberMe, isRemembered } from '../../../services/rememberMe.js';
 
 export const LoginForm = ({ setAuthenticated }) => {
 	const dispatch = useDispatch();
 	const [errors, setErrors] = useState([]);
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
 	const [checkbox, setCheckBox] = useState(true);
 	const history = useHistory();
 
 	const onLogin = async (e) => {
 		// form validation_errors
-		if (!password) return alert("Please enter a password");
-		if (!email) return alert("please enter an email");
+		if (!password) return alert('Please enter a password');
+		if (!email) return alert('please enter an email');
 		e.preventDefault();
 
 		if (checkbox) rememberMe(checkbox, email);
@@ -24,23 +24,22 @@ export const LoginForm = ({ setAuthenticated }) => {
 		const res = await dispatch(login(email, password));
 		if (res.errors) setErrors(res.errors);
 		setAuthenticated(true);
-		if (!res.errors) history.push("/");
+		if (!res.errors) history.push('/');
 	};
 
 	const demoLogin = async (e) => {
 		e.preventDefault();
-		const res = await dispatch(login("demo@aa.io", "password"));
+		const res = await dispatch(login('demo@aa.io', 'password'));
 		if (res.errors) setErrors(res.errors);
 		setAuthenticated(true);
-		if (!res.errors) history.push("/");
+		if (!res.errors) history.push('/');
 	};
 
 	useEffect(() => {
 		setEmail(isRemembered());
 	}, [setEmail]);
 
-	const checkboxHandler = () =>
-		checkbox ? setCheckBox(false) : setCheckBox(true);
+	const checkboxHandler = () => (checkbox ? setCheckBox(false) : setCheckBox(true));
 
 	return (
 		<>
@@ -84,8 +83,7 @@ export const LoginForm = ({ setAuthenticated }) => {
 							defaultChecked
 						/>
 						<label htmlFor="check" className={styles.remember}>
-							<span className={(styles.icon, styles.checkBox)}></span> Remember
-							me
+							<span className={(styles.icon, styles.checkBox)}></span> Remember me
 						</label>
 					</div>
 					<div className={styles.group}>

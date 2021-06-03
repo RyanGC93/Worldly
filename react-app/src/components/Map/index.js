@@ -1,12 +1,11 @@
-import styles from "./styles.module.css";
-import './styles.css'
-import MapChart from "./map";
-import React, { useState } from "react";
-import ReactTooltip from "react-tooltip";
+import styles from './styles.module.css';
+import './styles.css';
+import MapChart from './map';
+import React, { useState } from 'react';
+import ReactTooltip from 'react-tooltip';
 
-const Map = ({isChecked}) => {
-	const [content, setContent] = useState("");
-
+const Map = ({ isChecked }) => {
+	const [content, setContent] = useState('');
 
 	return (
 		<>

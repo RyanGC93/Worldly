@@ -1,8 +1,5 @@
-import React from "react";
-import {
-
-	Marker,
-} from "react-simple-maps";
+import React from 'react';
+import { Marker } from 'react-simple-maps';
 
 const MarkerComponent = ({ name, coordinates, markerOffset }) => {
 	return (
@@ -33,7 +30,7 @@ const MarkerComponent = ({ name, coordinates, markerOffset }) => {
 					className="marker-text"
 					textAnchor="middle"
 					y={markerOffset}
-					style={{ fontFamily: "system-ui", fill: "white" }}
+					style={{ fontFamily: 'system-ui', fill: 'white' }}
 				>
 					{name}
 				</text>

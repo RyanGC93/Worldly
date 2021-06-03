@@ -1,24 +1,22 @@
-import "./styles.css";
-import SocialLogins from "../SocialLogins";
-import PortfolioNavigator from "../PortfolioNavigator";
-import React from "react";
-import LoginForm from "../Forms/SignInForm";
-import SignUpForm from "../Forms/SignUpForm";
+import './styles.css';
+import SocialLogins from '../SocialLogins';
+import PortfolioNavigator from '../PortfolioNavigator';
+import React from 'react';
+import LoginForm from '../Forms/SignInForm';
+import SignUpForm from '../Forms/SignUpForm';
 
 const LoginPage = ({ setAuthenticated }) => {
 	return (
-    <>
-      <img className='background-img' alt='' src='https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'/>
+		<>
+			<img
+				className="background-img"
+				alt=""
+				src="https://images.pexels.com/photos/1640773/pexels-photo-1640773.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+			/>
 			<div className="login-wrap">
 				<div className="login-html">
 					<div className="login-title">Worldly</div>
-					<input
-						id="tab-1"
-						type="radio"
-						name="tab"
-						className="sign-in"
-						defaultChecked
-					/>
+					<input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked />
 					<label htmlFor="tab-1" className="tab__login ">
 						Sign In
 					</label>
