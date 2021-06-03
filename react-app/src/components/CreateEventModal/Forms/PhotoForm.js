@@ -1,15 +1,14 @@
-import React, { useState} from 'react';
-import {useDispatch} from 'react-redux'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './styles.module.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { getSignedRequest } from '../../../services/upload';
-import {createPhoto} from '../../../store/photoGallery'
+import { createPhoto } from '../../../store/photoGallery';
 
 const settings = {
 	autoplay: false,
 	showThumbs: false,
-
 };
 const Slide = ({ photo, setPhotos, photos }) => {
 	const [description, setDescription] = useState('');
@@ -92,27 +91,25 @@ const PhotoForm = ({ setFormStep, eventId, setEventId }) => {
 	const [url, setUrl] = useState('');
 	const [file, setFile] = useState(null);
 
-
 	let [photoKey, setPhotoKey] = useState(0);
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		photos.map((photo) => {
 			if (photo.file) {
-				(async function (){
-					let url = await getSignedRequest(photo.file)
-					
-					await dispatch(createPhoto(eventId, photo.description, url))
-					setFormStep(3)
-				}())
-			}
+				(async function () {
+					let url = await getSignedRequest(photo.file);
 
+					await dispatch(createPhoto(eventId, photo.description, url));
+					setFormStep(3);
+				})();
+			}
 		});
 	};
 	const readUrl = (e) => {
 		if (e.target.files[0]) {
 			const src = URL.createObjectURL(e.target.files[0]);
 			setUrl(src);
-			setFile(e.target.files[0])
+			setFile(e.target.files[0]);
 		}
 	};
 	const urlHandler = (e) => {
@@ -122,14 +119,11 @@ const PhotoForm = ({ setFormStep, eventId, setEventId }) => {
 		setUrl(e.target.value);
 	};
 	const addPhotoHandler = () => {
-		// let src;
-		// url ? (src = url) : (src = file);
-		// ! Split into the url and file
 		let newPhoto = {
 			id: photoKey,
 			src: url,
 			description: '',
-			file
+			file,
 		};
 
 		setPhotos((prevState) => [...prevState, newPhoto]);
@@ -144,14 +138,11 @@ const PhotoForm = ({ setFormStep, eventId, setEventId }) => {
 		<form className={styles.formContainer} onSubmit={onSubmit}>
 			{' '}
 			{photos[0] && <PhotoFormSlider id="xxxxx" photos={photos} setPhotos={setPhotos} />}
-			{/* {url ||
-				(url && ( */}
 			{url && (
 				<div className={styles.addPhoto} onClick={addPhotoHandler}>
 					Add Photo
 				</div>
 			)}
-			{/* ))} */}
 			<div className={styles.photoOptions}>
 				<div className={styles.group}>
 					<label className={styles.label}>
@@ -172,7 +163,6 @@ const PhotoForm = ({ setFormStep, eventId, setEventId }) => {
 							onChange={urlHandler}
 							type="url"
 							className={`${styles.input} ${styles.urlInput}`}
-							// onChange={readUrl}
 						/>
 					</label>
 				</div>

@@ -1,4 +1,4 @@
-import React, { useRef} from 'react';
+import React, { useRef } from 'react';
 import { useDetectOutsideClick } from '../../../services/detectOutsideClick';
 import styles from './styles.module.css';
 
@@ -16,7 +16,6 @@ const SelectDropDownMenu = ({ region, setRegion }) => {
 	return (
 		<div className={styles.menuContainer} onClick={onClick}>
 			{region ? region : 'Please Select A Region'}
-
 			<div onClick={onClick} className={styles.menuTrigger}></div>
 			<nav ref={dropdownRef} className={`${styles.menu} ${isActive ? `${styles.active}` : ''}`}>
 				<ul>

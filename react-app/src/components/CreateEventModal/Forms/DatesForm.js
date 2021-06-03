@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import DateTimePicker from 'react-datetime-picker';
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux';
 import styles from './styles.module.css';
 import { MdAddBox } from 'react-icons/md';
 import { BsFillTrashFill } from 'react-icons/bs';
-import * as calendarActions from "..//../../store/eventCalendar"
+import * as calendarActions from '..//../../store/eventCalendar';
 
 const ordinalSuffix = (strNum) => {
 	if (strNum.endsWith('1')) return `${strNum}st`;
@@ -41,7 +41,7 @@ const DateRow = ({ date, timesArray, setTimesArrays }) => {
 		setDayOfWeek(day);
 		setTime(time);
 		setOrdinalNum(ordirnal);
-	},[date.dateObj, days]);
+	}, [date.dateObj, days]);
 
 	return (
 		<>
@@ -52,45 +52,6 @@ const DateRow = ({ date, timesArray, setTimesArrays }) => {
 		</>
 	);
 };
-
-// const MonthDates = ({ month, upcomingArrays, setUpcomingArrays }) => {
-// 	let [name, setName] = useState('');
-// 	let [dates, setDates] = useState([]);
-// 	const [moreArrays, setMoreArrays] = useState();
-
-// 	let monthCalendar = [
-// 		'January',
-// 		'February',
-// 		'March',
-// 		'April',
-// 		'May',
-// 		'June',
-// 		'July',
-// 		'August',
-// 		'September',
-// 		'October',
-// 		'November',
-// 		'December',
-// 	];
-
-// 	return (
-// 		<>
-// 			<div>
-// 				<div className={styles.monthTitle}>{name}</div>
-// 				<div className={styles.timesContainer}>
-// 					{month.map((date, i) => (
-// 						<DateRow
-// 							upcomingArrays={upcomingArrays}
-// 							setUpcomingArrays={setUpcomingArrays}
-// 							date={date}
-// 							key={i}
-// 						/>
-// 					))}
-// 				</div>
-// 			</div>
-// 		</>
-// 	);
-// };
 
 export default function DateForm({ eventId, setFormStep }) {
 	const dispatch = useDispatch();
@@ -113,15 +74,15 @@ export default function DateForm({ eventId, setFormStep }) {
 		setTimesArrays(timesArray.push(dateObject));
 		splitFunc();
 	};
-	const handleClick = async(e) => {
+	const handleClick = async (e) => {
 		e.preventDefault();
 		timesArray.forEach((timeString) => {
-			let timeObject =  new Date(timeString)
-			let time = timeObject.toTimeString()
-			let date = timeObject.toDateString()
-			dispatch(calendarActions.createCalendar(eventId,time,date))
+			let timeObject = new Date(timeString);
+			let time = timeObject.toTimeString();
+			let date = timeObject.toDateString();
+			dispatch(calendarActions.createCalendar(eventId, time, date));
 			setFormStep(4);
-		})
+		});
 	};
 
 	const splitFunc = () => {
@@ -165,7 +126,7 @@ export default function DateForm({ eventId, setFormStep }) {
 			<div className={styles.dateGrid}>
 				{sortedArray.map((month, i) => (
 					<div key={i}>
-						{month.map((date,i) => (
+						{month.map((date, i) => (
 							<div key={i}>
 								<DateRow
 									setTimesArrays={setTimesArrays}
@@ -181,11 +142,11 @@ export default function DateForm({ eventId, setFormStep }) {
 			</div>
 			{sortedArray && (
 				<>
-					<div className={styles.input} onClick={handleClick}>next</div>
+					<div className={styles.input} onClick={handleClick}>
+						next
+					</div>
 				</>
 			)}
 		</div>
 	);
 }
-
-

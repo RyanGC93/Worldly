@@ -34,7 +34,6 @@ const EventForm = ({ setFormStep, setEventId }) => {
 	// 	const longitude = position.coords.longitude;
 	// }
 
-
 	// const findLocation = () => {
 	// 	if (navigator.geolocation) {
 	// 		let geo = navigator.geolocation.getCurrentPosition(success);
@@ -43,16 +42,14 @@ const EventForm = ({ setFormStep, setEventId }) => {
 	// 	}
 	// };
 
-
 	const onSubmit = async (e) => {
 		e.preventDefault();
-		
+
 		const geo = await geoHandler(city, country);
 		let eventObj = { title, description, cost };
 		let longitude = geo[0].geometry.location.lng;
 		let latitude = geo[0].geometry.location.lat;
 		let locationObj = { country, region, longitude, latitude };
-
 		let event = await dispatch(createAmbassadorEvent(eventObj, locationObj));
 		setEventId(event.id);
 		setFormStep(2);
@@ -111,9 +108,7 @@ const EventForm = ({ setFormStep, setEventId }) => {
 			<div>
 				<div className={styles.label}>Location </div>
 				{locationError && <div>The location could not found Please try again </div>}
-				
 				{/* <div onClick={findLocation}>Find My Location </div> */}
-				
 				<div className={styles.locationGroup}>
 					<input
 						className={styles.input}
@@ -137,7 +132,9 @@ const EventForm = ({ setFormStep, setEventId }) => {
 				</div>
 			</div>
 			<div className={styles.stepHandler}>
-				<div onClick={onSubmit} className={styles.input} type="submit">Next</div>
+				<div onClick={onSubmit} className={styles.input} type="submit">
+					Next
+				</div>
 			</div>
 		</form>
 	);
