@@ -7,7 +7,6 @@ const EventCarousel = ({ images, isChecked }) => {
     // autoplay: true,
     // autoplaySpeed: 3000,
     // dots: true
-
   };
   
 

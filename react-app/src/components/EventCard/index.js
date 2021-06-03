@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-// import './styles.css';
 import styles from './styles.module.css';
 import { BsCalendarFill } from 'react-icons/bs';
 import { FaCog } from 'react-icons/fa';
@@ -9,7 +8,6 @@ import ReactStarsRating from 'react-awesome-stars-rating';
 import CalendarModal from '../CalendarModal';
 import { deleteAmbassadorEvent } from '../../store/ambassadorEvents';
 import { deleteUserEvent } from '../../store/userEvents';
-// import CreateModal from '../CreateEventModal';
 import { Modal } from '../../context/Modal';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -54,24 +52,22 @@ const EventCard = ({ event, isChecked, booking }) => {
 		if (images) setIsLoaded(true);
 	}, [images]);
 
-
-
 	for (let element of reviews) value += element.rating;
 
-	let date
-	let time
+	let date;
+	let time;
 	if (isChecked) {
-		time = event.dateObj.toTimeString().split(' ')[0]
-		date = event.dateObj.toDateString().split(' ')
+		time = event.dateObj.toTimeString().split(' ')[0];
+		date = event.dateObj.toDateString().split(' ');
 	}
 
 	const deleteHandler = () => {
 		dispatch(deleteAmbassadorEvent(event.event_id));
 	};
 	const deleteBooking = () => {
-		console.log(event)
-		dispatch(deleteUserEvent(event.booking_id,event.event_id));
-	}
+		console.log(event);
+		dispatch(deleteUserEvent(event.booking_id, event.event_id));
+	};
 
 	return (
 		<div className={`${styles.cardContainer} ${styles.description}`}>
