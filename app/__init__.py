@@ -25,19 +25,15 @@ from .api.event_calendar_routes import event_calendar_routes
 from .seeds import seed_commands
 from .queries import query_commands
 
-
-
 app = Flask(__name__)
 
 # Setup login manager
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
 
-
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
-
 
 # Tell flask about our seed commands
 app.cli.add_command(seed_commands)
@@ -66,7 +62,6 @@ CORS(app)
 # request made over http is redirected to https.
 # Well.........
 
-
 @app.before_request
 def https_redirect():
     if os.environ.get('FLASK_ENV') == 'production':
@@ -74,7 +69,6 @@ def https_redirect():
             url = request.url.replace('http://', 'https://', 1)
             code = 301
             return redirect(url, code=code)
-
 
 @app.after_request
 def inject_csrf_token(response):
@@ -87,7 +81,6 @@ def inject_csrf_token(response):
                         httponly=True)
     return response
 
-
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def react_root(path):
@@ -95,7 +88,6 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
-
 
 @app.route('/sign_s3/')
 def sign_s3():
